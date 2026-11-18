@@ -682,6 +682,68 @@ html.glass .bcell.mk{background:var(--mc)}
 body.fabtop .chatfab{top:calc(56px + env(safe-area-inset-top));bottom:auto;width:46px;height:46px}
 body.fabtop .chatfab svg.i{width:22px;height:22px}
 body.fabtop .chatpeek{top:calc(60px + env(safe-area-inset-top));bottom:auto}
+
+/* ===== GHOST HUNT ===== */
+.ghostart{background:radial-gradient(120% 140% at 0 0,#3a4a6b,#151b2e 55%,#05060b)}
+.hero.ghost{background:radial-gradient(120% 140% at 0% 0%,#3a4a6b 0%,#151b2e 55%,#05060b 100%);box-shadow:0 12px 30px rgba(20,30,70,.5)}
+.hero.ghost h2,.hero.ghost p{max-width:64%}
+.ghscreen{position:fixed;inset:0;z-index:35;background:#000;overflow:hidden;touch-action:none;-webkit-user-select:none;user-select:none;color:#fff;font-family:-apple-system,system-ui,sans-serif}
+body.ghmode{overflow:hidden}body.ghmode .nav{display:none}
+#ghCanvas{position:absolute;inset:0;image-rendering:pixelated;image-rendering:crisp-edges}
+#ghPad{position:absolute;inset:0;touch-action:none}
+.ghTop{position:absolute;left:0;right:0;top:0;display:flex;align-items:flex-start;gap:8px;padding:calc(8px + env(safe-area-inset-top)) calc(10px + env(safe-area-inset-right)) 0 calc(10px + env(safe-area-inset-left));pointer-events:none}
+.ghTop>*{pointer-events:auto}
+.ghb{width:40px;height:40px;border-radius:50%;border:0;background:rgba(30,30,40,.55);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:#fff;display:grid;place-items:center;font-size:18px;flex:0 0 auto}
+.ghb svg.i{width:20px;height:20px}
+.ghInfo{flex:1;display:flex;flex-direction:column;gap:5px;min-width:0}
+.ghRow{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.ghPill{background:rgba(20,20,30,.6);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:999px;padding:5px 11px;font-size:12px;font-weight:600;white-space:nowrap}
+.ghSanity{display:flex;align-items:center;gap:7px}
+.ghSanity .bar{width:70px;height:6px;border-radius:3px;background:rgba(255,255,255,.18);overflow:hidden}
+.ghSanity .bar i{display:block;height:100%;width:var(--p,100%);background:linear-gradient(90deg,#ff453a,#ffd60a 40%,#30d158);transition:width .4s}
+.ghPlayers{display:flex;gap:5px;flex-wrap:wrap}
+.ghp{display:flex;align-items:center;gap:5px;background:rgba(20,20,30,.6);border-radius:999px;padding:3px 9px 3px 3px;font-size:11px;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.ghp i{width:20px;height:20px;border-radius:50%;background:var(--pcol);display:grid;place-items:center;font-style:normal;font-weight:800;font-size:10px}
+.ghp b{color:#ffd60a;font-weight:700}.ghp.dead{opacity:.55}.ghp.dead i{background:#444}
+.ghRead{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom));background:rgba(10,10,18,.7);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:14px;padding:8px 14px;font-size:13px;font-weight:600;max-width:46vw;text-align:center;pointer-events:none}
+.emf{display:inline-flex;gap:3px;vertical-align:middle;margin-right:4px}.emf i{width:9px;height:14px;border-radius:2px;background:rgba(255,255,255,.15)}
+.emf i.on.l1,.emf i.on.l2{background:#30d158}.emf i.on.l3{background:#ffd60a}.emf i.on.l4{background:#ff9f0a}.emf i.on.l5{background:#ff453a;box-shadow:0 0 8px #ff453a}
+.ghMsg{position:absolute;left:50%;top:calc(64px + env(safe-area-inset-top));transform:translate(-50%,-8px);max-width:70vw;text-align:center;background:rgba(10,10,18,.78);border-radius:14px;padding:9px 16px;font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none}
+.ghMsg.show{opacity:1;transform:translate(-50%,0)}
+.ghRight{position:absolute;right:calc(12px + env(safe-area-inset-right));bottom:calc(12px + env(safe-area-inset-bottom));display:grid;grid-template-columns:auto auto;gap:9px;align-items:end;justify-items:end}
+.ghUse{width:76px;height:76px;border-radius:50%;border:0;background:rgba(255,255,255,.88);color:#111;font-weight:800;font-size:15px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.ghUse:active,.ghb:active,.ghToolBtn:active{transform:scale(.94)}
+.ghFl.on{background:rgba(255,214,10,.85);color:#000}
+.ghToolBtn{border:0;border-radius:16px;background:rgba(30,30,40,.65);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:#fff;padding:7px 12px;display:flex;align-items:center;gap:7px;font-size:13px}
+.ghToolBtn span{font-size:20px}
+.ghTools{position:absolute;right:calc(12px + env(safe-area-inset-right));bottom:calc(100px + env(safe-area-inset-bottom));display:none;grid-template-columns:repeat(5,64px);gap:6px;background:rgba(15,15,24,.85);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);padding:8px;border-radius:18px}
+.ghTools.open{display:grid}
+.ghTools button{border:0;border-radius:12px;background:rgba(255,255,255,.08);color:#fff;padding:6px 2px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.ghTools button span{font-size:22px}.ghTools button small{font-size:9px;line-height:1.1;opacity:.8}
+.ghTools button.on{background:rgba(10,132,255,.6)}
+.ghLeft{position:absolute;left:calc(12px + env(safe-area-inset-left));bottom:calc(12px + env(safe-area-inset-bottom));display:flex;gap:8px;align-items:center}
+.ghVanBtn{border:0;border-radius:999px;padding:10px 16px;background:#30d158;color:#000;font-weight:800;font-size:14px;box-shadow:0 4px 16px rgba(48,209,88,.4)}
+.ghStick{position:absolute;width:110px;height:110px;margin:-55px 0 0 -55px;border-radius:50%;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.25);display:none;pointer-events:none}
+.ghStick.on{display:block}.ghStick i{position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:rgba(255,255,255,.45)}
+.ghHint{position:absolute;left:calc(20px + env(safe-area-inset-left));top:50%;transform:translateY(-50%);font-size:11px;opacity:.45;pointer-events:none;line-height:1.5}
+.ghHunt{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 120px rgba(255,0,0,.55);animation:ghpulse .8s ease-in-out infinite}
+@keyframes ghpulse{50%{box-shadow:inset 0 0 60px rgba(255,0,0,.25)}}
+.ghHidden{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);font-size:13px;font-weight:700;background:rgba(10,132,255,.55);border-radius:999px;padding:5px 12px;pointer-events:none}
+.ghRotate{position:absolute;inset:0;background:#05060b;display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;z-index:5;text-align:center}
+.ghRotate span{opacity:.6}
+@media (orientation:portrait) and (max-width:700px){.ghRotate{display:flex}}
+body.ghmode .chatfab{top:calc(56px + env(safe-area-inset-top));bottom:auto;right:calc(10px + env(safe-area-inset-right));width:44px;height:44px}
+body.ghmode .chatfab svg.i{width:22px;height:22px}
+body.ghmode .chatpeek{top:calc(56px + env(safe-area-inset-top));bottom:auto;right:64px}
+.ghEv{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 16px}
+.ghEv button{border:0;border-radius:12px;background:var(--card);color:var(--label);padding:10px;display:flex;align-items:center;gap:8px;font-size:14px;text-align:left}
+.ghEv button span{font-size:20px}.ghEv button em{margin-left:auto;font-style:normal;font-weight:800}
+.ghEv button.st1{background:rgba(48,209,88,.18);color:var(--green)}.ghEv button.st-1{background:rgba(255,69,58,.14);color:var(--red);text-decoration:line-through}
+.ghTypes{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;padding:0 16px}
+.ghTypes button{border:2px solid transparent;border-radius:12px;background:var(--card);color:var(--label);padding:9px 10px;display:flex;flex-direction:column;gap:3px;text-align:left}
+.ghTypes button b{font-size:15px}.ghTypes button small{font-size:11px;color:var(--label2)}
+.ghTypes button.out{opacity:.3}.ghTypes button.on{border-color:var(--blue)}
+#ghMapCv{display:block;margin:6px auto 0;max-width:100%;border-radius:12px}
 </style>
 </head>
 <body>
@@ -743,6 +805,7 @@ body.fabtop .chatpeek{top:calc(60px + env(safe-area-inset-top));bottom:auto}
     <button class="gtile press" data-game="rps"><div class="gart rpsart"><span class="emojiart">✊✋✌️</span></div><b>Stone Paper Scissors</b><span class="s">Quick showdowns</span></button>
     <button class="gtile press" data-game="tanks"><div class="gart tanksart"><svg viewBox="0 0 120 80" style="width:84%"><path d="M0 62 Q20 44 40 54 T80 50 T120 58 V80 H0Z" fill="#7a4b1f"/><path d="M0 62 Q20 44 40 54 T80 50 T120 58" fill="none" stroke="#4cd964" stroke-width="4"/><g transform="translate(26 50)"><rect x="-11" y="-7" width="22" height="7" rx="3" fill="#ff453a"/><circle cy="-7" r="6" fill="#ff6b5e"/><rect x="0" y="-10" width="15" height="3.5" rx="1.5" fill="#2c2c2e" transform="rotate(-35)"/></g><g transform="translate(94 49)"><rect x="-11" y="-7" width="22" height="7" rx="3" fill="#0a84ff"/><circle cy="-7" r="6" fill="#4aa3ff"/><rect x="-15" y="-10" width="15" height="3.5" rx="1.5" fill="#2c2c2e" transform="rotate(30)"/></g><path d="M38 34 Q60 2 84 30" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="3 4"/><circle cx="84" cy="30" r="3.5" fill="#ffd60a"/></svg></div><b>Pocket Tanks</b><span class="s">Artillery · make weapons</span></button>
     <button class="gtile press" data-game="draw"><div class="gart drawart"><svg viewBox="0 0 120 90" style="width:80%"><rect x="10" y="8" width="100" height="72" rx="10" fill="#fff"/><path d="M28 60 Q40 26 56 46 T86 34" fill="none" stroke="#ff375f" stroke-width="5" stroke-linecap="round"/><circle cx="84" cy="58" r="9" fill="none" stroke="#0a84ff" stroke-width="4"/><g transform="rotate(35 92 30)"><rect x="86" y="6" width="11" height="38" rx="3" fill="#ffcc00"/><path d="M86 44 L91.5 54 L97 44Z" fill="#f0c49a"/><rect x="86" y="6" width="11" height="7" rx="2" fill="#ff6b8b"/></g><text x="22" y="30" font-size="16" font-weight="900" fill="#5856d6">?</text></svg></div><b>Draw &amp; Guess</b><span class="s">Sketch it · guess it</span></button>
+    <button class="gtile press" data-game="ghost"><div class="gart ghostart"><svg viewBox="0 0 120 90" style="width:78%"><path d="M22 84V44L60 16L98 44V84Z" fill="#0c1020" stroke="#2c3550" stroke-width="3"/><rect x="50" y="58" width="20" height="26" fill="#1a2034"/><rect x="32" y="48" width="14" height="12" fill="#ffd36b" opacity=".75"/><rect x="74" y="48" width="14" height="12" fill="#1a2034"/><g transform="translate(76 26)" opacity=".92"><path d="M-12 26 V0 A12 12 0 0 1 12 0 V26 L7 21 L2 26 L-3 21 L-8 26Z" fill="#e8eef8"/><circle cx="-4" cy="2" r="2.2" fill="#0a0a12"/><circle cx="4" cy="2" r="2.2" fill="#0a0a12"/><ellipse cx="0" cy="9" rx="2" ry="3" fill="#0a0a12"/></g><circle cx="18" cy="14" r="7" fill="#f2f0dc"/></svg></div><b>Ghost Hunt</b><span class="s">Co-op · find the ghost</span></button>
     <div class="gtile soon"><div class="gart soonart"><svg class="i"><use href="#i-hourglass"/></svg></div><b>New Game</b><span class="soonpill">COMING SOON</span></div>
   </div>
   <div class="modes">
@@ -784,6 +847,11 @@ body.fabtop .chatpeek{top:calc(60px + env(safe-area-inset-top));bottom:auto}
     <p>Aim, set power, fire! Real gravity, wind and blast-able ground.</p>
     <div class="bigemoji" style="font-size:40px"><span>💣</span><br><span>🔥</span><span>☢️</span></div>
   </div>
+  <div class="hero ghost" data-g="ghost">
+    <h2>Ghost Hunt</h2>
+    <p>Explore a dark house, collect evidence and name the ghost — before it hunts you.</p>
+    <div class="bigemoji" style="font-size:40px"><span>👻</span><br><span>🔦</span><span>📟</span></div>
+  </div>
   <div class="hero draw" data-g="draw">
     <h2>Draw &amp; Guess</h2>
     <p>One player draws a secret word — everyone races to guess it!</p>
@@ -823,7 +891,7 @@ body.fabtop .chatpeek{top:calc(60px + env(safe-area-inset-top));bottom:auto}
     <div id="iosHome" class="notice hidden"><svg class="i" style="color:var(--blue)"><use href="#i-share"/></svg><div><b>Tip:</b> tap Share → <b>Add to Home Screen</b> to open the games like an app.</div></div>
     <div class="gh">Or Host a Game</div>
     <div class="gf" style="padding-top:0;padding-bottom:8px" data-g="dots">Choose the board below, then create a room and send the code to friends.</div>
-    <div class="gf" style="padding-top:0;padding-bottom:8px" data-g="ttt rps tanks draw">Create a room and send the code to friends.</div>
+    <div class="gf" style="padding-top:0;padding-bottom:8px" data-g="ttt rps tanks draw ghost">Create a room and send the code to friends.</div>
     <div class="gf" style="padding-top:0;padding-bottom:8px" data-g="bingo">Create a Bingo room and send the code to friends. Everyone arranges their own board before the game starts.</div>
   </section>
 
@@ -854,6 +922,16 @@ body.fabtop .chatpeek{top:calc(60px + env(safe-area-inset-top));bottom:auto}
         <select id="tkWindSel"><option value="0">Off</option><option value="1">Light</option><option value="2">Strong</option></select><svg class="i sm chev"><use href="#i-chev"/></svg></div>
     </div>
   </div>
+  <div data-g="ghost">
+    <div class="gh">Investigation</div>
+    <div class="group icons">
+      <div class="cell"><div class="ico" style="background:var(--indigo,#5856d6)"><svg class="i"><use href="#i-house"/></svg></div><span class="grow">House size</span>
+        <select id="ghSizeSel"><option value="small">Small</option><option value="medium">Medium</option><option value="large">Large</option></select><svg class="i sm chev"><use href="#i-chev"/></svg></div>
+      <div class="cell"><div class="ico" style="background:var(--red)"><svg class="i"><use href="#i-flag"/></svg></div><span class="grow">Difficulty</span>
+        <select id="ghDiffSel"><option value="amateur">Amateur</option><option value="pro">Professional</option><option value="night">Nightmare</option></select><svg class="i sm chev"><use href="#i-chev"/></svg></div>
+    </div>
+    <div class="gf" id="ghDiffNote">Amateur tells you the ghost's room. Harder levels drain sanity faster and the ghost hunts sooner. Best with headphones 🎧</div>
+  </div>
   <div data-g="draw">
     <div class="gh">Drawing</div>
     <div class="group icons">
@@ -879,9 +957,10 @@ body.fabtop .chatpeek{top:calc(60px + env(safe-area-inset-top));bottom:auto}
       <div class="cell" data-g="bingo rps tanks"><div class="ico" style="background:var(--pink)"><svg class="i"><use href="#i-cpu"/></svg></div><span class="grow">Computer players</span><span class="num" id="ncpuV">1</span>
         <div class="stepper"><button data-bstep="-1">−</button><button data-bstep="1">+</button></div></div>
     </div>
-    <div class="gh">Computer Level</div>
+    <div data-g="dots bingo ttt rps tanks draw"><div class="gh">Computer Level</div>
     <div class="wrap16"><div class="seg" id="levels"></div></div>
-    <div class="gf" id="lvlNote"></div>
+    <div class="gf" id="lvlNote"></div></div>
+    <div class="gf" data-g="ghost">Solo investigation — just you, your tools and the ghost. Play online to hunt together with up to 3 friends.</div>
   </section>
 
   <section id="secMulti" class="hidden">
@@ -1016,6 +1095,36 @@ body.fabtop .chatpeek{top:calc(60px + env(safe-area-inset-top));bottom:auto}
   <div class="tkRotate"><div style="font-size:64px;animation:rot 2s ease-in-out infinite">📱</div><b>Rotate your phone</b><span>Pocket Tanks plays in landscape</span></div>
 </main>
 
+<!-- ============ GHOST HUNT ============ -->
+<main id="ghost" class="hidden ghscreen">
+  <canvas id="ghCanvas"></canvas>
+  <div id="ghHunt" class="ghHunt hidden"></div>
+  <div id="ghPad"></div>
+  <div class="ghStick" id="ghStick"><i id="ghKnob"></i></div>
+  <div class="ghHint" id="ghHint">◀ drag left side to walk<br>drag right side to look ▶</div>
+  <div class="ghTop">
+    <button class="ghb" id="ghQuit" aria-label="Quit"><svg class="i"><use href="#i-back"/></svg></button>
+    <div class="ghInfo">
+      <div class="ghRow"><div class="ghPill ghSanity">🧠 <div class="bar"><i id="ghSan"></i></div><span id="ghSanV">100%</span></div><div class="ghPill" id="ghRoom"></div><span id="ghnetState" class="netdot hidden"></span></div>
+      <div class="ghPlayers" id="ghPlayers"></div>
+    </div>
+    <button class="ghb" id="ghMapBtn" aria-label="Map">🗺️</button>
+    <button class="ghb" id="ghJBtn" aria-label="Journal">📓</button>
+    <button class="ghb" id="ghMenu" aria-label="Menu"><svg class="i"><use href="#i-ellipsis"/></svg></button>
+  </div>
+  <div class="ghMsg" id="ghMsg"></div>
+  <div class="ghHidden hidden" id="ghHid">🚪 Hiding in the closet</div>
+  <div class="ghRead" id="ghRead"></div>
+  <div class="ghLeft"><button class="ghVanBtn hidden" id="ghVan">🚐 Submit at Van</button></div>
+  <div class="ghTools" id="ghTools"></div>
+  <div class="ghRight">
+    <button class="ghToolBtn" id="ghTool" style="grid-column:1/3"></button>
+    <button class="ghb ghFl on" id="ghFl" aria-label="Flashlight" style="width:52px;height:52px;font-size:22px">🔦</button>
+    <button class="ghUse" id="ghUse">USE</button>
+  </div>
+  <div class="ghRotate"><div style="font-size:64px;animation:rot 2s ease-in-out infinite">📱</div><b>Rotate your phone</b><span>Ghost Hunt plays in landscape</span></div>
+</main>
+
 <!-- ============ DRAW & GUESS ============ -->
 <main id="draw" class="page hidden">
   <div class="players" id="dplayers"></div>
@@ -1111,6 +1220,13 @@ body.fabtop .chatpeek{top:calc(60px + env(safe-area-inset-top));bottom:auto}
 <div class="sheet" id="howSheet">
   <div class="grabber"></div>
   <div class="sheet-h"><b>How to Play</b><button class="navbtn" data-close style="font-weight:600">Done</button></div>
+  <div class="group howto" style="margin-top:12px;padding:16px" data-g="ghost">
+    <p><b>1.</b> You start at the van 🚐 outside a dark house. One ghost lives in one room. Walk with the <b>left side</b> of the screen, look with the <b>right side</b>.</p>
+    <p><b>2.</b> Use your tools to find <b>3 evidences</b>: 📟 EMF level 5 · 📻 Spirit Box answers (flashlight OFF) · 🥶 temperature below 0 °C · 🖐️ UV hand prints · 📖 writing in a book · 🔮 orbs on the night-vision camera · ✨ figure in the dots projector.</p>
+    <p><b>3.</b> Mark evidence in the 📓 journal — it filters the 12 ghost types. Then go back to the van and <b>Submit</b>.</p>
+    <p><b>4.</b> The dark drains your 🧠 sanity. When the team's sanity is low the ghost <b>hunts</b>: lights flicker, the screen turns red. Run, break line of sight or <b>hide in a closet</b>. Crucifixes stop hunts, incense stops a hunt in progress, pills restore sanity.</p>
+    <p style="margin:0"><b>Online:</b> up to 4 friends hunt together — share findings in chat! Desktop: WASD + arrows, Space = use, F = light, Q/E = tool, J = journal.</p>
+  </div>
   <div class="group howto" style="margin-top:12px;padding:16px" data-g="draw">
     <p><b>1.</b> Players take turns drawing. The drawer picks one of 3 secret words (easy, medium, hard).</p>
     <p><b>2.</b> Draw it — no letters or numbers! Use colours, brush sizes, eraser, undo and clear.</p>
@@ -1177,6 +1293,23 @@ body.fabtop .chatpeek{top:calc(60px + env(safe-area-inset-top));bottom:auto}
   <form class="chatbar" id="chatForm" autocomplete="off"><input id="chatIn" maxlength="200" placeholder="Message your friends…" enterkeyhint="send"><button type="submit" class="csend" aria-label="Send"><svg class="i"><use href="#i-send"/></svg></button></form>
 </div>
 
+<div class="sheet" id="ghJournal">
+  <div class="grabber"></div>
+  <div class="sheet-h"><b>📓 Journal</b><button class="navbtn" data-close style="font-weight:600">Done</button></div>
+  <div class="gh" style="padding-top:8px">Evidence — tap: ✓ found · ✕ ruled out</div>
+  <div class="ghEv" id="ghJEv"></div>
+  <div class="gh">Ghost Type</div>
+  <div class="ghTypes" id="ghJTypes"></div>
+  <div class="gf" id="ghJGuess" style="text-align:center;font-weight:600"></div>
+  <div class="gf">Go back to the van 🚐 outside and tap <b>Submit at Van</b> to end the investigation.</div>
+  <div style="height:16px"></div>
+</div>
+<div class="sheet" id="ghMapSheet">
+  <div class="grabber"></div>
+  <div class="sheet-h"><b>🗺️ House Map</b><button class="navbtn" data-close style="font-weight:600">Done</button></div>
+  <canvas id="ghMapCv"></canvas>
+  <div class="gf" style="text-align:center">🟡 You · coloured dots: team · light-blue squares: closets to hide in · the entrance is at the bottom</div>
+</div>
 <div class="sheet" id="tkArsenal">
   <div class="grabber"></div>
   <div class="sheet-h"><b>Choose Weapon</b><button class="navbtn" data-close style="font-weight:600">Done</button></div>
@@ -1245,9 +1378,9 @@ const SET=Object.assign({theme:'auto',sound:true,haptic:true,name:''},store.get(
 const saveSet=()=>store.set('settings',SET);
 let MODE='cpu',LEVEL=store.get('level','Hard'),SCREEN='hub';
 let GAME=store.get('game','dots');
-const GNAME={dots:'Dots & Boxes',bingo:'Bingo',ttt:'Tic-Tac-Toe',rps:'Stone Paper Scissors',tanks:'Pocket Tanks',draw:'Draw & Guess'};
+const GNAME={dots:'Dots & Boxes',bingo:'Bingo',ttt:'Tic-Tac-Toe',rps:'Stone Paper Scissors',tanks:'Pocket Tanks',draw:'Draw & Guess',ghost:'Ghost Hunt'};
 if(!GNAME[GAME])GAME='dots';
-const PLAY_SCREENS=['game','bingo','arrange','ttt','rps','tanks','draw'];
+const PLAY_SCREENS=['game','bingo','arrange','ttt','rps','tanks','draw','ghost'];
 function vis(){document.querySelectorAll('[data-g]').forEach(el=>el.classList.toggle('hidden',!el.dataset.g.split(' ').includes(GAME)));}
 
 /* ---------- feedback: toast, sound, haptics ---------- */
@@ -1290,8 +1423,8 @@ if(mq&&mq.addEventListener)mq.addEventListener('change',applyTheme);
 
 /* ---------- navigation ---------- */
 function show(id){
-  ['hub','home','setup','lobby','game','bingo','arrange','ttt','rps','tanks','draw'].forEach(x=>$(x).classList.toggle('hidden',x!==id));
-  document.body.classList.toggle('tkmode',id==='tanks');
+  ['hub','home','setup','lobby','game','bingo','arrange','ttt','rps','tanks','draw','ghost'].forEach(x=>$(x).classList.toggle('hidden',x!==id));
+  document.body.classList.toggle('tkmode',id==='tanks');document.body.classList.toggle('ghmode',id==='ghost');
   document.body.classList.toggle('fabtop',id==='draw');
   if(typeof Chat!=='undefined')setTimeout(chatVis,0);
   if(!['bingo','arrange'].includes(id))$('curtain').classList.add('hidden');
@@ -1310,9 +1443,10 @@ $('navBack').onclick=()=>{sfx('tap');if(SCREEN==='home')goHub();else if(SCREEN==
 function goHub(){clearTimeout(T);show('hub');refreshHome();}
 function openGameHome(g){if(g)GAME=g;store.set('game',GAME);vis();
   $('homeTitle').textContent=GNAME[GAME];
-  $('cpuSub').textContent={dots:'5 levels · Easy to Legend',bingo:'1–3 computers · 3 levels',tanks:'1–3 computer tanks · 3 levels',ttt:'3 levels · Hard never loses',rps:'1–3 computers · Hard learns your habits'}[GAME];
-  $('multiSub').textContent={dots:'2–10 players on one device',bingo:'2–10 players on one device',tanks:'2–4 tanks on one device',draw:'2–10 players · one phone, shout guesses',ttt:'2 players on one device',rps:'2–6 players · secret picks'}[GAME];
-  $('cpuCard').classList.toggle('hidden',GAME==='draw');
+  $('cpuSub').textContent={dots:'5 levels · Easy to Legend',bingo:'1–3 computers · 3 levels',tanks:'1–3 computer tanks · 3 levels',ttt:'3 levels · Hard never loses',rps:'1–3 computers · Hard learns your habits',ghost:'Investigate alone · 3 difficulties'}[GAME];
+  $('multiSub').textContent={dots:'2–10 players on one device',bingo:'2–10 players on one device',tanks:'2–4 tanks on one device',draw:'2–10 players · one phone, shout guesses',ttt:'2 players on one device',rps:'2–6 players · secret picks',ghost:''}[GAME];
+  $('cpuCard').classList.toggle('hidden',GAME==='draw');document.querySelector('[data-go="multi"]').classList.toggle('hidden',GAME==='ghost');
+  $('cpuCard').querySelector('b').textContent=GAME==='ghost'?'Solo Hunt':'vs Computer';
   show('home');}
 
 /* ---------- alerts & sheets ---------- */
@@ -1351,8 +1485,8 @@ const XNOTES={pen:{Easy:'Aims roughly and often misses.',Medium:'Aims well and t
   tanks:{Easy:'Aims roughly — misses a lot.',Medium:'Good aim, takes the wind into account.',Hard:'Deadly accurate and picks the best weapon.'},
   rps:{Easy:'Picks completely at random.',Medium:'Random, with a few human-like habits.',Hard:'Learns your patterns and counters them.'}};
 const XLV=Object.assign({ttt:'Medium',rps:'Medium',tanks:'Medium'},store.get('xlv',{}));
-const XCFG=Object.assign({rps:{ncpu:1,target:3},tanks:{ncpu:1,target:8,wind:1}},store.get('xcfg',{}));if(!XCFG.tanks)XCFG.tanks={ncpu:1,target:8,wind:1};if(!XCFG.draw)XCFG.draw={target:2,dur:80};
-const MAXP={dots:10,bingo:10,ttt:2,rps:6,tanks:4,draw:10};
+const XCFG=Object.assign({rps:{ncpu:1,target:3},tanks:{ncpu:1,target:8,wind:1}},store.get('xcfg',{}));if(!XCFG.tanks)XCFG.tanks={ncpu:1,target:8,wind:1};if(!XCFG.draw)XCFG.draw={target:2,dur:80};if(!XCFG.ghost)XCFG.ghost={size:'medium',diff:'pro'};
+const MAXP={dots:10,bingo:10,ttt:2,rps:6,tanks:4,draw:10,ghost:4};
 function gLevels(g){g=g||GAME;return g==='dots'?LEVELS:g==='bingo'?BLEVELS:XLEVELS;}
 function gLevel(){return GAME==='dots'?LEVEL:GAME==='bingo'?BLEVEL:XLV[GAME];}
 function buildLevels(){
@@ -1383,7 +1517,7 @@ function renderPlist(){
 
 function openSetup(m){
   MODE=m;vis();buildLevels();renderPlist();$('ncpuV').textContent=ncpuGet();syncTarget();syncBsize();
-  $('setupTitle').textContent=m==='cpu'?'vs Computer':m==='multi'?'Pass & Play':'Online';
+  $('setupTitle').textContent=m==='cpu'?(GAME==='ghost'?'Solo Hunt':'vs Computer'):m==='multi'?'Pass & Play':'Online';
   $('secCpu').classList.toggle('hidden',m!=='cpu');$('secMulti').classList.toggle('hidden',m!=='multi');$('secOnline').classList.toggle('hidden',m!=='online');
   $('boardHead').textContent=m==='online'?'Board for your room':'Board';
   $('startTxt').textContent=m==='online'?'Create Room':'Start Game';
@@ -1402,6 +1536,8 @@ function syncTarget(){const c=XCFG[GAME];if(!c)return;$('tgtV').textContent=c.ta
 document.querySelectorAll('[data-tstep]').forEach(b=>b.onclick=()=>{const c=XCFG[GAME];if(!c)return;const mx=GAME==='tanks'?15:GAME==='draw'?5:10,mn=GAME==='tanks'?3:1;
   const v=Math.max(mn,Math.min(mx,c.target+ +b.dataset.tstep));if(v!==c.target){c.target=v;store.set('xcfg',XCFG);syncTarget();sfx('tap');buzz(8);}});
 $('dwDurSel').onchange=()=>{XCFG.draw.dur=+$('dwDurSel').value;store.set('xcfg',XCFG);};
+$('ghSizeSel').value=XCFG.ghost.size;$('ghDiffSel').value=XCFG.ghost.diff;
+$('ghSizeSel').onchange=()=>{XCFG.ghost.size=$('ghSizeSel').value;store.set('xcfg',XCFG);};$('ghDiffSel').onchange=()=>{XCFG.ghost.diff=$('ghDiffSel').value;store.set('xcfg',XCFG);};
 $('tkWindSel').onchange=()=>{XCFG.tanks.wind=+$('tkWindSel').value;store.set('xcfg',XCFG);};
 function syncBsize(){const n=BCFG.size||5;document.querySelectorAll('#bsizeSeg button').forEach(b=>b.classList.toggle('on',+b.dataset.bs===n));
   $('bsizeNote').textContent=`${n}×${n} board with numbers 1–${n*n}. `+(n>5?'Longer game — ':'')+'first to 5 lines (B-I-N-G-O) wins.';}
@@ -1792,7 +1928,7 @@ const Net={
   amDriver(){if(!this.meta)return false;const ps=MODS[this.meta.game]?MODS[this.meta.game].players():this.meta.game==='bingo'?BG&&BG.players:G&&G.players;if(!ps)return false;const d=ps.find(p=>!p.cpu&&this.isOnline(p.id));return !!d&&d.id===CID;},
   up(){return this.links.filter(l=>l.mq);},
   setStatus(s){this.status=s;const txt=s==='on'?'Online':s==='connecting'?'Reconnecting…':'Offline';
-    ['netState','bnetState','tnetState','rnetState','tknetState','dnetState'].forEach(id=>{const el=$(id);if(!el)return;el.textContent=txt;el.classList.toggle('bad',s!=='on');});
+    ['netState','bnetState','tnetState','rnetState','tknetState','dnetState','ghnetState'].forEach(id=>{const el=$(id);if(!el)return;el.textContent=txt;el.classList.toggle('bad',s!=='on');});
     $('mNetState').textContent=txt;gRerender();},
   updStatus(){const u=this.up();$('mNetSrv').textContent=u.length?u.map(l=>l.b.name).join(', '):'—';this.setStatus(u.length?'on':this.want?'connecting':'off');},
   myPres(l,on){return JSON.stringify({on:on?1:0,s:l.sess});},
@@ -1836,7 +1972,7 @@ const Net={
     onMsg('Creating room…');
     this.setRoom(rid(5,ALPH));this.want=true;
     if(!await this.connectAll()){this.close();onMsg(netErrText(),true,true);return;}
-    this.meta={v:5,game:GAME,host:CID,settings:GAME==='bingo'?{size:BCFG.size||5}:GAME==='draw'?{target:XCFG.draw.target,dur:XCFG.draw.dur}:GAME==='tanks'?{target:XCFG.tanks.target,wind:XCFG.tanks.wind}:GAME==='rps'?{target:XCFG[GAME].target}:GAME==='ttt'?{}:{cols:BOARD.cols,rows:BOARD.rows,extra:BOARD.extra},players:[{id:CID,name,cpu:null}],phase:'lobby',gid:null};
+    this.meta={v:5,game:GAME,host:CID,settings:GAME==='bingo'?{size:BCFG.size||5}:GAME==='ghost'?{size:XCFG.ghost.size,diff:XCFG.ghost.diff}:GAME==='draw'?{target:XCFG.draw.target,dur:XCFG.draw.dur}:GAME==='tanks'?{target:XCFG.tanks.target,wind:XCFG.tanks.wind}:GAME==='rps'?{target:XCFG[GAME].target}:GAME==='ttt'?{}:{cols:BOARD.cols,rows:BOARD.rows,extra:BOARD.extra},players:[{id:CID,name,cpu:null}],phase:'lobby',gid:null};
     this.pubMeta();
     store.set('last',{code:this.code,at:Date.now(),game:GAME});
     MODE='online';onMsg('');renderLobby();show('lobby');sfx('turn');
@@ -1895,6 +2031,10 @@ const Net={
       if(k&&this.seen.has(sub+k))return;if(k){this.seen.add(sub+k);if(this.seen.size>3000)this.seen=new Set();}
       this.relay(l,sub,msg,ll=>!this.seen.has(sub+k+'@'+ll.bi)&&(this.seen.add(sub+k+'@'+ll.bi),true),false);
       if(this.meta&&this.meta.game==='draw'){if(sub==='ink')DRAW.onInk(d);else DRAW.onGuess(d);}}
+    else if(sub==='gp'||sub==='gg'||sub==='gev'||sub==='gact'){if(!d)return;const k=d.k||'';
+      if(k&&this.seen.has(sub+k))return;if(k){this.seen.add(sub+k);if(this.seen.size>3000)this.seen=new Set();}
+      this.relay(l,sub,msg,ll=>!this.seen.has(sub+k+'@'+ll.bi)&&(this.seen.add(sub+k+'@'+ll.bi),true),false);
+      if(this.meta&&this.meta.game==='ghost'&&GHOST.s){if(sub==='gp')GHOST.onPos(d);else if(sub==='gg')GHOST.onGhost(d);else if(sub==='gev'){if(!this.isHost())GHOST.onEvent(d);}else GHOST.onAct(d);}}
     else if(sub==='canvas'){if(!d)return;this.canvas=d;const k='cv'+d.n+':'+(d.s||[]).length+':'+msg.length;
       this.relay(l,sub,msg,ll=>{const kk=k+'@'+ll.bi;if(this.seen.has(kk))return false;this.seen.add(kk);return true;});
       if(this.meta&&this.meta.game==='draw')DRAW.onCanvas(d);}
@@ -1961,7 +2101,7 @@ const Net={
     if(this.meta.game==='ttt'&&this.meta.players.length!==2){toast('Tic-Tac-Toe needs exactly 2 players');return;}
     const gid=rid(6);let first=Math.floor(Math.random()*this.meta.players.length);
     if(this.meta.game==='ttt'){first=this.meta.nextFirst===1?1:0;this.meta.nextFirst=1-first;}
-    this.state={gid,first,h:[],by:CID};this.pub('state',this.state,true);
+    this.state={gid,first,h:this.meta.game==='ghost'?[{e:'start',...GHOST.hostStartState(this.meta)}]:[],by:CID};this.pub('state',this.state,true);
     this.meta.phase='game';this.meta.gid=gid;this.pubMeta();
   },
   hostToLobby(){if(!this.isHost())return;this.meta.phase='lobby';this.meta.gid=null;this.pubMeta();this.onMeta();},
@@ -1987,6 +2127,7 @@ function renderLobby(){
   const m=Net.meta;if(!m)return;const host=Net.isHost();
   $('lobTiles').innerHTML=Net.code.split('').map(ch=>`<span>${ch}</span>`).join('');
   const s=m.settings||{};$('lobInfo').textContent=m.game==='bingo'?`Bingo · ${s.size||5}×${s.size||5} board · numbers 1–${(s.size||5)*(s.size||5)} · first to 5 lines wins`
+    :m.game==='ghost'?`Ghost Hunt · co-op 2–4 · ${({small:'small',medium:'medium',large:'large'})[s.size]||'medium'} house · ${(GDIFF[s.diff]||GDIFF.pro).n}`
     :m.game==='draw'?`Draw & Guess · ${s.target} round${s.target>1?'s':''} · ${s.dur}s to draw`
     :m.game==='tanks'?`Pocket Tanks · 2–4 tanks · ${s.target} shots each · wind ${['off','light','strong'][s.wind===undefined?1:s.wind]}`
     :m.game==='ttt'?'Tic-Tac-Toe · exactly 2 players'
@@ -2023,7 +2164,7 @@ document.querySelectorAll('.reacts').forEach(el=>el.innerHTML=REACTS.map(r=>`<bu
 document.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>{const now=Date.now();if(now-(b._t||0)<700)return;b._t=now;Net.pub('react',{id:CID,e:b.dataset.r,k:rid(8)});buzz(8);});
 function showReact(d){
   const ps=gPlayers();if(!ps||!REACTS.includes(d.e))return;const i=ps.findIndex(p=>p.id===d.id);if(i<0)return;
-  const chip=document.querySelectorAll({bingo:'#bplayers .pc',ttt:'#tplayers .pc',rps:'#rplayers .rtile',tanks:'#tkPlayers .tkp',draw:'#dplayers .pc'}[SCREEN]||'#players .pc')[i];const r=chip?chip.getBoundingClientRect():{left:innerWidth/2,width:0,bottom:120};
+  const chip=document.querySelectorAll({bingo:'#bplayers .pc',ttt:'#tplayers .pc',rps:'#rplayers .rtile',tanks:'#tkPlayers .tkp',draw:'#dplayers .pc',ghost:'#ghPlayers .ghp'}[SCREEN]||'#players .pc')[i];const r=chip?chip.getBoundingClientRect():{left:innerWidth/2,width:0,bottom:120};
   const el=document.createElement('div');el.className='bubble';el.innerHTML=`<b>${d.e}</b>${esc(ps[i].name)}`;
   el.style.left=Math.min(innerWidth-60,Math.max(60,r.left+r.width/2))+'px';el.style.top=(r.bottom+8)+'px';
   document.body.appendChild(el);setTimeout(()=>el.remove(),2500);if(d.id!==CID)sfx('tap');
@@ -3221,6 +3362,476 @@ DRAW.tick=function(){const g=this.g;if(g&&MODE!=='online'&&g.phase==='reveal'&&(
 
 (()=>{const w=$('dWord').parentElement;const on=v=>{if(MODE==='online'||!DRAW.g||DRAW.g.phase!=='draw')return;DRAW.peek=v;DRAW.render();};
   w.addEventListener('pointerdown',()=>on(true));['pointerup','pointerleave','pointercancel'].forEach(n=>w.addEventListener(n,()=>on(false)));})();
+
+/* =========================================================
+   GHOST HUNT — co-op ghost investigation (first-person)
+   A dark, randomly generated house. One ghost lives in one room.
+   Use your tools to find 3 pieces of evidence, work out the ghost
+   type in your journal, then return to the van and name it.
+   Careful: as your sanity drops the ghost starts HUNTING —
+   hide in a closet or break line of sight until it ends.
+   Rendering: a classic ray-caster (walls, floor, ceiling, sprites)
+   lit only by your flashlight. Online: the room creator runs the
+   ghost; everyone shares positions, events and a common log.
+   ========================================================= */
+const GEV={emf:'EMF Level 5',box:'Spirit Box',freeze:'Freezing Temps',uv:'Fingerprints',writing:'Ghost Writing',orbs:'Ghost Orbs',dots:'Shadow Dots'};
+const GEV_ICON={emf:'📟',box:'📻',freeze:'🥶',uv:'🖐️',writing:'📖',orbs:'🔮',dots:'✨'};
+const GTYPES=[
+  {n:'Spirit',ev:['emf','box','writing'],d:'A common spirit. Incense keeps it calm for longer.',hunt:50,spd:1.45},
+  {n:'Wraith',ev:['emf','box','dots'],d:'Fast and silent. Rarely shows itself before hunting.',hunt:50,spd:1.6},
+  {n:'Phantom',ev:['box','uv','dots'],d:'Seeing it drains your sanity heavily.',hunt:50,spd:1.4,look:1},
+  {n:'Poltergeist',ev:['box','uv','writing'],d:'Very active — lots of noises and EMF.',hunt:50,spd:1.45,act:1.8},
+  {n:'Banshee',ev:['uv','orbs','dots'],d:'Picks one target and goes after them.',hunt:55,spd:1.45},
+  {n:'Jinn',ev:['emf','uv','freeze'],d:'Very fast when you are far away.',hunt:50,spd:1.75},
+  {n:'Mare',ev:['box','orbs','writing'],d:'Loves the dark — hunts earlier.',hunt:60,spd:1.45},
+  {n:'Revenant',ev:['orbs','writing','freeze'],d:'Slow — until it sees you.',hunt:50,spd:1.1,chase:2.2},
+  {n:'Shade',ev:['emf','writing','freeze'],d:'Shy. Hunts only at low sanity.',hunt:35,spd:1.4,act:.6},
+  {n:'Demon',ev:['uv','writing','freeze'],d:'Aggressive — hunts very early.',hunt:70,spd:1.5},
+  {n:'Yurei',ev:['orbs','freeze','dots'],d:'Drains sanity faster than others.',hunt:50,spd:1.45,drain:1.6},
+  {n:'Oni',ev:['emf','freeze','dots'],d:'Shows itself often. Very active.',hunt:50,spd:1.5,act:1.4}
+];
+const GTOOLS=[
+  {id:'emf',n:'EMF Reader',i:'📟'},{id:'thermo',n:'Thermometer',i:'🌡️'},{id:'box',n:'Spirit Box',i:'📻'},{id:'uv',n:'UV Light',i:'🔦'},
+  {id:'cam',n:'Video Camera',i:'📹'},{id:'book',n:'Writing Book',i:'📖',q:2},{id:'proj',n:'Dots Projector',i:'✨',q:1},
+  {id:'cross',n:'Crucifix',i:'✝️',q:2},{id:'incense',n:'Incense',i:'🪔',q:2},{id:'pills',n:'Sanity Pills',i:'💊',q:2}
+];
+const GROOMS=['Kitchen','Living Room','Bedroom','Bathroom','Nursery','Dining Room','Study','Laundry','Master Bedroom','Guest Room','Storage','Hallway','Kids Room','Library','Pantry','Utility Room'];
+const GDIFF={amateur:{n:'Amateur',drain:.08,hunt:0,show:1},pro:{n:'Professional',drain:.13,hunt:5,show:0},night:{n:'Nightmare',drain:.18,hunt:12,show:0}};
+const GSIZE={small:{w:22,h:14},medium:{w:30,h:20},large:{w:38,h:26}};
+
+const GHOST={
+  s:null,raf:0,RW:320,RH:180,keys:{},
+  players(){return this.s&&this.s.players;},
+  started(){return !!(this.s&&!this.s.over);},
+  clear(){this.stopLoop();this.audio(false);this.s=null;document.body.classList.remove('ghmode');},
+  /* ---------- map generation (seeded, so every player builds the same house) ---------- */
+  genMap(seed,size){
+    const r=mulberry32(seed),HW=size.w,HH=size.h,YARD=7,W=HW,H=HH+YARD,c=new Uint8Array(W*H);
+    const at=(x,y)=>c[y*W+x],set=(x,y,v)=>{c[y*W+x]=v;};
+    for(let y=0;y<HH;y++)for(let x=0;x<W;x++)set(x,y,(x===0||y===0||x===W-1||y===HH-1)?3:0);
+    for(let y=HH;y<H;y++)for(let x=0;x<W;x++)set(x,y,(x===0||x===W-1||y===H-1)?7:6);
+    const rooms=[];
+    const split=(R,depth)=>{const w=R.x1-R.x0+1,h=R.y1-R.y0+1;
+      const canV=w>=10,canH=h>=8;
+      if((!canV&&!canH)||(depth>2&&r()<.25&&w*h<70)){rooms.push(R);return;}
+      const vert=canV&&(!canH||w/h>1.15||(w/h>.85&&r()<.5));
+      const tex=r()<.5?1:2;
+      if(vert){const sx=R.x0+4+Math.floor(r()*(w-8));for(let y=R.y0;y<=R.y1;y++)set(sx,y,tex);
+        const dy=R.y0+1+Math.floor(r()*(h-2));set(sx,dy,0);
+        split({x0:R.x0,y0:R.y0,x1:sx-1,y1:R.y1},depth+1);split({x0:sx+1,y0:R.y0,x1:R.x1,y1:R.y1},depth+1);}
+      else{const sy=R.y0+3+Math.floor(r()*(h-6));for(let x=R.x0;x<=R.x1;x++)set(x,sy,tex);
+        const dx=R.x0+1+Math.floor(r()*(w-2));set(dx,sy,0);
+        split({x0:R.x0,y0:R.y0,x1:R.x1,y1:sy-1},depth+1);split({x0:R.x0,y0:sy+1,x1:R.x1,y1:R.y1},depth+1);}};
+    split({x0:1,y0:1,x1:W-2,y1:HH-2},0);
+    // entrance door in the bottom wall, roughly in the middle
+    let ex=Math.floor(W/2);for(let k=0;k<W;k++){const x=Math.floor(W/2)+((k%2)?-1:1)*Math.ceil(k/2);if(x>1&&x<W-2&&at(x,HH-2)===0){ex=x;break;}}
+    set(ex,HH-1,0);
+    // furniture blocks (kept only if the house stays fully connected)
+    const reach=()=>{const seen=new Uint8Array(W*H),q=[ex+(HH)*W];seen[q[0]]=1;let n=0;
+      while(q.length){const i=q.pop();n++;const x=i%W,y=(i/W)|0;for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){const nx=x+dx,ny=y+dy;if(nx<0||ny<0||nx>=W||ny>=H)continue;const j=ny*W+nx;
+        if(!seen[j]&&(c[j]===0||c[j]===5||c[j]===6)){seen[j]=1;q.push(j);}}}return seen;};
+    // fix rooms that a later split cut off: open extra doors until everything is reachable
+    for(let pass=0;pass<40;pass++){const seen=reach();let fixed=false;
+      for(let y=1;y<HH-1&&!fixed;y++)for(let x=1;x<W-1&&!fixed;x++){const v=at(x,y);if(v!==1&&v!==2)continue;
+        const a=[[x-1,y,x+1,y],[x,y-1,x,y+1]];for(const [ax,ay,bx,by] of a){if(at(ax,ay)===0&&at(bx,by)===0&&seen[ay*W+ax]!==seen[by*W+bx]){set(x,y,0);fixed=true;break;}}}
+      if(!fixed)break;}
+    const isW=(x,y)=>{const v=at(x,y);return v>=1&&v<=4;},isDoor=(x,y)=>at(x,y)===0&&((isW(x-1,y)&&isW(x+1,y))||(isW(x,y-1)&&isW(x,y+1)));
+    const doorish=(x,y)=>isDoor(x,y)||[[1,0],[-1,0],[0,1],[0,-1]].some(([dx,dy])=>isDoor(x+dx,y+dy));
+    const roomIdx=new Int16Array(W*H).fill(-1);rooms.forEach((R,i)=>{for(let y=R.y0;y<=R.y1;y++)for(let x=R.x0;x<=R.x1;x++)if(at(x,y)===0)roomIdx[y*W+x]=i;});
+    // doorway cells take the room of a neighbour
+    for(let y=1;y<HH;y++)for(let x=1;x<W-1;x++)if(at(x,y)===0&&roomIdx[y*W+x]<0){for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){const k=roomIdx[(y+dy)*W+x+dx];if(k>=0){roomIdx[y*W+x]=k;break;}}}
+    const names=GROOMS.slice();for(let i=names.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[names[i],names[j]]=[names[j],names[i]];}
+    rooms.forEach((R,i)=>{R.name=(R.x1-R.x0<2||R.y1-R.y0<2)?'Hallway':names[i%names.length];R.cx=(R.x0+R.x1+1)/2;R.cy=(R.y0+R.y1+1)/2;});
+    const entranceRoom=roomIdx[(HH-2)*W+ex];
+    // closets (hiding spots) in room corners
+    const closets=[];
+    rooms.forEach((R,i)=>{if(closets.length>=Math.max(2,Math.round(rooms.length/2))||R.x1-R.x0<3||R.y1-R.y0<3||r()<.35)return;
+      const cx=r()<.5?R.x0:R.x1,cy=r()<.5?R.y0:R.y1;if(doorish(cx,cy))return;
+      const nx=cx===R.x0?cx+1:cx-1;if(at(nx,cy)!==0||doorish(nx,cy))return;
+      set(cx,cy,5);set(nx,cy,4);const seen=reach();let ok=true;for(let j=0;j<W*HH;j++)if((c[j]===0||c[j]===5)&&!seen[j]){ok=false;break;}
+      if(!ok){set(cx,cy,0);set(nx,cy,0);}else closets.push({x:cx,y:cy,room:i});});
+    for(let k=0;k<rooms.length*2;k++){const R=rooms[Math.floor(r()*rooms.length)];if(R.x1-R.x0<3||R.y1-R.y0<3)continue;
+      const x=R.x0+1+Math.floor(r()*(R.x1-R.x0-1)),y=R.y0+1+Math.floor(r()*(R.y1-R.y0-1));if(at(x,y)!==0||doorish(x,y)||(Math.abs(x-ex)<2&&y>HH-4))continue;
+      set(x,y,4);const seen=reach();let ok=true;for(let j=0;j<W*HH;j++)if((c[j]===0||c[j]===5)&&!seen[j]){ok=false;break;}if(!ok)set(x,y,0);}
+    // van in the yard
+    const vx=Math.max(2,Math.min(W-5,ex-6));for(let y=HH+3;y<HH+5;y++)for(let x=vx;x<vx+3;x++)set(x,y,8);
+    let ghostCands=rooms.map((R,i)=>i).filter(i=>i!==entranceRoom&&rooms[i].name!=='Hallway');if(!ghostCands.length)ghostCands=rooms.map((R,i)=>i).filter(i=>i!==entranceRoom);if(!ghostCands.length)ghostCands=[0];
+    return {W,H,HH,c,rooms,roomIdx,closets,ex,start:{x:ex+.5,y:HH+1.6},van:{x:vx+1.5,y:HH+2.2},ghostCands};
+  },
+  solid(x,y){const m=this.s.map;const xi=Math.floor(x),yi=Math.floor(y);if(xi<0||yi<0||xi>=m.W||yi>=m.H)return true;const v=m.c[yi*m.W+xi];return !(v===0||v===5||v===6);},
+  roomAt(x,y){const m=this.s.map,xi=Math.floor(x),yi=Math.floor(y);if(yi>=m.HH)return -2;return m.roomIdx[yi*m.W+xi];},
+  /* ---------- textures & sprites ---------- */
+  makeTex(){
+    const T=64,mk=f=>{const a=new Uint32Array(T*T);for(let y=0;y<T;y++)for(let x=0;x<T;x++)a[y*T+x]=f(x,y);return a;};
+    const rgb=(r,g,b)=>(255<<24)|(Math.max(0,Math.min(255,b|0))<<16)|(Math.max(0,Math.min(255,g|0))<<8)|Math.max(0,Math.min(255,r|0));
+    const n=(x,y,s)=>{const v=Math.sin(x*12.9898+y*78.233+s)*43758.5453;return v-Math.floor(v);};
+    this.tex={
+      1:mk((x,y)=>{const st=(x>>3)&1,d=((x+4)%16<2&&(y%16<3))?18:0,k=n(x,y,1)*10;return st?rgb(92+k+d,104+k+d,82+k):rgb(104+k+d,116+k+d,92+k);}),                 // wallpaper
+      2:mk((x,y)=>{const pl=x%16===0?-30:0,g=Math.sin(y*.3+x)*6+n(x,y,2)*12;return y>44?(y===45?rgb(60,40,24):rgb(110+g,74+g,44)):rgb(120+pl+g,82+pl+g,50+pl);}), // wood panel + skirting
+      3:mk((x,y)=>{const row=y>>3,off=(row&1)*8,m=(y%8===0)||((x+off)%16===0);const k=n(x>>3,row,3)*30;return m?rgb(150,140,130):rgb(130+k,58+k*.4,46);}),    // brick
+      4:mk((x,y)=>{const e=(x<3||x>60||y<3||y>60)?-25:0,dr=(y===30||y===31)?-35:0,h=(x>28&&x<36&&(y===20||y===42))?60:0,g=n(x,y,4)*10;return rgb(84+e+dr+h+g,56+e+dr+h+g,34+e+dr+h*.5);}), // furniture
+      7:mk((x,y)=>{const g=n(x,y,7)*60;return rgb(20+g*.3,60+g,26+g*.3);}),                                                                                      // hedge
+      8:mk((x,y)=>{const s=(y>26&&y<34)?1:0,w=(y>8&&y<22&&x>6&&x<58)?1:0;return w?rgb(40,60,80):s?rgb(200,40,40):rgb(205,208,212);}),                           // van
+      F:mk((x,y)=>{const b=(y%16===0)?-30:0,sh=((x+((y>>4)&1)*32)%64===0)?-20:0,g=Math.sin(x*.4+y*.05)*5+n(x,y,9)*14;return rgb(120+b+sh+g,84+b+sh+g,52+b+sh);}), // floor
+      G:mk((x,y)=>{const g=n(x,y,11)*40;return rgb(30+g*.4,58+g,28+g*.3);}),                                                                                    // grass
+      C:mk((x,y)=>{const g=n(x,y,13)*12;return rgb(150+g,146+g,138+g);}),                                                                                       // ceiling
+      R:mk((x,y)=>{const e=(x<5||x>58||y<5||y>58)?40:0,p=((x>>3)+(y>>3))&1?10:0;return rgb(40+e+p,70+e+p,140+e);}),                                    // closet mat
+      K:mk((x,y)=>{const g=n(x,y,15)*8;return rgb(14+g,16+g,30+g*2);})                                                                                          // night sky
+    };
+    // UV hand print mask
+    const hp=new Uint8Array(T*T);const palm=(x,y)=>((x-32)**2/150+(y-38)**2/130)<1;const fing=(x,y)=>[[20,14,16],[28,10,12],[36,10,12],[44,14,14],[12,30,10]].some(([fx,fy,l])=>Math.abs(x-fx)<3.5&&y>fy&&y<fy+l+12);
+    for(let y=0;y<T;y++)for(let x=0;x<T;x++)hp[y*T+x]=(palm(x,y)||fing(x,y))?1:0;this.hand=hp;
+    // sprites (64×64 with transparency)
+    const spr=(draw)=>{const cv=document.createElement('canvas');cv.width=cv.height=64;const g=cv.getContext('2d');draw(g);const d=g.getImageData(0,0,64,64).data;
+      const a=new Uint32Array(64*64);for(let i=0;i<64*64;i++)a[i]=(d[i*4+3]<<24)|(d[i*4+2]<<16)|(d[i*4+1]<<8)|d[i*4];return a;};
+    this.spr={
+      ghost:spr(g=>{const gr=g.createLinearGradient(0,0,0,64);gr.addColorStop(0,'rgba(220,230,240,.95)');gr.addColorStop(1,'rgba(150,160,180,0)');g.fillStyle=gr;
+        g.beginPath();g.ellipse(32,14,9,11,0,0,7);g.fill();g.beginPath();g.moveTo(18,24);g.quadraticCurveTo(32,18,46,24);g.lineTo(50,64);g.lineTo(14,64);g.closePath();g.fill();
+        g.fillStyle='#0a0a12';g.beginPath();g.ellipse(28,13,2.4,3.4,0,0,7);g.ellipse(36,13,2.4,3.4,0,0,7);g.fill();g.beginPath();g.ellipse(32,21,2.2,3,0,0,7);g.fill();}),
+      dots:spr(g=>{for(let i=0;i<260;i++){const x=14+Math.random()*36,y=4+Math.random()*60;if(((x-32)/(y<22?9:16))**2+((y-(y<22?13:40))/(y<22?10:24))**2>1)continue;
+        g.fillStyle='rgba(120,255,140,.9)';g.fillRect(x,y,1.6,1.6);}}),
+      player:spr(g=>{g.fillStyle='#fff';g.beginPath();g.arc(32,12,8,0,7);g.fill();g.fillRect(22,22,20,26);g.fillRect(24,48,7,16);g.fillRect(33,48,7,16);}),
+      body:spr(g=>{g.fillStyle='#ddd';g.beginPath();g.ellipse(32,58,22,5,0,0,7);g.fill();g.fillStyle='#fff';g.beginPath();g.arc(14,56,6,0,7);g.fill();}),
+      book:spr(g=>{g.fillStyle='#6b3b1f';g.beginPath();g.moveTo(14,56);g.lineTo(32,52);g.lineTo(50,56);g.lineTo(50,62);g.lineTo(32,58);g.lineTo(14,62);g.closePath();g.fill();
+        g.fillStyle='#f4ecd8';g.beginPath();g.moveTo(15,55);g.lineTo(32,51);g.lineTo(49,55);g.lineTo(49,59);g.lineTo(32,56);g.lineTo(15,59);g.closePath();g.fill();}),
+      bookw:spr(g=>{g.fillStyle='#6b3b1f';g.beginPath();g.moveTo(14,56);g.lineTo(32,52);g.lineTo(50,56);g.lineTo(50,62);g.lineTo(32,58);g.lineTo(14,62);g.closePath();g.fill();
+        g.fillStyle='#f4ecd8';g.beginPath();g.moveTo(15,55);g.lineTo(32,51);g.lineTo(49,55);g.lineTo(49,59);g.lineTo(32,56);g.lineTo(15,59);g.closePath();g.fill();
+        g.strokeStyle='#7a0000';g.lineWidth=1;g.beginPath();g.moveTo(18,55);g.lineTo(22,57);g.lineTo(26,54);g.lineTo(30,56);g.moveTo(35,54);g.lineTo(39,57);g.lineTo(43,54);g.lineTo(47,57);g.stroke();}),
+      proj:spr(g=>{g.fillStyle='#222';g.fillRect(24,52,16,10);g.fillStyle='#3f3';g.beginPath();g.arc(32,52,3,0,7);g.fill();}),
+      cross:spr(g=>{g.fillStyle='#c9a227';g.fillRect(30,40,4,22);g.fillRect(24,46,16,4);}),
+      orb:spr(g=>{const gr=g.createRadialGradient(32,32,0,32,32,10);gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;g.beginPath();g.arc(32,32,10,0,7);g.fill();})
+    };
+  },
+  /* ---------- match setup ---------- */
+  newMatch(c){
+    const ps=mkPlayers(c.players),seed=c.seed>>>0,size=GSIZE[c.size]||GSIZE.medium,map=this.genMap(seed,size),r=mulberry32(seed^0xabcdef);
+    const type=c.type!==undefined?c.type:Math.floor(r()*GTYPES.length),room=c.room!==undefined?c.room:map.ghostCands[Math.floor(r()*map.ghostCands.length)];
+    const gt=GTYPES[type],ghostRoom=map.rooms[room];
+    // UV prints on walls around the ghost room
+    const prints=new Set();if(gt.ev.includes('uv')){for(let y=ghostRoom.y0-1;y<=ghostRoom.y1+1;y++)for(let x=ghostRoom.x0-1;x<=ghostRoom.x1+1;x++){const v=map.c[y*map.W+x];if(v>=1&&v<=4&&r()<.18)prints.add(y*map.W+x);}}
+    this.s={players:ps,gid:c.gid,seed,map,type,room,gt,diff:GDIFF[c.diff]||GDIFF.pro,diffKey:c.diff||'pro',prints,
+      me:{x:map.start.x+(Math.random()-.5)*.6,y:map.start.y,a:-Math.PI/2,alive:true,san:100,tool:0,fl:true,hid:false,inv:{book:2,proj:1,cross:2,incense:2,pills:2}},
+      others:{},items:[],dead:{},h:[],applied:0,over:false,result:null,
+      g:{x:ghostRoom.cx,y:ghostRoom.cy,vis:0,hunt:0,grace:0,huntT:0,cool:25,ev:6,target:null,path:[],wander:null,blind:0,noHunt:0,lastSeen:null,step:0},
+      emf:[],flick:0,boxMsg:'',boxT:0,journal:{ev:{},guess:-1},t0:Date.now(),temp:{},startT:performance.now(),seenGhost:0,uvOn:false};
+    this.s.isHost=MODE!=='online'||Net.isHost();
+    if(!this.tex)this.makeTex();
+  },
+  /* ---------- event log (retained, written by the host) ---------- */
+  log(e){const s=this.s;if(MODE==='online'&&!Net.isHost()){Net.pub('gact',{k:rid(6),...e});return;}e.ts=Date.now();s.h.push(e);this.applyEv(e,s.h.length-1);if(MODE==='online')Net.pushState();},
+  applyEv(e,i){const s=this.s;
+    if(e.e==='item'){s.items.push({t:e.t,x:e.x,y:e.y,by:e.by,w:false,t0:performance.now(),i:s.items.length});}
+    else if(e.e==='write'){const it=s.items[e.i];if(it){it.w=true;if(this.near(it.x,it.y,6)){sfx('lose');}}}
+    else if(e.e==='dead'){s.dead[e.id]={x:e.x,y:e.y};if(e.id===this.myId()){s.me.alive=false;this.msg('💀 The ghost got you. You can still watch and chat.',5000);buzz([200,100,300]);}
+      else{const p=s.players.find(p=>p.id===e.id);this.msg(`💀 ${p?p.name:'A player'} was killed!`,3500);}
+      if(s.isHost&&s.players.every(p=>s.dead[p.id]))this.log({e:'over',lost:1});}
+    else if(e.e==='guess'||e.e==='over'){s.over=true;s.result=e;setTimeout(()=>this.finish(),1200);}
+    s.applied=s.h.length;},
+  myId(){return MODE==='online'?CID:this.s.players[0].id;},
+  onAct(d){const s=this.s;if(!s||!s.isHost||!d)return;
+    if(d.e==='item'||d.e==='guess')this.log({e:d.e,t:d.t,x:d.x,y:d.y,by:d.by,id:d.id,type:d.type});
+    else if(d.e==='incense')this.incenseAt(d.x,d.y);},
+  /* ---------- per-frame logic ---------- */
+  near(x,y,d){const m=this.s.me;return (m.x-x)**2+(m.y-y)**2<d*d;},
+  inHouse(){return this.s.me.y<this.s.map.HH;},
+  update(dt){
+    const s=this.s,me=s.me,m=s.map;
+    // movement
+    if(me.alive||true){const mv=this.moveVec(),sp=(me.alive?1.7:2.4)*dt,ca=Math.cos(me.a),sa=Math.sin(me.a);
+      const dx=(ca*mv.f-sa*mv.s)*sp,dy=(sa*mv.f+ca*mv.s)*sp,R=.22;
+      if(!me.alive){me.x=Math.max(.5,Math.min(m.W-.5,me.x+dx));me.y=Math.max(.5,Math.min(m.H-.5,me.y+dy));}
+      else{if(!this.solid(me.x+dx+Math.sign(dx)*R,me.y)&&!this.solid(me.x+dx+Math.sign(dx)*R,me.y+R*.7)&&!this.solid(me.x+dx+Math.sign(dx)*R,me.y-R*.7))me.x+=dx;
+        if(!this.solid(me.x,me.y+dy+Math.sign(dy)*R)&&!this.solid(me.x+R*.7,me.y+dy+Math.sign(dy)*R)&&!this.solid(me.x-R*.7,me.y+dy+Math.sign(dy)*R))me.y+=dy;}
+      me.a+=(this.keys.ArrowRight||this.keys.KeyE&&false?1:0)*dt*2.2-(this.keys.ArrowLeft?1:0)*dt*2.2;}
+    const cell=m.c[Math.floor(me.y)*m.W+Math.floor(me.x)];me.hid=me.alive&&cell===5;
+    // sanity
+    if(me.alive&&this.inHouse()){let d=s.diff.drain*(s.gt.drain||1);if(!me.fl)d*=1.6;me.san=Math.max(0,me.san-d*dt);}
+    // flicker
+    if(s.flick>0)s.flick-=dt;
+    s.emf=s.emf.filter(e=>(e.t-=dt)>0);
+    if(s.boxT>0){s.boxT-=dt;if(s.boxT<=0)s.boxMsg='';}
+    // ghost sim on the host
+    if(s.isHost&&!s.over)this.ghostSim(dt);
+    // ghost visibility seen by me (Phantom/apparitions drain)
+    if(s.g.vis>0&&me.alive){const sees=this.los(me.x,me.y,s.g.x,s.g.y)&&this.inView(s.g.x,s.g.y);if(sees){me.san=Math.max(0,me.san-(s.gt.look?6:2)*dt);if(!s.seenGhost){s.seenGhost=1;buzz(30);}}}
+    if(s.g.vis>0)s.g.vis-=dt;
+    // hunt audio
+    if(s.g.hunt){this.hb=(this.hb||0)-dt;if(this.hb<=0){this.hb=s.g.hunt===2?.55:.9;this.thump(55,.35);if(s.g.hunt===2){const d=Math.hypot(s.g.x-me.x,s.g.y-me.y);if(d<9)this.thump(90,.6/(1+d*.4),.03);}}}
+    // network: my position
+    if(MODE==='online'){this.pt=(this.pt||0)-dt;if(this.pt<=0){this.pt=.12;Net.pub('gp',{k:rid(5),id:CID,x:+me.x.toFixed(2),y:+me.y.toFixed(2),a:+me.a.toFixed(2),t:me.tool,fl:me.fl?1:0,san:Math.round(me.san),hid:me.hid?1:0,al:me.alive?1:0});}
+      if(s.isHost){this.gt2=(this.gt2||0)-dt;if(this.gt2<=0){this.gt2=.12;const g=s.g;Net.pub('gg',{k:rid(5),x:+g.x.toFixed(2),y:+g.y.toFixed(2),v:g.vis>0?+g.vis.toFixed(1):0,h:g.hunt,f:s.flick>0?1:0});}}}
+    this.hud();
+  },
+  moveVec(){const k=this.keys,j=this.joy||{x:0,y:0};let f=(k.KeyW||k.ArrowUp?1:0)-(k.KeyS||k.ArrowDown?1:0)-j.y,st=(k.KeyD?1:0)-(k.KeyA?1:0)+j.x;const L=Math.hypot(f,st);if(L>1){f/=L;st/=L;}return {f,s:st};},
+  los(x0,y0,x1,y1){const d=Math.hypot(x1-x0,y1-y0),n=Math.ceil(d*4);for(let i=1;i<n;i++){const t=i/n;if(this.solid(x0+(x1-x0)*t,y0+(y1-y0)*t))return false;}return true;},
+  inView(x,y){const me=this.s.me;let a=Math.atan2(y-me.y,x-me.x)-me.a;while(a>Math.PI)a-=2*Math.PI;while(a<-Math.PI)a+=2*Math.PI;return Math.abs(a)<.62;},
+  allPlayers(){const s=this.s,out=[{id:this.myId(),x:s.me.x,y:s.me.y,san:s.me.san,hid:s.me.hid,alive:s.me.alive}];
+    for(const id in s.others){const o=s.others[id];if(Date.now()-o.t<6000)out.push({id,x:o.x,y:o.y,san:o.san,hid:o.hid,alive:o.al&&!s.dead[id]});}return out;},
+  /* ---------- the ghost (runs on the host) ---------- */
+  ghostSim(dt){
+    const s=this.s,g=s.g,gt=s.gt,R=s.map.rooms[s.room],ps=this.allPlayers().filter(p=>p.alive);
+    if(g.blind>0)g.blind-=dt;if(g.noHunt>0)g.noHunt-=dt;
+    const inside=ps.filter(p=>p.y<s.map.HH);
+    if(g.hunt===0){
+      g.cool-=dt;g.ev-=dt;
+      // wander near its room
+      if(!g.path.length&&Math.random()<dt*.25){const tx=R.x0+Math.random()*(R.x1-R.x0+1),ty=R.y0+Math.random()*(R.y1-R.y0+1);
+        const far=Math.random()<.2?s.map.rooms[Math.floor(Math.random()*s.map.rooms.length)]:null;g.path=this.path(g.x,g.y,far?far.cx:tx,far?far.cy:ty);}
+      this.walk(g,.7*dt);
+      // activity
+      if(g.ev<=0&&inside.length){g.ev=(9+Math.random()*12)/(gt.act||1);this.ghostEvent(inside);}
+      // freezing etc are evaluated by clients; writing in books
+      for(const it of s.items)if(it.t==='book'&&!it.w&&gt.ev.includes('writing')&&this.roomAt(it.x,it.y)===s.room&&Math.hypot(it.x-g.x,it.y-g.y)<4&&performance.now()-it.t0>15000&&Math.random()<dt*.06)this.log({e:'write',i:it.i});
+      // hunt?
+      const avg=inside.length?inside.reduce((a,p)=>a+p.san,0)/inside.length:100;
+      if(g.cool<=0&&g.noHunt<=0&&inside.length&&avg<=gt.hunt+s.diff.hunt){g.cool=8;if(Math.random()<.4){
+        const cross=s.items.find(it=>it.t==='cross'&&!it.used&&Math.hypot(it.x-g.x,it.y-g.y)<3.2);
+        if(cross){cross.used=true;this.event({t:'cross',x:cross.x,y:cross.y});g.cool=40;}
+        else{g.hunt=1;g.grace=3.5;this.event({t:'hunt'});}}}
+    }else if(g.hunt===1){g.grace-=dt;s.flick=.5;if(g.grace<=0){g.hunt=2;g.huntT=26+Math.random()*12;this.event({t:'huntgo'});}}
+    else{
+      g.huntT-=dt;s.flick=.3;if(g.blind>0){g.vis=0;}else g.vis=Math.random()<.65?.15:0;
+      // target: nearest player it can see (hidden players are invisible to it)
+      const vis=ps.filter(p=>!p.hid&&p.y<s.map.HH&&Math.hypot(p.x-g.x,p.y-g.y)<10&&this.los(g.x,g.y,p.x,p.y));
+      let t=null;if(vis.length){t=vis.sort((a,b)=>Math.hypot(a.x-g.x,a.y-g.y)-Math.hypot(b.x-g.x,b.y-g.y))[0];g.lastSeen={x:t.x,y:t.y};}
+      g.rp=(g.rp||0)-dt;if(g.rp<=0){g.rp=.5;const tg=t||g.lastSeen||null;if(tg)g.path=this.path(g.x,g.y,tg.x,tg.y);else if(!g.path.length){const rr=s.map.rooms[Math.floor(Math.random()*s.map.rooms.length)];g.path=this.path(g.x,g.y,rr.cx,rr.cy);}
+        if(!t&&g.lastSeen&&Math.hypot(g.lastSeen.x-g.x,g.lastSeen.y-g.y)<.6)g.lastSeen=null;}
+      let spd=gt.spd*(t&&gt.chase?gt.chase/gt.spd:1)*(gt.n==='Jinn'&&t&&Math.hypot(t.x-g.x,t.y-g.y)>4?1.3:1);if(g.blind>0)spd=0;
+      this.walk(g,spd*dt);
+      // kill check
+      for(const p of ps){if(s.dead[p.id])continue;const d=Math.hypot(p.x-g.x,p.y-g.y);if(g.blind<=0&&d<.6&&(!p.hid||Math.random()<.25*dt*4)){this.log({e:'dead',id:p.id,x:p.x,y:p.y});}}
+      if(g.huntT<=0){g.hunt=0;g.cool=25+Math.random()*15;g.vis=0;g.path=[];g.lastSeen=null;this.event({t:'huntend'});}
+    }
+  },
+  walk(g,step){while(step>0&&g.path.length){const [tx,ty]=g.path[0],dx=tx-g.x,dy=ty-g.y,d=Math.hypot(dx,dy);if(d<=step){g.x=tx;g.y=ty;g.path.shift();step-=d;}else{g.x+=dx/d*step;g.y+=dy/d*step;step=0;}}},
+  path(x0,y0,x1,y1){const m=this.s.map,W=m.W,sx=Math.floor(x0),sy=Math.floor(y0),tx=Math.floor(x1),ty=Math.floor(y1);if(sx===tx&&sy===ty)return [[x1,y1]];
+    const prev=new Int32Array(W*m.H).fill(-1),q=[sy*W+sx];prev[q[0]]=q[0];let head=0;const goal=ty*W+tx;
+    while(head<q.length){const i=q[head++];if(i===goal)break;const x=i%W,y=(i/W)|0;for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){const nx=x+dx,ny=y+dy;if(nx<0||ny<0||nx>=W||ny>=m.HH)continue;const j=ny*W+nx,v=m.c[j];
+      if(prev[j]<0&&(v===0||v===5)){prev[j]=i;q.push(j);}}}
+    if(prev[goal]<0)return [];const out=[];let i=goal;while(i!==sy*W+sx){out.push([(i%W)+.5,((i/W)|0)+.5]);i=prev[i];}out.reverse();if(out.length)out[out.length-1]=[x1,y1];return out;},
+  ghostEvent(ps){const s=this.s,g=s.g,gt=s.gt,r=Math.random();
+    const near=ps.filter(p=>Math.hypot(p.x-g.x,p.y-g.y)<6);
+    if(r<.35){const lv=gt.ev.includes('emf')&&Math.random()<.4?5:2+Math.floor(Math.random()*3);this.event({t:'emf',x:+g.x.toFixed(2),y:+g.y.toFixed(2),lv});}
+    else if(r<.6)this.event({t:'sound',x:+g.x.toFixed(2),y:+g.y.toFixed(2),s:pick(['knock','steps','whisper','bang'])});
+    else if(r<.8&&near.length)this.event({t:'flicker',x:+g.x.toFixed(2),y:+g.y.toFixed(2)});
+    else if(near.length&&(gt.n!=='Wraith'||Math.random()<.3)){g.vis=gt.n==='Oni'?3.5:2.2;this.event({t:'appear',x:+g.x.toFixed(2),y:+g.y.toFixed(2),v:g.vis});}
+    else this.event({t:'emf',x:+g.x.toFixed(2),y:+g.y.toFixed(2),lv:2});},
+  event(e){e.k=rid(6);if(MODE==='online')Net.pub('gev',e);this.onEvent(e);},
+  onEvent(e){const s=this.s,me=s.me;if(!s)return;
+    const d=e.x!==undefined?Math.hypot(e.x-me.x,e.y-me.y):0;
+    if(e.t==='emf'){s.emf.push({x:e.x,y:e.y,lv:e.lv,t:18});}
+    else if(e.t==='sound'){if(d<12){const v=1/(1+d*.35);if(e.s==='knock'){this.thump(140,v*.7);setTimeout(()=>this.thump(140,v*.7),220);}else if(e.s==='bang')this.thump(70,v);else if(e.s==='steps'){for(let i=0;i<4;i++)setTimeout(()=>this.thump(95,v*.5,.03),i*380);}else this.whisper(v);
+      if(d<5)me.san=Math.max(0,me.san-2);}}
+    else if(e.t==='flicker'){if(d<7){s.flick=1.4;me.san=Math.max(0,me.san-1);}}
+    else if(e.t==='appear'){s.g.x=e.x;s.g.y=e.y;s.g.vis=e.v||2;if(d<8){this.whisper(.8);}}
+    else if(e.t==='hunt'){s.g.hunt=1;this.msg('⚠️ The lights are flickering… THE GHOST IS HUNTING! Hide!',4000);buzz([200,80,200,80,200]);sfx('lose');}
+    else if(e.t==='huntgo'){s.g.hunt=2;}
+    else if(e.t==='huntend'){s.g.hunt=0;s.g.vis=0;this.msg('The hunt is over… for now.',2500);}
+    else if(e.t==='cross'){const it=s.items.find(i=>i.t==='cross'&&Math.abs(i.x-e.x)<.01&&Math.abs(i.y-e.y)<.01);if(it)it.used=true;if(d<10)this.msg('✝️ A crucifix burned — it stopped a hunt!',3000);}
+    else if(e.t==='incense'){s.g.blind=e.blind||0;if(e.stop){s.g.hunt=0;s.g.vis=0;}}
+  },
+  incenseAt(x,y){const s=this.s,g=s.g;const d=Math.hypot(g.x-x,g.y-y);
+    if(g.hunt&&d<3.5){g.hunt=0;g.vis=0;g.blind=6;g.cool=60;g.path=[];this.event({t:'incense',stop:1,blind:6});this.event({t:'huntend'});}
+    else if(this.roomAt(x,y)===s.room||d<4){g.noHunt=90;this.event({t:'incense',blind:0});}},
+  /* ---------- tools ---------- */
+  tool(){return GTOOLS[this.s.me.tool];},
+  useTool(){
+    const s=this.s,me=s.me,t=this.tool();if(!me.alive||s.over)return;
+    const fx=me.x+Math.cos(me.a)*.7,fy=me.y+Math.sin(me.a)*.7;
+    const place=(kind)=>{if((me.inv[kind]||0)<=0){this.msg('None left',1200);return;}if(this.solid(fx,fy)||fy>=s.map.HH){this.msg('Place it inside the house, on the floor',1600);return;}
+      me.inv[kind]--;this.log({e:'item',t:kind,x:+fx.toFixed(2),y:+fy.toFixed(2),by:this.myId()});sfx('tap');buzz(10);};
+    if(t.id==='book')place('book');else if(t.id==='proj')place('proj');else if(t.id==='cross')place('cross');
+    else if(t.id==='pills'){if(me.inv.pills<=0){this.msg('No pills left',1200);return;}me.inv.pills--;me.san=Math.min(100,me.san+40);this.msg('💊 Sanity +40',1500);sfx('box');}
+    else if(t.id==='incense'){if(me.inv.incense<=0){this.msg('No incense left',1200);return;}me.inv.incense--;this.msg('🪔 Incense lit…',1500);sfx('line');
+      if(MODE==='online'&&!Net.isHost())Net.pub('gact',{k:rid(6),e:'incense',x:me.x,y:me.y});else this.incenseAt(me.x,me.y);}
+    else if(t.id==='box'){if(s.boxT>0)return;const q=pick(['Where are you?','Are you here?','Give us a sign','How old are you?','Are you friendly?']);s.boxMsg='🎙️ "'+q+'"';s.boxT=4;this.staticNoise(1.6);
+      setTimeout(()=>{if(!this.s)return;const near=this.roomAt(me.x,me.y)===s.room||Math.hypot(s.g.x-me.x,s.g.y-me.y)<4;
+        if(near&&s.gt.ev.includes('box')&&!me.fl&&Math.random()<.5){const w=pick(['Here','Behind','Close','Leave','Death','Child','Old','Away','Kill']);s.boxMsg='📻 "'+w.toUpperCase()+'"';s.boxT=3.5;this.say(w);buzz([40,40,40]);me.san=Math.max(0,me.san-3);}
+        else{s.boxMsg=me.fl?'📻 …static… (turn your flashlight OFF)':'📻 …static…';s.boxT=2.5;}},1700);}
+    else if(t.id==='emf'||t.id==='thermo'||t.id==='uv'||t.id==='cam'){this.msg(t.n+' is on — just point it around',1300);}
+  },
+  emfLevel(){const s=this.s,me=s.me;let lv=1;for(const e of s.emf){const d=Math.hypot(e.x-me.x,e.y-me.y);if(d<2.5&&e.lv>lv)lv=e.lv;}return lv;},
+  tempAt(){const s=this.s,me=s.me,ri=this.roomAt(me.x,me.y);if(ri===-2)return 6+Math.sin(performance.now()/7000);
+    const el=(Date.now()-s.t0)/1000,base=ri===s.room?Math.max(s.gt.ev.includes('freeze')?-4:5,12-el/9):(14+(ri%3));
+    const k=Math.floor(performance.now()/900);const v=base+Math.sin(k*1.7+ri)*.6;return v;},
+  /* ---------- online plumbing ---------- */
+  startLocal(){const name=(SET.name||'').trim()||'You';const c=XCFG.ghost;this.cfg={players:[{id:'me',name,cpu:null}],size:c.size,diff:c.diff};this.againLocal();},
+  againLocal(){const c=this.cfg;if(!c)return;this.newMatch({...c,seed:(Math.random()*4294967296)>>>0,gid:rid(8)});
+    this.s.h=[{e:'start',seed:this.s.seed,type:this.s.type,room:this.s.room}];this.enter();},
+  hostStartState(meta){const seed=(Math.random()*4294967296)>>>0,map=this.genMap(seed,GSIZE[(meta.settings||{}).size]||GSIZE.medium),r=Math.random;
+    return {seed,type:Math.floor(r()*GTYPES.length),room:map.ghostCands[Math.floor(r()*map.ghostCands.length)]};},
+  onState(st,m){const h=Array.isArray(st.h)?st.h:[];const se=m.settings||{};
+    if(!this.s||this.s.gid!==st.gid||SCREEN!=='ghost'){closeSheets();const start=h[0]&&h[0].e==='start'?h[0]:null;if(!start)return;
+      this.newMatch({players:m.players,seed:start.seed,type:start.type,room:start.room,size:se.size,diff:se.diff,gid:st.gid});const s=this.s;s.h=h.slice();
+      for(let i=1;i<h.length;i++)this.applyEv(h[i],i);s.applied=h.length;MODE='online';onMsg('');this.enter();return;}
+    const s=this.s;if(h.length<=s.h.length)return;for(let i=s.h.length;i<h.length;i++){s.h.push(h[i]);this.applyEv(h[i],i);}},
+  stateObj(){const s=this.s;return {gid:s.gid,first:0,h:s.h.slice(),by:CID};},
+  onPos(d){const s=this.s;if(!s||!d||d.id===CID)return;s.others[d.id]={...d,t:Date.now()};},
+  onGhost(d){const s=this.s;if(!s||s.isHost||!d)return;const g=s.g;g.x=d.x;g.y=d.y;if(d.v)g.vis=d.v;g.hunt=d.h;if(d.f)s.flick=Math.max(s.flick,.3);},
+  rerender(){},schedule(){},
+  /* ---------- screen & loop ---------- */
+  enter(){this.hintOff=0;$('ghHint').classList.remove('hidden');$('ghTools').classList.remove('open');show('ghost');document.body.classList.add('ghmode');this.size();this.renderTools();this.startLoop();this.audio(true);
+    this.msg(`Find the ghost's room (${this.s.diff.show?this.s.map.rooms[this.s.room].name+' — Amateur hint':'it could be anywhere'}). Collect 3 evidence, then name it at the van.`,6000);
+    try{if(innerHeight>innerWidth&&screen.orientation&&screen.orientation.lock)screen.orientation.lock('landscape').catch(()=>{});}catch(e){}},
+  size(){const cv=$('ghCanvas'),w=innerWidth,h=innerHeight;this.RH=h<500?180:220;this.RW=Math.max(240,Math.min(560,Math.round(this.RH*w/h)));
+    cv.width=this.RW;cv.height=this.RH;cv.style.width=w+'px';cv.style.height=h+'px';this.ctx=cv.getContext('2d');this.img=this.ctx.createImageData(this.RW,this.RH);
+    this.buf=new Uint32Array(this.img.data.buffer);this.zb=new Float32Array(this.RW);this.cone=new Float32Array(this.RW);},
+  startLoop(){if(this.raf)return;this.lt=performance.now();const f=t=>{this.raf=requestAnimationFrame(f);if(SCREEN!=='ghost'||!this.s){this.stopLoop();return;}
+      const dt=Math.min(.05,(t-this.lt)/1000);this.lt=t;this.update(dt);this.render(t);};this.raf=requestAnimationFrame(f);},
+  stopLoop(){if(this.raf)cancelAnimationFrame(this.raf);this.raf=0;},
+  /* ---------- the ray-caster ---------- */
+  render(t){
+    const s=this.s,me=s.me,m=s.map,W=this.RW,H=this.RH,buf=this.buf,T=this.tex,tool=this.tool().id;
+    const cam=tool==='cam'&&me.alive,uv=tool==='uv'&&me.alive,dead=!me.alive;
+    const outside=me.y>=m.HH;let fl=me.fl&&!dead?1:0;if(s.flick>0&&Math.random()<.55)fl*=.08;
+    const amb=dead?.32:outside?.34:(cam?.30:.035);
+    for(let x=0;x<W;x++){const u=(x-W/2)/(W*.30);this.cone[x]=Math.max(0,1-u*u);}
+    const dX=Math.cos(me.a),dY=Math.sin(me.a),PL=.5*W/H,pX=-dY*PL,pY=dX*PL,cone=this.cone;
+    const shade=(col,L,sx)=>{let r=col&255,g=(col>>8)&255,b=(col>>16)&255;
+      if(cam){const v=(r*.3+g*.6+b*.1)*L*1.25+((Math.random()*14)|0);return (255<<24)|(Math.min(255,v*.35)<<16)|(Math.min(255,v)<<8)|Math.min(255,v*.4);}
+      L=Math.min(1.5,L);return (255<<24)|(Math.min(255,b*L*.92)<<16)|(Math.min(255,g*L*.95)<<8)|Math.min(255,r*L);};
+    const light=(x,d)=>amb+fl*cone[x]*1.25/(1+.10*d*d)+(cam?cone[x]*.5/(1+.03*d*d):0);
+    // floor + ceiling
+    const rx0=dX-pX,ry0=dY-pY,rx1=dX+pX,ry1=dY+pY,half=H/2;
+    for(let y=(half|0)+1;y<H;y++){const rd=half/(y-half),sx=rd*(rx1-rx0)/W,sy=rd*(ry1-ry0)/W;let fx=me.x+rd*rx0,fy=me.y+rd*ry0;const yo=y*W,yc=(H-y-1)*W;
+      for(let x=0;x<W;x++){const cx=fx|0,cy=fy|0,tx=((fx-cx)*64)&63,ty=((fy-cy)*64)&63,ci=cy*m.W+cx,v=(cx>=0&&cy>=0&&cx<m.W&&cy<m.H)?m.c[ci]:6;
+        const L=light(x,rd),out=v===6||cy>=m.HH;buf[yo+x]=shade(out?T.G[ty*64+tx]:v===5?T.R[ty*64+tx]:T.F[ty*64+tx],L,x);buf[yc+x]=out?shade(T.K[ty*64+tx],.6+L*.3,x):shade(T.C[ty*64+tx],L*.8,x);fx+=sx;fy+=sy;}}
+    // walls
+    for(let x=0;x<W;x++){const cxr=2*x/W-1,rdx=dX+pX*cxr,rdy=dY+pY*cxr;let mx=me.x|0,my=me.y|0;const ddx=Math.abs(1/rdx),ddy=Math.abs(1/rdy);let stx,sty,sdx,sdy,side=0,hit=0,v=0;
+      if(rdx<0){stx=-1;sdx=(me.x-mx)*ddx;}else{stx=1;sdx=(mx+1-me.x)*ddx;}if(rdy<0){sty=-1;sdy=(me.y-my)*ddy;}else{sty=1;sdy=(my+1-me.y)*ddy;}
+      for(let k=0;k<64&&!hit;k++){if(sdx<sdy){sdx+=ddx;mx+=stx;side=0;}else{sdy+=ddy;my+=sty;side=1;}if(mx<0||my<0||mx>=m.W||my>=m.H){hit=1;v=3;break;}v=m.c[my*m.W+mx];if(v&&v!==5&&v!==6)hit=1;}
+      const pd=side===0?(sdx-ddx):(sdy-ddy),dist=Math.max(.05,pd);this.zb[x]=dist;
+      const lh=H/dist,y0=Math.max(0,(half-lh/2)|0),y1=Math.min(H-1,(half+lh/2)|0);
+      let wx=side===0?me.y+pd*rdy:me.x+pd*rdx;wx-=Math.floor(wx);let tx=(wx*64)|0;if(side===0&&rdx>0)tx=63-tx;if(side===1&&rdy<0)tx=63-tx;
+      const tex=T[v]||T[1],L=light(x,dist)*(side?.78:1),ci=my*m.W+mx,hasPrint=uv&&s.prints.has(ci)&&cone[x]>.1,pl=hasPrint?(.45+.6*cone[x])/(1+.1*dist*dist):0;
+      const step=64/lh;let tp=(y0-half+lh/2)*step;
+      for(let y=y0;y<=y1;y++){const ty=tp&63;tp+=step;let col=shade(tex[ty*64+tx],L,x);
+        if(uv){const ul=cone[x]*.6/(1+.12*dist*dist);let r=col&255,g=(col>>8)&255,b=(col>>16)&255;r=Math.min(255,r+40*ul);b=Math.min(255,b+110*ul);
+          if(hasPrint&&this.hand[ty*64+tx]){r=Math.min(255,r+120*pl);g=Math.min(255,g+255*pl);b=Math.min(255,b+190*pl);}col=(255<<24)|(b<<16)|(g<<8)|r;}
+        buf[y*W+x]=col;}}
+    // sprites
+    const sp=[];
+    for(const it of s.items){const key=it.t==='book'?(it.w?'bookw':'book'):it.t;sp.push({x:it.x,y:it.y,img:this.spr[key],sc:.9,lit:it.t==='proj'?.4:0,dy:0});}
+    for(const id in s.dead){const d=s.dead[id];sp.push({x:d.x,y:d.y,img:this.spr.body,sc:1,lit:.15,dy:0});}
+    s.players.forEach((p,i)=>{if(p.id===this.myId())return;const o=s.others[p.id];if(!o||Date.now()-o.t>6000||!o.al||s.dead[p.id])return;sp.push({x:o.x,y:o.y,img:this.spr.player,sc:1,lit:.35,tint:p.color,dy:0});});
+    const g=s.g,inDots=s.items.some(it=>it.t==='proj'&&s.gt.ev.includes('dots')&&Math.hypot(it.x-g.x,it.y-g.y)<4)&&Math.floor(t/1700)%3===0;
+    if(g.vis>0||(g.hunt===2&&Math.random()<.6)) sp.push({x:g.x,y:g.y,img:this.spr.ghost,sc:1.05,lit:g.hunt?.55:.45,alpha:.85,dy:0});
+    else if(inDots)sp.push({x:g.x,y:g.y,img:this.spr.dots,sc:1,lit:1,alpha:.9,dy:0});
+    if(cam&&s.gt.ev.includes('orbs')){const R=m.rooms[s.room];for(let k=0;k<3;k++){const ph=t/2600+k*2.1;sp.push({x:R.cx+Math.sin(ph)*(R.x1-R.x0)*.35,y:R.cy+Math.cos(ph*1.3)*(R.y1-R.y0)*.35,img:this.spr.orb,sc:.25,lit:1.2,alpha:.9,dy:-.15});}}
+    sp.push({x:m.van.x,y:m.van.y+.01,img:null});
+    for(const o of sp){if(!o.img)continue;const rx=o.x-me.x,ry=o.y-me.y,inv=1/(pX*dY-dX*pY),tx2=inv*(dY*rx-dX*ry),ty2=inv*(-pY*rx+pX*ry);if(ty2<=.1)continue;
+      const scx=(W/2)*(1+tx2/ty2),sh=Math.abs(H/ty2)*o.sc,sw=sh,top=half+H/ty2*.5-sh+(o.dy||0)*H/ty2,x0=Math.floor(scx-sw/2),x1=Math.ceil(scx+sw/2);
+      const L0=o.lit;const tint=o.tint?[parseInt(o.tint.slice(1,3),16),parseInt(o.tint.slice(3,5),16),parseInt(o.tint.slice(5,7),16)]:null;
+      for(let x=Math.max(0,x0);x<Math.min(W,x1);x++){if(this.zb[x]<ty2)continue;const ux=((x-x0)/sw*64)|0;const L=Math.max(L0,light(x,ty2));
+        for(let y=Math.max(0,top|0);y<Math.min(H,top+sh);y++){const uy=((y-top)/sh*64)|0;const c=o.img[uy*64+ux];const a=(c>>>24)&255;if(a<40)continue;
+          let r=c&255,gg=(c>>8)&255,b=(c>>16)&255;if(tint){r=r*tint[0]/255;gg=gg*tint[1]/255;b=b*tint[2]/255;}
+          const col=cam?shade((255<<24)|(b<<16)|(gg<<8)|r,L,x):((255<<24)|(Math.min(255,b*L)<<16)|(Math.min(255,gg*L)<<8)|Math.min(255,r*L));
+          if(o.alpha){const al=o.alpha*a/255,bc=buf[y*W+x];const br=bc&255,bg=(bc>>8)&255,bb=(bc>>16)&255,cr=col&255,cg=(col>>8)&255,cb=(col>>16)&255;
+            buf[y*W+x]=(255<<24)|((bb+(cb-bb)*al)<<16)|((bg+(cg-bg)*al)<<8)|(br+(cr-br)*al);}else buf[y*W+x]=col;}}}
+    this.ctx.putImageData(this.img,0,0);
+    const c=this.ctx;
+    if(g.hunt){c.fillStyle=`rgba(120,0,0,${.12+.1*Math.sin(t/120)})`;c.fillRect(0,0,W,H);}
+    if(me.san<35&&me.alive){c.fillStyle=`rgba(0,0,0,${(35-me.san)/100})`;c.fillRect(0,0,W,H);}
+    if(cam){c.fillStyle='rgba(255,0,0,.9)';c.font='bold 9px monospace';c.fillText('● REC',8,H-8);}
+    if(dead){c.fillStyle='rgba(60,80,140,.25)';c.fillRect(0,0,W,H);}
+  },
+  /* ---------- HUD ---------- */
+  hud(){const s=this.s,me=s.me,t=this.tool(),m=s.map;if(!s)return;
+    this.hudT=(this.hudT||0)-1;if(this.hudT>0)return;this.hudT=5;
+    $('ghSan').style.setProperty('--p',Math.round(me.san)+'%');$('ghSanV').textContent=Math.round(me.san)+'%';
+    const ri=this.roomAt(me.x,me.y);$('ghRoom').textContent=ri===-2?'Outside · Van':ri>=0?m.rooms[ri].name:'';
+    let read='';
+    if(!me.alive)read='👻 You are dead — spectating';
+    else if(t.id==='emf'){const lv=this.emfLevel();read=`<span class="emf">${[1,2,3,4,5].map(i=>`<i class="${i<=lv?'on l'+i:''}"></i>`).join('')}</span> EMF ${lv}`;if(lv>=2&&!this.emfBeep){this.emfBeep=1;this.beep(600+lv*120);setTimeout(()=>this.emfBeep=0,600);}}
+    else if(t.id==='thermo'){const v=this.tempAt();read=`🌡️ <b style="color:${v<0?'#64d2ff':v<6?'#a0d8ff':'#fff'}">${v.toFixed(1)}°C</b>${v<0?' ❄️ FREEZING':''}`;}
+    else if(t.id==='box')read=s.boxMsg||'📻 Tap USE to ask a question (flashlight OFF, near the ghost)';
+    else if(t.id==='uv')read='🔦 UV light — look for glowing hand prints on walls';
+    else if(t.id==='cam')read='📹 Night vision — watch for floating orbs';
+    else if(t.id==='book')read=`📖 Writing books: ${me.inv.book} — USE to place on the floor`;
+    else if(t.id==='proj')read=`✨ Dots projectors: ${me.inv.proj} — USE to place`;
+    else if(t.id==='cross')read=`✝️ Crucifixes: ${me.inv.cross} — place in the ghost room to stop hunts`;
+    else if(t.id==='incense')read=`🪔 Incense: ${me.inv.incense} — use near the ghost (stops a hunt)`;
+    else if(t.id==='pills')read=`💊 Pills: ${me.inv.pills} — +40 sanity`;
+    $('ghRead').innerHTML=read;
+    $('ghTool').innerHTML=`<span>${t.i}</span><b>${t.n}</b>`;
+    $('ghFl').classList.toggle('on',me.fl);$('ghHid').classList.toggle('hidden',!me.hid);if(!this.hintOff&&Math.hypot(me.x-s.map.start.x,me.y-s.map.start.y)>2){this.hintOff=1;$('ghHint').classList.add('hidden');}
+    $('ghHunt').classList.toggle('hidden',!s.g.hunt);
+    const atVan=me.y>=m.HH&&Math.hypot(me.x-m.van.x,me.y-m.van.y)<3.2;$('ghVan').classList.toggle('hidden',!atVan||!me.alive&&false);
+    $('ghPlayers').innerHTML=s.players.map(p=>{const o=p.id===this.myId()?{san:me.san}:s.others[p.id]||{};const dd=s.dead[p.id];
+      return `<div class="ghp ${dd?'dead':''}" style="--pcol:${p.color}"><i>${dd?'💀':esc(p.label)}</i><span>${esc(p.name)}</span><b>${o.san!==undefined?Math.round(o.san)+'%':'–'}</b></div>`;}).join('');
+  },
+  msg(t,ms){const el=$('ghMsg');el.textContent=t;el.classList.add('show');clearTimeout(this.mt);this.mt=setTimeout(()=>el.classList.remove('show'),ms||2500);},
+  renderTools(){$('ghTools').innerHTML=GTOOLS.map((t,i)=>`<button data-gt="${i}" class="${i===this.s.me.tool?'on':''}"><span>${t.i}</span><small>${t.n}</small></button>`).join('');},
+  /* ---------- journal & ending ---------- */
+  openJournal(){const s=this.s,J=s.journal;
+    const ev=Object.keys(GEV);
+    $('ghJEv').innerHTML=ev.map(k=>`<button data-jev="${k}" class="st${J.ev[k]||0}"><span>${GEV_ICON[k]}</span>${GEV[k]}<em>${J.ev[k]===1?'✓':J.ev[k]===-1?'✕':''}</em></button>`).join('');
+    const yes=ev.filter(k=>J.ev[k]===1),no=ev.filter(k=>J.ev[k]===-1);
+    $('ghJTypes').innerHTML=GTYPES.map((g,i)=>{const ok=yes.every(k=>g.ev.includes(k))&&!no.some(k=>g.ev.includes(k));
+      return `<button data-jt="${i}" class="${ok?'':'out'} ${J.guess===i?'on':''}"><b>${g.n}</b><span>${g.ev.map(k=>GEV_ICON[k]).join(' ')}</span><small>${g.d}</small></button>`;}).join('');
+    $('ghJGuess').textContent=J.guess>=0?`Your answer: ${GTYPES[J.guess].n}`:'Tap a ghost type to choose your answer';
+    openSheet('ghJournal');},
+  submit(){const s=this.s,J=s.journal;if(J.guess<0){toast('Choose a ghost type in the journal first');this.openJournal();return;}
+    ask('Leave and submit?',`Your team answer: ${GTYPES[J.guess].n}. The investigation ends for everyone.`,'Submit').then(ok=>{if(!ok)return;
+      this.log({e:'guess',id:this.myId(),type:J.guess});});},
+  finish(){const s=this.s;if(!s||!s.result)return;this.audio(false);const r=s.result,correct=r.e==='guess'&&r.type===s.type,gt=s.gt;
+    const by=r.id&&s.players.find(p=>p.id===r.id);
+    $('winText').innerHTML=r.lost?'💀 Everyone died':correct?'🎉 Correct!':'❌ Wrong ghost';
+    $('winSub').textContent=`It was a ${gt.n} in the ${s.map.rooms[s.room].name}`+(r.e==='guess'?` · answer by ${by?by.name:'?'}: ${GTYPES[r.type].n}`:'');
+    rankList(s.players.map(p=>({...p,alive:!s.dead[p.id]})),p=>`<span class="scb">${s.dead[p.id]?'💀':'🙂'}</span>`,p=>s.dead[p.id]?0:100);
+    $('resList').insertAdjacentHTML('afterbegin',`<div class="cell" style="flex-direction:column;align-items:flex-start;gap:4px"><b>Evidence: ${gt.ev.map(k=>GEV_ICON[k]+' '+GEV[k]).join(' · ')}</b><small style="color:var(--label2)">${gt.d}</small></div>`);
+    sessionCard(s.gid,correct?s.players.filter(p=>!s.dead[p.id]).map(p=>p.id):[],s.players);
+    resultButtons(()=>this.againLocal());celebrate(correct);
+  },
+  /* ---------- spooky audio ---------- */
+  audio(on){const a=audio();if(!a)return;
+    if(!on){if(this.amb){try{this.amb.src.stop();}catch(e){}this.amb=null;}return;}
+    if(this.amb||!SET.sound)return;const len=a.sampleRate*2,b=a.createBuffer(1,len,a.sampleRate),d=b.getChannelData(0);let last=0;for(let i=0;i<len;i++){last=(last+(Math.random()*2-1)*.02)*.995;d[i]=last*3;}
+    const src=a.createBufferSource();src.buffer=b;src.loop=true;const f=a.createBiquadFilter();f.type='lowpass';f.frequency.value=380;const g=a.createGain();g.gain.value=.25;src.connect(f);f.connect(g);g.connect(a.destination);src.start();this.amb={src,g};},
+  thump(freq,vol,dur){if(!SET.sound)return;const a=audio();if(!a)return;const o=a.createOscillator(),g=a.createGain(),t=a.currentTime;o.type='sine';o.frequency.setValueAtTime(freq,t);o.frequency.exponentialRampToValueAtTime(freq*.5,t+(dur||.18));
+    g.gain.setValueAtTime(Math.min(.6,vol||.3),t);g.gain.exponentialRampToValueAtTime(.001,t+(dur||.18)+.05);o.connect(g);g.connect(a.destination);o.start(t);o.stop(t+.3);},
+  whisper(v){if(!SET.sound)return;const a=audio();if(!a)return;const len=a.sampleRate*1.2,b=a.createBuffer(1,len,a.sampleRate),d=b.getChannelData(0);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.sin(Math.PI*i/len);
+    const s=a.createBufferSource();s.buffer=b;const f=a.createBiquadFilter();f.type='bandpass';f.frequency.value=1800;f.Q.value=2.5;const g=a.createGain();g.gain.value=Math.min(.5,v*.5);s.connect(f);f.connect(g);g.connect(a.destination);s.start();},
+  staticNoise(sec){if(!SET.sound)return;const a=audio();if(!a)return;const len=a.sampleRate*sec,b=a.createBuffer(1,len,a.sampleRate),d=b.getChannelData(0);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*(Math.random()<.97?.25:.9);
+    const s=a.createBufferSource();s.buffer=b;const f=a.createBiquadFilter();f.type='bandpass';f.frequency.value=2400;const g=a.createGain();g.gain.value=.18;s.connect(f);f.connect(g);g.connect(a.destination);s.start();},
+  beep(f){if(SET.sound)try{tone(f,0,.07,'square',.04);}catch(e){}},
+  say(w){try{if(!('speechSynthesis' in window)||!SET.sound)return;const u=new SpeechSynthesisUtterance(w);u.pitch=.1;u.rate=.6;u.volume=1;speechSynthesis.speak(u);}catch(e){}}
+};
+/* ---------- controls ---------- */
+(()=>{
+  const G=GHOST,cv=$('ghCanvas'),pad=$('ghPad');let joy=null,look=null;
+  const stick=$('ghStick');
+  pad.addEventListener('pointerdown',ev=>{if(!G.s)return;ev.preventDefault();try{pad.setPointerCapture(ev.pointerId);}catch(e){}
+    if(ev.clientX<innerWidth*.45&&!joy){joy={id:ev.pointerId,x:ev.clientX,y:ev.clientY};stick.style.left=ev.clientX+'px';stick.style.top=ev.clientY+'px';stick.classList.add('on');}
+    else if(!look)look={id:ev.pointerId,x:ev.clientX};});
+  pad.addEventListener('pointermove',ev=>{if(!G.s)return;
+    if(joy&&ev.pointerId===joy.id){let dx=(ev.clientX-joy.x)/50,dy=(ev.clientY-joy.y)/50;const L=Math.hypot(dx,dy);if(L>1){dx/=L;dy/=L;}G.joy={x:dx,y:dy};$('ghKnob').style.transform=`translate(${dx*36}px,${dy*36}px)`;}
+    else if(look&&ev.pointerId===look.id){G.s.me.a+=(ev.clientX-look.x)*.0075;look.x=ev.clientX;}});
+  const up=ev=>{if(joy&&ev.pointerId===joy.id){joy=null;G.joy={x:0,y:0};stick.classList.remove('on');$('ghKnob').style.transform='';}if(look&&ev.pointerId===look.id)look=null;};
+  pad.addEventListener('pointerup',up);pad.addEventListener('pointercancel',up);
+  // mouse look on desktop: drag anywhere
+  window.addEventListener('keydown',e=>{if(SCREEN!=='ghost'||/INPUT|TEXTAREA/.test(document.activeElement.tagName))return;G.keys[e.code]=1;
+    if(e.code==='KeyF'){G.s.me.fl=!G.s.me.fl;G.beep(300);}if(e.code==='Space'){e.preventDefault();G.useTool();}if(e.code==='KeyQ'||e.code==='KeyE'){const n=GTOOLS.length;G.s.me.tool=(G.s.me.tool+(e.code==='KeyE'?1:n-1))%n;G.renderTools();}
+    if(e.code==='KeyJ')G.openJournal();});
+  window.addEventListener('keyup',e=>{G.keys[e.code]=0;});
+  $('ghUse').onclick=()=>G.useTool();
+  $('ghFl').onclick=()=>{if(!G.s)return;G.s.me.fl=!G.s.me.fl;G.beep(G.s.me.fl?420:300);buzz(6);};
+  $('ghTool').onclick=()=>$('ghTools').classList.toggle('open');
+  $('ghTools').onclick=e=>{const b=e.target.closest('[data-gt]');if(!b)return;G.s.me.tool=+b.dataset.gt;G.renderTools();$('ghTools').classList.remove('open');sfx('tap');};
+  $('ghJBtn').onclick=()=>G.openJournal();$('ghVan').onclick=()=>G.submit();
+  $('ghQuit').onclick=()=>{sfx('tap');quitGame();};$('ghMenu').onclick=()=>$('menuBtn').click();
+  $('ghMapBtn').onclick=()=>{const s=G.s;if(!s)return;const m=s.map,k=Math.min(10,Math.floor(Math.min(innerWidth*.8/m.W,innerHeight*.7/m.HH)));
+    const cv2=$('ghMapCv');cv2.width=m.W*k;cv2.height=m.HH*k;const c=cv2.getContext('2d');c.fillStyle='#0b1a2c';c.fillRect(0,0,cv2.width,cv2.height);
+    for(let y=0;y<m.HH;y++)for(let x=0;x<m.W;x++){const v=m.c[y*m.W+x];if(v===0||v===5){c.fillStyle=v===5?'#2b5fa8':'#1d3b63';c.fillRect(x*k,y*k,k,k);}else if(v===4){c.fillStyle='#14304f';c.fillRect(x*k,y*k,k,k);}}
+    c.fillStyle='#cfe3ff';c.font=`600 ${Math.max(9,k)}px -apple-system,sans-serif`;c.textAlign='center';m.rooms.forEach(R=>{if(R.name!=='Hallway')c.fillText(R.name,R.cx*k,R.cy*k);});
+    c.fillStyle='#ffd60a';c.beginPath();c.arc(s.me.x*k,Math.min(m.HH-.5,s.me.y)*k,k*.45,0,7);c.fill();
+    s.players.forEach(p=>{const o=s.others[p.id];if(!o)return;c.fillStyle=p.color;c.beginPath();c.arc(o.x*k,Math.min(m.HH-.5,o.y)*k,k*.4,0,7);c.fill();});
+    openSheet('ghMapSheet');};
+  $('ghJEv').onclick=e=>{const b=e.target.closest('[data-jev]');if(!b)return;const J=G.s.journal,k=b.dataset.jev;J.ev[k]=J.ev[k]===1?-1:J.ev[k]===-1?0:1;G.openJournal();buzz(6);};
+  $('ghJTypes').onclick=e=>{const b=e.target.closest('[data-jt]');if(!b)return;G.s.journal.guess=+b.dataset.jt;G.openJournal();sfx('tap');};
+  window.addEventListener('resize',()=>{if(SCREEN==='ghost'&&G.s)G.size();});
+  ['ghUse','ghFl','ghTool','ghJBtn','ghVan','ghQuit','ghMenu','ghMapBtn'].forEach(id=>$(id).addEventListener('pointerdown',e=>e.stopPropagation()));
+})();
 /* =========================================================
    STONE PAPER SCISSORS — arena edition
    ========================================================= */
@@ -3349,7 +3960,7 @@ const RPS={
 };
 document.querySelectorAll('#rpick button').forEach(b=>b.onclick=()=>RPS.pick(+b.dataset.pick));
 
-const MODS={ttt:TTT,rps:RPS,tanks:TANKS,draw:DRAW};
+const MODS={ttt:TTT,rps:RPS,tanks:TANKS,draw:DRAW,ghost:GHOST};
 
 /* =========================================================
    ROOM CHAT — every player keeps their last 25 messages as a
