@@ -790,6 +790,54 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
 #convAct{display:flex;justify-content:center;padding:8px 0 0}#convAct:empty{display:none}
 .sbadge{min-width:22px;height:22px;border-radius:11px;background:var(--red);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 6px;flex:none}
 #pkList label.cell{gap:10px}#pkList input[type=checkbox]{width:22px;height:22px;accent-color:var(--blue)}
+
+.cemo{border:none;background:var(--fill);width:40px;height:40px;border-radius:50%;font-size:22px;flex:none;display:flex;align-items:center;justify-content:center}
+.emopanel{display:none;flex:none;margin:6px 12px 0;background:var(--card);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;flex-direction:column;max-height:42vh}
+.emopanel.open{display:flex}.emopanel .seg{margin:8px;width:auto}
+.emobody{overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 8px 10px}
+.ecats{display:flex;gap:4px;position:sticky;top:0;background:var(--card);padding-bottom:4px}.ecats button{flex:1;border:none;background:none;font-size:20px;padding:4px;border-radius:10px;opacity:.55}.ecats button.on{background:var(--fill);opacity:1}
+.egrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr))}.egrid button{border:none;background:none;font-size:27px;padding:4px 0;border-radius:10px}.egrid button:active{background:var(--fill);transform:scale(1.2)}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:6px}.sgrid button{border:none;background:var(--fill);border-radius:14px;padding:8px 2px 4px;display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--label2)}
+.sgrid small{font-size:10px}
+.gsearch{display:flex;gap:6px}.gsearch input{flex:1;min-width:0;border:1px solid var(--sep);border-radius:12px;padding:9px 11px;font-size:16px;background:var(--bg);color:var(--label)}.gsearch button{border:none;border-radius:12px;background:var(--blue);color:#fff;font-weight:700;padding:0 14px}
+.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:8px}.ggrid button{border:none;padding:0;background:var(--fill);border-radius:8px;overflow:hidden;aspect-ratio:1}.ggrid img{width:100%;height:100%;object-fit:cover;display:block}
+.gfoot{font-size:12px;color:var(--label2);text-align:center;padding:10px 6px;line-height:1.45}
+.cbub.rich{background:none!important;box-shadow:none!important;padding:0!important}
+.cbub.gif img,.cgif{display:block;max-width:220px;max-height:220px;border-radius:14px;min-width:90px;min-height:60px;background:var(--fill)}
+.bigemo{font-size:44px;line-height:1.15}
+.stk{position:relative;display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;font-size:34px;line-height:1}
+.stk.big{width:100px;height:100px;font-size:72px}.stk .se{display:inline-block}.stk .sx2{position:absolute;right:-4px;top:-2px;font-size:.45em;animation:sxf 1.6s ease-in-out infinite}
+@keyframes sxf{0%,100%{transform:translateY(0) scale(1);opacity:1}50%{transform:translateY(-8px) scale(1.2);opacity:.6}}
+.a-bounce .se{animation:abounce .9s cubic-bezier(.3,1.6,.5,1) infinite}@keyframes abounce{0%,100%{transform:translateY(0) scaleY(1)}40%{transform:translateY(-22%) scaleY(1.05)}80%{transform:translateY(0) scaleY(.9)}}
+.a-roll .se{animation:aroll 1.4s ease-in-out infinite}@keyframes aroll{0%{transform:rotate(0)}50%{transform:rotate(-25deg) translateX(-8%)}100%{transform:rotate(360deg)}}
+.a-pulse .se{animation:apulse 1s ease-in-out infinite}@keyframes apulse{50%{transform:scale(1.18)}}
+.a-beat .se{animation:abeat 1s infinite}@keyframes abeat{0%,40%,100%{transform:scale(1)}20%,60%{transform:scale(1.25)}}
+.a-flicker .se{animation:aflick .5s ease-in-out infinite alternate;transform-origin:50% 100%}@keyframes aflick{from{transform:scale(1,1) skewX(-4deg)}to{transform:scale(1.08,1.18) skewX(5deg)}}
+.a-shake .se{animation:ashake .5s ease-in-out infinite}@keyframes ashake{0%,100%{transform:rotate(0)}25%{transform:rotate(-18deg)}75%{transform:rotate(18deg)}}
+.a-party .se{animation:aparty 1.2s ease-in-out infinite}@keyframes aparty{0%,100%{transform:rotate(-12deg) scale(1)}50%{transform:rotate(12deg) scale(1.15)}}
+.a-slide .se{animation:aslide 1.6s ease-in-out infinite}@keyframes aslide{0%,100%{transform:translateX(-10%)}50%{transform:translateX(10%)}}
+.a-wobble .se{animation:awob 1.1s ease-in-out infinite}@keyframes awob{0%,100%{transform:translateX(0) rotate(0)}25%{transform:translateX(-8%) rotate(-8deg)}75%{transform:translateX(8%) rotate(8deg)}}
+.a-rage .se{animation:arage .25s linear infinite}@keyframes arage{0%,100%{transform:translate(0,0)}25%{transform:translate(-3px,2px)}50%{transform:translate(3px,-2px)}75%{transform:translate(-2px,-3px)}}
+.a-zoom .se{animation:azoom 1s cubic-bezier(.3,1.6,.5,1) infinite}@keyframes azoom{0%{transform:scale(.6)}50%,100%{transform:scale(1.1)}}
+.a-tilt .se{animation:atilt 2s ease-in-out infinite}@keyframes atilt{0%,100%{transform:rotate(0)}50%{transform:rotate(-15deg)}}
+.a-float .se{animation:afloat 2s ease-in-out infinite}@keyframes afloat{0%,100%{transform:translateY(4%)}50%{transform:translateY(-12%)}}
+.a-spin .se{animation:aspin 1.6s linear infinite}@keyframes aspin{to{transform:rotate(360deg)}}
+.a-ghost .se{animation:aghost 2s ease-in-out infinite}@keyframes aghost{0%,100%{transform:translate(0,0);opacity:1}50%{transform:translate(8%,-12%);opacity:.45}}
+.a-wave .se{animation:awave 1s ease-in-out infinite;transform-origin:70% 80%}@keyframes awave{0%,100%{transform:rotate(0)}25%{transform:rotate(22deg)}75%{transform:rotate(-12deg)}}
+.a-pop .se{animation:apop 1.2s cubic-bezier(.3,1.8,.5,1) infinite}@keyframes apop{0%{transform:scale(.4)}30%,100%{transform:scale(1)}}
+.a-launch .se{animation:alaunch 1.4s ease-in infinite}@keyframes alaunch{0%{transform:translate(-20%,20%);opacity:0}20%{opacity:1}80%{transform:translate(20%,-25%);opacity:1}100%{transform:translate(35%,-45%);opacity:0}}
+.a-dance .se{animation:adance .8s ease-in-out infinite}@keyframes adance{0%,100%{transform:rotate(-10deg) translateX(-6%)}50%{transform:rotate(10deg) translateX(6%)}}
+.a-pump .se{animation:apump .7s ease-in-out infinite}@keyframes apump{50%{transform:scale(1.2) rotate(-8deg)}}
+.savbtn{position:relative;border:none;background:none;padding:0}.savedit{position:absolute;right:-4px;top:-4px;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;font-size:11px;display:flex;align-items:center;justify-content:center}
+.semo{font-size:1.25em;line-height:1}.sav .semo{font-size:24px}.sav.big .semo{font-size:32px}
+.savpick{display:grid;grid-template-columns:repeat(auto-fill,minmax(42px,1fr));gap:4px;margin:0 16px 10px;padding:8px;background:var(--card);border-radius:16px}
+.savpick button{border:none;background:var(--fill);border-radius:12px;font-size:22px;padding:6px 0;color:var(--label);font-weight:800}.savpick button.on{outline:2px solid var(--blue)}
+.sbioin{display:block;width:calc(100% - 32px);margin:0 16px 10px;border:none;background:var(--card);border-radius:14px;padding:11px 14px;font-size:15px;color:var(--label);box-shadow:var(--shadow)}
+.sbio{display:block;font-size:12px;color:var(--label3);font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.slink{border:none;background:none;color:var(--blue);font-size:13px;font-weight:600;padding:0 4px}
+.ssub.unr{color:var(--label);font-weight:700}
+.schips{display:flex;gap:10px;overflow-x:auto;padding:4px 16px 8px}.schips button{border:none;background:none;display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--label);font-size:12px;flex:none;width:64px}
+.schips button span{max-width:64px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -837,7 +885,7 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
 <nav class="nav" id="nav">
   <div><button class="navbtn hidden" id="navBack"><svg class="i"><use href="#i-back"/></svg><span id="navBackTxt">Back</span></button></div>
   <div class="nav-title" id="navTitle">Games</div>
-  <div class="r"><button class="navbtn" id="navFriends" aria-label="Friends" style="position:relative"><svg class="i"><use href="#i-people"/></svg><span class="cbadge hidden" id="socFabBadge" style="top:-4px;right:-6px;min-width:18px;height:18px;font-size:11px"></span></button><button class="navbtn" id="menuBtn" aria-label="Menu"><svg class="i"><use href="#i-ellipsis"/></svg></button></div>
+  <div class="r"><button class="navbtn" id="navMsgs" aria-label="Messages" style="position:relative"><svg class="i"><use href="#i-chat"/></svg><span class="cbadge hidden" id="msgFabBadge" style="top:-4px;right:-6px;min-width:18px;height:18px;font-size:11px"></span></button><button class="navbtn" id="navFriends" aria-label="Profile" style="position:relative"><svg class="i"><use href="#i-person"/></svg><span class="cbadge hidden" id="socFabBadge" style="top:-4px;right:-6px;min-width:18px;height:18px;font-size:11px"></span></button><button class="navbtn" id="menuBtn" aria-label="Menu"><svg class="i"><use href="#i-ellipsis"/></svg></button></div>
 </nav>
 
 <!-- ============ HUB ============ -->
@@ -857,7 +905,8 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
   <div class="modes">
     <button class="mode press hidden" id="installCard"><div class="tile" style="background:linear-gradient(135deg,#34c759,#0a84ff)"><svg class="i"><use href="#i-download"/></svg></div><div><b>Install as App</b><span id="installSub">Add to your home screen — opens full screen</span></div><svg class="i chev"><use href="#i-chev"/></svg></button>
     <button class="mode press hidden" id="rejoinCard"><div class="tile g4"><svg class="i"><use href="#i-refresh"/></svg></div><div><b id="rejoinTitle">Rejoin room</b><span id="rejoinSub">Continue your last online game</span></div><svg class="i chev"><use href="#i-chev"/></svg></button>
-    <button class="mode press" id="hubFriends"><div class="tile" style="background:linear-gradient(135deg,#ff375f,#af52de)"><svg class="i"><use href="#i-people"/></svg></div><div style="flex:1;min-width:0"><b>Friends &amp; Chats</b><span id="hubFriendsSub">Add friends · invite · chat</span></div><span class="sbadge hidden" id="hubFriendsBadge"></span><svg class="i chev"><use href="#i-chev"/></svg></button>
+    <button class="mode press" id="hubFriends"><div class="tile" style="background:linear-gradient(135deg,#ff375f,#af52de)"><svg class="i"><use href="#i-people"/></svg></div><div style="flex:1;min-width:0"><b>Profile &amp; Friends</b><span id="hubFriendsSub">Your name, Friend ID &amp; friends</span></div><span class="sbadge hidden" id="hubFriendsBadge"></span><svg class="i chev"><use href="#i-chev"/></svg></button>
+    <button class="mode press" id="hubMsgs"><div class="tile" style="background:linear-gradient(135deg,#0a84ff,#5ac8fa)"><svg class="i"><use href="#i-chat"/></svg></div><div style="flex:1;min-width:0"><b>Messages</b><span id="hubMsgsSub">Personal &amp; group chats</span></div><span class="sbadge hidden" id="hubMsgsBadge"></span><svg class="i chev"><use href="#i-chev"/></svg></button>
     <button class="mode press" id="hubJoin"><div class="tile g3"><svg class="i"><use href="#i-arrowin"/></svg></div><div><b>Join a Friend's Room</b><span>Got a room code? Enter it here</span></div><svg class="i chev"><use href="#i-chev"/></svg></button>
   </div>
   <div class="gf" style="text-align:center;padding-top:22px">Tap ⋯ for dark mode, sound &amp; help</div>
@@ -1263,14 +1312,15 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
       <div class="cell"><div class="ico" style="background:var(--gray)"><svg class="i"><use href="#i-globe"/></svg></div><span class="grow">Server</span><span class="kv" id="mNetSrv"></span></div>
     </div>
   </div>
-  <div class="group icons" style="margin-top:14px"><div class="cell tap" id="mFriends"><div class="ico" style="background:var(--pink)"><svg class="i"><use href="#i-people"/></svg></div><span class="grow">Friends &amp; Chats</span><span class="sbadge hidden" id="mFriendsBadge"></span><svg class="i sm chev"><use href="#i-chev"/></svg></div></div>
+  <div class="group icons" style="margin-top:14px"><div class="cell tap" id="mFriends"><div class="ico" style="background:var(--pink)"><svg class="i"><use href="#i-people"/></svg></div><span class="grow">Profile &amp; Friends</span><span class="sbadge hidden" id="mFriendsBadge"></span><svg class="i sm chev"><use href="#i-chev"/></svg></div>
+    <div class="cell tap" id="mMsgs"><div class="ico" style="background:var(--blue)"><svg class="i"><use href="#i-chat"/></svg></div><span class="grow">Messages</span><span class="sbadge hidden" id="mMsgsBadge"></span><svg class="i sm chev"><use href="#i-chev"/></svg></div></div>
   <div class="gh">Help</div>
   <div class="group icons">
     <div class="cell tap" id="mTest"><div class="ico" style="background:var(--green)"><svg class="i"><use href="#i-signal"/></svg></div><span class="grow">Connection Test</span><svg class="i sm chev"><use href="#i-chev"/></svg></div>
     <div class="cell tap hidden" id="mInstall"><div class="ico" style="background:var(--green)"><svg class="i"><use href="#i-download"/></svg></div><span class="grow">Install as App</span><svg class="i sm chev"><use href="#i-chev"/></svg></div>
     <div class="cell tap" id="mHow"><div class="ico" style="background:var(--gray)"><svg class="i"><use href="#i-info"/></svg></div><span class="grow">How to Play</span><svg class="i sm chev"><use href="#i-chev"/></svg></div>
   </div>
-  <div class="gf" style="text-align:center">Games · v12</div>
+  <div class="gf" style="text-align:center">Games · v13</div>
 </div>
 
 <div class="sheet" id="howSheet">
@@ -1344,18 +1394,26 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
 <div id="snotes"></div>
 <div class="sheet socsheet" id="socSheet">
   <div class="grabber"></div>
-  <div class="sheet-h"><b>Friends &amp; Chats</b><button class="navbtn" data-close style="font-weight:600">Done</button></div>
+  <div class="sheet-h"><b>Profile</b><button class="navbtn" data-close style="font-weight:600">Done</button></div>
   <div class="socme" id="socMe"></div>
+  <div class="savpick hidden" id="socAvPick"></div>
+  <div id="socExtra"><input id="socBio" class="sbioin" maxlength="60" placeholder="✏️ About me… (e.g. Bingo champion 🏆)" autocomplete="off"></div>
   <div class="seg" id="socStatus"><button data-ss="auto">🟢 Available</button><button data-ss="busy">⛔ Busy</button><button data-ss="away">🌙 Away</button></div>
-  <div class="seg" id="socTabs"><button data-tab="friends">Friends<em></em></button><button data-tab="chats">Chats<em></em></button><button data-tab="req">Add / Requests<em></em></button></div>
+  <div class="seg" id="socTabs"><button data-tab="friends">Friends<em></em></button><button data-tab="req">Add / Requests<em></em></button><button data-tab="set">⚙️ Settings<em></em></button></div>
   <div class="socbody" id="socBody"></div>
 </div>
+<div class="sheet socsheet" id="msgSheet">
+  <div class="grabber"></div>
+  <div class="sheet-h"><b>Messages</b><button class="navbtn" data-close style="font-weight:600">Done</button></div>
+  <div class="socbody" id="msgBody"></div>
+</div>
+<div class="emopanel" id="emoPanel"><div class="seg" id="emoTabs"><button data-et="emo">😀 Emoji</button><button data-et="stk">✨ Stickers</button><button data-et="gif">GIF</button></div><div id="emoBody" class="emobody"></div></div>
 <div class="sheet chatsheet" id="convSheet">
   <div class="grabber"></div>
   <div class="convhead"><button class="navbtn" id="convBack" style="font-weight:600">‹ Back</button><div class="grow"><b id="convTitle"></b><small class="ssub" id="convSub"></small></div><button class="navbtn" id="convMenu" style="font-size:22px">⋯</button><button class="navbtn" data-close style="font-weight:600">Done</button></div>
   <div id="convAct"></div>
   <div class="chatlist" id="convList"></div>
-  <form class="chatbar" id="convForm" autocomplete="off"><input id="convIn" maxlength="300" placeholder="Message…" enterkeyhint="send"><button type="submit" class="csend" aria-label="Send"><svg class="i"><use href="#i-send"/></svg></button></form>
+  <form class="chatbar" id="convForm" autocomplete="off"><button type="button" class="cemo" id="convEmo" aria-label="Emoji, stickers and GIFs">😊</button><input id="convIn" maxlength="300" placeholder="Message…" enterkeyhint="send"><button type="submit" class="csend" aria-label="Send"><svg class="i"><use href="#i-send"/></svg></button></form>
 </div>
 <div class="sheet" id="pickSheet">
   <div class="grabber"></div>
@@ -1369,7 +1427,7 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
   <div class="sheet-h"><b id="chatTitle">Chat</b><button class="navbtn" data-close style="font-weight:600">Done</button></div>
   <div class="chatlist" id="chatList"></div>
   <div class="chatquick" id="chatQuick"></div>
-  <form class="chatbar" id="chatForm" autocomplete="off"><input id="chatIn" maxlength="200" placeholder="Message your friends…" enterkeyhint="send"><button type="submit" class="csend" aria-label="Send"><svg class="i"><use href="#i-send"/></svg></button></form>
+  <form class="chatbar" id="chatForm" autocomplete="off"><button type="button" class="cemo" id="chatEmo" aria-label="Emoji, stickers and GIFs">😊</button><input id="chatIn" maxlength="200" placeholder="Message your friends…" enterkeyhint="send"><button type="submit" class="csend" aria-label="Send"><svg class="i"><use href="#i-send"/></svg></button></form>
 </div>
 
 <div class="sheet" id="ghJournal">
@@ -1488,7 +1546,7 @@ const HAPTIC_EL=(()=>{try{const l=document.createElement('label');l.setAttribute
 function buzz(p){if(!SET.haptic||!p)return;if(navigator.vibrate){try{navigator.vibrate(p);}catch(e){}return;}
   if(IS_IOS&&HAPTIC_EL){try{HAPTIC_EL.click();if(Array.isArray(p)&&p.length>2)setTimeout(()=>{try{HAPTIC_EL.click();}catch(e){}},Math.min(250,(p[0]||0)+(p[1]||0)));}catch(e){}}}
 /* "your turn" alert: sound + strong vibration + a big banner */
-function myTurnAlert(p,txt){const el=$('yturn');el.textContent=txt||(MODE==='multi'&&p?`${p.name}'s turn`:'Your turn!');
+function myTurnAlert(p,txt){if(MODE==='online'&&typeof Social!=='undefined')Social.notify('🎮 Your turn!',(GNAME[GAME]||'Game')+' — it is your move','','turn');const el=$('yturn');el.textContent=txt||(MODE==='multi'&&p?`${p.name}'s turn`:'Your turn!');
   el.style.setProperty('--pcol',p?p.color:'#0a84ff');el.classList.remove('show');void el.offsetWidth;el.classList.add('show');
   sfx('turn');buzz([60,80,60]);}
 
@@ -4111,7 +4169,7 @@ const Chat={
     const msg={id,n:String(n||'Player').slice(0,14),t:String(m.t||'').slice(0,200),ts:+m.ts||Date.now(),k:m.k};
     this.msgs.push(msg);this.msgs.sort((a,b)=>a.ts-b.ts);if(this.msgs.length>200)this.msgs.shift();
     const live=Date.now()-this.joinedAt>2500||msg.ts>this.joinedAt; // older messages are history, not new
-    if(id!==CID&&live&&!this.open){this.unread++;this.peek(msg);sfx('turn');buzz([8,40,8]);}
+    if(id!==CID&&live&&!this.open){this.unread++;this.peek(msg);if(typeof Social!=='undefined')Social.notify(msg.n+' · Room '+(Net.code||''),richMsg(msg.t).prev,'','room');sfx('turn');buzz([8,40,8]);}
     this.render();this.badge();
   },
   name(m){const p=this.player(m.id);return p?p.name:m.n;},
@@ -4124,11 +4182,11 @@ const Chat={
       const d=new Date(m.ts),tm=d.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
       const nm=this.name(m),col=this.color(m);
       return `<div class="cmsg ${me?'me':''} ${same?'same':''}">${!me&&!same?`<div class="cav" style="background:${col}">${esc((nm[0]||'?').toUpperCase())}</div>`:'<div class="cav ghost"></div>'}
-        <div class="cbody">${!me&&!same?`<div class="cname" style="color:${col}">${esc(nm)}</div>`:''}<div class="cbub">${esc(m.t)}</div><div class="ctime">${tm}</div></div></div>`;}).join('');
+        <div class="cbody">${!me&&!same?`<div class="cname" style="color:${col}">${esc(nm)}</div>`:''}${bubHTML(m.t)}<div class="ctime">${tm}</div></div></div>`;}).join('');
     if(this.open)requestAnimationFrame(()=>{box.scrollTop=box.scrollHeight;});
   },
   badge(){const b=$('chatBadge');b.textContent=this.unread>9?'9+':this.unread;b.classList.toggle('hidden',!this.unread);},
-  peek(m){const el=$('chatPeek');el.innerHTML=`<b style="color:${this.color(m)}">${esc(this.name(m))}</b> ${esc(m.t)}`;el.classList.add('show');
+  peek(m){const el=$('chatPeek');el.innerHTML=`<b style="color:${this.color(m)}">${esc(this.name(m))}</b> ${(r=>r.k==='stk'||r.k==='emo'?r.html:esc(r.prev))(richMsg(m.t))}`;el.classList.add('show');
     clearTimeout(this.pt);this.pt=setTimeout(()=>el.classList.remove('show'),3200);},
   show(){this.open=true;this.unread=0;this.badge();$('chatPeek').classList.remove('show');$('chatTitle').textContent='Chat · Room '+(Net.code||'');
     openSheet('chatSheet');$('chatFab').classList.add('hidden');this.render();},
@@ -4142,6 +4200,75 @@ $('chatForm').addEventListener('submit',e=>{e.preventDefault();const i=$('chatIn
 $('chatFab').onclick=()=>{sfx('tap');Chat.show();};
 $('chatPeek').onclick=()=>Chat.show();
 /* ---------- init ---------- */
+
+/* =========================================================
+   EMOJI · ANIMATED STICKERS · GIFs  (room chat + personal/group chat)
+   ========================================================= */
+const EMO_CATS=[
+ ['😀','😀 😃 😄 😁 😆 😅 🤣 😂 🙂 🙃 😉 😊 😇 🥰 😍 🤩 😘 😗 😚 😙 😋 😛 😜 🤪 😝 🤑 🤗 🤭 🤫 🤔 🤐 🤨 😐 😑 😶 😏 😒 🙄 😬 😮‍💨 🤥 😌 😔 😪 🤤 😴 😷 🤒 🤕 🤢 🤮 🥵 🥶 🥴 😵 🤯 🤠 🥳 🥸 😎 🤓 🧐 😕 😟 🙁 😮 😯 😲 😳 🥺 😦 😧 😨 😰 😥 😢 😭 😱 😖 😣 😞 😓 😩 😫 🥱 😤 😡 😠 🤬 😈 👿 💀 ☠️ 💩 🤡 👹 👺 👻 👽 👾 🤖 😺 😸 😹 😻 😼 😽 🙀 😿 😾 🙈 🙉 🙊'],
+ ['👍','👍 👎 👏 🙌 👐 🤲 🤝 🙏 ✌️ 🤞 🤟 🤘 👌 🤌 🤏 👈 👉 👆 👇 ☝️ ✋ 🤚 🖐️ 🖖 👋 🤙 💪 🦾 ✍️ 🤳 💅 👀 👁️ 👅 👄 🧠 🫶 💃 🕺 🙋 🙆 🙅 🤷 🤦 🙇 🧘 🏃 🚶 🧍 🛌 👶 👦 👧 🧑 👨 👩 🧓 👴 👵 👮 🕵️ 👷 🤴 👸 🧙 🧚 🧛 🧜 🧞 🧟 🦸 🦹 🎅 🤶 👰 🤵'],
+ ['❤️','❤️ 🧡 💛 💚 💙 💜 🖤 🤍 🤎 💔 ❣️ 💕 💞 💓 💗 💖 💘 💝 💟 💯 💢 💥 💫 💦 💨 🕳️ 💬 💭 💤 ✨ 🌟 ⭐ 🔥 ⚡ 🌈 ☀️ 🌙 ⛄ ❄️ 🌊 💧 ☔ 🎉 🎊 🎈 🎁 🏆 🥇 🥈 🥉 🏅 🎖️ ✅ ❌ ❓ ❗ ‼️ ⁉️ 🆗 🆒 🆕 🔝 ➕ ➖ 💲 ♻️ 🚫 ⛔ 🔞'],
+ ['🎮','🎮 🕹️ 🎲 ♟️ 🧩 🃏 🎯 🎳 🏏 ⚽ 🏀 🏈 ⚾ 🎾 🏐 🏓 🏸 🥊 🥋 ⛳ 🏹 🎣 🛹 🚴 🏊 🏄 🧗 🏋️ 🤸 🎤 🎧 🎸 🥁 🎹 🎺 🎻 🎬 📸 📱 💻 ⌚ 💡 🔦 🕯️ 📚 ✏️ 🖍️ 🎨 ✂️ 📌 🔑 🔒 💰 💎 🧲 🔫 💣 🧨 🪄 🔮 🧿 ⚔️ 🛡️ 🚀 ✈️ 🚁 🚗 🏎️ 🚓 🚑 🚒 🚌 🛺 🏍️ 🚲 ⛵ 🚢 🗺️ 🏠 🏰 🗼 🗽 🕌 🛕 ⛪ 🎡 🎢 🎪'],
+ ['🍕','🍕 🍔 🍟 🌭 🥪 🌮 🌯 🥗 🍝 🍜 🍛 🍚 🍙 🍘 🥟 🍤 🍗 🍖 🥩 🥚 🍳 🧀 🥞 🧇 🥐 🍞 🥨 🍩 🍪 🎂 🍰 🧁 🥧 🍫 🍬 🍭 🍮 🍯 🍦 🍨 🍧 🍿 🥤 🧃 ☕ 🍵 🧋 🥛 🍹 🍎 🍌 🍉 🍇 🍓 🍒 🍑 🥭 🍍 🥥 🥝 🍅 🥕 🌽 🌶️ 🥔 🧄 🧅 🥜'],
+ ['🐶','🐶 🐱 🐭 🐹 🐰 🦊 🐻 🐼 🐨 🐯 🦁 🐮 🐷 🐸 🐵 🐔 🐧 🐦 🐤 🦆 🦅 🦉 🦇 🐺 🐗 🐴 🦄 🐝 🐛 🦋 🐌 🐞 🐜 🕷️ 🐢 🐍 🦎 🐙 🦑 🦀 🐠 🐟 🐬 🐳 🦈 🐊 🐅 🐆 🦓 🦍 🐘 🦛 🦏 🐪 🦒 🦘 🐃 🐄 🐎 🐖 🐐 🐑 🐕 🐈 🐓 🦚 🦜 🦢 🌵 🌲 🌴 🌱 🌿 🍀 🍁 🍂 🌸 🌺 🌻 🌹 🌷 🌼 💐']
+];
+// animated stickers — sent as [[s:id]], drawn with CSS animation (tiny, works everywhere)
+const STK={
+ lol:{e:'😂',a:'a-bounce',l:'LOL'},rofl:{e:'🤣',a:'a-roll',l:'ROFL'},love:{e:'😍',a:'a-pulse',l:'Love it'},heart:{e:'❤️',a:'a-beat',l:'Love'},
+ fire:{e:'🔥',a:'a-flicker',l:'Fire'},clap:{e:'👏',a:'a-shake',l:'Clap'},party:{e:'🥳',a:'a-party',l:'Party',x:'🎉'},cool:{e:'😎',a:'a-slide',l:'Cool'},
+ cry:{e:'😭',a:'a-wobble',l:'Crying',x:'💧'},angry:{e:'😡',a:'a-rage',l:'Angry',x:'💢'},shock:{e:'😱',a:'a-zoom',l:'OMG'},think:{e:'🤔',a:'a-tilt',l:'Hmm'},
+ sleep:{e:'😴',a:'a-float',l:'Sleepy',x:'💤'},dead:{e:'💀',a:'a-spin',l:'Dead'},ghost:{e:'👻',a:'a-ghost',l:'Boo!'},clown:{e:'🤡',a:'a-bounce',l:'Clown'},
+ win:{e:'🏆',a:'a-party',l:'Winner',x:'✨'},gg:{e:'🤝',a:'a-shake',l:'GG'},bye:{e:'👋',a:'a-wave',l:'Bye'},hi:{e:'🙋',a:'a-wave',l:'Hi!'},
+ ok:{e:'👌',a:'a-pulse',l:'OK'},thumb:{e:'👍',a:'a-pop',l:'Like'},no:{e:'🙅',a:'a-shake',l:'No way'},pray:{e:'🙏',a:'a-pulse',l:'Please'},
+ rocket:{e:'🚀',a:'a-launch',l:'Let’s go'},boom:{e:'💥',a:'a-zoom',l:'Boom'},cake:{e:'🎂',a:'a-bounce',l:'Birthday',x:'🎈'},tea:{e:'☕',a:'a-float',l:'Chai time'},
+ dance:{e:'💃',a:'a-dance',l:'Dance'},flex:{e:'💪',a:'a-pump',l:'Strong'},monkey:{e:'🙈',a:'a-wobble',l:'Oops'},crown:{e:'👑',a:'a-float',l:'King',x:'✨'},
+ money:{e:'🤑',a:'a-bounce',l:'Rich',x:'💸'},sick:{e:'🤢',a:'a-wobble',l:'Yuck'},nerd:{e:'🤓',a:'a-tilt',l:'Nerd'},wait:{e:'⏳',a:'a-spin',l:'Wait'},
+ bomb:{e:'💣',a:'a-shake',l:'Bomb'},dice:{e:'🎲',a:'a-roll',l:'Lucky'},cat:{e:'😹',a:'a-bounce',l:'Haha'},kiss:{e:'😘',a:'a-pop',l:'Kiss',x:'💋'}
+};
+const GIPHY_KEY=''; // optional: paste a free GIPHY API key here to give everyone GIF search
+function gifKey(){return GIPHY_KEY||(SET.gifKey||'').trim()||(typeof Social!=='undefined'&&Social.sharedGifKey())||'';}
+function gifUrl(s){s=String(s||'').trim();if(!/^https:\/\/\S+$/.test(s))return '';
+  let m=s.match(/^https:\/\/(?:www\.)?giphy\.com\/(?:gifs|stickers)\/(?:[\w-]*-)?([A-Za-z0-9]{8,})\/?$/);if(m)return 'https://media.giphy.com/media/'+m[1]+'/giphy.gif';
+  if(/^https:\/\/(media\d?|i)\.giphy\.com\//.test(s)||/^https:\/\/(media|c|media1)\.tenor\.com\//.test(s))return s;
+  if(/\.(gif|webp)(\?\S*)?$/i.test(s))return s;return '';}
+function stkHTML(id,big){const s=STK[id];if(!s)return '';return `<span class="stk ${s.a} ${big?'big':''}"><span class="se">${s.e}</span>${s.x?`<span class="sx2">${s.x}</span>`:''}</span>`;}
+function richMsg(t){const s=String(t||'');let m=s.match(/^\[\[s:([a-z0-9_]+)\]\]$/);
+  if(m&&STK[m[1]])return {k:'stk',html:stkHTML(m[1],true),prev:STK[m[1]].e+' '+STK[m[1]].l};
+  const g=gifUrl(s);if(g)return {k:'gif',html:`<img class="cgif" src="${esc(g)}" alt="GIF" loading="lazy" referrerpolicy="no-referrer" onerror="this.replaceWith(document.createTextNode('🎞️ GIF could not load'))">`,prev:'🎞️ GIF'};
+  if(s.length<=24&&/\p{Extended_Pictographic}/u.test(s)&&/^[\p{Extended_Pictographic}\p{Emoji_Modifier}\p{Emoji_Component}‍️\s]+$/u.test(s)&&!/[0-9#*]/.test(s))return {k:'emo',html:`<span class="bigemo">${esc(s)}</span>`,prev:s};
+  return {k:'txt',html:esc(s),prev:s};}
+function bubHTML(t){const r=richMsg(t);return `<div class="cbub ${r.k==='txt'?'':'rich '+r.k}">${r.html}</div>`;}
+/* the picker panel: one element, moved into whichever chat is open */
+const EMO={target:null,tab:'emo',cat:0,gifs:null,
+  toggle(btn,send,input){const p=$('emoPanel');if(p.classList.contains('open')&&this.target&&this.target.input===input){this.close();return;}
+    this.target={send,input};btn.closest('form').before(p);p.classList.add('open');this.render();},
+  close(){$('emoPanel').classList.remove('open');},
+  render(){const p=$('emoPanel');document.querySelectorAll('#emoTabs button').forEach(b=>b.classList.toggle('on',b.dataset.et===this.tab));const box=$('emoBody');
+    if(this.tab==='emo'){box.innerHTML=`<div class="ecats">${EMO_CATS.map((c,i)=>`<button data-ec="${i}" class="${i===this.cat?'on':''}">${c[0]}</button>`).join('')}</div><div class="egrid">${EMO_CATS[this.cat][1].split(' ').map(e=>`<button data-e="${e}">${e}</button>`).join('')}</div>`;}
+    else if(this.tab==='stk'){box.innerHTML=`<div class="sgrid">${Object.keys(STK).map(k=>`<button data-s="${k}" title="${STK[k].l}">${stkHTML(k)}<small>${STK[k].l}</small></button>`).join('')}</div>`;}
+    else{const key=gifKey();
+      box.innerHTML=`<form class="gsearch" id="gifForm"><input id="gifQ" placeholder="${key?'Search GIFs…':'Paste a GIF link (Giphy / Tenor)'}" autocomplete="off" enterkeyhint="search"><button>${key?'Search':'Send'}</button></form><div class="ggrid" id="gifGrid"></div>`+
+        (key?'<div class="gfoot">Powered by GIPHY</div>':`<div class="gfoot">Tip: in Giphy or Tenor, tap <b>Share → Copy link</b> and paste it here.<br>Want GIF search inside the app? Add a free GIPHY key in <b>Profile → Settings</b>.</div>`);
+      if(key)this.loadGifs('');}},
+  async loadGifs(q){const key=gifKey(),grid=$('gifGrid');if(!key||!grid)return;grid.innerHTML='<div class="spinner" style="margin:16px auto"></div>';
+    try{const u=q?`https://api.giphy.com/v1/gifs/search?api_key=${encodeURIComponent(key)}&q=${encodeURIComponent(q)}&limit=24&rating=pg-13`:`https://api.giphy.com/v1/gifs/trending?api_key=${encodeURIComponent(key)}&limit=24&rating=pg-13`;
+      const r=await fetch(u);const j=await r.json();if(!r.ok)throw new Error((j&&j.meta&&j.meta.msg)||r.status);
+      const list=(j.data||[]).map(g=>({p:(g.images.fixed_height_small||g.images.fixed_height).url,u:'https://media.giphy.com/media/'+g.id+'/giphy.gif'}));
+      grid.innerHTML=list.length?list.map(g=>`<button data-g="${esc(g.u)}"><img src="${esc(g.p)}" loading="lazy" alt="GIF"></button>`).join(''):'<div class="gfoot">No GIFs found</div>';}
+    catch(e){grid.innerHTML=`<div class="gfoot">GIF search failed (${esc(e.message||'network')}). Check the GIPHY key or your internet.</div>`;}},
+  send(t){if(!this.target)return;this.target.send(t);buzz(8);}
+};
+(()=>{const p=$('emoPanel');
+  p.addEventListener('click',e=>{let b;
+    if(b=e.target.closest('[data-et]')){EMO.tab=b.dataset.et;EMO.render();return;}
+    if(b=e.target.closest('[data-ec]')){EMO.cat=+b.dataset.ec;EMO.render();return;}
+    if(b=e.target.closest('[data-e]')){const i=EMO.target&&EMO.target.input;if(i){const s=i.selectionStart??i.value.length;i.value=i.value.slice(0,s)+b.dataset.e+i.value.slice(i.selectionEnd??s);i.selectionStart=i.selectionEnd=s+b.dataset.e.length;}return;}
+    if(b=e.target.closest('[data-s]')){EMO.send('[[s:'+b.dataset.s+']]');EMO.close();return;}
+    if(b=e.target.closest('[data-g]')){EMO.send(b.dataset.g);EMO.close();return;}});
+  p.addEventListener('submit',e=>{e.preventDefault();const q=$('gifQ').value.trim();if(!q)return;
+    if(gifUrl(q)){EMO.send(q);EMO.close();return;}if(/^https?:\/\//.test(q)){toast('That link is not a GIF — use Share → Copy link in Giphy/Tenor');return;}
+    if(gifKey())EMO.loadGifs(q);else toast('Paste a GIF link, or add a GIPHY key in Profile → Settings');});
+})();
 
 /* =========================================================
    FRIENDS · INVITES · PERSONAL & GROUP CHAT · STATUS
@@ -4167,11 +4294,12 @@ const Social={
   F:store.get('friends',{}),          // id -> {name,tag,state:'friend'|'in'|'out',since}
   G:store.get('groups',{}),           // gid -> {gid,name,members:[{id,name}],t}
   GL:store.get('gleft',[]),           // groups I left
+  PR:store.get('sprof',{}),           // profiles of non-friends (group members, search results)
   M:store.get('smsgs',{}),            // conv -> [{k,id,n,t,ts}]
   R:store.get('sread',{}),            // conv -> last read time
   mine:store.get('smine',{}),         // conv -> my last 40 sent messages
   tag:store.get('ftag',null)||(()=>{const t=String(1000+Math.floor(Math.random()*9000));store.set('ftag',t);return t;})(),
-  save(){store.set('friends',this.F);store.set('groups',this.G);store.set('smsgs',this.M);store.set('sread',this.R);store.set('smine',this.mine);store.set('gleft',this.GL);},
+  save(){store.set('friends',this.F);store.set('groups',this.G);store.set('smsgs',this.M);store.set('sread',this.R);store.set('smine',this.mine);store.set('gleft',this.GL);store.set('sprof',this.PR);},
   name(){return (SET.name||'').trim();},
   myId(){return (this.name()||'Player').toUpperCase().replace(/\s+/g,'')+'#'+this.tag;},
   up(){return this.links.filter(l=>l.mq&&l.mq.open);},
@@ -4198,7 +4326,7 @@ const Social={
   subAll(f){this.up().forEach(l=>f(l.mq));},
   dot(){const n=this.up().length;const el=$('socConn');if(el){el.textContent=n?'● Online':this.sleeping?'● Paused':'● Connecting…';el.style.color=n?'var(--green)':'var(--label3)';}},
   /* ---------- my profile & status ---------- */
-  pubProfile(l){const p={id:CID,name:this.name(),tag:this.tag,t:Date.now()};const s=JSON.stringify(p);
+  pubProfile(l){const p={id:CID,name:this.name(),tag:this.tag,av:SET.avatar||'',bio:SET.bio||'',nt:SET.ntfy||'',gk:SET.gifKey||'',t:Date.now()};const s=JSON.stringify(p);
     (l?[l]:this.up()).forEach(x=>{x.mq.pub(SP+'u/'+CID+'/profile',s,true);x.mq.pub(SP+'dir/'+dirKey(p.name)+'/'+CID,s,true);});},
   onName(){const n=this.name();if(!n)return;const old=store.get('dirname','');
     if(old&&old!==dirKey(n))this.pub('dir/'+old+'/'+CID,'');store.set('dirname',dirKey(n));
@@ -4223,12 +4351,15 @@ const Social={
     if(p[0]==='u'&&p[1]===CID){if(!d)return;
       if(p[2]==='in'&&p[3])this.onIn(p[3],d);else if(p[2]==='inv'&&p[3])this.onInv(p[3],d);else if(p[2]==='grp'&&p[3])this.onGrpAdd(p[3],d);return;}
     if(p[0]==='u'&&p[2]==='st'){if(!this.F[p[1]])return;(this.st[p[1]]=this.st[p[1]]||{})[l.bi]=d;this.soon();return;}
-    if(p[0]==='u'&&p[2]==='profile'){const f=this.F[p[1]];if(f&&d&&d.name&&(f.name!==d.name||f.tag!==d.tag)){f.name=String(d.name).slice(0,14);f.tag=d.tag;this.save();this.soon();}return;}
+    if(p[0]==='u'&&p[2]==='profile'){if(!d||!d.name)return;const f=this.F[p[1]]||(this.PR[p[1]]=this.PR[p[1]]||{});
+      const nv={name:String(d.name).slice(0,14),tag:d.tag,av:String(d.av||'').slice(0,8),bio:String(d.bio||'').slice(0,60),nt:String(d.nt||'').slice(0,40),gk:String(d.gk||'').slice(0,64)};
+      if(Object.keys(nv).some(k=>f[k]!==nv[k])){Object.assign(f,nv);this.save();this.soon();}return;}
     if(p[0]==='dir'){if(this.search&&d&&d.id)this.search.add(d);return;}
     if(p[0]==='dm'&&p[2]&&d){const other=p[1].split('-').find(x=>x!==CID);if(!other||!this.F[other]||this.F[other].state!=='friend')return;this.onList('d:'+other,p[2],d);return;}
     if(p[0]==='grp'&&this.G[p[1]]){const g=this.G[p[1]];
       if(p[2]==='meta'&&d){if((d.t||0)<(g.t||0))return;if(!(d.members||[]).some(m=>m.id===CID)){delete this.G[p[1]];this.save();this.soon();return;}
-        Object.assign(g,{name:String(d.name||'Group').slice(0,30),members:d.members,t:d.t});this.save();this.soon();}
+        Object.assign(g,{name:String(d.name||'Group').slice(0,30),members:d.members,t:d.t});this.save();this.soon();
+        d.members.forEach(m=>{if(m.id!==CID&&!this.F[m.id]&&!(this.PR[m.id]&&this.PR[m.id].sub)){(this.PR[m.id]=this.PR[m.id]||{name:m.name}).sub=1;this.subAll(mq=>mq.sub(SP+'u/'+m.id+'/profile'));}});}
       else if(p[2]==='m'&&p[3]&&d)this.onList('g:'+p[1],p[3],d);}
   },
   key(from,d){const k=from+'|'+(d.k||d.type||d.kind)+'|'+d.t;if(this.seen.has(k))return false;this.seen.add(k);return true;},
@@ -4238,8 +4369,9 @@ const Social={
       if(f&&f.state==='friend')this.send(from,'acc');
       else if(f&&f.state==='out'){this.makeFriend(from,nm,d.tag);this.send(from,'acc');}
       else if(!f){this.F[from]={name:nm,tag:d.tag,state:'in',since:d.t};this.save();
+        this.notify('New friend request','👋 '+nm+' wants to be your friend','', 'fr'+from);
         this.note({id:'fr'+from,av:from,name:nm,text:`<b>${esc(nm)}</b> sent you a friend request`,btns:[['Accept',()=>this.accept(from)],['Decline',()=>this.decline(from)]]});}}
-    else if(d.type==='acc'){if(f&&f.state!=='friend'){this.makeFriend(from,nm,d.tag);this.note({av:from,name:nm,text:`🎉 <b>${esc(nm)}</b> accepted your friend request`,t:5000});}}
+    else if(d.type==='acc'){if(f&&f.state!=='friend'){this.makeFriend(from,nm,d.tag);this.note({av:from,name:nm,text:`🎉 <b>${esc(nm)}</b> accepted your friend request`,t:5000});this.notify('Friend request accepted','🎉 '+nm+' is now your friend','','acc'+from);}}
     else if(d.type==='dec'){if(f&&f.state==='out'){delete this.F[from];this.save();toast(nm+' declined your friend request');}}
     else if(d.type==='rm'){if(f){delete this.F[from];this.save();}}
     this.pub('u/'+CID+'/in/'+from,'');this.soon();},
@@ -4247,20 +4379,21 @@ const Social={
     const f=this.F[from];if(!f||f.state!=='friend'||Date.now()-(d.t||0)>15*60000)return;
     const g=GNAME[d.game]||'a game',nm=f.name;
     if(d.kind==='invite'){if(d.ok&&this.asked&&this.asked[from]){delete this.asked[from];this.joinRoom(d.code,d.game,nm);return;}
-      buzz([40,60,40]);sfx('turn');
+      buzz([40,60,40]);sfx('turn');this.notify('🎮 '+nm+' invites you','Join their '+g+' game','','inv'+from);
       this.note({id:'inv'+from,av:from,name:nm,text:`<b>${esc(nm)}</b> invites you to play <b>${esc(g)}</b>`,btns:[['Join',()=>this.joinRoom(d.code,d.game,nm)],['Not now',()=>this.send(from,'no',{},'inv')]]});}
     else if(d.kind==='ask'){const room=Net.want&&Net.code;buzz([40,60,40]);sfx('turn');
       if(!room){this.send(from,'no',{why:'left'},'inv');return;}
+      this.notify('🙋 '+nm+' wants to join','Let them into your '+(GNAME[Net.meta&&Net.meta.game]||'')+' room?','','ask'+from);
       this.note({id:'ask'+from,av:from,name:nm,text:`<b>${esc(nm)}</b> wants to join your <b>${esc(GNAME[Net.meta&&Net.meta.game]||'game')}</b> room`,btns:[['Let in',()=>this.invite(from,true)],['Decline',()=>this.send(from,'no',{},'inv')]]});}
     else if(d.kind==='no'){if(this.asked)delete this.asked[from];toast(d.why==='left'?nm+' is not in a room any more':nm+' can\'t play right now');}
   },
   send(to,type,extra={},box='in'){const d={...extra,t:Date.now(),k:rid(6),name:this.name(),tag:this.tag};if(box==='in')d.type=type;else d.kind=type;this.pub('u/'+to+'/'+box+'/'+CID,d);},
-  makeFriend(id,name,tag){this.F[id]={name:name||(this.F[id]||{}).name||'Friend',tag:tag||(this.F[id]||{}).tag,state:'friend',since:Date.now()};this.save();this.subAll(mq=>this.subFriend(mq,id));this.soon();},
+  makeFriend(id,name,tag){const o=this.F[id]||this.PR[id]||{};this.F[id]={...o,name:name||o.name||'Friend',tag:tag||o.tag,state:'friend',since:Date.now()};delete this.F[id].sub;this.save();this.subAll(mq=>this.subFriend(mq,id));this.soon();},
   /* ---------- friend actions ---------- */
   request(p){if(p.id===CID){toast("That's you 🙂");return;}const f=this.F[p.id];if(f&&f.state==='friend'){toast('Already friends');return;}
     if(f&&f.state==='in'){this.accept(p.id);return;}
     if(!this.up().length){toast('Not connected — try again in a moment');return;}
-    this.F[p.id]={name:String(p.name||'Player').slice(0,14),tag:p.tag,state:'out',since:Date.now()};this.save();this.send(p.id,'req');toast('Friend request sent to '+this.F[p.id].name);buzz(10);this.render();},
+    this.F[p.id]={name:String(p.name||'Player').slice(0,14),tag:p.tag,av:p.av||'',nt:p.nt||'',state:'out',since:Date.now()};this.save();this.send(p.id,'req');this.push(p.id,'👋 Friend request','From '+this.name()+' — open the app to accept','');toast('Friend request sent to '+this.F[p.id].name);buzz(10);this.render();},
   dropNote(id){const el=$('snotes').querySelector(`[data-nid="${id}"]`);if(el)el.remove();},
   accept(id){this.dropNote('fr'+id);const f=this.F[id];if(!f)return;this.makeFriend(id,f.name,f.tag);this.send(id,'acc');toast('You and '+f.name+' are now friends 🎉');this.render();},
   decline(id){this.dropNote('fr'+id);const f=this.F[id];if(!f)return;delete this.F[id];this.save();this.send(id,'dec');this.render();},
@@ -4269,9 +4402,9 @@ const Social={
   /* ---------- invites & join requests ---------- */
   inRoom(){return Net.want&&Net.code&&Net.meta&&!Net.meta.closed;},
   invite(id,ok){if(!this.inRoom()){toast('Create a room first');return;}const m=Net.meta;
-    this.send(id,'invite',{code:Net.code,game:m.game,ok:ok?1:0},'inv');if(!ok)toast('Invite sent to '+(this.F[id]?this.F[id].name:'friend'));sfx('tap');},
+    this.send(id,'invite',{code:Net.code,game:m.game,ok:ok?1:0},'inv');if(!ok)this.push(id,'🎮 '+this.name()+' invites you','Tap to join their '+(GNAME[m.game]||'')+' game','');if(!ok)toast('Invite sent to '+(this.F[id]?this.F[id].name:'friend'));sfx('tap');},
   askJoin(id){const d=this.friendSt(id);if(!d.r){toast('Your friend left the room');return;}(this.asked=this.asked||{})[id]=1;
-    this.send(id,'ask',{},'inv');toast('Asked '+this.F[id].name+' to let you in…',3000);sfx('tap');},
+    this.send(id,'ask',{},'inv');this.push(id,'🙋 '+this.name()+' wants to join your game','Open the app to let them in','');toast('Asked '+this.F[id].name+' to let you in…',3000);sfx('tap');},
   async joinRoom(code,game,from){if(!code)return;
     if(Net.want&&Net.code===code){closeSheets();return;}
     if(Net.want&&Net.code){if(!await ask('Leave current room?','You are in another room. Leave it and join '+(from||'your friend')+'?','Join'))return;await leaveOnline(true);}
@@ -4287,7 +4420,7 @@ const Social={
   pickFriends(title,go,cb,named,exclude){this.pick={mode:'friends',cb,named,sel:new Set()};$('pkTitle').textContent=title;$('pkGo').textContent=go;$('pkGo').classList.remove('hidden');
     $('pkName').classList.toggle('hidden',!named);$('pkName').value='';
     const fr=this.friends().filter(f=>!(exclude||[]).includes(f.id));
-    $('pkList').innerHTML=fr.length?fr.map(f=>{const s=this.stText(f.id);return `<label class="cell tap"><input type="checkbox" data-pf="${f.id}"><div class="sav" style="background:${avCol(f.id)}">${esc((f.name[0]||'?').toUpperCase())}<i class="sdot ${s.c}"></i></div><span class="grow"><b>${esc(f.name)}</b><small class="ssub">${esc(s.t)}</small></span></label>`;}).join('')
+    $('pkList').innerHTML=fr.length?fr.map(f=>{const s=this.stText(f.id);return `<label class="cell tap"><input type="checkbox" data-pf="${f.id}">${this.av(f.id,f.name,f.av,`<i class="sdot ${s.c}"></i>`)}<span class="grow"><b>${esc(f.name)}</b><small class="ssub">${esc(s.t)}</small></span></label>`;}).join('')
       :`<div class="sempty">No friends to pick yet</div>`;
     closeSheets();openSheet('pickSheet');},
   friends(){return Object.entries(this.F).filter(([,f])=>f.state==='friend').map(([id,f])=>({id,...f}))
@@ -4297,7 +4430,7 @@ const Social={
     if(!this.up().length){toast('Not connected yet — try again in a moment');return;}
     const res=new Map(),topic=SP+'dir/'+dirKey(nm)+'/+';this.search={add:d=>{if(d.id===CID||(tg&&d.tag!==tg))return;res.set(d.id,d);show();}};
     const box=$('socFound');const show=()=>{box.innerHTML=res.size?[...res.values()].map(d=>{const f=this.F[d.id];
-      return `<div class="cell"><div class="sav" style="background:${avCol(d.id)}">${esc((d.name[0]||'?').toUpperCase())}</div><span class="grow"><b>${esc(d.name)}</b><small class="ssub">${esc(String(d.name).toUpperCase().replace(/\s+/g,''))}#${esc(d.tag||'')}</small></span>${f&&f.state==='friend'?'<span class="ssub">Friend ✓</span>':f&&f.state==='out'?'<span class="ssub">Requested</span>':`<button class="sbtn" data-add='${esc(JSON.stringify({id:d.id,name:d.name,tag:d.tag}))}'>Add</button>`}</div>`;}).join(''):'<div class="sempty"><div class="spinner" style="margin:0 auto 8px"></div>Searching…</div>';};
+      return `<div class="cell">${this.av(d.id,d.name,d.av)}<span class="grow"><b>${esc(d.name)}</b><small class="ssub">${esc(String(d.name).toUpperCase().replace(/\s+/g,''))}#${esc(d.tag||'')}</small></span>${f&&f.state==='friend'?'<span class="ssub">Friend ✓</span>':f&&f.state==='out'?'<span class="ssub">Requested</span>':`<button class="sbtn" data-add='${esc(JSON.stringify({id:d.id,name:d.name,tag:d.tag,av:d.av||'',nt:d.nt||''}))}'>Add</button>`}</div>`;}).join(''):'<div class="sempty"><div class="spinner" style="margin:0 auto 8px"></div>Searching…</div>';};
     show();this.subAll(mq=>mq.sub(topic));
     setTimeout(()=>{this.subAll(mq=>mq.unsub&&mq.unsub(topic));this.search=null;if(!res.size)box.innerHTML=`<div class="sempty">Nobody called “${esc(q)}” found.<br>Check the spelling, or ask your friend to open the app once — or share your link instead.</div>`;},3500);},
   shareLink(){return location.href.split('#')[0].split('?')[0]+'?add='+CID+'&n='+encodeURIComponent(this.name())+'&tg='+this.tag;},
@@ -4310,13 +4443,15 @@ const Social={
     for(const m of d.list){if(!m||!m.k||ks.has(m.k))continue;ks.add(m.k);arr.push({k:m.k,id:from,n:String(d.n||'').slice(0,14),t:String(m.t||'').slice(0,300),ts:+m.ts||Date.now()});added++;last=arr[arr.length-1];}
     if(!added)return;arr.sort((a,b)=>a.ts-b.ts);if(arr.length>200)arr.splice(0,arr.length-200);this.save();
     if(last&&from!==CID&&this.open!==conv&&Date.now()-last.ts<120000){const nm=conv[0]==='g'?`${last.n} · ${(this.G[conv.slice(2)]||{}).name||'Group'}`:last.n;
-      this.peek(conv,last.id,nm,last.t);}
+      this.peek(conv,last.id,nm,last.t);this.notify(nm,richMsg(last.t).prev,conv);}
     if(this.open===conv)this.renderConv();this.soon();},
   sendMsg(conv,t){t=String(t||'').replace(/\s+/g,' ').trim().slice(0,300);if(!t)return;
     if(!this.up().length){toast('Not connected — message not sent');return;}
     const m={k:rid(8),t,ts:Date.now()},mine=this.mine[conv]=this.mine[conv]||[];mine.push(m);if(mine.length>40)mine.shift();
     const topic=conv[0]==='d'?'dm/'+this.pair(conv.slice(2))+'/'+CID:'grp/'+conv.slice(2)+'/m/'+CID;
-    this.pub(topic,{n:this.name(),list:mine});this.onList(conv,CID,{n:this.name(),list:[m]});sfx('tap');buzz(6);},
+    this.pub(topic,{n:this.name(),list:mine});this.onList(conv,CID,{n:this.name(),list:[m]});sfx('tap');buzz(6);
+    const pv=richMsg(t).prev;if(conv[0]==='d')this.push(conv.slice(2),'💬 '+this.name(),pv,'d:'+CID);
+    else{const g=this.G[conv.slice(2)];if(g)(g.members||[]).forEach(mm=>{if(mm.id!==CID)this.push(mm.id,'💬 '+g.name,this.name()+': '+pv,conv);});}},
   unread(conv){const r=this.R[conv]||0;return (this.M[conv]||[]).filter(m=>m.id!==CID&&m.ts>r).length;},
   convs(){const out=[];for(const id in this.F)if(this.F[id].state==='friend')out.push({conv:'d:'+id,id,name:this.F[id].name,group:false});
     for(const g in this.G)out.push({conv:'g:'+g,id:g,name:this.G[g].name,group:true});
@@ -4339,120 +4474,190 @@ const Social={
       this.sendMsg('g:'+gid,'➕ added '+ids.map(id=>this.F[id].name).join(', '));this.openConv('g:'+gid);},false,g.members.map(m=>m.id));},
   async leaveGroup(gid){const g=this.G[gid];if(!g)return;if(!await ask('Leave Group?','You will stop getting messages from “'+g.name+'”.','Leave'))return;
     this.sendMsg('g:'+gid,'🚪 left the group');g.members=g.members.filter(m=>m.id!==CID);g.t=Date.now();this.pub('grp/'+gid+'/meta',g);
-    delete this.G[gid];this.GL.push(gid);delete this.M['g:'+gid];this.save();this.subAll(mq=>mq.unsub&&mq.unsub(SP+'grp/'+gid+'/#'));closeSheets();this.show('chats');},
+    delete this.G[gid];this.GL.push(gid);delete this.M['g:'+gid];this.save();this.subAll(mq=>mq.unsub&&mq.unsub(SP+'grp/'+gid+'/#'));closeSheets();this.showMsgs();},
   onGrpAdd(gid,d){if(this.G[gid]||this.GL.includes(gid))return;this.G[gid]={gid,name:String(d.name||'Group').slice(0,30),members:[],t:0};this.save();
     this.subAll(mq=>mq.sub(SP+'grp/'+gid+'/#'));if(Date.now()-(d.t||0)<600000)this.note({av:gid,name:d.name||'G',text:`<b>${esc(d.by||'A friend')}</b> added you to the group <b>${esc(d.name||'')}</b>`,t:5000,tap:()=>this.openConv('g:'+gid)});this.soon();},
+  /* ---------- phone notifications ---------- */
+  notify(title,body,conv,tag){
+    if(document.visibilityState==='visible'&&document.hasFocus&&document.hasFocus())return; // app is on screen → in-app card instead
+    Notif.show(title,body,{conv,tag:tag||conv||'games'});},
+  // closed-app alerts through the free ntfy app: only when the friend is not in the app right now
+  push(id,title,msg,conv){const rec=this.F[id]||this.PR[id];if(!rec||!/^[a-z0-9]{10,40}$/.test(rec.nt||''))return;
+    const s=this.friendSt(id);if(!s.off&&s.s!=='away')return;
+    const k=id+conv,now=Date.now();this.pushT=this.pushT||{};if(now-(this.pushT[k]||0)<20000)return;this.pushT[k]=now;
+    const click=location.href.split('#')[0].split('?')[0]+(conv?'?open='+encodeURIComponent(conv):'');
+    try{fetch('https://ntfy.sh/',{method:'POST',body:JSON.stringify({topic:rec.nt,title,message:String(msg).slice(0,140),click,tags:['video_game'],priority:4})}).catch(()=>{});}catch(e){}},
+  sharedGifKey(){for(const id in this.F){const k=this.F[id].gk;if(k&&/^[A-Za-z0-9]{16,64}$/.test(k))return k;}return '';},
   /* ---------- UI ---------- */
-  soon(){clearTimeout(this.rt);this.rt=setTimeout(()=>{this.render();this.badges();},120);},
-  badges(){const n=this.badgeCount();['hubFriendsBadge','mFriendsBadge','socFabBadge'].forEach(id=>{const b=$(id);if(b){b.textContent=n>9?'9+':n;b.classList.toggle('hidden',!n);}});
+  soon(){clearTimeout(this.rt);this.rt=setTimeout(()=>{this.render();this.renderMsgs();this.badges();},120);},
+  reqCount(){return Object.values(this.F).filter(f=>f.state==='in').length;},
+  msgCount(){return this.convs().reduce((a,c)=>a+c.un,0);},
+  badges(){const r=this.reqCount(),m=this.msgCount();
+    const set=(ids,n)=>ids.forEach(id=>{const b=$(id);if(b){b.textContent=n>9?'9+':n;b.classList.toggle('hidden',!n);}});
+    set(['hubFriendsBadge','mFriendsBadge','socFabBadge'],r);set(['hubMsgsBadge','mMsgsBadge','msgFabBadge'],m);
     const on=this.friends().filter(f=>!this.friendSt(f.id).off).length,sub=$('hubFriendsSub');
-    if(sub)sub.textContent=!this.name()?'Add friends · invite · chat':Object.keys(this.F).length?`${on} friend${on===1?'':'s'} online${n?` · ${n} new`:''}`:'Add friends · invite · chat';},
-  show(tab){if(!this.name()){closeSheets();openSheet('socSheet');this.tab=tab||this.tab;this.render();setTimeout(()=>$('socName')&&$('socName').focus(),300);return;}
-    this.start();this.wake();if(tab)this.tab=tab;closeSheets();openSheet('socSheet');this.render();},
-  renderMe(){const n=this.name();$('socMe').innerHTML=n?`<div class="sav big" style="background:${avCol(CID)}">${esc(n[0].toUpperCase())}<i class="sdot ${this.myStatus()}"></i></div>
-      <div class="grow"><b>${esc(n)}</b><div class="sid">Friend ID: <span>${esc(this.myId())}</span></div><div class="ssub" id="socConn"></div></div>
+    if(sub)sub.textContent=!this.name()?'Your name, Friend ID & friends':Object.keys(this.F).length?`${on} friend${on===1?'':'s'} online${r?` · ${r} request${r>1?'s':''}`:''}`:'Your name, Friend ID & friends';
+    const ms=$('hubMsgsSub');if(ms)ms.textContent=m?`${m} unread message${m>1?'s':''}`:'Personal & group chats';},
+  av(id,name,emo,extra='',cls=''){return `<div class="sav ${cls}" style="background:${avCol(id)}">${emo?`<span class="semo">${esc(emo)}</span>`:esc((String(name||'?')[0]||'?').toUpperCase())}${extra}</div>`;},
+  fav(id){const f=this.F[id]||this.PR[id]||{};return f.av||'';},
+  show(tab){if(tab)this.tab=tab;closeSheets();openSheet('socSheet');if(this.name()){this.start();this.wake();}this.render();
+    if(!this.name())setTimeout(()=>$('socName')&&$('socName').focus(),300);},
+  showMsgs(){if(!this.name()){this.show();toast('Choose your name first');return;}this.start();this.wake();closeSheets();openSheet('msgSheet');this.renderMsgs();},
+  renderMe(){const n=this.name(),st=this.myStatus();
+    $('socMe').innerHTML=n?`<button class="savbtn" id="socAvBtn" aria-label="Change picture">${this.av(CID,n,SET.avatar,`<i class="sdot ${st}"></i>`,'big')}<span class="savedit">✎</span></button>
+      <div class="grow"><b id="socNameShow">${esc(n)}</b> <button class="slink" id="socRename">Edit</button><div class="sid">Friend ID: <span>${esc(this.myId())}</span></div><div class="ssub" id="socConn"></div></div>
       <button class="sbtn" id="socShare"><svg class="i sm"><use href="#i-share"/></svg>Share</button>`
-    :`<div class="grow"><b>Choose your name</b><div class="ssub">Friends find you by this name</div><input id="socName" maxlength="14" placeholder="Your name" autocomplete="off"></div><button class="sbtn" id="socNameGo">Save</button>`;
-    $('socStatus').classList.toggle('hidden',!n);document.querySelectorAll('#socStatus button').forEach(b=>b.classList.toggle('on',b.dataset.ss===(SET.sstatus||'auto')));
-    this.dot();},
-  render(){if(!$('socSheet').classList.contains('open')&&!$('pickSheet').classList.contains('open'))return;this.renderMe();
+    :`<div class="grow"><b>Choose your name</b><div class="ssub">Friends find you by this name</div><input id="socName" maxlength="14" placeholder="Your name" autocomplete="off"></div><button class="sbtn tint" id="socNameGo">Save</button>`;
+    $('socAvPick').innerHTML=['', '😎','🤠','🥷','🦸','🧙','👑','🐯','🦁','🐼','🐸','🦊','🐶','🐱','🦄','🐲','👻','🤖','👽','⚡','🔥','🌟','🎮','⚽','🏏','🎸','🍕','🌸','💎'].map(e=>`<button data-av="${e}" class="${(SET.avatar||'')===e?'on':''}">${e||'Aa'}</button>`).join('');
+    $('socBio').value=SET.bio||'';$('socExtra').classList.toggle('hidden',!n);
+    document.querySelectorAll('#socStatus button').forEach(b=>b.classList.toggle('on',b.dataset.ss===(SET.sstatus||'auto')));this.dot();},
+  render(){if(!$('socSheet').classList.contains('open'))return;this.renderMe();if(!this.name()){$('socBody').innerHTML='';return;}
     const reqIn=Object.entries(this.F).filter(([,f])=>f.state==='in'),reqOut=Object.entries(this.F).filter(([,f])=>f.state==='out');
-    const unread=this.convs().reduce((a,c)=>a+c.un,0);
-    document.querySelectorAll('#socTabs button').forEach(b=>{b.classList.toggle('on',b.dataset.tab===this.tab);const n=b.dataset.tab==='req'?reqIn.length:b.dataset.tab==='chats'?unread:0;b.querySelector('em').textContent=n?n:'';});
+    document.querySelectorAll('#socTabs button').forEach(b=>{b.classList.toggle('on',b.dataset.tab===this.tab);b.querySelector('em').textContent=b.dataset.tab==='req'&&reqIn.length?reqIn.length:'';});
     const body=$('socBody'),inRoom=this.inRoom();
     if(this.tab==='friends'){const fr=this.friends();
       body.innerHTML=(inRoom?`<div class="snotice">🎮 You are in room <b>${esc(Net.code)}</b> — tap <b>Invite</b> to bring friends in.</div>`:'')+
-        (fr.length?`<div class="group">${fr.map(f=>{const s=this.stText(f.id),un=this.unread('d:'+f.id),same=s.room&&s.room.r===Net.code&&inRoom;
+        (fr.length?`<div class="group">${fr.map(f=>{const s=this.stText(f.id),same=s.room&&s.room.r===Net.code&&inRoom;
           let act='';if(same)act='<span class="ssub">In your room</span>';
           else if(s.room&&!s.off)act=`<button class="sbtn tint" data-askjoin="${f.id}">Ask to join</button>`;
-          else if(inRoom&&!s.off)act=`<button class="sbtn tint" data-invite="${f.id}">Invite</button>`;
+          else if(inRoom)act=`<button class="sbtn ${s.off?'ghost':'tint'}" data-invite="${f.id}">Invite</button>`;
           else if(!s.off)act=`<button class="sbtn tint" data-play="${f.id}">Play</button>`;
-          else if(inRoom)act=`<button class="sbtn ghost" data-invite="${f.id}">Invite</button>`;
-          return `<div class="cell srow"><div class="sav" style="background:${avCol(f.id)}">${esc((f.name[0]||'?').toUpperCase())}<i class="sdot ${s.c}"></i></div>
-            <span class="grow" data-fmenu="${f.id}"><b>${esc(f.name)}</b><small class="ssub ${s.c}">${esc(s.t)}</small></span>${act}
-            <button class="sicon" data-chat="${f.id}" aria-label="Chat"><svg class="i"><use href="#i-chat"/></svg>${un?`<span class="cbadge">${un}</span>`:''}</button></div>`;}).join('')}</div>
-            <div class="gf">Tap a name for more options. Status: <span class="sdot available inl"></span> available · <span class="sdot play inl"></span> in a game · <span class="sdot away inl"></span> away · <span class="sdot off inl"></span> offline</div>`
+          return `<div class="cell srow">${this.av(f.id,f.name,f.av,`<i class="sdot ${s.c}"></i>`)}
+            <span class="grow" data-fmenu="${f.id}"><b>${esc(f.name)}</b><small class="ssub ${s.c}">${esc(s.t)}</small>${f.bio?`<small class="sbio">“${esc(f.bio)}”</small>`:''}</span>${act}
+            <button class="sicon" data-chat="${f.id}" aria-label="Message"><svg class="i"><use href="#i-chat"/></svg></button></div>`;}).join('')}</div>
+            <div class="gf">Tap a name for more. <span class="sdot available inl"></span> available · <span class="sdot play inl"></span> in a game · <span class="sdot away inl"></span> away · <span class="sdot busy inl"></span> busy · <span class="sdot off inl"></span> offline</div>`
         :`<div class="sempty"><div style="font-size:46px">👋</div><b>No friends yet</b><br>Search for your friends by name, or share your Friend ID so they can add you.<br><br><button class="bigbtn" data-tabgo="req" style="margin:0 auto">Add Friends</button></div>`);}
-    else if(this.tab==='chats'){const cs=this.convs();
-      body.innerHTML=`<button class="mode press" id="socNewGroup" style="margin:0 0 12px"><div class="tile" style="background:linear-gradient(135deg,#34c759,#00b8c4)"><svg class="i"><use href="#i-people"/></svg></div><div><b>New Group Chat</b><span>Chat with several friends at once</span></div><svg class="i chev"><use href="#i-chev"/></svg></button>`+
-        (cs.length?`<div class="group">${cs.map(c=>{const l=c.last,s=c.group?null:this.stText(c.id);
-          return `<div class="cell tap srow" data-conv="${c.conv}"><div class="sav ${c.group?'grp':''}" style="background:${avCol(c.id)}">${c.group?'👥':esc((c.name[0]||'?').toUpperCase())}${s?`<i class="sdot ${s.c}"></i>`:''}</div>
-            <span class="grow"><b>${esc(c.name)}</b><small class="ssub">${l?esc((l.id===CID?'You: ':c.group?l.n+': ':'')+l.t):'No messages yet'}</small></span>
-            <span class="stime">${l?esc(ago(l.ts)):''}${c.un?`<span class="cbadge inl">${c.un}</span>`:''}</span></div>`;}).join('')}</div>`
-        :`<div class="sempty">No chats yet — tap 💬 next to a friend to start one.</div>`);}
-    else{body.innerHTML=`<div class="gh" style="padding-top:4px">Add a Friend</div><form class="chatbar sfind" id="socFind" autocomplete="off"><input id="socQ" maxlength="24" placeholder="Name or Friend ID (AMIT#1234)" autocapitalize="off" enterkeyhint="search"><button type="submit" class="csend" aria-label="Search"><svg class="i"><use href="#i-arrowin"/></svg></button></form>
+    else if(this.tab==='req'){body.innerHTML=`<div class="gh" style="padding-top:4px">Add a Friend</div><form class="chatbar sfind" id="socFind" autocomplete="off"><input id="socQ" maxlength="24" placeholder="Name or Friend ID (AMIT#1234)" autocapitalize="off" enterkeyhint="search"><button type="submit" class="csend" aria-label="Search"><svg class="i"><use href="#i-arrowin"/></svg></button></form>
         <div class="group" id="socFound" style="margin-top:10px"></div>
         <div class="gf">Or send your link — friends who open it can add you in one tap. <a href="#" id="socShare2">Share my link</a></div>`+
-        (reqIn.length?`<div class="gh">Friend Requests</div><div class="group">${reqIn.map(([id,f])=>`<div class="cell"><div class="sav" style="background:${avCol(id)}">${esc((f.name[0]||'?').toUpperCase())}</div><span class="grow"><b>${esc(f.name)}</b><small class="ssub">wants to be your friend</small></span><button class="sbtn tint" data-acc="${id}">Accept</button><button class="sbtn ghost" data-dec="${id}">✕</button></div>`).join('')}</div>`:'')+
-        (reqOut.length?`<div class="gh">Sent Requests</div><div class="group">${reqOut.map(([id,f])=>`<div class="cell"><div class="sav" style="background:${avCol(id)}">${esc((f.name[0]||'?').toUpperCase())}</div><span class="grow"><b>${esc(f.name)}</b><small class="ssub">waiting for them to accept</small></span><button class="sbtn ghost" data-cancel="${id}">Cancel</button></div>`).join('')}</div>`:'');
-      if(this.lastQ){$('socQ').value=this.lastQ;}}
+        (reqIn.length?`<div class="gh">Friend Requests</div><div class="group">${reqIn.map(([id,f])=>`<div class="cell">${this.av(id,f.name,f.av)}<span class="grow"><b>${esc(f.name)}</b><small class="ssub">wants to be your friend</small></span><button class="sbtn tint" data-acc="${id}">Accept</button><button class="sbtn ghost" data-dec="${id}">✕</button></div>`).join('')}</div>`:'')+
+        (reqOut.length?`<div class="gh">Sent Requests</div><div class="group">${reqOut.map(([id,f])=>`<div class="cell">${this.av(id,f.name,f.av)}<span class="grow"><b>${esc(f.name)}</b><small class="ssub">waiting for them to accept</small></span><button class="sbtn ghost" data-cancel="${id}">Cancel</button></div>`).join('')}</div>`:'');
+      if(this.lastQ)$('socQ').value=this.lastQ;}
+    else{const np=Notif.state(),nt=SET.ntfy||'';
+      body.innerHTML=`<div class="gh" style="padding-top:4px">🔔 Phone Notifications</div><div class="group icons">
+          <div class="cell"><div class="ico" style="background:var(--red)">🔔</div><span class="grow">Messages, invites &amp; your turn<small class="ssub">${esc(np.t)}</small></span>${np.btn?`<button class="sbtn tint" id="notifOn">${np.btn}</button>`:`<input type="checkbox" class="switch" id="notifSw" ${SET.notif!==false?'checked':''}>`}</div>
+          ${np.ok?`<div class="cell tap" id="notifTest"><span class="grow" style="color:var(--blue)">Send a test notification</span></div>`:''}</div>
+        <div class="gf">${IS_IOS?'iPhone: notifications work only in the installed app (Share → Add to Home Screen, iOS 16.4 or newer).':'Works while the app is open or in the background for a few minutes.'}</div>
+        <div class="gh">📲 Alerts when the app is closed</div><div class="group">
+          ${nt?`<div class="cell"><span class="grow">Your alert channel<small class="ssub" style="user-select:all">${esc(nt)}</small></span><button class="sbtn" id="ntfyCopy">Copy</button></div>
+            <a class="cell tap" href="https://ntfy.sh/${esc(nt)}" target="_blank" rel="noopener"><span class="grow" style="color:var(--blue)">Open channel / subscribe in browser</span><svg class="i sm chev"><use href="#i-chev"/></svg></a>
+            <div class="cell tap" id="ntfyTest"><span class="grow" style="color:var(--blue)">Send a test alert</span></div>
+            <div class="cell tap" id="ntfyOff"><span class="grow" style="color:var(--red)">Turn off closed-app alerts</span></div>`
+          :`<div class="cell tap" id="ntfyOn"><span class="grow"><b style="color:var(--blue)">Set up closed-app alerts</b><small class="ssub">Uses the free “ntfy” app — no account needed</small></span><svg class="i sm chev"><use href="#i-chev"/></svg></div>`}</div>
+        <div class="gf">${nt?'<b>Steps:</b> 1) Install the free <b>ntfy</b> app (Play Store / App Store). 2) Tap <b>+</b>, server <b>ntfy.sh</b>, paste the channel above. Done — friends\' messages and invites now ring your phone even when this app is closed.':'When a friend messages or invites you while this app is closed, a notification arrives through the ntfy app.'} Keep your channel name private.</div>
+        <div class="gh">🎞️ GIF search</div><div class="group"><div class="cell"><span class="grow">GIPHY key<small class="ssub">${GIPHY_KEY?'Built in ✓':SET.gifKey?'Saved ✓ — shared with your friends':this.sharedGifKey()?'Using a friend’s key ✓':'Optional — get a free key at developers.giphy.com'}</small></span></div>
+          <div class="cell"><input id="gifKeyIn" placeholder="Paste GIPHY API key" value="${esc(SET.gifKey||'')}" autocomplete="off" style="flex:1;min-width:0;border:1px solid var(--sep);border-radius:10px;padding:9px;background:var(--bg);color:var(--label);font-size:15px"><button class="sbtn tint" id="gifKeySave">Save</button></div></div>
+        <div class="gf">Without a key you can still send GIFs by pasting a Giphy/Tenor link, plus 40 animated stickers and all emoji.</div>`;}
   },
+  renderMsgs(){if(!$('msgSheet').classList.contains('open'))return;const cs=this.convs(),box=$('msgBody');
+    box.innerHTML=`<button class="mode press" id="msgNewGroup" style="margin:0 16px 12px;width:calc(100% - 32px)"><div class="tile" style="background:linear-gradient(135deg,#34c759,#00b8c4)"><svg class="i"><use href="#i-people"/></svg></div><div><b>New Group Chat</b><span>Chat with several friends at once</span></div><svg class="i chev"><use href="#i-chev"/></svg></button>`+
+      (cs.length?`<div class="group">${cs.map(c=>{const l=c.last,s=c.group?null:this.stText(c.id);
+        return `<div class="cell tap srow" data-conv="${c.conv}">${c.group?this.av(c.id,'',  '👥','', 'grp'):this.av(c.id,c.name,this.fav(c.id),`<i class="sdot ${s.c}"></i>`)}
+          <span class="grow"><b>${esc(c.name)}</b><small class="ssub ${c.un?'unr':''}">${l?esc((l.id===CID?'You: ':c.group?l.n+': ':'')+richMsg(l.t).prev):'No messages yet'}</small></span>
+          <span class="stime">${l?esc(ago(l.ts)):''}${c.un?`<span class="cbadge inl">${c.un}</span>`:''}</span></div>`;}).join('')}</div>`
+      :`<div class="sempty"><div style="font-size:46px">💬</div><b>No messages yet</b><br>${this.friends().length?'Open a friend below to start chatting.':'Add friends in your Profile first.'}</div>`)+
+      (this.friends().length?`<div class="gh">Start a chat</div><div class="schips">${this.friends().map(f=>`<button data-chat="${f.id}">${this.av(f.id,f.name,f.av,`<i class="sdot ${this.stText(f.id).c}"></i>`)}<span>${esc(f.name)}</span></button>`).join('')}</div>`:'');},
   renderConv(){const conv=this.open;if(!conv)return;const grp=conv[0]==='g',id=conv.slice(2);
     if(grp){const g=this.G[id]||{name:'Group',members:[]};$('convTitle').textContent=g.name;$('convSub').textContent=g.members.length?g.members.map(m=>m.id===CID?'You':m.name).join(', '):'Loading members…';}
     else{const f=this.F[id]||{name:'Friend'};$('convTitle').textContent=f.name;const s=this.stText(id);$('convSub').innerHTML=`<i class="sdot inl ${s.c}"></i> ${esc(s.t)}`;}
     $('convMenu').classList.toggle('hidden',!grp);
     const s=grp?null:this.stText(id);$('convAct').innerHTML=grp?'':(s.room&&!s.off&&!(this.inRoom()&&s.room.r===Net.code)?`<button class="sbtn tint" data-askjoin="${id}">🎮 Ask to join their game</button>`:this.inRoom()?`<button class="sbtn tint" data-invite="${id}">🎮 Invite to my room</button>`:!s.off?`<button class="sbtn tint" data-play="${id}">🎮 Play together</button>`:'');
     const box=$('convList'),a=this.M[conv]||[];
-    if(!a.length)box.innerHTML=`<div class="chatempty"><div style="font-size:44px">💬</div><b>Say hi!</b><span>${grp?'Messages go to everyone in this group.':'Only you two can see this chat.'}</span></div>`;
-    else{let prev=null;box.innerHTML=a.map(m=>{const me=m.id===CID,same=prev&&prev.id===m.id&&m.ts-prev.ts<120000;prev=m;const tm=new Date(m.ts).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}),col=avCol(m.id);
-      return `<div class="cmsg ${me?'me':''} ${same?'same':''}">${!me&&!same?`<div class="cav" style="background:${col}">${esc((m.n[0]||'?').toUpperCase())}</div>`:'<div class="cav ghost"></div>'}
-        <div class="cbody">${!me&&!same&&grp?`<div class="cname" style="color:${col}">${esc(m.n)}</div>`:''}<div class="cbub">${esc(m.t)}</div><div class="ctime">${tm}</div></div></div>`;}).join('');}
-    requestAnimationFrame(()=>{box.scrollTop=box.scrollHeight;});this.R[conv]=Date.now();this.save();},
-  peek(conv,id,name,text){const el=$('chatPeek');el.innerHTML=`<b style="color:${avCol(id)}">${esc(name)}</b> ${esc(text)}`;el.classList.add('show');el.onclick=()=>{el.classList.remove('show');this.openConv(conv);};
+    if(!a.length)box.innerHTML=`<div class="chatempty"><div style="font-size:44px">💬</div><b>Say hi!</b><span>${grp?'Messages go to everyone in this group.':'Only you two can see this chat.'} Tap 😊 for emoji, stickers &amp; GIFs.</span></div>`;
+    else{let prev=null;box.innerHTML=a.map(m=>{const me=m.id===CID,same=prev&&prev.id===m.id&&m.ts-prev.ts<120000;prev=m;const tm=new Date(m.ts).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}),col=avCol(m.id),fa=this.fav(m.id);
+      return `<div class="cmsg ${me?'me':''} ${same?'same':''}">${!me&&!same?`<div class="cav" style="background:${col}">${fa?esc(fa):esc((m.n[0]||'?').toUpperCase())}</div>`:'<div class="cav ghost"></div>'}
+        <div class="cbody">${!me&&!same&&grp?`<div class="cname" style="color:${col}">${esc(m.n)}</div>`:''}${bubHTML(m.t)}<div class="ctime">${tm}</div></div></div>`;}).join('');}
+    requestAnimationFrame(()=>{box.scrollTop=box.scrollHeight;});setTimeout(()=>{box.scrollTop=box.scrollHeight;},400);this.R[conv]=Date.now();this.save();},
+  peek(conv,id,name,text){const el=$('chatPeek'),r=richMsg(text);el.innerHTML=`<b style="color:${avCol(id)}">${esc(name)}</b> ${r.k==='stk'||r.k==='emo'?r.html:esc(r.prev)}`;el.classList.add('show');el.onclick=()=>{el.classList.remove('show');this.openConv(conv);};
     clearTimeout(this.pt);this.pt=setTimeout(()=>{el.classList.remove('show');el.onclick=()=>Chat.show();},3500);sfx('turn');buzz([8,40,8]);},
   /* in-app notification cards (friend requests, invites, join requests) */
   note(n){const box=$('snotes');if(n.id){const old=box.querySelector(`[data-nid="${n.id}"]`);if(old)old.remove();}
     const el=document.createElement('div');el.className='snote';if(n.id)el.dataset.nid=n.id;
-    el.innerHTML=`<div class="sav" style="background:${avCol(n.av||'x')}">${esc((String(n.name||'?')[0]||'?').toUpperCase())}</div><div class="grow"><div>${n.text}</div>${n.btns?`<div class="sbtns">${n.btns.map((b,i)=>`<button class="sbtn ${i?'ghost':'tint'}" data-i="${i}">${esc(b[0])}</button>`).join('')}</div>`:''}</div><button class="sx" aria-label="Close">✕</button>`;
+    el.innerHTML=`${this.av(n.av||'x',n.name,n.emo||this.fav(n.av))}<div class="grow"><div>${n.text}</div>${n.btns?`<div class="sbtns">${n.btns.map((b,i)=>`<button class="sbtn ${i?'ghost':'tint'}" data-i="${i}">${esc(b[0])}</button>`).join('')}</div>`:''}</div><button class="sx" aria-label="Close">✕</button>`;
     const kill=()=>{el.classList.remove('show');setTimeout(()=>el.remove(),300);};
     el.onclick=e=>{const b=e.target.closest('[data-i]');if(b){kill();n.btns[+b.dataset.i][1]();return;}if(e.target.closest('.sx')){kill();return;}if(n.tap){kill();n.tap();}};
     box.prepend(el);while(box.children.length>3)box.lastChild.remove();requestAnimationFrame(()=>el.classList.add('show'));
     setTimeout(kill,n.t||(n.btns?45000:5000));this.badges();}
 };
+/* ---------- system notifications (Android Chrome, desktop, installed iPhone app) ---------- */
+const Notif={
+  sup(){return 'Notification' in window;},
+  ok(){return this.sup()&&Notification.permission==='granted'&&SET.notif!==false;},
+  state(){if(!this.sup())return {t:IS_IOS?'Install the app first (Share → Add to Home Screen), then open it from the home screen':'Not supported in this browser',btn:''};
+    if(Notification.permission==='denied')return {t:'Blocked — allow notifications for this site in your browser/phone settings',btn:''};
+    if(Notification.permission!=='granted')return {t:'Off — tap Turn on',btn:'Turn on'};
+    return {t:SET.notif===false?'Paused':'On',btn:'',ok:SET.notif!==false};},
+  async enable(){if(!this.sup()){toast(IS_IOS?'On iPhone: Add to Home Screen first, then open the app from there':'This browser cannot show notifications',4000);return;}
+    try{const p=await Notification.requestPermission();if(p==='granted'){SET.notif=true;saveSet();this.show('Notifications are on 🎉','You will be told about messages, invites and your turn.',{tag:'test',force:true});}else toast('Notifications were not allowed');}catch(e){toast('Could not turn on notifications');}},
+  async show(title,body,o={}){if(!this.ok())return;
+    const opt={body:String(body||'').slice(0,160),tag:o.tag||'games',renotify:true,icon:'app-icon-192.png',badge:'app-icon-192.png',vibrate:[80,40,80],data:{conv:o.conv||'',url:location.href.split('#')[0].split('?')[0]}};
+    try{const reg=navigator.serviceWorker&&await navigator.serviceWorker.getRegistration();if(reg&&reg.showNotification){await reg.showNotification(title,opt);return;}}catch(e){}
+    try{const n=new Notification(title,opt);n.onclick=()=>{window.focus();if(o.conv)Social.openConv(o.conv);n.close();};}catch(e){}}
+};
 // MQTT unsubscribe (used by search & leaving groups)
 MQ.prototype.unsub=function(t){const id=this.pid++&0xffff||1;return this.send(mpkt(0xA2,cat(new Uint8Array([id>>8,id&255]),mstr(t))));};
 /* ---------- wiring ---------- */
 (()=>{const S=Social;
-  $('navFriends').onclick=()=>{sfx('tap');S.show();};
-  $('hubFriends').onclick=()=>{sfx('tap');S.show();};
-  $('mFriends').onclick=()=>{sfx('tap');S.show();};
+  $('navFriends').onclick=()=>{sfx('tap');S.show();};$('navMsgs').onclick=()=>{sfx('tap');S.showMsgs();};
+  $('hubFriends').onclick=()=>{sfx('tap');S.show();};$('hubMsgs').onclick=()=>{sfx('tap');S.showMsgs();};
+  $('mFriends').onclick=()=>{sfx('tap');S.show();};$('mMsgs').onclick=()=>{sfx('tap');S.showMsgs();};
   $('lobFriends').onclick=()=>{sfx('tap');if(!S.friends().length){S.show('req');return;}
     S.pickFriends('Invite Friends','Send Invites',ids=>{if(!ids.length)return false;ids.forEach(id=>S.invite(id));closeSheets();},false,(Net.meta&&Net.meta.players||[]).map(p=>p.id));};
   document.querySelectorAll('#socTabs button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.tab;S.render();buzz(6);});
   document.querySelectorAll('#socStatus button').forEach(b=>b.onclick=()=>{SET.sstatus=b.dataset.ss;saveSet();S.pubStatus(true);S.renderMe();buzz(6);});
+  $('socAvPick').onclick=e=>{const b=e.target.closest('[data-av]');if(!b)return;SET.avatar=b.dataset.av;saveSet();S.pubProfile();S.renderMe();$('socAvPick').classList.add('hidden');buzz(8);};
+  $('socBio').onchange=()=>{SET.bio=$('socBio').value.replace(/\s+/g,' ').trim().slice(0,60);saveSet();S.pubProfile();toast('About saved');};
+  const act=(t,e)=>{const g=s=>t.closest(s);let b;
+    if(b=g('[data-chat]')){S.openConv('d:'+b.dataset.chat);return true;}if(b=g('[data-conv]')){S.openConv(b.dataset.conv);return true;}
+    if(b=g('[data-invite]')){S.invite(b.dataset.invite);return true;}if(b=g('[data-askjoin]')){S.askJoin(b.dataset.askjoin);return true;}
+    if(b=g('[data-play]')){S.playWith([b.dataset.play]);return true;}return false;};
+  $('msgSheet').addEventListener('click',e=>{if(e.target.closest('#msgNewGroup')){S.newGroup();return;}act(e.target,e);});
   $('socSheet').addEventListener('click',e=>{const t=e.target,g=s=>t.closest(s);let b;
     if(g('#socShare')||g('#socShare2')){e.preventDefault();S.shareMe();return;}
+    if(g('#socAvBtn')){$('socAvPick').classList.toggle('hidden');return;}
+    if(g('#socRename')){const v=(prompt('Your name',S.name())||'').trim().slice(0,14);if(v&&v!==S.name()){SET.name=v;saveSet();['meName','onName'].forEach(id=>$(id).value=v);S.onName();S.render();}return;}
     if(g('#socNameGo')){const v=$('socName').value.trim().slice(0,14);if(!v){toast('Enter your name');return;}SET.name=v;saveSet();['meName','onName'].forEach(id=>$(id).value=v);S.onName();S.render();return;}
-    if(g('#socNewGroup')){S.newGroup();return;}
+    if(g('#notifOn')){Notif.enable().then(()=>S.render());return;}
+    if(g('#notifTest')){Notif.show('Test notification 🔔','This is how messages and invites will appear.',{tag:'test'});toast('Sent — check your notification bar');return;}
+    if(g('#ntfyOn')){SET.ntfy='hlg'+rid(16,'abcdefghijkmnpqrstuvwxyz23456789');saveSet();S.pubProfile();S.render();return;}
+    if(g('#ntfyOff')){SET.ntfy='';saveSet();S.pubProfile();S.render();return;}
+    if(g('#ntfyCopy')){navigator.clipboard&&navigator.clipboard.writeText(SET.ntfy).then(()=>toast('Channel copied')).catch(()=>prompt('Copy:',SET.ntfy));return;}
+    if(g('#ntfyTest')){fetch('https://ntfy.sh/',{method:'POST',body:JSON.stringify({topic:SET.ntfy,title:'Games test alert 🎮',message:'Closed-app alerts are working!',tags:['tada'],click:location.href.split('?')[0]})}).then(r=>toast(r.ok?'Sent — check the ntfy app':'ntfy error '+r.status)).catch(()=>toast('Could not reach ntfy.sh'));return;}
+    if(g('#gifKeySave')){SET.gifKey=$('gifKeyIn').value.trim();saveSet();S.pubProfile();toast(SET.gifKey?'GIPHY key saved — your friends can use it too':'GIPHY key removed');S.render();return;}
     if(b=g('[data-tabgo]')){S.tab=b.dataset.tabgo;S.render();return;}
     if(b=g('[data-add]')){S.request(JSON.parse(b.dataset.add));if(S.lastQ)S.find(S.lastQ);return;}
     if(b=g('[data-acc]')){S.accept(b.dataset.acc);return;}if(b=g('[data-dec]')){S.decline(b.dataset.dec);return;}if(b=g('[data-cancel]')){S.cancel(b.dataset.cancel);return;}
-    if(b=g('[data-chat]')){S.openConv('d:'+b.dataset.chat);return;}if(b=g('[data-conv]')){S.openConv(b.dataset.conv);return;}
-    if(b=g('[data-invite]')){S.invite(b.dataset.invite);return;}if(b=g('[data-askjoin]')){S.askJoin(b.dataset.askjoin);return;}
-    if(b=g('[data-play]')){S.playWith([b.dataset.play]);return;}
-    if(b=g('[data-fmenu]')){const id=b.dataset.fmenu,f=S.F[id];if(!f)return;S.note({id:'fm'+id,av:id,name:f.name,text:`<b>${esc(f.name)}</b> · ${esc((f.name||'').toUpperCase().replace(/\s+/g,''))}#${esc(f.tag||'')}`,btns:[['Message',()=>S.openConv('d:'+id)],['Remove friend',()=>S.remove(id)]],t:8000});}});
+    if(act(t,e))return;
+    if(b=g('[data-fmenu]')){const id=b.dataset.fmenu,f=S.F[id];if(!f)return;S.note({id:'fm'+id,av:id,name:f.name,text:`<b>${esc(f.name)}</b> · ${esc((f.name||'').toUpperCase().replace(/\s+/g,''))}#${esc(f.tag||'')}${f.bio?`<br><small>“${esc(f.bio)}”</small>`:''}`,btns:[['Message',()=>S.openConv('d:'+id)],['Remove friend',()=>S.remove(id)]],t:8000});}});
+  $('socSheet').addEventListener('change',e=>{if(e.target.id==='notifSw'){SET.notif=e.target.checked;saveSet();S.render();}});
   $('socSheet').addEventListener('submit',e=>{if(e.target.id==='socFind'){e.preventDefault();const q=$('socQ').value.trim();S.lastQ=q;S.find(q);}});
   $('socSheet').addEventListener('keydown',e=>{if(e.target.id==='socName'&&e.key==='Enter')$('socNameGo').click();});
-  $('convAct').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.invite)S.invite(b.dataset.invite);else if(b.dataset.askjoin)S.askJoin(b.dataset.askjoin);else if(b.dataset.play)S.playWith([b.dataset.play]);};
-  $('convBack').onclick=()=>{S.closeConv();S.show('chats');};
+  $('convAct').onclick=e=>{act(e.target,e);};
+  $('convBack').onclick=()=>{S.closeConv();S.showMsgs();};
   $('convForm').addEventListener('submit',e=>{e.preventDefault();S.sendMsg(S.open,$('convIn').value);$('convIn').value='';});
-  $('convMenu').onclick=()=>{const gid=S.open&&S.open.slice(2);if(!S.G[gid])return;S.note({id:'gm',av:gid,name:'G',text:`<b>${esc(S.G[gid].name)}</b> · ${S.G[gid].members.length} members`,btns:[['Add people',()=>S.addToGroup(gid)],['Leave group',()=>S.leaveGroup(gid)]],t:8000});};
+  $('convEmo').onclick=()=>EMO.toggle($('convEmo'),t=>S.sendMsg(S.open,t),$('convIn'));
+  $('chatEmo').onclick=()=>EMO.toggle($('chatEmo'),t=>Chat.send(t),$('chatIn'));
+  $('convMenu').onclick=()=>{const gid=S.open&&S.open.slice(2);if(!S.G[gid])return;S.note({id:'gm',av:gid,name:'G',emo:'👥',text:`<b>${esc(S.G[gid].name)}</b> · ${S.G[gid].members.length} members`,btns:[['Add people',()=>S.addToGroup(gid)],['Leave group',()=>S.leaveGroup(gid)]],t:8000});};
   $('pkList').addEventListener('click',e=>{const p=S.pick;if(!p)return;const gm=e.target.closest('[data-pg]');if(gm&&p.mode==='game'){S.pick=null;closeSheets();p.done(gm.dataset.pg);}});
   $('pkGo').onclick=()=>{const p=S.pick;if(!p||p.mode!=='friends')return;const ids=[...document.querySelectorAll('#pkList [data-pf]:checked')].map(x=>x.dataset.pf);
     if(p.cb(ids,$('pkName').value)!==false)S.pick=null;};
-  // closing sheets: mark chat read / cancel game pick
-  const cs=closeSheets;closeSheets=function(){if(S.open&&$('convSheet').classList.contains('open'))S.closeConv();if(S.pick&&S.pick.mode==='game'&&$('pickSheet').classList.contains('open')){const d=S.pick.done;S.pick=null;d(null);}return cs.apply(this,arguments);};
+  // closing sheets: mark chat read / cancel game pick / hide emoji panel
+  const cs=closeSheets;closeSheets=function(){EMO.close();if(S.open&&$('convSheet').classList.contains('open'))S.closeConv();if(S.pick&&S.pick.mode==='game'&&$('pickSheet').classList.contains('open')){const d=S.pick.done;S.pick=null;d(null);}return cs.apply(this,arguments);};
   document.querySelectorAll('[data-close]').forEach(b=>b.onclick=closeSheets);$('sheetBack').onclick=closeSheets;
+  // tapping a notification opens the chat
+  if(navigator.serviceWorker)navigator.serviceWorker.addEventListener('message',e=>{const d=e.data||{};if(d.type==='open'&&d.conv)S.openConv(d.conv);});
   // activity & app lifecycle
   ['pointerdown','keydown'].forEach(ev=>addEventListener(ev,()=>{const was=S.myStatus();S.lastAct=Date.now();if(was==='away'&&S.myStatus()!=='away')S.pubStatus(true);},{passive:true,capture:true}));
   document.addEventListener('visibilitychange',()=>{clearTimeout(S.sleepT);
-    if(document.visibilityState==='hidden'){S.pubStatus(true);if(S.want)S.sleepT=setTimeout(()=>S.sleep(),PWR.on?20000:90000);}
+    if(document.visibilityState==='hidden'){S.pubStatus(true);if(S.want)S.sleepT=setTimeout(()=>S.sleep(),PWR.on?20000:Notif.ok()?300000:90000);}
     else{S.lastAct=Date.now();S.wake();S.pubStatus(true);}});
   addEventListener('online',()=>S.wake());
   setInterval(()=>{if(document.visibilityState!=='hidden'){S.pubStatus();S.badges();if($('socSheet').classList.contains('open')&&S.tab==='friends')S.render();}},20000);
+  const q=new URLSearchParams(location.search),add=q.get('add'),openC=q.get('open');
+  if(add||openC)history.replaceState(null,'',location.pathname);
+  if(openC&&/^[dg]:[a-z0-9]+$/.test(openC))setTimeout(()=>{if(S.name())S.openConv(openC);},700);
   // shared "add me" link
-  const q=new URLSearchParams(location.search),add=q.get('add');
-  if(add&&add!==CID){history.replaceState(null,'',location.pathname);const nm=(q.get('n')||'Player').slice(0,14),tg=q.get('tg')||'';
+  if(add&&add!==CID){const nm=(q.get('n')||'Player').slice(0,14),tg=q.get('tg')||'';
     setTimeout(()=>{S.show('req');const go=()=>{S.start();if(S.up().length)S.request({id:add,name:nm,tag:tg});else setTimeout(go,800);};
       S.note({id:'addlink',av:add,name:nm,text:`Add <b>${esc(nm)}</b> as a friend?`,btns:[['Add Friend',()=>{if(!S.name()){toast('Enter your name first, then open the link again');return;}go();}],['Cancel',()=>{}]],t:60000});},600);}
   S.badges();if(S.name())S.start();
