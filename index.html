@@ -744,6 +744,14 @@ body.ghmode .chatpeek{top:calc(56px + env(safe-area-inset-top));bottom:auto;righ
 .ghTypes button b{font-size:15px}.ghTypes button small{font-size:11px;color:var(--label2)}
 .ghTypes button.out{opacity:.3}.ghTypes button.on{border-color:var(--blue)}
 #ghMapCv{display:block;margin:6px auto 0;max-width:100%;border-radius:12px}
+
+/* battery saver: no endless animations, no blur, no heavy shadows */
+html.calm *,html.calm *::before,html.calm *::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.05s!important}
+html.calm .spinner{animation:spin .8s linear infinite!important}
+html.calm .ghHunt{animation:none!important}
+html.calm .hero .demo *,html.calm .minib i{animation:none!important;opacity:.95!important}
+html.saver *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
 </style>
 </head>
 <body>
@@ -1182,6 +1190,13 @@ body.ghmode .chatpeek{top:calc(56px + env(safe-area-inset-top));bottom:auto;righ
     <button data-theme="light"><svg class="i"><use href="#i-sun"/></svg>Light</button>
     <button data-theme="dark"><svg class="i"><use href="#i-moon"/></svg>Dark</button>
   </div></div>
+  <div class="gh">🍃 Battery Saver</div>
+  <div class="wrap16"><div class="seg big" id="saverSeg">
+    <button data-saver="off"><span style="font-size:20px">⚡</span>Off</button>
+    <button data-saver="auto"><span style="font-size:20px">🔋</span>Auto</button>
+    <button data-saver="on"><span style="font-size:20px">🍃</span>On</button>
+  </div></div>
+  <div class="gf" id="saverNote"></div>
   <div class="gh">Style</div>
   <div class="wrap16"><div class="seg big" id="styleSeg">
     <button data-style="classic"><span style="font-size:20px">▢</span>Classic</button>
@@ -1214,7 +1229,7 @@ body.ghmode .chatpeek{top:calc(56px + env(safe-area-inset-top));bottom:auto;righ
     <div class="cell tap hidden" id="mInstall"><div class="ico" style="background:var(--green)"><svg class="i"><use href="#i-download"/></svg></div><span class="grow">Install as App</span><svg class="i sm chev"><use href="#i-chev"/></svg></div>
     <div class="cell tap" id="mHow"><div class="ico" style="background:var(--gray)"><svg class="i"><use href="#i-info"/></svg></div><span class="grow">How to Play</span><svg class="i sm chev"><use href="#i-chev"/></svg></div>
   </div>
-  <div class="gf" style="text-align:center">Games · v9</div>
+  <div class="gf" style="text-align:center">Games · v10</div>
 </div>
 
 <div class="sheet" id="howSheet">
@@ -1386,7 +1401,10 @@ function vis(){document.querySelectorAll('[data-g]').forEach(el=>el.classList.to
 /* ---------- feedback: toast, sound, haptics ---------- */
 function toast(t,ms=2300){const el=$('toast');el.textContent=t;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),ms);}
 let AC=null;
-function audio(){if(!AC){try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch(e){}}if(AC&&AC.state==='suspended')AC.resume();return AC;}
+function audio(){if(!AC){try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch(e){}}if(AC&&AC.state==='suspended'&&document.visibilityState!=='hidden')AC.resume();
+  clearTimeout(audio.t);audio.t=setTimeout(audioSleep,4000);return AC;}
+// an open AudioContext keeps the phone's audio hardware awake — suspend it when nothing is playing
+function audioSleep(){if(AC&&AC.state==='running'&&!(typeof GHOST!=='undefined'&&GHOST.amb&&document.visibilityState!=='hidden'))AC.suspend().catch(()=>{});}
 document.addEventListener('touchstart',()=>{if(SET.sound)audio();},{once:true,passive:true});
 document.addEventListener('mousedown',()=>{if(SET.sound)audio();},{once:true});
 function tone(f,t0,d,type='sine',v=.12){const a=audio();if(!a)return;const o=a.createOscillator(),g=a.createGain();o.type=type;o.frequency.value=f;
@@ -1410,14 +1428,35 @@ function myTurnAlert(p,txt){const el=$('yturn');el.textContent=txt||(MODE==='mul
   el.style.setProperty('--pcol',p?p.color:'#0a84ff');el.classList.remove('show');void el.offsetWidth;el.classList.add('show');
   sfx('turn');buzz([60,80,60]);}
 
+/* ---------- battery saver ---------- */
+const PWR={on:false,low:false,level:null,charging:null,
+  reduced:!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches),
+  mode(){return SET.saver||'auto';},
+  calc(quiet){const was=this.on,m=this.mode();this.on=m==='on'||(m==='auto'&&this.low);
+    document.documentElement.classList.toggle('saver',this.on);document.documentElement.classList.toggle('calm',this.on||this.reduced);
+    if(typeof applyStyle==='function'){applyStyle();applyTheme();}
+    if(was!==this.on){if(!quiet&&m==='auto')toast(this.on?`🍃 Battery saver on (battery ${Math.round(this.level*100)}%)`:'Battery saver off');
+      if(typeof TANKS!=='undefined'&&TANKS.s&&SCREEN==='tanks')TANKS.size();if(typeof GHOST!=='undefined'&&GHOST.s&&SCREEN==='ghost')GHOST.size();}
+    this.ui();},
+  ui(){const el=document.getElementById('saverNote');if(!el)return;document.querySelectorAll('#saverSeg button').forEach(b=>b.classList.toggle('on',b.dataset.saver===this.mode()));
+    const bat=this.level!=null?` Battery ${Math.round(this.level*100)}%${this.charging?' ⚡ charging':''}.`:'';
+    el.textContent=(this.on?'🍃 Saver is ON — ':'')+(this.mode()==='auto'?(this.level!=null?'Turns on by itself below 20% battery (not while charging).':'Auto needs battery info, which this browser (e.g. iPhone Safari) does not share — choose On to save power.'):this.mode()==='on'?'Lower frame rate, sharper limits on animations, blur effects and network traffic.':'Full quality, no limits.')+bat;},
+  // frames per second the game loops may draw
+  fps(busy){return this.on?(busy?30:6):(busy?60:24);},
+  dpr(){return Math.min(this.on?1.25:2,window.devicePixelRatio||1);},
+  init(){this.calc(true);
+    if(navigator.getBattery)navigator.getBattery().then(b=>{const up=()=>{this.level=b.level;this.charging=b.charging;this.low=!b.charging&&b.level<=.2;this.calc();};
+      up();b.addEventListener('levelchange',up);b.addEventListener('chargingchange',up);}).catch(()=>{});}
+};
+
 /* ---------- theme ---------- */
 const mq=window.matchMedia?matchMedia('(prefers-color-scheme: dark)'):null;
 function applyTheme(){
-  const t=SET.theme;
+  const t=PWR.on&&SET.theme==='auto'?'dark':SET.theme; // dark pixels use less power on OLED phones
   if(t==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',t);
   const dark=t==='dark'||(t==='auto'&&mq&&mq.matches);
   $('themeMeta').setAttribute('content',dark?'#000000':'#f2f2f7');
-  document.querySelectorAll('#themeSeg button').forEach(b=>b.classList.toggle('on',b.dataset.theme===t));
+  document.querySelectorAll('#themeSeg button').forEach(b=>b.classList.toggle('on',b.dataset.theme===SET.theme));
 }
 if(mq&&mq.addEventListener)mq.addEventListener('change',applyTheme);
 
@@ -1793,7 +1832,7 @@ function resultButtons(localAgain){
   openSheet('resultSheet');
   setTimeout(()=>document.querySelectorAll('#resList .bar i').forEach(i=>i.style.width=i.dataset.w+'%'),80);
 }
-function confetti(){
+function confetti(){if(PWR.on||PWR.reduced)return;
   const cv=$('confetti'),ctx=cv.getContext('2d');cv.classList.remove('hidden');
   const W=cv.width=innerWidth*devicePixelRatio,H=cv.height=innerHeight*devicePixelRatio;
   const parts=Array.from({length:140},()=>({x:Math.random()*W,y:-Math.random()*H*.4,vx:(Math.random()-.5)*4*devicePixelRatio,vy:(2+Math.random()*4)*devicePixelRatio,
@@ -1934,7 +1973,7 @@ const Net={
   myPres(l,on){return JSON.stringify({on:on?1:0,s:l.sess});},
   async openLink(l,timeout){
     l.sess=rid(6);
-    const o={clientId:('dnb3'+CID+l.sess).slice(0,23),keepalive:20,will:{topic:this.P+'pres/'+CID,payload:this.myPres(l,false)}};
+    const o={clientId:('dnb3'+CID+l.sess).slice(0,23),keepalive:PWR.on?40:20,will:{topic:this.P+'pres/'+CID,payload:this.myPres(l,false)}};
     if(l.b.user){o.user=l.b.user;o.pass=l.b.pass;}
     const mq=new MQ(l.b.url,o);await mq.connect(timeout||9000);
     if(!this.want){mq.end();throw new Error('cancelled');}
@@ -1960,7 +1999,8 @@ const Net={
   },
   lost(l){l.mq=null;this.updStatus();if(!this.want)return;clearTimeout(l.rt);
     const d=Math.min(20000,1000*Math.pow(1.8,l.retry++));l.rt=setTimeout(()=>this.relink(l),d);},
-  async relink(l){if(!this.want||l.mq)return;clearTimeout(l.rt);try{await this.openLink(l);}catch(e){if(!l.mq)this.lost(l);}},
+  sleep(){if(!this.want||document.visibilityState!=='hidden')return;this.sleeping=true;this.links.forEach(l=>{clearTimeout(l.rt);if(l.mq){l.mq.kill();l.mq=null;}});},
+  async relink(l){if(!this.want||l.mq||this.sleeping)return;clearTimeout(l.rt);try{await this.openLink(l);}catch(e){if(!l.mq)this.lost(l);}},
   refreshAll(force){if(!this.want)return;this.links.forEach(l=>{if(force&&l.mq){l.mq.kill();l.mq=null;}if(!l.mq){l.retry=0;this.relink(l);}});this.updStatus();},
   // pass newer room data on to servers that are behind, so phones with no server in common still stay in sync
   relay(from,sub,msg,need,retain=true){this.up().forEach(ll=>{if(ll!==from&&need(ll))ll.mq.pub(this.P+sub,msg,retain);});},
@@ -2182,11 +2222,12 @@ $('menuBtn').onclick=()=>{
   $('soundSw').checked=SET.sound;$('hapticSw').checked=SET.haptic;
   openSheet('menuSheet');
 };
-function applyStyle(){document.documentElement.classList.toggle('glass',SET.style==='glass');document.querySelectorAll('#styleSeg button').forEach(b=>b.classList.toggle('on',b.dataset.style===(SET.style||'classic')));}
+function applyStyle(){document.documentElement.classList.toggle('glass',SET.style==='glass'&&!PWR.on);document.querySelectorAll('#styleSeg button').forEach(b=>b.classList.toggle('on',b.dataset.style===(SET.style||'classic')));}
 document.querySelectorAll('#styleSeg button').forEach(b=>b.onclick=()=>{SET.style=b.dataset.style;saveSet();applyStyle();buzz(8);});
 applyStyle();
 document.querySelectorAll('#themeSeg button').forEach(b=>b.onclick=()=>{SET.theme=b.dataset.theme;saveSet();applyTheme();buzz(8);});
 $('soundSw').onchange=()=>{SET.sound=$('soundSw').checked;saveSet();if(SET.sound){audio();sfx('box');}};
+document.querySelectorAll('#saverSeg button').forEach(b=>b.onclick=()=>{SET.saver=b.dataset.saver;saveSet();PWR.calc(true);buzz(8);});
 $('hapticSw').onchange=()=>{SET.haptic=$('hapticSw').checked;saveSet();buzz(15);};
 $('mTest').onclick=()=>{$('menuSheet').classList.remove('open');runNetTest();};
 $('testAgain').onclick=()=>runNetTest();
@@ -2277,7 +2318,12 @@ $('rejoinCard').onclick=()=>{const last=store.get('last',null);if(!last)return;i
 /* ---------- app lifecycle (important on iPhone: apps are paused in background) ---------- */
 let hiddenAt=0;
 document.addEventListener('visibilitychange',()=>{
-  if(document.visibilityState==='hidden'){hiddenAt=Date.now();return;}
+  clearTimeout(Net.sleepT);
+  if(document.visibilityState==='hidden'){hiddenAt=Date.now();audioSleep();
+    // stop pinging 5 servers from the background — reconnect instantly when the app comes back
+    if(Net.want)Net.sleepT=setTimeout(()=>Net.sleep(),PWR.on?20000:90000);return;}
+  if(Net.sleeping){Net.sleeping=false;Net.refreshAll(true);return;}
+  if(typeof GHOST!=='undefined'&&GHOST.amb&&AC)AC.resume();
   // iPhone freezes background pages: sockets can look open but be dead, so reconnect fresh
   Net.refreshAll(Date.now()-hiddenAt>4000);
 });
@@ -2940,9 +2986,10 @@ const TANKS={
       if(s.over)setTimeout(()=>this.finish(),400);else{if(this.isMine())myTurnAlert();this.schedule();}return;}
     if(h.length>this.s.h.length){this.s.h=h.slice();this.pump();}},
   stateObj(){const s=this.s;return {gid:s.gid,first:s.first,h:s.h.slice(),by:CID};},
+  wake(){this.poke=performance.now();this.drawn=0;},
   rerender(){if(this.s&&SCREEN==='tanks')this.render();},
   /* ---------- HUD ---------- */
-  render(){
+  render(){this.wake();
     const s=this.s;if(!s)return;const mine=this.isMine(),cp=s.players[s.cur];
     $('tkPlayers').innerHTML=s.players.map((p,i)=>{const off=MODE==='online'&&!p.cpu&&!Net.isOnline(p.id);
       return `<div class="tkp ${i===s.cur&&!s.over?'cur':''} ${off?'off':''}" style="--pcol:${p.color}"><i>${p.cpu?'🤖':esc(p.label)}</i><span>${esc(p.name)}${MODE==='online'&&p.id===CID?' (you)':''}</span><b>${s.pts[i]}</b></div>`;}).join('');
@@ -2961,7 +3008,7 @@ const TANKS={
     const nst=$('tknetState');nst.classList.toggle('hidden',MODE!=='online');
   },
   angDisp(){const a=this.aim.a;return a<=90?a:180-a;},
-  size(){const cv=$('tkCanvas');this.cv=cv;this.ctx=cv.getContext('2d');const dpr=Math.min(2.5,devicePixelRatio||1);
+  size(){const cv=$('tkCanvas');this.cv=cv;this.ctx=cv.getContext('2d');const dpr=PWR.dpr();
     const cw=innerWidth,ch=innerHeight;cv.style.width=cw+'px';cv.style.height=ch+'px';cv.width=Math.round(cw*dpr);cv.height=Math.round(ch*dpr);
     const botH=ch<500?66:78,ah=ch-botH+26,k=Math.min(cw/this.W,ah/this.H);
     this.k=k;this.dpr=dpr;this.ox=(cw-this.W*k)/2;this.oy=ah-this.H*k;
@@ -2976,7 +3023,10 @@ const TANKS={
       if(sim.done)this.endShot();}
     for(const f of this.fx){f.t+=dt;if(f.k==='deb'){f.vy+=this.G*dt;f.x+=f.vx*dt;f.y+=f.vy*dt;}}
     this.fx=this.fx.filter(f=>f.t<({boom:.55,deb:1.1,trail:.9,num:1.4,fire:.5,flash:.15}[f.k]||1));
-    this.shake*=.88;this.draw(t);
+    this.shake*=.88;
+    // only redraw as often as needed: full speed while shells fly, slow when everyone is just thinking
+    const busy=!!this.sim||this.fx.length>0||this.shake>.05||t-(this.poke||0)<600;
+    if(t-(this.drawn||0)<1000/PWR.fps(busy)-4)return;this.drawn=t;this.draw(t);
   },
   draw(t){
     const c=this.ctx,s=this.s,dpr=this.dpr,k=this.k;if(!c)return;
@@ -3133,6 +3183,8 @@ function renderLabList(){const list=TANKS.customs();$('labList').innerHTML=list.
 $('labList').addEventListener('click',e=>{const r=e.target.closest('[data-edit]');if(r)LAB.open(r.dataset.edit);});
 $('labNew').onclick=()=>LAB.open();
 renderLabList();
+
+['pointerdown','pointermove','keydown','input'].forEach(ev=>$('tanks').addEventListener(ev,()=>{if(TANKS.s)TANKS.wake();},{passive:true,capture:true}));
 
 /* =========================================================
    DRAW & GUESS — one player draws a secret word, the others guess.
@@ -3558,8 +3610,9 @@ const GHOST={
     // hunt audio
     if(s.g.hunt){this.hb=(this.hb||0)-dt;if(this.hb<=0){this.hb=s.g.hunt===2?.55:.9;this.thump(55,.35);if(s.g.hunt===2){const d=Math.hypot(s.g.x-me.x,s.g.y-me.y);if(d<9)this.thump(90,.6/(1+d*.4),.03);}}}
     // network: my position
-    if(MODE==='online'){this.pt=(this.pt||0)-dt;if(this.pt<=0){this.pt=.12;Net.pub('gp',{k:rid(5),id:CID,x:+me.x.toFixed(2),y:+me.y.toFixed(2),a:+me.a.toFixed(2),t:me.tool,fl:me.fl?1:0,san:Math.round(me.san),hid:me.hid?1:0,al:me.alive?1:0});}
-      if(s.isHost){this.gt2=(this.gt2||0)-dt;if(this.gt2<=0){this.gt2=.12;const g=s.g;Net.pub('gg',{k:rid(5),x:+g.x.toFixed(2),y:+g.y.toFixed(2),v:g.vis>0?+g.vis.toFixed(1):0,h:g.hunt,f:s.flick>0?1:0});}}}
+    if(MODE==='online'){this.pt=(this.pt||0)-dt;const sig=[me.x.toFixed(1),me.y.toFixed(1),me.a.toFixed(1),me.tool,me.fl,Math.round(me.san),me.hid,me.alive].join();
+      if(this.pt<=0&&(sig!==this.lastSig||performance.now()-(this.lastPub||0)>2500)){this.lastSig=sig;this.lastPub=performance.now();this.pt=PWR.on?.3:.15;Net.pub('gp',{k:rid(5),id:CID,x:+me.x.toFixed(2),y:+me.y.toFixed(2),a:+me.a.toFixed(2),t:me.tool,fl:me.fl?1:0,san:Math.round(me.san),hid:me.hid?1:0,al:me.alive?1:0});}
+      if(s.isHost){this.gt2=(this.gt2||0)-dt;const g=s.g,gs=[g.x.toFixed(1),g.y.toFixed(1),g.vis>0,g.hunt,s.flick>0].join();if(this.gt2<=0&&(gs!==this.lastGs||performance.now()-(this.lastGp||0)>2500)){this.lastGs=gs;this.lastGp=performance.now();this.gt2=PWR.on?.25:.15;Net.pub('gg',{k:rid(5),x:+g.x.toFixed(2),y:+g.y.toFixed(2),v:g.vis>0?+g.vis.toFixed(1):0,h:g.hunt,f:s.flick>0?1:0});}}}
     this.hud();
   },
   moveVec(){const k=this.keys,j=this.joy||{x:0,y:0};let f=(k.KeyW||k.ArrowUp?1:0)-(k.KeyS||k.ArrowDown?1:0)-j.y,st=(k.KeyD?1:0)-(k.KeyA?1:0)+j.x;const L=Math.hypot(f,st);if(L>1){f/=L;st/=L;}return {f,s:st};},
@@ -3673,11 +3726,12 @@ const GHOST={
   enter(){this.hintOff=0;$('ghHint').classList.remove('hidden');$('ghTools').classList.remove('open');show('ghost');document.body.classList.add('ghmode');this.size();this.renderTools();this.startLoop();this.audio(true);
     this.msg(`Find the ghost's room (${this.s.diff.show?this.s.map.rooms[this.s.room].name+' — Amateur hint':'it could be anywhere'}). Collect 3 evidence, then name it at the van.`,6000);
     try{if(innerHeight>innerWidth&&screen.orientation&&screen.orientation.lock)screen.orientation.lock('landscape').catch(()=>{});}catch(e){}},
-  size(){const cv=$('ghCanvas'),w=innerWidth,h=innerHeight;this.RH=h<500?180:220;this.RW=Math.max(240,Math.min(560,Math.round(this.RH*w/h)));
+  size(){const cv=$('ghCanvas'),w=innerWidth,h=innerHeight;this.RH=PWR.on?(h<500?140:160):(h<500?180:220);this.RW=Math.max(200,Math.min(PWR.on?400:560,Math.round(this.RH*w/h)));
     cv.width=this.RW;cv.height=this.RH;cv.style.width=w+'px';cv.style.height=h+'px';this.ctx=cv.getContext('2d');this.img=this.ctx.createImageData(this.RW,this.RH);
     this.buf=new Uint32Array(this.img.data.buffer);this.zb=new Float32Array(this.RW);this.cone=new Float32Array(this.RW);},
   startLoop(){if(this.raf)return;this.lt=performance.now();const f=t=>{this.raf=requestAnimationFrame(f);if(SCREEN!=='ghost'||!this.s){this.stopLoop();return;}
-      const dt=Math.min(.05,(t-this.lt)/1000);this.lt=t;this.update(dt);this.render(t);};this.raf=requestAnimationFrame(f);},
+      const cap=PWR.on?24:40,sheet=document.querySelector('.sheet.open');if(t-this.lt<1000/(sheet?8:cap)-3)return; // frame cap
+      const dt=Math.min(.07,(t-this.lt)/1000);this.lt=t;this.update(dt);if(!sheet||Math.random()<.5)this.render(t);};this.raf=requestAnimationFrame(f);},
   stopLoop(){if(this.raf)cancelAnimationFrame(this.raf);this.raf=0;},
   /* ---------- the ray-caster ---------- */
   render(t){
@@ -4019,7 +4073,7 @@ $('chatForm').addEventListener('submit',e=>{e.preventDefault();const i=$('chatIn
 $('chatFab').onclick=()=>{sfx('tap');Chat.show();};
 $('chatPeek').onclick=()=>Chat.show();
 /* ---------- init ---------- */
-applyTheme();refreshHome();installVis();vis();buildLevels();renderPlist();updateNav();
+PWR.init();applyTheme();refreshHome();installVis();vis();buildLevels();renderPlist();updateNav();
 (()=>{const r=new URLSearchParams(location.search).get('room');if(r){openSetup('online');$('joinCode').value=r.toUpperCase().slice(0,5);
   if((SET.name||'').trim())onMsg('Tap Join Room to enter room '+r.toUpperCase().slice(0,5)+'.');}})();
 
