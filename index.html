@@ -5281,7 +5281,141 @@ const Social={
       return `<div class="cell">${this.av(d.id,d.name,d.av)}<span class="grow"><b>${esc(d.name)}</b><small class="ssub">${esc(String(d.name).toUpperCase().replace(/\s+/g,''))}#${esc(d.tag||'')}</small></span>${f&&f.state==='friend'?'<span class="ssub">Friend ✓</span>':f&&f.state==='out'?'<span class="ssub">Requested</span>':`<button class="sbtn" data-add='${esc(JSON.stringify({id:d.id,name:d.name,tag:d.tag,av:d.av||'',nt:d.nt||''}))}'>Add</button>`}</div>`;}).join(''):'<div class="sempty"><div class="spinner" style="margin:0 auto 8px"></div>Searching…</div>';};
     show();this.subAll(mq=>mq.sub(topic));
     setTimeout(()=>{this.subAll(mq=>mq.unsub&&mq.unsub(topic));this.search=null;if(!res.size)box.innerHTML=`<div class="sempty">Nobody called “${esc(q)}” found.<br>Check the spelling, or ask your friend to open the app once — or share your link instead.</div>`;},3500);},
-    /* ---------- device profile sync & linking ---------- */
+    /* ---------- device profile sync & multi-device login ---------- */
+  createPairCode(){
+    if(this._currentPairCode) return this._currentPairCode;
+    const code = String(100000 + Math.floor(Math.random() * 900000));
+    this._currentPairCode = code;
+    const payload = {
+      c: CID,
+      t: this.tag,
+      n: this.name(),
+      a: SET.avatar || '',
+      b: SET.bio || '',
+      f: this.F || {},
+      g: this.G || {},
+      ts: Date.now()
+    };
+    const s = JSON.stringify(payload);
+    this.up().forEach(x => {
+      try { x.mq.pub(SP + 'pair/' + code, s, true); } catch(e){}
+    });
+    return code;
+  },
+  loginWithPairCode(code){
+    code = code.replace(/[^0-9]/g, '');
+    if(code.length !== 6){
+      toast('Please enter a 6-digit pair code');
+      return false;
+    }
+    toast(`Looking for mobile profile with code ${code}…`, 5000);
+    const topic = SP + 'pair/' + code;
+    let done = false;
+
+    const applyData = (d) => {
+      if(done) return;
+      done = true;
+      try { this.subAll(mq => mq.unsub && mq.unsub(topic)); } catch(e){}
+      store.set('cid', d.c);
+      store.set('ftag', d.t);
+      SET.name = d.n;
+      if(d.a !== undefined) SET.avatar = d.a;
+      if(d.b !== undefined) SET.bio = d.b;
+      saveSet();
+      if(d.f && typeof d.f === 'object') store.set('friends', d.f);
+      if(d.g && typeof d.g === 'object') store.set('groups', d.g);
+      toast(`Logged in as ${d.n} (${d.n.toUpperCase()}#${d.t})! 🎉`, 3000);
+      sfx('win');
+      buzz([30,60,30]);
+      setTimeout(() => { location.href = location.pathname; }, 700);
+    };
+
+    this.up().forEach(x => {
+      x.mq.sub(topic);
+      const orig = x.mq.onmsg;
+      x.mq.onmsg = (t, msg) => {
+        if(t === topic && msg){
+          try {
+            const d = JSON.parse(msg);
+            if(d && d.c && d.n){
+              applyData(d);
+            }
+          } catch(e){}
+        }
+        if(orig) orig(t, msg);
+      };
+    });
+
+    setTimeout(() => {
+      if(!done){
+        toast(`Code ${code} not found. Check that the code is open on your mobile.`);
+        try { this.subAll(mq => mq.unsub && mq.unsub(topic)); } catch(e){}
+      }
+    }, 4500);
+
+    return true;
+  },
+  loginWithFriendId(inputStr){
+    inputStr = inputStr.trim();
+    const m = inputStr.match(/^([a-zA-Z0-9_\s]{1,16})#(\d{3,5})$/);
+    if(!m){
+      toast('Please enter your Mobile ID in format: NAME#1234');
+      return false;
+    }
+    const name = m[1].trim();
+    const tag = m[2];
+    toast(`Connecting to ${name}#${tag}…`, 5000);
+    
+    const dKey = dirKey(name);
+    const topic = SP + 'dir/' + dKey + '/+';
+    let found = false;
+
+    const applyProfile = (cid, avatar, bio, friends, groups) => {
+      if(found) return;
+      found = true;
+      try { this.subAll(mq => mq.unsub && mq.unsub(topic)); } catch(e){}
+      store.set('cid', cid);
+      store.set('ftag', tag);
+      SET.name = name;
+      if(avatar) SET.avatar = avatar;
+      if(bio) SET.bio = bio;
+      saveSet();
+      if(friends && typeof friends === 'object') store.set('friends', friends);
+      if(groups && typeof groups === 'object') store.set('groups', groups);
+      toast(`Logged in as ${name}#${tag}! 🎉`, 3000);
+      sfx('win');
+      buzz([30,60,30]);
+      setTimeout(() => { location.href = location.pathname; }, 700);
+    };
+
+    // 1. Try to fetch existing profile from MQTT directory
+    this.up().forEach(x => {
+      x.mq.sub(topic);
+      const orig = x.mq.onmsg;
+      x.mq.onmsg = (t, msg) => {
+        if(t.startsWith(SP + 'dir/' + dKey + '/') && msg){
+          try {
+            const d = JSON.parse(msg);
+            if(d && String(d.tag) === String(tag)){
+              applyProfile(d.id, d.av, d.bio);
+            }
+          } catch(e){}
+        }
+        if(orig) orig(t, msg);
+      };
+    });
+
+    // 2. Fallback after 2.2s if MQTT hasn't returned yet:
+    // Set consistent client ID so both devices share identity
+    setTimeout(() => {
+      if(!found){
+        const consistentCid = 'u_' + dKey + '_' + tag;
+        applyProfile(consistentCid, '', '');
+      }
+    }, 2200);
+
+    return true;
+  },
   getSyncKey(){
     const payload = {
       c: CID,
@@ -5296,6 +5430,35 @@ const Social={
     return btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
   },
   applySyncKey(keyStr){
+    keyStr = String(keyStr || '').trim();
+    if(!keyStr){
+      toast('Please enter your Mobile ID or Sync Key');
+      return false;
+    }
+
+    // 1. Check if user pasted a URL: http://...?sync=... or file:///...?sync=...
+    if(keyStr.includes('sync=')){
+      try {
+        const u = new URL(keyStr);
+        keyStr = u.searchParams.get('sync') || keyStr;
+      } catch(e){
+        const m = keyStr.match(/sync=([^&\s]+)/);
+        if(m) keyStr = m[1];
+      }
+    }
+
+    // 2. Check if user typed a 6-digit pair code (e.g. "742819" or "742 819")
+    const digits = keyStr.replace(/[^0-9]/g, '');
+    if(digits.length === 6 && !keyStr.includes('#') && keyStr.length <= 8){
+      return this.loginWithPairCode(digits);
+    }
+
+    // 3. Check if user entered their Friend ID (e.g. "NAME#1234" or "AKSHAR#4812")
+    if(keyStr.includes('#')){
+      return this.loginWithFriendId(keyStr);
+    }
+
+    // 4. Try base64 Sync Key
     try {
       const raw = decodeURIComponent(escape(atob(keyStr.trim())));
       const data = JSON.parse(raw);
@@ -5309,21 +5472,24 @@ const Social={
       if(data.a !== undefined) SET.avatar = data.a;
       if(data.b !== undefined) SET.bio = data.b;
       saveSet();
-      if(data.f && typeof data.f === 'object'){
-        store.set('friends', data.f);
-      }
-      if(data.g && typeof data.g === 'object'){
-        store.set('groups', data.g);
-      }
+      if(data.f && typeof data.f === 'object') store.set('friends', data.f);
+      if(data.g && typeof data.g === 'object') store.set('groups', data.g);
       toast(`Logged in as ${data.n}! Syncing profile… 🎉`, 3000);
       sfx('win');
       buzz([30, 60, 30]);
-      setTimeout(() => {
-        location.href = location.pathname;
-      }, 700);
+      setTimeout(() => { location.href = location.pathname; }, 700);
       return true;
     } catch(e) {
-      toast('Error reading Profile Sync Key. Please check the text.');
+      // 5. If user typed just a name
+      if(keyStr.length >= 2 && !keyStr.includes('{')){
+        SET.name = keyStr.slice(0, 14);
+        saveSet();
+        this.pubProfile();
+        toast(`Profile name set to ${SET.name}`);
+        setTimeout(() => { location.href = location.pathname; }, 700);
+        return true;
+      }
+      toast('Could not recognize ID or Sync Key. Try entering your Mobile ID (e.g. NAME#1234)');
       return false;
     }
   },
@@ -5439,32 +5605,60 @@ const Social={
     else if(this.tab==='sync'){
       const syncKey = this.getSyncKey();
       const syncUrl = location.href.split('#')[0].split('?')[0] + '?sync=' + syncKey;
+      const myIdVal = this.myId();
+      const pairCodeVal = this.createPairCode();
+
       body.innerHTML = `
-        <div class="gh" style="padding-top:4px">Use Same Profile on PC & Phone</div>
-        <div class="group" style="padding:16px;margin-bottom:12px">
-          <div style="font-size:15px;line-height:1.45;margin-bottom:14px;color:var(--label)">
-            <b>Play on both your PC and Phone with the exact same profile!</b><br>
-            <span style="color:var(--label2)">Your name, avatar picture, Friend ID (<b style="color:var(--blue)">${esc(this.myId())}</b>), and friends list will sync across both devices.</span>
+        <div class="gh" style="padding-top:4px">Your Mobile Profile ID</div>
+        <div class="group" style="padding:18px;text-align:center;margin-bottom:12px">
+          <div style="font-size:12px;color:var(--label2);text-transform:uppercase;font-weight:700;letter-spacing:1px;margin-bottom:6px">Mobile Profile ID</div>
+          <div style="font-size:28px;font-weight:900;letter-spacing:1px;color:var(--blue);user-select:all" id="myMobileIdText">${esc(myIdVal)}</div>
+          <div style="margin-top:10px;display:flex;gap:8px;justify-content:center">
+            <button class="sbtn tint" id="copyMyIdBtn"><svg class="i sm"><use href="#i-copy"/></svg> Copy Mobile ID</button>
           </div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <button class="bigbtn press" id="copySyncKeyBtn" style="flex:1;min-width:140px"><svg class="i sm"><use href="#i-copy"/></svg> Copy Sync Key</button>
-            <button class="bigbtn tint press" id="copySyncLinkBtn" style="flex:1;min-width:140px"><svg class="i sm"><use href="#i-share"/></svg> Copy Link</button>
-          </div>
-          <div class="gf" style="padding:12px 0 0;line-height:1.4">
-            💡 <b>How it works:</b> Tap <b>Copy Link</b> and send it to your PC (via WhatsApp, email, or message). Click the link on your PC to instantly log in! Or copy the Key below and paste it into Games on your PC.
+          <div class="gf" style="padding:10px 0 0;line-height:1.4">
+            👉 <b>On your PC:</b> Open the game, click <b>Profile → Link PC/Phone</b>, and simply type <b style="color:var(--label)">${esc(myIdVal)}</b> below to log in!
           </div>
         </div>
 
-        <div class="gh">Log In With Profile Key on this Device</div>
-        <div class="group" style="padding:16px">
-          <div style="font-size:14px;color:var(--label2);margin-bottom:8px">Have a Sync Key from your other device? Paste it here:</div>
-          <textarea id="importSyncIn" rows="3" placeholder="Paste your Profile Sync Key here…" style="width:100%;border:1px solid var(--sep);border-radius:12px;padding:10px 12px;font-size:13px;background:var(--fill);color:var(--label);outline:none;resize:none;font-family:monospace"></textarea>
+        <div class="gh">Quick 6-Digit Pair Code</div>
+        <div class="group" style="padding:18px;text-align:center;margin-bottom:12px">
+          <div style="font-size:13px;color:var(--label2);margin-bottom:6px">Or use this active 6-digit code on PC:</div>
+          <div id="pairCodeDisplay" style="font-size:36px;font-weight:900;letter-spacing:8px;color:var(--green);font-family:monospace;user-select:all">${esc(pairCodeVal)}</div>
+          <div class="gf" style="padding:8px 0 0">Type these 6 digits on your PC to link immediately.</div>
+        </div>
+
+        <div class="gh">Log In on This Device</div>
+        <div class="group" style="padding:18px;margin-bottom:12px">
+          <div style="font-size:14px;font-weight:700;margin-bottom:6px;color:var(--label)">Enter your Mobile ID or 6-Digit Code:</div>
+          <div style="font-size:12.5px;color:var(--label2);margin-bottom:10px">Enter your ID (e.g. <b>${esc(myIdVal)}</b>), or 6-digit code, or paste sync link:</div>
+          <input id="importSyncIn" placeholder="e.g. ${esc(myIdVal)} or ${esc(pairCodeVal)}" style="width:100%;border:1px solid var(--sep);border-radius:12px;padding:12px 14px;font-size:16px;background:var(--fill);color:var(--label);outline:none;font-weight:600" autocomplete="off" enterkeyhint="go">
           <div style="height:12px"></div>
           <button class="bigbtn green press" id="applySyncBtn"><svg class="i sm"><use href="#i-arrowin"/></svg> Log In to This Profile</button>
         </div>
+
+        <div class="gh">Alternative: Full Key &amp; One-Click Link</div>
+        <div class="group" style="padding:14px">
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="bigbtn tint press" id="copySyncKeyBtn" style="flex:1;min-width:140px"><svg class="i sm"><use href="#i-copy"/></svg> Copy Sync Key</button>
+            <button class="bigbtn tint press" id="copySyncLinkBtn" style="flex:1;min-width:140px"><svg class="i sm"><use href="#i-share"/></svg> Copy Direct Link</button>
+          </div>
+        </div>
       `;
+
       // Event listeners for Sync tab
-      const kBtn = $('copySyncKeyBtn'), lBtn = $('copySyncLinkBtn'), aBtn = $('applySyncBtn');
+      const idBtn = $('copyMyIdBtn'), kBtn = $('copySyncKeyBtn'), lBtn = $('copySyncLinkBtn'), aBtn = $('applySyncBtn'), inEl = $('importSyncIn');
+      if(idBtn){
+        idBtn.onclick = async () => {
+          try {
+            await navigator.clipboard.writeText(myIdVal);
+            toast('Mobile ID copied: ' + myIdVal);
+            sfx('tap');buzz(15);
+          } catch(e) {
+            prompt('Copy your Mobile ID:', myIdVal);
+          }
+        };
+      }
       if(kBtn){
         kBtn.onclick = async () => {
           try {
@@ -5472,7 +5666,7 @@ const Social={
             toast('Sync Key copied! Paste it in Games on your PC.');
             sfx('tap');buzz(15);
           } catch(e) {
-            toast('Please copy key manually from the text box');
+            prompt('Copy your Sync Key:', syncKey);
           }
         };
       }
@@ -5483,16 +5677,25 @@ const Social={
             toast('Sync Link copied! Open it on your PC browser.');
             sfx('tap');buzz(15);
           } catch(e) {
-            toast('Please copy link manually');
+            prompt('Copy your Sync Link:', syncUrl);
           }
         };
       }
       if(aBtn){
         aBtn.onclick = () => {
-          const val = ($('importSyncIn').value || '').trim();
-          if(!val){ toast('Please paste your Sync Key first'); return; }
+          const val = inEl ? inEl.value.trim() : '';
+          if(!val){ toast('Please enter your Mobile ID or Code first'); return; }
           this.applySyncKey(val);
         };
+      }
+      if(inEl){
+        inEl.addEventListener('keydown', e => {
+          if(e.key === 'Enter'){
+            e.preventDefault();
+            const val = inEl.value.trim();
+            if(val) this.applySyncKey(val);
+          }
+        });
       }
     }
     else if(this.tab==='req'){body.innerHTML=`<div class="gh" style="padding-top:4px">Add a Friend</div><form class="chatbar sfind" id="socFind" autocomplete="off"><input id="socQ" maxlength="24" placeholder="Name or Friend ID (AMIT#1234)" autocapitalize="off" enterkeyhint="search"><button type="submit" class="csend" aria-label="Search"><svg class="i"><use href="#i-arrowin"/></svg></button></form>
