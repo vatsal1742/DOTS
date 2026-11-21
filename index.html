@@ -901,6 +901,367 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
 .sav{overflow:hidden}
 .avatar{overflow:hidden}
 
+
+/* ========================================================
+   MULTI-LAYOUT HUB: 3D CAROUSEL & BENTO DASHBOARD
+   ======================================================== */
+.hub-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 16px 0;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hub-header .large { padding: 0; }
+.hub-header .sub { padding: 2px 0 0; }
+.hub-layout-toggle {
+  display: inline-flex;
+  background: var(--fill);
+  border-radius: 999px;
+  padding: 3px;
+  border: 1px solid var(--sep);
+  flex: none;
+}
+.hub-layout-toggle button {
+  border: none;
+  background: none;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--label2);
+  cursor: pointer;
+  transition: all .2s cubic-bezier(.2,.8,.2,1);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.hub-layout-toggle button.on {
+  background: var(--card);
+  color: var(--label);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transform: scale(1.02);
+}
+
+/* 1. 3D CoverFlow Carousel */
+.hub-carousel-wrap {
+  margin: 14px 0 8px;
+  position: relative;
+  overflow: hidden;
+  padding: 10px 0 16px;
+}
+.carousel-track-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  perspective: 1000px;
+}
+.carousel-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 390px;
+  touch-action: pan-y;
+  user-select: none;
+}
+.c-card {
+  position: absolute;
+  width: min(320px, 82vw);
+  border-radius: 26px;
+  background: var(--card-glass, var(--card));
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid var(--border-glass, var(--sep));
+  box-shadow: var(--shadow);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform .36s cubic-bezier(.2,.8,.2,1), opacity .36s ease, box-shadow .36s ease, filter .36s ease;
+  will-change: transform, opacity;
+}
+.c-card .c-art {
+  height: 175px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--glass-bevel), 0 8px 24px rgba(0,0,0,.15);
+}
+.c-card .c-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.c-card .c-title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -.3px;
+  color: var(--label);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.c-card .c-tag {
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--fill2);
+  color: var(--label);
+  padding: 3px 8px;
+  border-radius: 999px;
+  letter-spacing: .2px;
+}
+.c-card .c-desc {
+  font-size: 13.5px;
+  color: var(--label2);
+  line-height: 1.35;
+}
+.c-card .c-badges {
+  display: flex;
+  gap: 8px;
+  margin-top: 2px;
+}
+.c-card .c-badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--label2);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.c-card .c-btn {
+  margin-top: 6px;
+  width: 100%;
+}
+
+/* Carousel Card Positions */
+.c-card[data-pos="0"] {
+  transform: translateX(0) scale(1) translateZ(0);
+  opacity: 1;
+  z-index: 10;
+  box-shadow: 0 20px 48px rgba(0,0,0,0.18), var(--glass-bevel);
+  border-color: rgba(99,102,241,0.45);
+}
+.c-card[data-pos="-1"] {
+  transform: translateX(-68%) scale(0.82) rotateY(18deg) translateZ(-80px);
+  opacity: 0.65;
+  z-index: 5;
+  filter: blur(1px);
+}
+.c-card[data-pos="1"] {
+  transform: translateX(68%) scale(0.82) rotateY(-18deg) translateZ(-80px);
+  opacity: 0.65;
+  z-index: 5;
+  filter: blur(1px);
+}
+.c-card[data-pos="-2"] {
+  transform: translateX(-120%) scale(0.68) rotateY(28deg) translateZ(-160px);
+  opacity: 0.25;
+  z-index: 2;
+  filter: blur(2px);
+  pointer-events: none;
+}
+.c-card[data-pos="2"] {
+  transform: translateX(120%) scale(0.68) rotateY(-28deg) translateZ(-160px);
+  opacity: 0.25;
+  z-index: 2;
+  filter: blur(2px);
+  pointer-events: none;
+}
+.c-card.c-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.5);
+}
+
+/* Carousel Arrow Nav & Dots */
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1px solid var(--sep);
+  color: var(--label);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  z-index: 20;
+  cursor: pointer;
+  transition: transform .15s, background .15s;
+}
+.carousel-nav-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+.carousel-nav-btn:active {
+  transform: translateY(-50%) scale(0.92);
+}
+.carousel-prev { left: 16px; }
+.carousel-next { right: 16px; }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--fill2);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all .24s cubic-bezier(.2,.8,.2,1);
+}
+.carousel-dot.on {
+  width: 26px;
+  background: var(--blue);
+  box-shadow: 0 2px 8px var(--blue-glow);
+}
+
+/* 2. Bento Grid Dashboard */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin: 18px 16px 0;
+}
+.bento-hero {
+  grid-column: span 2;
+  border-radius: 26px;
+  background: var(--card-glass, var(--card));
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid var(--border-glass, var(--sep));
+  box-shadow: var(--shadow);
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform .22s cubic-bezier(.2,.8,.2,1), box-shadow .22s ease;
+}
+.bento-hero:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+.bento-hero .b-art-wrap {
+  height: 155px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--glass-bevel), 0 8px 24px rgba(0,0,0,0.14);
+}
+.bento-hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.bento-hero-top h3 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -.4px;
+}
+.bento-hero-top p {
+  margin: 3px 0 0;
+  font-size: 14px;
+  color: var(--label2);
+}
+.bento-hero-acts {
+  display: flex;
+  gap: 10px;
+}
+.bento-item {
+  border-radius: 22px;
+  background: var(--card-glass, var(--card));
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--border-glass, var(--sep));
+  box-shadow: var(--shadow);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.bento-item:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.1);
+  border-color: rgba(99,102,241,0.35);
+}
+.bento-item .b-art {
+  height: 90px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--glass-bevel), 0 4px 16px rgba(0,0,0,0.1);
+}
+.bento-item b {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -.2px;
+  margin-top: 4px;
+}
+.bento-item span.s {
+  font-size: 12.5px;
+  color: var(--label2);
+}
+.bento-span-2 {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+}
+.bento-span-2 .b-art {
+  height: 90px;
+}
+
+@media (min-width: 768px) {
+  .c-card { width: 360px; }
+  .carousel-track { height: 420px; }
+  .c-card .c-art { height: 205px; }
+  .bento-grid {
+    grid-template-columns: repeat(4, 1fr);
+    margin: 22px 0 0;
+  }
+  .bento-hero {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .bento-hero .b-art-wrap {
+    height: 230px;
+  }
+}
+@media (min-width: 1080px) {
+  .c-card { width: 400px; }
+  .carousel-track { height: 440px; }
+  .c-card .c-art { height: 225px; }
+}
+
 </style>
 </head>
 <body>
@@ -954,9 +1315,167 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
 
 <!-- ============ HUB ============ -->
 <main id="hub" class="page">
-  <div class="large">Games</div>
-  <div class="sub">Play with friends — on one phone or online. iPhone + Android.</div>
-  <div class="hubgrid">
+  <div class="hub-header">
+    <div>
+      <div class="large">Games</div>
+      <div class="sub">Play with friends — on one phone or online. iPhone + Android.</div>
+    </div>
+    <div class="seg mini hub-layout-toggle" id="hubLayoutToggle">
+      <button data-hl="carousel" class="on" title="3D Carousel">🎠 Carousel</button>
+      <button data-hl="bento" title="Bento Dashboard">🍱 Bento</button>
+      <button data-hl="grid" title="Grid">📱 Grid</button>
+    </div>
+  </div>
+
+  <!-- VIEW 1: Apple Arcade 3D Carousel (Option 1) -->
+  <div class="hub-view" id="hubViewCarousel">
+    <div class="hub-carousel-wrap">
+      <div class="carousel-track-container">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Dots & Boxes -->
+          <div class="c-card" data-idx="0" data-game="dots">
+            <div class="c-art dotsart"><svg class="minid" viewBox="0 0 120 120"><g stroke="#fff" stroke-width="7" stroke-linecap="round"><path d="M16 16H60V60H16Z" fill="rgba(255,255,255,.9)"/><path d="M60 16H104M104 16V60M16 104H60M104 60V104"/></g><text x="38" y="40" fill="#5856d6" font-size="26" font-weight="800" text-anchor="middle" dominant-baseline="central">A</text><g fill="#fff"><circle cx="16" cy="16" r="7"/><circle cx="60" cy="16" r="7"/><circle cx="104" cy="16" r="7"/><circle cx="16" cy="60" r="7"/><circle cx="60" cy="60" r="7"/><circle cx="104" cy="60" r="7"/><circle cx="16" cy="104" r="7"/><circle cx="60" cy="104" r="7"/><circle cx="104" cy="104" r="7"/></g></svg></div>
+            <div class="c-body">
+              <div class="c-title"><span>Dots &amp; Boxes</span><span class="c-tag">Classic</span></div>
+              <div class="c-desc">Draw lines, close boxes, and claim territory. Strategic, competitive, and timeless.</div>
+              <div class="c-badges"><span class="c-badge">👥 2–4 Players</span><span class="c-badge">🌐 Online / Local</span></div>
+              <button class="bigbtn press c-btn" data-game="dots"><svg class="i sm"><use href="#i-play"/></svg> Play Game</button>
+            </div>
+          </div>
+          <!-- Draw & Guess -->
+          <div class="c-card" data-idx="1" data-game="draw">
+            <div class="c-art drawart"><svg viewBox="0 0 120 90" style="width:80%"><rect x="10" y="8" width="100" height="72" rx="10" fill="#fff"/><path d="M28 60 Q40 26 56 46 T86 34" fill="none" stroke="#ff375f" stroke-width="5" stroke-linecap="round"/><circle cx="84" cy="58" r="9" fill="none" stroke="#0a84ff" stroke-width="4"/><g transform="rotate(35 92 30)"><rect x="86" y="6" width="11" height="38" rx="3" fill="#ffcc00"/><path d="M86 44 L91.5 54 L97 44Z" fill="#f0c49a"/><rect x="86" y="6" width="11" height="7" rx="2" fill="#ff6b8b"/></g><text x="22" y="30" font-size="16" font-weight="900" fill="#5856d6">?</text></svg></div>
+            <div class="c-body">
+              <div class="c-title"><span>Draw &amp; Guess</span><span class="c-tag">Popular 🔥</span></div>
+              <div class="c-desc">One draws a secret single word while everyone races to guess it in real time!</div>
+              <div class="c-badges"><span class="c-badge">👥 2–8 Players</span><span class="c-badge">✏️ Live Drawing</span></div>
+              <button class="bigbtn press c-btn" data-game="draw"><svg class="i sm"><use href="#i-play"/></svg> Play Game</button>
+            </div>
+          </div>
+          <!-- Bingo -->
+          <div class="c-card" data-idx="2" data-game="bingo">
+            <div class="c-art bingoart"><div class="minib"><i class="h">7</i><i class="">19</i><i class="">3</i><i class="">22</i><i class="">11</i><i class="">14</i><i class="h">1</i><i class="">25</i><i class="">9</i><i class="">16</i><i class="">5</i><i class="">20</i><i class="h">13</i><i class="">2</i><i class="">24</i><i class="">10</i><i class="">23</i><i class="">8</i><i class="h">17</i><i class="">6</i><i class="">21</i><i class="">4</i><i class="">12</i><i class="">18</i><i class="h">15</i></div></div>
+            <div class="c-body">
+              <div class="c-title"><span>Bingo</span><span class="c-tag">Party</span></div>
+              <div class="c-desc">Pick your numbers, call in turns, and be the first to complete 5 lines to shout BINGO!</div>
+              <div class="c-badges"><span class="c-badge">👥 2–6 Players</span><span class="c-badge">🔢 1–25 Grid</span></div>
+              <button class="bigbtn press c-btn" data-game="bingo"><svg class="i sm"><use href="#i-play"/></svg> Play Game</button>
+            </div>
+          </div>
+          <!-- Pocket Tanks -->
+          <div class="c-card" data-idx="3" data-game="tanks">
+            <div class="c-art tanksart"><svg viewBox="0 0 120 80" style="width:84%"><path d="M0 62 Q20 44 40 54 T80 50 T120 58 V80 H0Z" fill="#7a4b1f"/><path d="M0 62 Q20 44 40 54 T80 50 T120 58" fill="none" stroke="#4cd964" stroke-width="4"/><g transform="translate(26 50)"><rect x="-11" y="-7" width="22" height="7" rx="3" fill="#ff453a"/><circle cy="-7" r="6" fill="#ff6b5e"/><rect x="0" y="-10" width="15" height="3.5" rx="1.5" fill="#2c2c2e" transform="rotate(-35)"/></g><g transform="translate(94 49)"><rect x="-11" y="-7" width="22" height="7" rx="3" fill="#0a84ff"/><circle cy="-7" r="6" fill="#4aa3ff"/><rect x="-15" y="-10" width="15" height="3.5" rx="1.5" fill="#2c2c2e" transform="rotate(30)"/></g><path d="M38 34 Q60 2 84 30" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="3 4"/><circle cx="84" cy="30" r="3.5" fill="#ffd60a"/></svg></div>
+            <div class="c-body">
+              <div class="c-title"><span>Pocket Tanks</span><span class="c-tag">Action</span></div>
+              <div class="c-desc">Artillery duel! Set angle, charge power, and blow up terrain with crazy custom weapons.</div>
+              <div class="c-badges"><span class="c-badge">👥 2 Players</span><span class="c-badge">💣 Physics</span></div>
+              <button class="bigbtn press c-btn" data-game="tanks"><svg class="i sm"><use href="#i-play"/></svg> Play Game</button>
+            </div>
+          </div>
+          <!-- Tic-Tac-Toe -->
+          <div class="c-card" data-idx="4" data-game="ttt">
+            <div class="c-art tttart"><svg viewBox="0 0 90 90" style="width:62%" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"><path d="M30 6V84M60 6V84M6 30H84M6 60H84" stroke-opacity=".45"/><path d="M10 10L24 24M24 10L10 24M66 66L80 80M80 66L66 80"/><circle cx="45" cy="45" r="9"/><circle cx="73" cy="17" r="8"/></svg></div>
+            <div class="c-body">
+              <div class="c-title"><span>Tic-Tac-Toe</span><span class="c-tag">Speed</span></div>
+              <div class="c-desc">Get three marks in a row. Fast-paced mind duel with friends or challenging bots.</div>
+              <div class="c-badges"><span class="c-badge">👥 2 Players</span><span class="c-badge">⚡ Instant</span></div>
+              <button class="bigbtn press c-btn" data-game="ttt"><svg class="i sm"><use href="#i-play"/></svg> Play Game</button>
+            </div>
+          </div>
+          <!-- Stone Paper Scissors -->
+          <div class="c-card" data-idx="5" data-game="rps">
+            <div class="c-art rpsart"><span class="emojiart">✊✋✌️</span></div>
+            <div class="c-body">
+              <div class="c-title"><span>Stone Paper Scissors</span><span class="c-tag">Duel</span></div>
+              <div class="c-desc">Classic hand showdowns with multiple rounds, instant bluffing, and sudden death.</div>
+              <div class="c-badges"><span class="c-badge">👥 2–6 Players</span><span class="c-badge">🏆 Fast</span></div>
+              <button class="bigbtn press c-btn" data-game="rps"><svg class="i sm"><use href="#i-play"/></svg> Play Game</button>
+            </div>
+          </div>
+          <!-- Ghost Hunt -->
+          <div class="c-card" data-idx="6" data-game="ghost">
+            <div class="c-art ghostart"><svg viewBox="0 0 120 90" style="width:78%"><path d="M22 84V44L60 16L98 44V84Z" fill="#0c1020" stroke="#2c3550" stroke-width="3"/><rect x="50" y="58" width="20" height="26" fill="#1a2034"/><rect x="32" y="48" width="14" height="12" fill="#ffd36b" opacity=".75"/><rect x="74" y="48" width="14" height="12" fill="#1a2034"/><g transform="translate(76 26)" opacity=".92"><path d="M-12 26 V0 A12 12 0 0 1 12 0 V26 L7 21 L2 26 L-3 21 L-8 26Z" fill="#e8eef8"/><circle cx="-4" cy="2" r="2.2" fill="#0a0a12"/><circle cx="4" cy="2" r="2.2" fill="#0a0a12"/><ellipse cx="0" cy="9" rx="2" ry="3" fill="#0a0a12"/></g><circle cx="18" cy="14" r="7" fill="#f2f0dc"/></svg></div>
+            <div class="c-body">
+              <div class="c-title"><span>Ghost Hunt</span><span class="c-tag">Co-op</span></div>
+              <div class="c-desc">Search a haunted house, gather scientific clues, and identify the entity before it hunts!</div>
+              <div class="c-badges"><span class="c-badge">👥 1–4 Players</span><span class="c-badge">👻 Mystery</span></div>
+              <button class="bigbtn press c-btn" data-game="ghost"><svg class="i sm"><use href="#i-play"/></svg> Play Game</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-nav-btn carousel-prev" id="cPrevBtn" aria-label="Previous Game">‹</button>
+      <button class="carousel-nav-btn carousel-next" id="cNextBtn" aria-label="Next Game">›</button>
+      <div class="carousel-dots" id="cDots"></div>
+    </div>
+  </div>
+
+  <!-- VIEW 2: Modern Bento Box Dashboard (Option 2) -->
+  <div class="hub-view hidden" id="hubViewBento">
+    <div class="bento-grid">
+      <!-- Hero Bento: Featured Draw & Guess -->
+      <div class="bento-hero press" data-game="draw">
+        <div class="bento-hero-top">
+          <div>
+            <span class="c-tag" style="background:var(--blue);color:#fff">⭐ Featured Game</span>
+            <h3>Draw &amp; Guess</h3>
+            <p>Sketch secret words &amp; race friends to guess!</p>
+          </div>
+          <span style="font-size:12px;color:var(--green);font-weight:700">● 2–8 Online</span>
+        </div>
+        <div class="b-art-wrap drawart"><svg viewBox="0 0 120 90" style="width:70%"><rect x="10" y="8" width="100" height="72" rx="10" fill="#fff"/><path d="M28 60 Q40 26 56 46 T86 34" fill="none" stroke="#ff375f" stroke-width="5" stroke-linecap="round"/><circle cx="84" cy="58" r="9" fill="none" stroke="#0a84ff" stroke-width="4"/><g transform="rotate(35 92 30)"><rect x="86" y="6" width="11" height="38" rx="3" fill="#ffcc00"/><path d="M86 44 L91.5 54 L97 44Z" fill="#f0c49a"/><rect x="86" y="6" width="11" height="7" rx="2" fill="#ff6b8b"/></g><text x="22" y="30" font-size="16" font-weight="900" fill="#5856d6">?</text></svg></div>
+        <div class="bento-hero-acts">
+          <button class="bigbtn press" style="flex:1" data-game="draw"><svg class="i sm"><use href="#i-play"/></svg> Play Now</button>
+        </div>
+      </div>
+
+      <!-- Bento Tile: Dots & Boxes -->
+      <div class="bento-item press" data-game="dots">
+        <div class="b-art dotsart"><svg class="minid" viewBox="0 0 120 120" style="width:65%"><g stroke="#fff" stroke-width="7" stroke-linecap="round"><path d="M16 16H60V60H16Z" fill="rgba(255,255,255,.9)"/><path d="M60 16H104M104 16V60M16 104H60M104 60V104"/></g><text x="38" y="40" fill="#5856d6" font-size="26" font-weight="800" text-anchor="middle" dominant-baseline="central">A</text><g fill="#fff"><circle cx="16" cy="16" r="7"/><circle cx="60" cy="16" r="7"/><circle cx="104" cy="16" r="7"/><circle cx="16" cy="60" r="7"/><circle cx="60" cy="60" r="7"/><circle cx="104" cy="60" r="7"/><circle cx="16" cy="104" r="7"/><circle cx="60" cy="104" r="7"/><circle cx="104" cy="104" r="7"/></g></svg></div>
+        <b>Dots &amp; Boxes</b>
+        <span class="s">Claim territory · 2–4p</span>
+      </div>
+
+      <!-- Bento Tile: Pocket Tanks -->
+      <div class="bento-item press" data-game="tanks">
+        <div class="b-art tanksart"><svg viewBox="0 0 120 80" style="width:75%"><path d="M0 62 Q20 44 40 54 T80 50 T120 58 V80 H0Z" fill="#7a4b1f"/><path d="M0 62 Q20 44 40 54 T80 50 T120 58" fill="none" stroke="#4cd964" stroke-width="4"/><g transform="translate(26 50)"><rect x="-11" y="-7" width="22" height="7" rx="3" fill="#ff453a"/><circle cy="-7" r="6" fill="#ff6b5e"/><rect x="0" y="-10" width="15" height="3.5" rx="1.5" fill="#2c2c2e" transform="rotate(-35)"/></g><g transform="translate(94 49)"><rect x="-11" y="-7" width="22" height="7" rx="3" fill="#0a84ff"/><circle cy="-7" r="6" fill="#4aa3ff"/><rect x="-15" y="-10" width="15" height="3.5" rx="1.5" fill="#2c2c2e" transform="rotate(30)"/></g></svg></div>
+        <b>Pocket Tanks</b>
+        <span class="s">Artillery duel · 2p</span>
+      </div>
+
+      <!-- Bento Tile: Bingo -->
+      <div class="bento-item press" data-game="bingo">
+        <div class="b-art bingoart"><div class="minib" style="transform:scale(.75)"><i class="h">7</i><i>19</i><i>3</i><i>22</i><i class="h">1</i><i>25</i><i>9</i><i>16</i><i>5</i><i>20</i><i class="h">13</i><i>2</i><i>24</i><i>10</i><i>23</i><i>8</i><i class="h">17</i><i>6</i><i>21</i><i>4</i><i>12</i><i>18</i><i class="h">15</i></div></div>
+        <b>Bingo</b>
+        <span class="s">5 Lines · 2–6p</span>
+      </div>
+
+      <!-- Bento Tile: Tic-Tac-Toe -->
+      <div class="bento-item press" data-game="ttt">
+        <div class="b-art tttart"><svg viewBox="0 0 90 90" style="width:55%" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"><path d="M30 6V84M60 6V84M6 30H84M6 60H84" stroke-opacity=".45"/><path d="M10 10L24 24M24 10L10 24M66 66L80 80M80 66L66 80"/><circle cx="45" cy="45" r="9"/></svg></div>
+        <b>Tic-Tac-Toe</b>
+        <span class="s">3 in a row · 2p</span>
+      </div>
+
+      <!-- Bento Tile: Stone Paper Scissors -->
+      <div class="bento-item press" data-game="rps">
+        <div class="b-art rpsart"><span class="emojiart" style="font-size:32px">✊✋✌️</span></div>
+        <b>RPS Duel</b>
+        <span class="s">Quick showdown · 2–6p</span>
+      </div>
+
+      <!-- Bento Tile: Ghost Hunt -->
+      <div class="bento-item press" data-game="ghost">
+        <div class="b-art ghostart"><svg viewBox="0 0 120 90" style="width:65%"><path d="M22 84V44L60 16L98 44V84Z" fill="#0c1020" stroke="#2c3550" stroke-width="3"/><rect x="50" y="58" width="20" height="26" fill="#1a2034"/><g transform="translate(76 26)" opacity=".92"><path d="M-12 26 V0 A12 12 0 0 1 12 0 V26 L7 21 L2 26 L-3 21 L-8 26Z" fill="#e8eef8"/><circle cx="-4" cy="2" r="2.2" fill="#0a0a12"/><circle cx="4" cy="2" r="2.2" fill="#0a0a12"/></g></svg></div>
+        <b>Ghost Hunt</b>
+        <span class="s">Co-op mystery · 1–4p</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIEW 3: Modern Grid -->
+  <div class="hub-view hidden" id="hubViewGrid">
+    <div class="hubgrid">
     <button class="gtile press" data-game="dots"><div class="gart dotsart"><svg class="minid" viewBox="0 0 120 120"><g stroke="#fff" stroke-width="7" stroke-linecap="round"><path d="M16 16H60V60H16Z" fill="rgba(255,255,255,.9)"/><path d="M60 16H104M104 16V60M16 104H60M104 60V104"/></g><text x="38" y="40" fill="#5856d6" font-size="26" font-weight="800" text-anchor="middle" dominant-baseline="central">A</text><g fill="#fff"><circle cx="16" cy="16" r="7"/><circle cx="60" cy="16" r="7"/><circle cx="104" cy="16" r="7"/><circle cx="16" cy="60" r="7"/><circle cx="60" cy="60" r="7"/><circle cx="104" cy="60" r="7"/><circle cx="16" cy="104" r="7"/><circle cx="60" cy="104" r="7"/><circle cx="104" cy="104" r="7"/></g></svg></div><b>Dots &amp; Boxes</b><span class="s">Draw lines, claim boxes</span></button>
     <button class="gtile press" data-game="bingo"><div class="gart bingoart"><div class="minib"><i class="h">7</i><i class="">19</i><i class="">3</i><i class="">22</i><i class="">11</i><i class="">14</i><i class="h">1</i><i class="">25</i><i class="">9</i><i class="">16</i><i class="">5</i><i class="">20</i><i class="h">13</i><i class="">2</i><i class="">24</i><i class="">10</i><i class="">23</i><i class="">8</i><i class="h">17</i><i class="">6</i><i class="">21</i><i class="">4</i><i class="">12</i><i class="">18</i><i class="h">15</i></div></div><b>Bingo</b><span class="s">Numbers 1–25 · 5 lines</span></button>
     <button class="gtile press" data-game="ttt"><div class="gart tttart"><svg viewBox="0 0 90 90" style="width:62%" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"><path d="M30 6V84M60 6V84M6 30H84M6 60H84" stroke-opacity=".45"/><path d="M10 10L24 24M24 10L10 24M66 66L80 80M80 66L66 80"/><circle cx="45" cy="45" r="9"/><circle cx="73" cy="17" r="8"/></svg></div><b>Tic-Tac-Toe</b><span class="s">3 in a row</span></button>
@@ -965,6 +1484,7 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
     <button class="gtile press" data-game="draw"><div class="gart drawart"><svg viewBox="0 0 120 90" style="width:80%"><rect x="10" y="8" width="100" height="72" rx="10" fill="#fff"/><path d="M28 60 Q40 26 56 46 T86 34" fill="none" stroke="#ff375f" stroke-width="5" stroke-linecap="round"/><circle cx="84" cy="58" r="9" fill="none" stroke="#0a84ff" stroke-width="4"/><g transform="rotate(35 92 30)"><rect x="86" y="6" width="11" height="38" rx="3" fill="#ffcc00"/><path d="M86 44 L91.5 54 L97 44Z" fill="#f0c49a"/><rect x="86" y="6" width="11" height="7" rx="2" fill="#ff6b8b"/></g><text x="22" y="30" font-size="16" font-weight="900" fill="#5856d6">?</text></svg></div><b>Draw &amp; Guess</b><span class="s">Sketch it · guess it</span></button>
     <button class="gtile press" data-game="ghost"><div class="gart ghostart"><svg viewBox="0 0 120 90" style="width:78%"><path d="M22 84V44L60 16L98 44V84Z" fill="#0c1020" stroke="#2c3550" stroke-width="3"/><rect x="50" y="58" width="20" height="26" fill="#1a2034"/><rect x="32" y="48" width="14" height="12" fill="#ffd36b" opacity=".75"/><rect x="74" y="48" width="14" height="12" fill="#1a2034"/><g transform="translate(76 26)" opacity=".92"><path d="M-12 26 V0 A12 12 0 0 1 12 0 V26 L7 21 L2 26 L-3 21 L-8 26Z" fill="#e8eef8"/><circle cx="-4" cy="2" r="2.2" fill="#0a0a12"/><circle cx="4" cy="2" r="2.2" fill="#0a0a12"/><ellipse cx="0" cy="9" rx="2" ry="3" fill="#0a0a12"/></g><circle cx="18" cy="14" r="7" fill="#f2f0dc"/></svg></div><b>Ghost Hunt</b><span class="s">Co-op · find the ghost</span></button>
     <div class="gtile soon"><div class="gart soonart"><svg class="i"><use href="#i-hourglass"/></svg></div><b>New Game</b><span class="soonpill">COMING SOON</span></div>
+    </div>
   </div>
   <div class="modes">
     <button class="mode press hidden" id="installCard"><div class="tile" style="background:linear-gradient(135deg,#34c759,#0a84ff)"><svg class="i"><use href="#i-download"/></svg></div><div><b>Install as App</b><span id="installSub">Add to your home screen — opens full screen</span></div><svg class="i chev"><use href="#i-chev"/></svg></button>
@@ -1342,7 +1862,15 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
 <div class="sheet" id="menuSheet">
   <div class="grabber"></div>
   <div class="sheet-h"><b>Settings</b><button class="navbtn" data-close style="font-weight:600">Done</button></div>
-  <div class="gh" style="padding-top:12px">Appearance</div>
+  <div class="gh" style="padding-top:12px">Hub Menu Style</div>
+  <div class="wrap16"><div class="seg big" id="menuLayoutSeg">
+    <button data-layout="carousel"><span>🎠</span> Carousel</button>
+    <button data-layout="bento"><span>🍱</span> Bento</button>
+    <button data-layout="grid"><span>📱</span> Grid</button>
+  </div></div>
+  <div class="gf">Choose your favorite game menu design. You can also switch directly from the top-right toggle on the home screen.</div>
+
+  <div class="gh">Appearance</div>
   <div class="wrap16"><div class="seg big" id="themeSeg">
     <button data-theme="auto"><svg class="i"><use href="#i-auto"/></svg>Auto</button>
     <button data-theme="light"><svg class="i"><use href="#i-sun"/></svg>Light</button>
@@ -2625,7 +3153,17 @@ function refreshHome(){
   if(ok){$('rejoinTitle').textContent='Rejoin room '+last.code;$('rejoinSub').textContent=(GNAME[last.game]||'Online game')+' · continue where you left off';}
 }
 document.querySelectorAll('[data-game]').forEach(b=>b.onclick=()=>{sfx('tap');buzz(8);openGameHome(b.dataset.game);});
-$('hubJoin').onclick=()=>{sfx('tap');openSetup('online');setTimeout(()=>{const el=$('joinCode');el.scrollIntoView({block:'center',behavior:'smooth'});},60);};
+  // Bento and Carousel game click handlers
+  document.addEventListener('click', e => {
+    const bentoCard = e.target.closest('.bento-hero, .bento-item, .c-btn');
+    if(!bentoCard) return;
+    const g = bentoCard.dataset.game;
+    if(g){
+      sfx('tap');buzz(8);
+      openGameHome(g);
+    }
+  });
+  $('hubJoin').onclick=()=>{sfx('tap');openSetup('online');setTimeout(()=>{const el=$('joinCode');el.scrollIntoView({block:'center',behavior:'smooth'});},60);};
 document.querySelectorAll('[data-bstep]').forEach(b=>b.onclick=()=>{const cur=ncpuGet(),v=Math.max(1,Math.min(3,cur+ +b.dataset.bstep));if(v===cur)return;
   if(GAME==='bingo'){BCFG.ncpu=v;store.set('bcfg',BCFG);}else if(XCFG[GAME]){XCFG[GAME].ncpu=v;store.set('xcfg',XCFG);}$('ncpuV').textContent=v;sfx('tap');buzz(8);});
 $('confirmSw').onchange=()=>{SET.confirm=$('confirmSw').checked;saveSet();buzz(8);};
@@ -5185,7 +5723,160 @@ Social._n=SET.name;
   } catch(e){}
 })();
 
+
+/* =========================================================
+   CAROUSEL & MULTI-LAYOUT CONTROLLER
+   ========================================================= */
+const HUB_CAROUSEL = {
+  idx: 0,
+  cards: [],
+  startX: 0,
+  curX: 0,
+  isDragging: false,
+  init(){
+    const track = $('carouselTrack');
+    if(!track) return;
+    this.cards = Array.from(track.querySelectorAll('.c-card'));
+    if(!this.cards.length) return;
+    
+    // Create dots
+    const dotsBox = $('cDots');
+    if(dotsBox){
+      dotsBox.innerHTML = this.cards.map((_, i) => `<button class="carousel-dot ${i===0?'on':''}" data-dot="${i}" aria-label="Go to game ${i+1}"></button>`).join('');
+      dotsBox.onclick = e => {
+        const dot = e.target.closest('[data-dot]');
+        if(dot){ this.go(+dot.dataset.dot); }
+      };
+    }
+
+    // Prev / Next buttons
+    const pBtn = $('cPrevBtn'), nBtn = $('cNextBtn');
+    if(pBtn) pBtn.onclick = () => this.prev();
+    if(nBtn) nBtn.onclick = () => this.next();
+
+    // Touch & Mouse Drag on Track
+    track.addEventListener('pointerdown', e => {
+      if(e.target.closest('.c-btn')) return;
+      this.isDragging = true;
+      this.startX = e.clientX;
+      this.curX = e.clientX;
+    });
+    window.addEventListener('pointermove', e => {
+      if(!this.isDragging) return;
+      this.curX = e.clientX;
+    });
+    window.addEventListener('pointerup', () => {
+      if(!this.isDragging) return;
+      this.isDragging = false;
+      const dx = this.curX - this.startX;
+      if(dx > 45){ this.prev(); }
+      else if(dx < -45){ this.next(); }
+    });
+
+    // Clicking a side card brings it to center
+    track.addEventListener('click', e => {
+      if(e.target.closest('.c-btn')) return;
+      const card = e.target.closest('.c-card');
+      if(!card) return;
+      const cardIdx = +card.dataset.idx;
+      if(cardIdx !== this.idx){
+        this.go(cardIdx);
+      }
+    });
+
+    this.render();
+  },
+  render(){
+    if(!this.cards.length) return;
+    const n = this.cards.length;
+    this.cards.forEach((card, i) => {
+      let diff = i - this.idx;
+      if(diff > n / 2) diff -= n;
+      if(diff < -n / 2) diff += n;
+
+      card.dataset.pos = diff;
+      if(Math.abs(diff) > 2){
+        card.classList.add('c-hidden');
+      } else {
+        card.classList.remove('c-hidden');
+      }
+    });
+
+    const dots = document.querySelectorAll('#cDots .carousel-dot');
+    dots.forEach((d, i) => d.classList.toggle('on', i === this.idx));
+  },
+  next(){
+    this.idx = (this.idx + 1) % this.cards.length;
+    this.render();
+    sfx('tap');buzz(8);
+  },
+  prev(){
+    this.idx = (this.idx - 1 + this.cards.length) % this.cards.length;
+    this.render();
+    sfx('tap');buzz(8);
+  },
+  go(i){
+    this.idx = i;
+    this.render();
+    sfx('tap');buzz(8);
+  }
+};
+
+function switchHubLayout(layout, quiet){
+  if(!layout) layout = 'carousel';
+  SET.hubLayout = layout;
+  store.set('hublayout', layout);
+
+  const vCarousel = $('hubViewCarousel'), vBento = $('hubViewBento'), vGrid = $('hubViewGrid');
+  if(vCarousel) vCarousel.classList.toggle('hidden', layout !== 'carousel');
+  if(vBento) vBento.classList.toggle('hidden', layout !== 'bento');
+  if(vGrid) vGrid.classList.toggle('hidden', layout !== 'grid');
+
+  // Update header buttons
+  document.querySelectorAll('#hubLayoutToggle button').forEach(b => {
+    b.classList.toggle('on', b.dataset.hl === layout);
+  });
+  // Update settings buttons
+  document.querySelectorAll('#menuLayoutSeg button').forEach(b => {
+    b.classList.toggle('on', b.dataset.layout === layout);
+  });
+
+  if(layout === 'carousel'){
+    setTimeout(() => HUB_CAROUSEL.init(), 40);
+  }
+
+  if(!quiet){
+    const names = { carousel: '🎠 3D Carousel', bento: '🍱 Bento Dashboard', grid: '📱 Modern Grid' };
+    toast('Menu layout: ' + (names[layout] || layout));
+    sfx('tap');buzz(12);
+  }
+}
+
+// Keyboard arrows navigation for Carousel on PC
+window.addEventListener('keydown', e => {
+  if(SCREEN === 'hub' && (SET.hubLayout || 'carousel') === 'carousel'){
+    if(e.key === 'ArrowRight'){ HUB_CAROUSEL.next(); }
+    else if(e.key === 'ArrowLeft'){ HUB_CAROUSEL.prev(); }
+    else if(e.key === 'Enter'){
+      const curCard = document.querySelector('.c-card[data-pos="0"]');
+      if(curCard && curCard.dataset.game){
+        openGameHome(curCard.dataset.game);
+      }
+    }
+  }
+});
+
 PWR.init();applyTheme();refreshHome();installVis();vis();buildLevels();renderPlist();updateNav();
+  // Hub Layout switch listeners
+  document.querySelectorAll('#hubLayoutToggle button').forEach(b => {
+    b.onclick = () => switchHubLayout(b.dataset.hl);
+  });
+  document.querySelectorAll('#menuLayoutSeg button').forEach(b => {
+    b.onclick = () => switchHubLayout(b.dataset.layout);
+  });
+  // Initialize layout from SET or default to carousel
+  const savedLayout = SET.hubLayout || store.get('hublayout', 'carousel');
+  switchHubLayout(savedLayout, true);
 (()=>{const r=new URLSearchParams(location.search).get('room');if(r){openSetup('online');$('joinCode').value=r.toUpperCase().slice(0,5);
   if((SET.name||'').trim())onMsg('Tap Join Room to enter room '+r.toUpperCase().slice(0,5)+'.');}})();
 
