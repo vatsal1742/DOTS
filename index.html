@@ -1275,6 +1275,168 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
   .c-card .c-art { height: 225px; }
 }
 
+
+/* ================= OPTION 4: CONSOLE HUD THEME (Nintendo Switch / Steam Deck) ================= */
+:root {
+  --hud-amber: #f59e0b;
+  --hud-amber-light: #fbbf24;
+  --hud-amber-glow: rgba(245, 158, 11, 0.35);
+  --hud-amber-bg: rgba(245, 158, 11, 0.16);
+  --hud-dark: #14161c;
+  --hud-card: #181a22;
+  --hud-border: rgba(245, 158, 11, 0.28);
+}
+
+/* Console Header Rank Banner */
+.hud-rank-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 0 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--hud-border);
+}
+.hud-rank-tag {
+  font-size: 11px;
+  font-weight: 800;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: 0.8px;
+  color: var(--hud-amber);
+  background: var(--hud-amber-bg);
+  border: 1px solid var(--hud-border);
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.hud-stat-pill {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+/* Console HUD Profile Card */
+.socme {
+  background: linear-gradient(145deg, #181b24, #13151c) !important;
+  border: 1px solid var(--hud-border) !important;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.45), 0 0 24px rgba(245, 158, 11, 0.08) !important;
+}
+.socme .sid span.sid-num {
+  color: var(--hud-amber) !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-weight: 800 !important;
+}
+
+/* Amber Console Primary Action Buttons */
+.socme-btn.hud-amber, .sbtn.hud-amber {
+  background: var(--hud-amber) !important;
+  color: #0b0c10 !important;
+  font-weight: 800 !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35) !important;
+  transition: transform .15s ease, box-shadow .15s ease !important;
+}
+.socme-btn.hud-amber:hover, .sbtn.hud-amber:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45) !important;
+}
+.socme-btn.hud-amber:active, .sbtn.hud-amber:active {
+  transform: translateY(1px);
+}
+
+/* Console HUD Segmented Controls */
+.seg.hud-seg {
+  background: rgba(20, 22, 28, 0.95) !important;
+  border: 1px solid var(--hud-border) !important;
+  border-radius: 14px !important;
+  padding: 3px !important;
+}
+.seg.hud-seg button {
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  border-radius: 10px !important;
+  color: var(--label2) !important;
+  transition: all .18s ease !important;
+}
+.seg.hud-seg button.on {
+  background: var(--hud-amber-bg) !important;
+  color: #fbbf24 !important;
+  border: 1px solid rgba(245, 158, 11, 0.4) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+}
+
+/* Quick Comms Chips in In-Game and Direct Chat */
+.chatquick button, .hud-chip {
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  background: rgba(22, 25, 32, 0.95) !important;
+  color: #fbbf24 !important;
+  border-radius: 999px !important;
+  padding: 7px 14px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  transition: all .15s ease !important;
+  cursor: pointer !important;
+  flex: none !important;
+}
+.chatquick button:hover, .hud-chip:hover {
+  background: rgba(245, 158, 11, 0.22) !important;
+  border-color: #f59e0b !important;
+  transform: translateY(-1px);
+}
+.chatquick button:active, .hud-chip:active {
+  background: #f59e0b !important;
+  color: #0b0c10 !important;
+  transform: translateY(1px);
+}
+
+/* Console HUD Speech Bubbles */
+.cmsg.mine .cbubble {
+  background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+  color: #0b0c10 !important;
+  font-weight: 600 !important;
+  border-radius: 18px 18px 4px 18px !important;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.25) !important;
+}
+.cmsg:not(.mine) .cbubble {
+  background: #1c1f28 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #f3f4f6 !important;
+  border-radius: 18px 18px 18px 4px !important;
+}
+
+/* Desktop PC Floating Modal Window for Option 4 */
+@media (min-width: 768px) {
+  .sheet {
+    max-width: 680px !important;
+    border-radius: 28px !important;
+    bottom: auto !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translate(-50%, -46%) scale(0.96) !important;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .32s cubic-bezier(.2,.9,.25,1), opacity .32s ease !important;
+    border: 1px solid rgba(245, 158, 11, 0.3) !important;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+    max-height: 86vh !important;
+  }
+  .sheet.open {
+    transform: translate(-50%, -50%) scale(1) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  .sheet .grabber { display: none; }
+}
+
 </style>
 </head>
 <body>
@@ -2018,8 +2180,8 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
     <div class="av-grid" id="socEmojiGrid"></div>
   </div>
   <div id="socExtra"><input id="socBio" class="sbioin" maxlength="60" placeholder="✏️ About me… (e.g. Bingo champion 🏆)" autocomplete="off"></div>
-  <div class="seg" id="socStatus"><button data-ss="auto">🟢 Available</button><button data-ss="busy">⛔ Busy</button><button data-ss="away">🌙 Away</button></div>
-  <div class="seg" id="socTabs"><button data-tab="friends">Friends<em></em></button><button data-tab="req">Requests<em></em></button><button data-tab="sync">Device Sync<em></em></button><button data-tab="set">Settings<em></em></button></div>
+  <div class="seg hud-seg" id="socStatus"><button data-ss="auto">🟢 Available</button><button data-ss="busy">⛔ In Match</button><button data-ss="away">🌙 Away</button></div>
+  <div class="seg hud-seg" id="socTabs"><button data-tab="friends">👥 Squad<em></em></button><button data-tab="req">📬 Requests<em></em></button><button data-tab="sync">🔗 Sync PC<em></em></button><button data-tab="set">⚙️ HUD Settings<em></em></button></div>
   <div class="socbody" id="socBody"></div>
 </div>
 <div class="sheet socsheet" id="msgSheet">
@@ -2033,6 +2195,7 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
   <div class="convhead"><button class="navbtn" id="convBack" style="font-weight:600">‹ Back</button><div class="grow"><b id="convTitle"></b><small class="ssub" id="convSub"></small></div><button class="navbtn" id="convMenu" style="font-size:22px">⋯</button><button class="navbtn" data-close style="font-weight:600">Done</button></div>
   <div id="convAct"></div>
   <div class="chatlist" id="convList"></div>
+  <div class="chatquick" id="convQuick"></div>
   <form class="chatbar" id="convForm" autocomplete="off"><button type="button" class="cemo" id="convEmo" aria-label="Emoji, stickers and GIFs">😊</button><input id="convIn" maxlength="300" placeholder="Message…" enterkeyhint="send"><button type="submit" class="csend" aria-label="Send"><svg class="i"><use href="#i-send"/></svg></button></form>
 </div>
 <div class="sheet" id="pickSheet">
@@ -5578,20 +5741,28 @@ const Social={
     if(!this.name())setTimeout(()=>$('socName')&&$('socName').focus(),300);},
   showMsgs(){if(!this.name()){this.show();toast('Choose your name first');return;}this.start();this.wake();closeSheets();openSheet('msgSheet');this.renderMsgs();},
   renderMe(){const n=this.name(),st=this.myStatus();
+    const totalWins = store.get('gwins', 48);
+    const pLevel = Math.max(1, Math.floor(totalWins / 2));
+    const rankTitle = pLevel >= 20 ? 'VETERAN' : pLevel >= 10 ? 'WARRIOR' : 'RECRUIT';
+
     $('socMe').innerHTML=n?`
+      <div class="hud-rank-bar">
+        <span class="hud-rank-tag">🎮 PLAYER RANK: LV. ${pLevel} · ${rankTitle}</span>
+        <span class="hud-stat-pill">🏆 ${totalWins} WINS</span>
+      </div>
       <div class="socme-top">
         <button class="savbtn" id="socAvBtn" aria-label="Change picture">${this.av(CID,n,SET.avatar,`<i class="sdot ${st}"></i>`,'big')}<span class="savedit">✎</span></button>
         <div class="socme-meta">
           <div class="socme-name-line"><b id="socNameShow">${esc(n)}</b> <button class="slink" id="socRename">Edit</button></div>
-          <div class="sid" id="socCopyIdQuick" title="Tap to copy Friend ID">Friend ID: <span>${esc(this.myId())}</span> <svg class="i sm inl" style="opacity:.6;width:14px;height:14px"><use href="#i-copy"/></svg></div>
+          <div class="sid" id="socCopyIdQuick" title="Tap to copy Friend ID">Friend ID: <span class="sid-num font-mono">${esc(this.myId())}</span> <svg class="i sm inl" style="opacity:.8;width:14px;height:14px;color:var(--hud-amber)"><use href="#i-copy"/></svg></div>
           <div class="ssub" id="socConn"></div>
         </div>
       </div>
       <div class="socme-actions">
+        <button class="sbtn hud-amber socme-btn" id="socSyncQuick"><svg class="i sm"><use href="#i-refresh"/></svg>Link PC / Phone</button>
         <button class="sbtn socme-btn" id="socShare"><svg class="i sm"><use href="#i-share"/></svg>Share Profile</button>
-        <button class="sbtn tint socme-btn" id="socSyncQuick"><svg class="i sm"><use href="#i-refresh"/></svg>Link PC / Phone</button>
       </div>`
-    :`<div class="grow"><b>Choose your name</b><div class="ssub">Friends find you by this name</div><input id="socName" maxlength="14" placeholder="Your name" autocomplete="off"></div><button class="sbtn tint" id="socNameGo">Save</button>`;
+    :`<div class="grow"><b>Choose your name</b><div class="ssub">Friends find you by this name</div><input id="socName" maxlength="14" placeholder="Your name" autocomplete="off"></div><button class="sbtn hud-amber" id="socNameGo">Save</button>`;
     const ALL_EMOS = [
       '', '😎','🤠','🥷','🦸','🧙','👑','🤴','👸','🎭','🤖','👽','👾','👻','💀','🐱','🐶','🦊','🐻','🐼',
       '🦁','🐯','🐵','🦄','🐲','🐙','🦖','🦈','🦅','🦉','🐺','🐬','🐳','🦋','🌸','🌺','🌻','🌲','🌙','⭐',
@@ -5914,6 +6085,17 @@ MQ.prototype.unsub=function(t){const id=this.pid++&0xffff||1;return this.send(mp
   $('socSheet').addEventListener('keydown',e=>{if(e.target.id==='socName'&&e.key==='Enter')$('socNameGo').click();});
   $('convAct').onclick=e=>{act(e.target,e);};
   $('convBack').onclick=()=>{S.closeConv();S.showMsgs();};
+  const convQuickEl = $('convQuick');
+  if(convQuickEl){
+    convQuickEl.innerHTML = QUICK.map(q=>`<button type="button" class="hud-chip">${q}</button>`).join('');
+    convQuickEl.addEventListener('click', e => {
+      const b = e.target.closest('button');
+      if(b && S.open){
+        S.sendMsg(S.open, b.textContent);
+        sfx('tap');buzz(10);
+      }
+    });
+  }
   $('convForm').addEventListener('submit',e=>{e.preventDefault();S.sendMsg(S.open,$('convIn').value);$('convIn').value='';});
   $('convEmo').onclick=()=>EMO.toggle($('convEmo'),t=>S.sendMsg(S.open,t),$('convIn'));
   $('chatEmo').onclick=()=>EMO.toggle($('chatEmo'),t=>Chat.send(t),$('chatIn'));
