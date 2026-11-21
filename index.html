@@ -16,28 +16,47 @@
 <title>Games — Dots &amp; Boxes · Bingo · Draw &amp; Guess · Tic-Tac-Toe · Stone Paper Scissors · Pocket Tanks</title>
 <style>
 :root{
-  --bg:#f2f2f7;--bg2:#e9e9ef;--card:#fff;--card2:#f2f2f7;--label:#000;--label2:rgba(60,60,67,.6);--label3:rgba(60,60,67,.3);
-  --sep:rgba(60,60,67,.22);--fill:rgba(118,118,128,.12);--fill2:rgba(118,118,128,.2);--segon:#fff;--bar:rgba(242,242,247,.8);
-  --blue:#007aff;--green:#34c759;--red:#ff3b30;--orange:#ff9500;--yellow:#ffcc00;--purple:#af52de;--indigo:#5856d6;--teal:#30b0c7;--pink:#ff2d55;--gray:#8e8e93;
-  --dot:#1c1c1e;--paper:#fff;--grid:rgba(60,60,67,.06);--shadow:0 1px 2px rgba(0,0,0,.04),0 4px 16px rgba(0,0,0,.05);--shadow2:0 10px 40px rgba(0,0,0,.18);
+  --bg:#f4f4f9;--bg2:#eaeaf2;--card:rgba(255,255,255,0.86);--card2:rgba(245,245,252,0.92);
+  --card-glass:rgba(255,255,255,0.78);--border-glass:rgba(255,255,255,0.68);
+  --label:#0d0e15;--label2:rgba(60,60,75,.7);--label3:rgba(60,60,75,.4);
+  --sep:rgba(60,60,75,.12);--fill:rgba(118,118,140,.09);--fill2:rgba(118,118,140,.18);--segon:#fff;--bar:rgba(244,244,250,.85);
+  --blue:#0071e3;--blue-glow:rgba(0,113,227,.3);--green:#34c759;--red:#ff3b30;--orange:#ff9500;--yellow:#ffcc00;
+  --purple:#af52de;--indigo:#5856d6;--teal:#30b0c7;--pink:#ff2d55;--gray:#8e8e93;
+  --dot:#1c1c1e;--paper:rgba(255,255,255,0.95);--grid:rgba(60,60,75,.05);
+  --shadow:0 6px 24px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.03);--shadow2:0 18px 50px rgba(0,0,0,.15);
+  --glass-bevel:inset 0 1px 0 rgba(255,255,255,.65);
   color-scheme:light;
 }
 :root[data-theme=dark]{
-  --bg:#000;--bg2:#0b0b0d;--card:#1c1c1e;--card2:#2c2c2e;--label:#fff;--label2:rgba(235,235,245,.6);--label3:rgba(235,235,245,.28);
-  --sep:rgba(84,84,88,.55);--fill:rgba(118,118,128,.24);--fill2:rgba(118,118,128,.32);--segon:#636366;--bar:rgba(18,18,20,.78);
-  --blue:#0a84ff;--green:#30d158;--red:#ff453a;--orange:#ff9f0a;--yellow:#ffd60a;--purple:#bf5af2;--indigo:#5e5ce6;--teal:#40c8e0;--pink:#ff375f;--gray:#98989d;
-  --dot:#f2f2f7;--paper:#1c1c1e;--grid:rgba(235,235,245,.045);--shadow:none;--shadow2:0 10px 40px rgba(0,0,0,.6);
+  --bg:#090a10;--bg2:#12131d;--card:rgba(24,25,36,0.84);--card2:rgba(32,34,48,0.88);
+  --card-glass:rgba(22,23,34,0.8);--border-glass:rgba(255,255,255,0.1);
+  --label:#f8f9fd;--label2:rgba(235,235,245,.68);--label3:rgba(235,235,245,.34);
+  --sep:rgba(255,255,255,.09);--fill:rgba(255,255,255,.08);--fill2:rgba(255,255,255,.16);--segon:rgba(255,255,255,.18);--bar:rgba(13,14,22,.86);
+  --blue:#0a84ff;--blue-glow:rgba(10,132,255,.4);--green:#30d158;--red:#ff453a;--orange:#ff9f0a;--yellow:#ffd60a;
+  --purple:#bf5af2;--indigo:#6366f1;--teal:#40c8e0;--pink:#ff375f;--gray:#98989d;
+  --dot:#f2f2f7;--paper:rgba(22,23,34,0.95);--grid:rgba(255,255,255,.04);
+  --shadow:0 8px 32px rgba(0,0,0,.45);--shadow2:0 22px 64px rgba(0,0,0,.7);
+  --glass-bevel:inset 0 1px 0 rgba(255,255,255,.14);
   color-scheme:dark;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){
-  --bg:#000;--bg2:#0b0b0d;--card:#1c1c1e;--card2:#2c2c2e;--label:#fff;--label2:rgba(235,235,245,.6);--label3:rgba(235,235,245,.28);
-  --sep:rgba(84,84,88,.55);--fill:rgba(118,118,128,.24);--fill2:rgba(118,118,128,.32);--segon:#636366;--bar:rgba(18,18,20,.78);
-  --blue:#0a84ff;--green:#30d158;--red:#ff453a;--orange:#ff9f0a;--yellow:#ffd60a;--purple:#bf5af2;--indigo:#5e5ce6;--teal:#40c8e0;--pink:#ff375f;--gray:#98989d;
-  --dot:#f2f2f7;--paper:#1c1c1e;--grid:rgba(235,235,245,.045);--shadow:none;--shadow2:0 10px 40px rgba(0,0,0,.6);
+  --bg:#090a10;--bg2:#12131d;--card:rgba(24,25,36,0.84);--card2:rgba(32,34,48,0.88);
+  --card-glass:rgba(22,23,34,0.8);--border-glass:rgba(255,255,255,0.1);
+  --label:#f8f9fd;--label2:rgba(235,235,245,.68);--label3:rgba(235,235,245,.34);
+  --sep:rgba(255,255,255,.09);--fill:rgba(255,255,255,.08);--fill2:rgba(255,255,255,.16);--segon:rgba(255,255,255,.18);--bar:rgba(13,14,22,.86);
+  --blue:#0a84ff;--blue-glow:rgba(10,132,255,.4);--green:#30d158;--red:#ff453a;--orange:#ff9f0a;--yellow:#ffd60a;
+  --purple:#bf5af2;--indigo:#6366f1;--teal:#40c8e0;--pink:#ff375f;--gray:#98989d;
+  --dot:#f2f2f7;--paper:rgba(22,23,34,0.95);--grid:rgba(255,255,255,.04);
+  --shadow:0 8px 32px rgba(0,0,0,.45);--shadow2:0 22px 64px rgba(0,0,0,.7);
+  --glass-bevel:inset 0 1px 0 rgba(255,255,255,.14);
   color-scheme:dark;
 }}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;background:var(--bg);color:var(--label)}
+*, *::before, *::after{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html, body{touch-action:manipulation;-webkit-touch-callout:none;overscroll-behavior:none}
+button, a, input, select, .press, .gtile, .mode, .cell, .dt, .savbtn{touch-action:manipulation}
+html,body{margin:0;background-color:var(--bg);color:var(--label);
+  background-image:radial-gradient(circle at 10% 8%,rgba(99,102,241,.07),transparent 35%),radial-gradient(circle at 90% 12%,rgba(236,72,153,.06),transparent 35%),radial-gradient(circle at 50% 85%,rgba(14,165,233,.05),transparent 45%);background-attachment:fixed}
+:root[data-theme=dark] body{background-image:radial-gradient(circle at 10% 8%,rgba(99,102,241,.18),transparent 40%),radial-gradient(circle at 90% 14%,rgba(236,72,153,.15),transparent 40%),radial-gradient(circle at 50% 90%,rgba(14,165,233,.12),transparent 50%)}
 body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,Roboto,"Segoe UI",Arial,sans-serif;font-size:17px;line-height:1.3;
   min-height:100vh;min-height:100dvh;-webkit-font-smoothing:antialiased;overscroll-behavior-y:none}
 button,input,select{font-family:inherit}
@@ -61,14 +80,14 @@ svg.i.sm{width:16px;height:16px}
 .page{max-width:620px;margin:0 auto;padding-bottom:calc(36px + env(safe-area-inset-bottom));animation:pageIn .32s cubic-bezier(.2,.8,.2,1)}
 .page.wide{max-width:940px}
 @keyframes pageIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
-.large{font-size:34px;font-weight:700;letter-spacing:.3px;padding:4px 20px 0}
-.sub{color:var(--label2);font-size:15px;padding:2px 20px 0}
+.large{font-size:35px;font-weight:800;letter-spacing:-.6px;padding:8px 20px 0;background:linear-gradient(135deg,var(--label) 25%,var(--indigo) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:var(--label2);font-size:15px;font-weight:450;letter-spacing:-.1px;padding:4px 20px 0;line-height:1.4}
 
 /* home */
-.hero{margin:10px 16px 0;border-radius:22px;padding:20px;position:relative;overflow:hidden;color:#fff;
-  background:radial-gradient(120% 140% at 0% 0%,#2f80ff 0%,#5856d6 55%,#af52de 100%);box-shadow:0 12px 30px rgba(88,86,214,.35)}
-.hero h2{margin:0;font-size:28px;font-weight:800;letter-spacing:.2px}
-.hero p{margin:4px 0 0;font-size:15px;opacity:.85;max-width:60%}
+.hero{margin:12px 16px 0;border-radius:26px;padding:22px 24px;position:relative;overflow:hidden;color:#fff;
+  background:linear-gradient(135deg,#4338ca 0%,#6366f1 45%,#a855f7 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 16px 38px rgba(99,102,241,.32);border:1px solid rgba(255,255,255,.18)}
+.hero h2{margin:0;font-size:30px;font-weight:800;letter-spacing:-.4px}
+.hero p{margin:6px 0 0;font-size:15.5px;opacity:.92;font-weight:450;max-width:62%;line-height:1.4}
 .hero .demo{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:118px;height:118px}
 .demo line{stroke:#fff;stroke-width:5;stroke-linecap:round;stroke-dasharray:40;stroke-dashoffset:40;animation:demo 6s infinite}
 .demo rect{fill:#fff;opacity:0;animation:demob 6s infinite}
@@ -76,8 +95,10 @@ svg.i.sm{width:16px;height:16px}
 @keyframes demo{0%{stroke-dashoffset:40}6%,88%{stroke-dashoffset:0}96%,100%{stroke-dashoffset:40}}
 @keyframes demob{0%,40%{opacity:0}46%,88%{opacity:.95}96%,100%{opacity:0}}
 .modes{display:grid;gap:12px;margin:18px 16px 0}
-.mode{display:flex;align-items:center;gap:14px;padding:16px;border-radius:18px;background:var(--card);border:none;text-align:left;color:var(--label);box-shadow:var(--shadow);width:100%}
-.mode .tile{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;flex:none}
+.mode{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:20px;background:var(--card-glass,var(--card));-webkit-backdrop-filter:blur(22px) saturate(180%);backdrop-filter:blur(22px) saturate(180%);border:1px solid var(--border-glass,var(--sep));text-align:left;color:var(--label);box-shadow:var(--shadow);width:100%;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.mode:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.08);border-color:rgba(99,102,241,.3)}
+.mode:active{transform:scale(.98)}
+.mode .tile{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;color:#fff;flex:none;box-shadow:0 8px 20px rgba(0,0,0,.16)}
 .mode .tile svg.i{width:28px;height:28px}
 .mode b{display:block;font-size:17px;font-weight:600}
 .mode span{display:block;font-size:14px;color:var(--label2);margin-top:2px}
@@ -253,12 +274,18 @@ svg.i.sm{width:16px;height:16px}
 
 /* hub */
 .hubgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 16px 0}
-.gtile{border:none;background:var(--card);border-radius:22px;padding:10px 10px 14px;text-align:left;color:var(--label);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:2px;min-width:0;font:inherit}
+.gtile{border:1px solid var(--border-glass,var(--sep));background:var(--card-glass,var(--card));-webkit-backdrop-filter:blur(24px) saturate(190%);backdrop-filter:blur(24px) saturate(190%);border-radius:24px;padding:12px 12px 16px;text-align:left;color:var(--label);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:3px;min-width:0;font:inherit;position:relative;overflow:hidden;transition:transform .22s cubic-bezier(.2,.8,.2,1),box-shadow .22s ease,border-color .2s ease}
+.gtile:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 18px 38px rgba(0,0,0,.12),var(--glass-bevel);border-color:rgba(99,102,241,.38)}
+.gtile:active{transform:scale(.97) translateZ(0)}
+.gtile b{font-size:17.5px;font-weight:700;margin:10px 4px 0;letter-spacing:-.2px}
+.gtile span.s{font-size:13px;color:var(--label2);margin:0 4px;font-weight:450}
+.gtile .gart{border-radius:18px;box-shadow:var(--glass-bevel),0 8px 24px rgba(0,0,0,.14);transition:transform .22s ease}
+.gtile:hover .gart{transform:scale(1.03)}
 .gtile b{font-size:17px;font-weight:700;margin:10px 4px 0}
 .gtile span.s{font-size:13px;color:var(--label2);margin:0 4px}
 .gart{aspect-ratio:1.2;border-radius:16px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
-.dotsart{background:radial-gradient(120% 140% at 0 0,#2f80ff,#5856d6 55%,#af52de)}
-.bingoart{background:radial-gradient(120% 140% at 0 0,#ffb340,#ff375f 60%,#d6336c)}
+.dotsart{background:linear-gradient(135deg,#3b82f6 0%,#6366f1 50%,#a855f7 100%)}
+.bingoart{background:linear-gradient(135deg,#f59e0b 0%,#f43f5e 55%,#ec4899 100%)}
 .soonart{background:var(--fill);color:var(--label3);outline:2px dashed var(--sep);outline-offset:-2px}
 .soonart svg.i{width:38px;height:38px}
 .gtile.soon{cursor:default}
@@ -317,8 +344,8 @@ svg.i.sm{width:16px;height:16px}
 .cbox .bigbtn{width:100%;margin:0}
 
 .penart{background:radial-gradient(120% 140% at 0 0,#30d0c0,#0a84ff 60%,#1d4ed8)}
-.tttart{background:radial-gradient(120% 140% at 0 0,#86e05a,#30d158 50%,#0c9a6d)}
-.rpsart{background:radial-gradient(120% 140% at 0 0,#d78bff,#af52de 50%,#5e5ce6)}
+.tttart{background:linear-gradient(135deg,#10b981 0%,#06b6d4 100%)}
+.rpsart{background:linear-gradient(135deg,#8b5cf6 0%,#d946ef 100%)}
 .emojiart{font-size:34px;letter-spacing:2px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.25))}
 .hero.pen{background:radial-gradient(120% 140% at 0% 0%,#30d0c0 0%,#0a84ff 60%,#1d4ed8 100%);box-shadow:0 12px 30px rgba(10,132,255,.35)}
 .hero.ttt{background:radial-gradient(120% 140% at 0% 0%,#86e05a 0%,#30d158 50%,#0c9a6d 100%);box-shadow:0 12px 30px rgba(48,209,88,.35)}
@@ -495,7 +522,7 @@ body.hasfab .page{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 .bgrid .bcell{font-size:calc(min(7vw,28px) * 5 / var(--bn))}
 .bgrid{gap:calc(35px / var(--bn))}
 /* pocket tanks */
-.tanksart{background:radial-gradient(120% 140% at 0 0,#ffcc66,#ff9f0a 45%,#c2410c)}
+.tanksart{background:linear-gradient(135deg,#f97316 0%,#ef4444 60%,#dc2626 100%)}
 .hero.tanks{background:radial-gradient(120% 140% at 0% 0%,#ffcc66 0%,#ff9f0a 45%,#c2410c 100%);box-shadow:0 12px 30px rgba(255,140,0,.35)}
 .hero.tanks h2,.hero.tanks p{max-width:64%}
 .tankscreen{position:fixed;inset:0;z-index:35;background:#000;overflow:hidden;touch-action:none;-webkit-user-select:none;user-select:none}
@@ -584,7 +611,7 @@ body.tkmode .chatpeek{top:calc(56px + env(safe-area-inset-top));bottom:auto;righ
 .players:has(.pc:nth-child(4)) .ml i{width:11px;height:14px;font-size:8px}
 .players .pc.cur{transform:none}
 /* draw & guess */
-.drawart{background:radial-gradient(120% 140% at 0 0,#ffd36b,#ff6b8b 55%,#c2185b)}
+.drawart{background:linear-gradient(135deg,#f59e0b 0%,#f43f5e 50%,#8b5cf6 100%)}
 .hero.draw{background:radial-gradient(120% 140% at 0% 0%,#ffd36b 0%,#ff6b8b 55%,#c2185b 100%);box-shadow:0 12px 30px rgba(255,80,120,.35)}
 .hero.draw h2,.hero.draw p{max-width:64%}
 .dhead{display:flex;align-items:center;gap:10px;margin:10px 16px 0;padding:8px 12px;border-radius:16px;background:var(--card);box-shadow:var(--shadow)}
@@ -685,7 +712,7 @@ body.fabtop .chatfab svg.i{width:22px;height:22px}
 body.fabtop .chatpeek{top:calc(60px + env(safe-area-inset-top));bottom:auto}
 
 /* ===== GHOST HUNT ===== */
-.ghostart{background:radial-gradient(120% 140% at 0 0,#3a4a6b,#151b2e 55%,#05060b)}
+.ghostart{background:linear-gradient(135deg,#1e293b 0%,#0f172a 60%,#312e81 100%)}
 .hero.ghost{background:radial-gradient(120% 140% at 0% 0%,#3a4a6b 0%,#151b2e 55%,#05060b 100%);box-shadow:0 12px 30px rgba(20,30,70,.5)}
 .hero.ghost h2,.hero.ghost p{max-width:64%}
 .ghscreen{position:fixed;inset:0;z-index:35;background:#000;overflow:hidden;touch-action:none;-webkit-user-select:none;user-select:none;color:#fff;font-family:-apple-system,system-ui,sans-serif}
@@ -838,11 +865,48 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
 .ssub.unr{color:var(--label);font-weight:700}
 .schips{display:flex;gap:10px;overflow-x:auto;padding:4px 16px 8px}.schips button{border:none;background:none;display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--label);font-size:12px;flex:none;width:64px}
 .schips button span{max-width:64px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* Responsive PC, Tablet, and Mobile Layout */
+@media (min-width: 768px) {
+  .page{max-width:860px;padding-left:16px;padding-right:16px}
+  .page.wide{max-width:1080px}
+  .hubgrid{grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0 0}
+  .modes{grid-template-columns:repeat(2,1fr);gap:14px;margin:20px 0 0}
+  .sheet{max-width:640px;border-radius:24px 24px 0 0}
+  .board-wrap{max-width:680px;margin:16px auto 0}
+  .bgrid{max-width:520px;margin:16px auto 0}
+  .tgrid{max-width:440px;margin:16px auto 0}
+  #draw .dlayout{display:grid;grid-template-columns:1fr 340px;gap:16px;align-items:start;margin-top:12px}
+  #draw .dlayout .dcanvas{margin:0}
+  #draw .dlayout .dfeedwrap{margin:0}
+  #draw .dlayout .dfeed{height:360px}
+}
+@media (min-width: 1080px) {
+  .page{max-width:1080px}
+  .hubgrid{grid-template-columns:repeat(4,1fr);gap:18px}
+  .modes{grid-template-columns:repeat(3,1fr);gap:16px}
+  #draw .dlayout{grid-template-columns:1fr 380px;gap:20px}
+  #draw .dlayout .dfeed{height:420px}
+}
+
+/* Profile Avatar & Emojis styling */
+.savpick{display:block;margin:0 16px 12px;padding:12px;background:var(--card);border-radius:18px;box-shadow:var(--shadow)}
+.av-custom-panel{padding-bottom:12px;border-bottom:.5px solid var(--sep);margin-bottom:12px}
+.av-custom-row{display:flex;gap:8px;align-items:center}
+.av-custom-row input{flex:1;border:1px solid var(--sep);border-radius:10px;padding:9px 12px;font-size:15px;background:var(--fill);color:var(--label);outline:none}
+.av-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(42px,1fr));gap:6px;max-height:200px;overflow-y:auto;padding-right:4px}
+.av-grid button{border:none;background:var(--fill);border-radius:12px;font-size:22px;padding:6px 0;color:var(--label);font-weight:800;transition:transform .1s,background .1s}
+.av-grid button:active{transform:scale(.92)}
+.av-grid button.on{outline:2.5px solid var(--blue);background:var(--fill2)}
+.sav{overflow:hidden}
+.avatar{overflow:hidden}
+
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <symbol id="i-ellipsis" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="7.5" cy="12" r=".7" fill="currentColor"/><circle cx="12" cy="12" r=".7" fill="currentColor"/><circle cx="16.5" cy="12" r=".7" fill="currentColor"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></symbol>
+<symbol id="i-ellipsis" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="7.5" cy="12" r=".7" fill="currentColor"/><circle cx="12" cy="12" r=".7" fill="currentColor"/><circle cx="16.5" cy="12" r=".7" fill="currentColor"/></symbol>
   <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8"/></symbol>
   <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
   <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></symbol>
@@ -1230,17 +1294,21 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
     <div class="dmid"><div class="dwho" id="dWho"></div><div class="dword" id="dWord"></div></div>
     <div class="dright"><span id="dRound"></span><span id="dnetState" class="netdot hidden"></span></div>
   </div>
-  <div class="dcanvas" id="dCanvasWrap"><canvas id="dwCanvas"></canvas><div class="doverlay hidden" id="dOverlay"></div></div>
-  <div class="dtools hidden" id="dTools">
-    <div class="dcolors" id="dColors"></div>
-    <div class="drow2"><div class="dsizes" id="dSizes"></div>
-      <button class="dt" id="dErase" title="Eraser">🧽</button><button class="dt" id="dUndo" title="Undo"><svg class="i sm"><use href="#i-undo"/></svg></button><button class="dt" id="dClear" title="Clear">🗑️</button>
-      <button class="dt hidden" id="dSkip" title="End turn">⏭️</button></div>
-  </div>
-  <div class="djudge hidden" id="dJudge"><div class="gh" style="padding:12px 20px 6px">Who guessed it? Tap their name</div><div class="dj" id="dJudgeBtns"></div></div>
-  <div id="dFeedWrap" class="hidden">
-    <div class="dfeed" id="dFeed"></div>
-    <div class="hidden" id="dGuessBar"><form class="chatbar dguess" id="dGuessForm" autocomplete="off"><input id="dGuessIn" maxlength="40" placeholder="Type your guess…" enterkeyhint="send" autocapitalize="off" autocorrect="off" spellcheck="false"><button type="submit" class="csend" aria-label="Guess"><svg class="i"><use href="#i-send"/></svg></button></form></div>
+  <div class="dlayout">
+    <div class="dcol-main">
+      <div class="dcanvas" id="dCanvasWrap"><canvas id="dwCanvas"></canvas><div class="doverlay hidden" id="dOverlay"></div></div>
+      <div class="dtools hidden" id="dTools">
+        <div class="dcolors" id="dColors"></div>
+        <div class="drow2"><div class="dsizes" id="dSizes"></div>
+          <button class="dt" id="dErase" title="Eraser">🧽</button><button class="dt" id="dUndo" title="Undo"><svg class="i sm"><use href="#i-undo"/></svg></button><button class="dt" id="dClear" title="Clear">🗑️</button>
+          <button class="dt hidden" id="dSkip" title="End turn">⏭️</button></div>
+      </div>
+      <div class="djudge hidden" id="dJudge"><div class="gh" style="padding:12px 20px 6px">Who guessed it? Tap their name</div><div class="dj" id="dJudgeBtns"></div></div>
+    </div>
+    <div id="dFeedWrap" class="dfeedwrap hidden">
+      <div class="dfeed" id="dFeed"></div>
+      <div class="hidden" id="dGuessBar"><form class="chatbar dguess" id="dGuessForm" autocomplete="off"><input id="dGuessIn" maxlength="40" placeholder="Type your guess…" enterkeyhint="send" autocapitalize="off" autocorrect="off" spellcheck="false"><button type="submit" class="csend" aria-label="Guess"><svg class="i"><use href="#i-send"/></svg></button></form></div>
+    </div>
   </div>
   <div class="reacts hidden" id="dreacts"></div>
 </main>
@@ -1265,6 +1333,7 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
   </div>
   <div class="gh" style="padding-top:16px">Final Score</div>
   <div class="group" id="resList"></div>
+  <div id="resSocial" class="hidden"></div>
   <div id="sessCard"></div>
   <div class="acts2" id="resActs"></div>
   <div class="gf hidden" id="waitAgain" style="text-align:center;padding-top:12px">Waiting for the host to start a rematch…</div>
@@ -1396,10 +1465,25 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
   <div class="grabber"></div>
   <div class="sheet-h"><b>Profile</b><button class="navbtn" data-close style="font-weight:600">Done</button></div>
   <div class="socme" id="socMe"></div>
-  <div class="savpick hidden" id="socAvPick"></div>
+  <div class="savpick hidden" id="socAvPick">
+    <div class="av-custom-panel">
+      <div class="av-custom-row">
+        <input type="text" id="socCustomEmo" maxlength="4" placeholder="Type or paste any emoji…" autocomplete="off">
+        <button type="button" id="socCustomEmoSet" class="sbtn tint">Set</button>
+      </div>
+      <div class="av-custom-row" style="margin-top:8px">
+        <label class="sbtn tint" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px">
+          <svg class="i sm"><use href="#i-camera"/></svg> <span>Gallery Photo</span>
+          <input type="file" id="socImgUpload" accept="image/*" style="display:none">
+        </label>
+        <button type="button" id="socRemoveAv" class="slink" style="color:var(--red);margin-left:auto">Reset</button>
+      </div>
+    </div>
+    <div class="av-grid" id="socEmojiGrid"></div>
+  </div>
   <div id="socExtra"><input id="socBio" class="sbioin" maxlength="60" placeholder="✏️ About me… (e.g. Bingo champion 🏆)" autocomplete="off"></div>
   <div class="seg" id="socStatus"><button data-ss="auto">🟢 Available</button><button data-ss="busy">⛔ Busy</button><button data-ss="away">🌙 Away</button></div>
-  <div class="seg" id="socTabs"><button data-tab="friends">Friends<em></em></button><button data-tab="req">Add / Requests<em></em></button><button data-tab="set">⚙️ Settings<em></em></button></div>
+  <div class="seg" id="socTabs"><button data-tab="friends">Friends<em></em></button><button data-tab="req">Requests<em></em></button><button data-tab="sync">🔗 Link PC/Phone<em></em></button><button data-tab="set">⚙️ Settings<em></em></button></div>
   <div class="socbody" id="socBody"></div>
 </div>
 <div class="sheet socsheet" id="msgSheet">
@@ -1541,10 +1625,65 @@ const SFX={
 };
 function sfx(n){if(SET.sound)try{SFX[n]();}catch(e){}}
 /* vibration: Android uses the Vibration API; iPhone (iOS 18+) gets a light haptic tick through a hidden iOS switch control */
-const HAPTIC_EL=(()=>{try{const l=document.createElement('label');l.setAttribute('aria-hidden','true');l.style.cssText='position:fixed;left:-200px;top:-200px;opacity:0;pointer-events:none';
+/* Multi-platform Haptic & Tactile Engine */
+let _hapticAudioCtx = null;
+function getHapticCtx(){
+  if(!_hapticAudioCtx){
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if(AC) _hapticAudioCtx = new AC();
+  }
+  if(_hapticAudioCtx && _hapticAudioCtx.state === 'suspended'){
+    _hapticAudioCtx.resume().catch(()=>{});
+  }
+  return _hapticAudioCtx;
+}
+function tactilePulse(strength=1){
+  if(!SET.haptic) return;
+  try {
+    const ctx = getHapticCtx();
+    if(!ctx) return;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    const now = ctx.currentTime;
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(110, now);
+    osc.frequency.exponentialRampToValueAtTime(38, now + 0.032);
+    gain.gain.setValueAtTime(0.24 * Math.min(2, strength), now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.032);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(now);
+    osc.stop(now + 0.034);
+  } catch(e) {}
+}
+const HAPTIC_EL=(()=>{try{const l=document.createElement('label');l.setAttribute('aria-hidden','true');l.style.cssText='position:fixed;left:-200px;top:-200px;opacity:0.01;pointer-events:none';
   const i=document.createElement('input');i.type='checkbox';i.setAttribute('switch','');i.tabIndex=-1;l.appendChild(i);document.body.appendChild(l);return l;}catch(e){return null;}})();
-function buzz(p){if(!SET.haptic||!p)return;if(navigator.vibrate){try{navigator.vibrate(p);}catch(e){}return;}
-  if(IS_IOS&&HAPTIC_EL){try{HAPTIC_EL.click();if(Array.isArray(p)&&p.length>2)setTimeout(()=>{try{HAPTIC_EL.click();}catch(e){}},Math.min(250,(p[0]||0)+(p[1]||0)));}catch(e){}}}
+function buzz(p){
+  if(!SET.haptic||!p)return;
+  // Android hardware motors need >=38ms to spin up; scale up short inputs
+  const pat = Array.isArray(p) 
+    ? p.map((v, i) => i % 2 === 0 ? Math.max(40, Math.round(v * 2.5)) : Math.max(35, v))
+    : Math.max(40, Math.round(p * 2.5));
+  let didVibrate = false;
+  if(typeof navigator !== 'undefined' && navigator.vibrate){
+    try { didVibrate = navigator.vibrate(pat); } catch(e){}
+  }
+  if(HAPTIC_EL){
+    try {
+      const inp = HAPTIC_EL.querySelector('input');
+      if(inp) inp.checked = !inp.checked;
+      HAPTIC_EL.click();
+    } catch(e){}
+  }
+  const str = Array.isArray(p) ? (p[0] > 25 ? 1.6 : 1) : (p > 25 ? 1.6 : 1);
+  tactilePulse(str);
+}
+// Unlock gestures immediately on touch for iOS Safari & Android
+document.addEventListener('touchstart', ()=>{}, {passive:true});
+window.addEventListener('pointerdown', function _unlockHaptics(){
+  getHapticCtx();
+  window.removeEventListener('pointerdown', _unlockHaptics);
+}, {passive:true, once:true});
 /* "your turn" alert: sound + strong vibration + a big banner */
 function myTurnAlert(p,txt){if(MODE==='online'&&typeof Social!=='undefined')Social.notify('🎮 Your turn!',(GNAME[GAME]||'Game')+' — it is your move','','turn');const el=$('yturn');el.textContent=txt||(MODE==='multi'&&p?`${p.name}'s turn`:'Your turn!');
   el.style.setProperty('--pcol',p?p.color:'#0a84ff');el.classList.remove('show');void el.offsetWidth;el.classList.add('show');
@@ -1951,6 +2090,65 @@ function resultButtons(localAgain){
   on('rLobby',()=>{closeSheets();Net.hostToLobby();});
   on('rLeave',()=>{closeSheets();leaveOnline(true);});
   on('rChat',()=>{closeSheets();Chat.show();});
+
+  // Stranger Friend Requests at Game Over
+  const resSoc = $('resSocial');
+  if(resSoc){
+    const onPlayers = (MODE==='online'&&Net.meta&&Net.meta.players)||[];
+    const peers = onPlayers.filter(p => p.id !== CID && !p.cpu);
+    if(MODE==='online' && peers.length > 0 && typeof S !== 'undefined'){
+      let socHtml = '<div class="gh" style="padding-top:14px">Opponents · Friend Requests</div><div class="group">';
+      peers.forEach(p => {
+        const f = S.F && S.F[p.id];
+        const st = f ? f.state : null;
+        let btnHtml = '';
+        if(!f){
+          btnHtml = `<button class="sbtn tint" data-addf="${esc(p.id)}" data-name="${esc(p.name)}">➕ Add Friend</button>`;
+        } else if(st === 'out'){
+          btnHtml = `<button class="sbtn" disabled style="opacity:.7">✓ Request Sent</button>`;
+        } else if(st === 'in'){
+          btnHtml = `<button class="sbtn green" data-accf="${esc(p.id)}">Accept Request</button>`;
+        } else if(st === 'friend'){
+          btnHtml = `<span style="font-size:13px;color:var(--green);font-weight:700">⭐ Friends</span>`;
+        }
+        socHtml += `<div class="cell" style="justify-content:space-between">
+          <div style="display:flex;align-items:center;gap:10px;min-width:0">
+            ${S.av(p.id, p.name, p.av || (f && f.av) || '')}
+            <b style="font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}</b>
+          </div>
+          <div id="fwrap-${p.id}">${btnHtml}</div>
+        </div>`;
+      });
+      socHtml += '</div>';
+      resSoc.innerHTML = socHtml;
+      resSoc.classList.remove('hidden');
+
+      resSoc.onclick = e => {
+        const addBtn = e.target.closest('[data-addf]');
+        if(addBtn){
+          const id = addBtn.dataset.addf, name = addBtn.dataset.name;
+          S.request({id, name, tag:'', av:''});
+          const wrap = $('fwrap-' + id);
+          if(wrap) wrap.innerHTML = `<button class="sbtn" disabled style="opacity:.7">✓ Request Sent</button>`;
+          sfx('tap');buzz(15);
+          return;
+        }
+        const accBtn = e.target.closest('[data-accf]');
+        if(accBtn){
+          const id = accBtn.dataset.accf;
+          S.accept(id);
+          const wrap = $('fwrap-' + id);
+          if(wrap) wrap.innerHTML = `<span style="font-size:13px;color:var(--green);font-weight:700">⭐ Friends</span>`;
+          sfx('win');buzz([20,40,20]);
+          return;
+        }
+      };
+    } else {
+      resSoc.innerHTML = '';
+      resSoc.classList.add('hidden');
+    }
+  }
+
   openSheet('resultSheet');
   setTimeout(()=>document.querySelectorAll('#resList .bar i').forEach(i=>i.style.width=i.dataset.w+'%'),80);
 }
@@ -2744,7 +2942,15 @@ function bFinish(){
   const iWon=MODE==='online'?winners.some(w=>w.id===CID):MODE==='cpu'?winners.some(w=>!w.cpu):true;
   $('winText').innerHTML=winners.length>1?'BINGO tie!':`<span style="color:${winners[0].color}">${esc(winners[0].name)}</span> — BINGO!`;
   $('winSub').textContent=(winners.length>1?winners.map(w=>w.name).join(' & ')+' · ':'')+`${BN}×${BN} board · 5 lines after ${BG.calls.length} calls`+(MODE==='cpu'&&!iWon?' — try again!':'');
-  $('resList').innerHTML=ps.map((p,k)=>`<div class="cell rank"><span class="pos">${k+1}</span><div class="avatar" style="background:${p.color}">${p.cpu?CPU_ICON:esc(p.label)}</div>
+  $('resList').innerHTML=ps.map((p,k)=>`<div class="cell rank"><span class="pos">${k+1}</span><div class="avatar" style="background:${p.color}">${(function(){
+      if(p.cpu) return CPU_ICON;
+      const av = p.av || (typeof S !== 'undefined' && S.fav ? S.fav(p.id) : '');
+      if(av && (av.startsWith('data:image') || av.startsWith('http') || av.startsWith('blob:'))){
+        return `<img src="${av}" alt="${esc(p.name)}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block">`;
+      }
+      if(av) return `<span style="font-size:1.15em;line-height:1">${esc(av)}</span>`;
+      return esc(p.label || (p.name.trim()[0]||'?').toUpperCase());
+    })()}</div>
     <div class="grow"><div style="display:flex;justify-content:space-between;gap:8px"><span>${esc(p.name)}${MODE==='online'&&p.id===CID?' (you)':''}</span>
     <span class="ml" style="--pcol:${p.color}">${[...BWORD].map((ch,j)=>`<i class="${j<p.lines?'on':''}">${ch}</i>`).join('')}</span></div>
     <div class="bar"><i style="width:0;background:${p.color}" data-w="${Math.min(100,p.lines*20)}"></i></div></div></div>`).join('');
@@ -2772,7 +2978,15 @@ function localRoster(maxCpu,cpuLevel){
   return PL.slice(0,MAXP[GAME]).map((p,i)=>({id:'p'+i,name:(p.name||'').trim()||'Player '+(i+1),cpu:p.type==='human'?null:(XLEVELS.includes(p.type)?p.type:'Medium')}));
 }
 function rankList(ps,scoreHtml,pct){
-  $('resList').innerHTML=ps.map((p,k)=>`<div class="cell rank"><span class="pos">${k+1}</span><div class="avatar" style="background:${p.color}">${p.cpu?CPU_ICON:esc(p.label)}</div>
+  $('resList').innerHTML=ps.map((p,k)=>`<div class="cell rank"><span class="pos">${k+1}</span><div class="avatar" style="background:${p.color}">${(function(){
+      if(p.cpu) return CPU_ICON;
+      const av = p.av || (typeof S !== 'undefined' && S.fav ? S.fav(p.id) : '');
+      if(av && (av.startsWith('data:image') || av.startsWith('http') || av.startsWith('blob:'))){
+        return `<img src="${av}" alt="${esc(p.name)}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block">`;
+      }
+      if(av) return `<span style="font-size:1.15em;line-height:1">${esc(av)}</span>`;
+      return esc(p.label || (p.name.trim()[0]||'?').toUpperCase());
+    })()}</div>
     <div class="grow"><div style="display:flex;justify-content:space-between;gap:8px"><span>${esc(p.name)}${MODE==='online'&&p.id===CID?' (you)':''}</span>${scoreHtml(p)}</div>
     <div class="bar"><i style="width:0;background:${p.color}" data-w="${pct(p)}"></i></div></div></div>`).join('');
 }
@@ -3316,7 +3530,7 @@ renderLabList();
    Pass & Play: everyone shouts guesses, tap who got it right.
    Game state is an event log: start → word → hint/solve… → end.
    ========================================================= */
-const DW_WORDS={easy:'apple|banana|orange|mango|grapes|cherry|strawberry|watermelon|pineapple|lemon|coconut|pear|peach|plum|kiwi|papaya|guava|pomegranate|lychee|fig|dates|apricot|blueberry|raspberry|melon|jackfruit|custard apple|chikoo|jamun|tamarind|avocado|lime|grapefruit|blackberry|cranberry|dragon fruit|passion fruit|starfruit|mulberry|gooseberry|potato|tomato|onion|carrot|cabbage|cauliflower|brinjal|cucumber|pumpkin|peas|corn|chilli|garlic|ginger|beetroot|radish|spinach|lettuce|broccoli|capsicum|mushroom|okra|bitter gourd|bottle gourd|sweet potato|beans|turnip|celery|zucchini|leek|cat|dog|cow|buffalo|goat|sheep|horse|donkey|camel|elephant|lion|tiger|leopard|cheetah|bear|monkey|gorilla|giraffe|zebra|rhino|hippo|deer|rabbit|squirrel|mouse|rat|pig|fox|wolf|kangaroo|koala|panda|polar bear|bat|hedgehog|owl|parrot|peacock|crow|sparrow|pigeon|eagle|duck|hen|rooster|chick|swan|penguin|flamingo|ostrich|ant|bee|butterfly|spider|snail|worm|frog|snake|lizard|crocodile|turtle|tortoise|fish|shark|whale|dolphin|octopus|crab|starfish|jellyfish|seahorse|lobster|prawn|mosquito|fly|ladybug|dragonfly|grasshopper|caterpillar|beetle|cockroach|scorpion|house|door|window|roof|wall|stairs|chair|table|bed|sofa|pillow|blanket|lamp|fan|clock|mirror|cupboard|shelf|carpet|curtain|bucket|mug|cup|plate|bowl|spoon|fork|knife|glass|bottle|jug|pot|pan|kettle|toaster|fridge|oven|stove|sink|tap|towel|soap|toothbrush|toothpaste|comb|brush|shampoo|bathtub|shower|toilet|dustbin|broom|mop|key|lock|bell|candle|basket|box|bag|umbrella|shirt|t shirt|pant|shorts|skirt|dress|saree|kurta|jacket|coat|sweater|cap|hat|shoe|sandal|slipper|sock|glove|scarf|tie|belt|button|zip|watch|ring|necklace|earring|bangle|bracelet|crown|glasses|sunglasses|wallet|purse|backpack|pen|pencil|eraser|sharpener|ruler|scale|book|notebook|paper|scissors|glue|crayon|paint|paintbrush|chalk|blackboard|school bag|lunch box|water bottle|globe|map|calculator|stapler|clip|envelope|stamp|letter|ball|kite|doll|teddy bear|balloon|toy car|yo yo|top|marbles|puzzle|dice|cards|whistle|drum|guitar|flute|piano|violin|trumpet|swing|slide|see saw|skateboard|bicycle|car|bus|truck|train|plane|boat|ship|bike|scooter|auto|taxi|van|jeep|tractor|helicopter|rocket|submarine|sun|moon|star|cloud|rain|rainbow|snow|snowman|tree|leaf|flower|rose|sunflower|lotus|grass|mountain|river|lake|sea|beach|island|volcano|desert|forest|cave|rock|stone|sand|wave|fire|water|ice|wind|lightning|eye|ear|nose|mouth|lips|teeth|tongue|hand|finger|thumb|leg|foot|toe|knee|head|hair|face|heart|brain|bone|skeleton|beard|moustache|cake|bread|egg|milk|cheese|butter|jam|honey|pizza|burger|sandwich|biscuit|cookie|chocolate|candy|lollipop|ice cream|donut|popcorn|chips|french fries|noodles|pasta|rice|soup|salad|tea|coffee|juice|phone|computer|laptop|tv|remote|camera|radio|headphones|battery|bulb|plug|wire|charger|keyboard|circle|square|triangle|star shape|arrow|smile|cross|tick|zero|hammer|nail|screw|saw|axe|ladder|rope|chain|net|tent|flag|trophy|medal|gift|party hat|crayon box|alligator|anteater|armadillo|badger|beaver|bison|boar|buffalo calf|bull|bunny|calf|chameleon|chimpanzee|chipmunk|cobra|crane bird|cricket insect|cub|dinosaur|dragon|eel|emu|falcon|ferret|firefly|gecko|goose|hamster|hawk|hornet|hummingbird|hyena|iguana|jaguar|kitten|lamb|llama|mole|moose|moth|mule|newt|otter|ox|panther|pelican|piglet|platypus|porcupine|puppy|python|raccoon|raven|reindeer|salmon|seal|skunk|sloth|slug|stork|tadpole|toad|toucan|turkey|unicorn|vulture|walrus|wasp|weasel|woodpecker|yak|zebra fish|goldfish|catfish|swordfish|stingray|clownfish|pufferfish|squid|oyster|clam|snail shell|coral|mermaid|bench|cradle|stool|hammock|wardrobe|drawer|dressing table|bookshelf|coat hanger|doormat|doorbell|letterbox|chimney|fireplace|staircase|balcony|garden|gate|fence|well|pond|fountain|garage|attic|basement|kitchen|bathroom|bedroom|hall|verandah|terrace|courtyard|iron|washing machine|vacuum cleaner|mixer grinder|microwave|rice cooker|water purifier|air conditioner|cooler|heater|geyser|inverter|tubelight|torch|lantern|matchbox|lighter|ashtray|flower pot|vase|photo frame|calendar|alarm clock|wall clock|hourglass|sieve|grater|rolling pin|tawa|kadai|ladle|spatula|tongs|peeler|cutting board|whisk|teapot|saucer|tray|thermos|lunchbox|tiffin box|water tank|pressure cooker|apron|raincoat|gumboots|swimsuit|nightdress|pyjama|dupatta|turban|lungi|dhoti|sherwani|lehenga|salwar|blazer|hoodie|vest|uniform|mask|helmet|cap with visor|beanie|mittens|stockings|high heels|sneakers|boots|flip flops|sticker|badge|keychain|magnet|pin|safety pin|needle|thread|button hole|tape|measuring tape|thumb pin|paper clip|rubber band|hair clip|hair band|ribbon|bow|football|cricket ball|basketball|volleyball|tennis ball|shuttlecock|badminton racket|tennis racket|hockey stick|golf ball|baseball|bowling pin|frisbee|jump rope|hula hoop|dumbbell|boxing gloves|goal post|net ball|carrom board|chess board|ludo|snakes and ladders|playing cards|bowl of rice|plate of food|glass of milk|cup of tea|slice of cake|piece of cheese|bubble|feather|shell|pebble|stick|log|branch|root|seed|nest|web|honeycomb|beehive|anthill|footprint|shadow|moonlight|sunrise|sunset|night|day|morning|raindrop|snowflake|icicle|puddle|storm|tornado|nest egg|acorn|pinecone|daisy|tulip|lily|jasmine|marigold|hibiscus|orchid|sunflower seed|dandelion|clover|ivy|fern|moss|reed|thorn|petal|bud|stem|trunk|bark|twig|coconut shell|peanut|almond|cashew|walnut|pistachio|raisin|popcorn kernel|chickpea|lentil|wheat|sugar|salt|pepper|oil|ghee|flour|dough|pencil box|geometry box|protractor|divider|set square|graph paper|chart paper|drawing book|colour pencils|oil pastels|school uniform|id card|school bell|bench and desk|water cooler|notice board|bicycle bell|bicycle pump|car key|car tyre|boat oar|plane wing|train track|train engine|railway signal|platform|fork and spoon|salt shaker|pepper mill|lunch plate|paper plate|paper cup|straw|napkin|tissue|toothpick|chopsticks|ice cube|ice tray|jar|lid|cork|can|tin|packet|carton|sack|crate|barrel|sock puppet|hand puppet|kaleidoscope|spinning top|puzzle cube|building blocks|toy bricks|jigsaw|rocking horse|toy train|toy plane|toy boat|water gun|bubble wand|paper boat|paper plane|origami|pinwheel|glow stick|face mask|lipstick|nail polish|perfume|powder|mirror comb|hair dryer|razor|nail cutter|cotton bud|grandfather|grandmother|baby|boy|girl|man|woman|family|twins|father|mother|brother|sister|uncle|aunt|friend|neighbour|sad face|angry face|crying face|laughing face|sleeping face|surprised face|wink|thumbs up|thumbs down|victory sign|fist|high five|handshake|namaste|salute|arm|elbow|shoulder|neck|chin|cheek|forehead|eyebrows|wrist|ankle|heel|palm|back|belly|belly button|lungs|stomach|muscle arm|red|blue|green|yellow|black|white|pink|purple|brown|one|two|three|four|five|six|seven|eight|nine|ten|hundred|letter a|question|yes|no|hello|bye|stop|go|up|down|left|right|big|small|tall|short|fat|thin|hot|cold|wet|dry|fast|slow|happy|sad|tap water|drop|splash water|bath|bubble bath|rubber ducky|sponge ball|door mat|window glass|wall clock time|floor|ceiling fan blades|light switch|socket plug|mango slice|banana peel|apple core|orange peel|grape vine|cherry pair|lemon slice|coconut half|rain coat|wool cap|mittens pair|school shoes|sports shoes|toy robot|toy gun|toy horse|toy drum|toy phone|toy house|park swing|sand pit|water pump|garden tap|flower pot plant|hen egg|bird egg|duck egg|crocodile egg|ear phones|mobile phone|land phone|phone call|pizza slice|burger meal|cold drink|hot tea|iced tea|cloudy sky|starry night|sunny day|rainy day|windy day|snowy day|foggy morning'.split('|'),medium:'samosa|rangoli|diya|auto rickshaw|tiffin|chapati|biryani|jalebi|ceiling fan|motorbike|ambulance|fire truck|idli|dosa|vada pav|pav bhaji|pani puri|bhel puri|sev puri|dhokla|khakhra|thepla|poha|upma|paratha|aloo paratha|puri bhaji|chole bhature|rajma chawal|dal rice|khichdi|pulao|paneer tikka|butter chicken|tandoori chicken|kebab|naan|roti|kulcha|papad|pickle|chutney|raita|lassi|buttermilk|masala chai|filter coffee|gulab jamun|rasgulla|ladoo|barfi|kaju katli|halwa|kheer|kulfi|falooda|modak|puran poli|shrikhand|mysore pak|peda|chikki|sugarcane juice|coconut water|nimbu pani|golgappa|momos|manchurian|fried rice|hakka noodles|spring roll|frankie|kathi roll|misal pav|sabudana khichdi|uttapam|appam|sambar|rasam|curd rice|lemon rice|pongal|biscuit packet|cornflakes|omelette|boiled egg|toast|bread butter|jam toast|cupcake|muffin|pancake|waffle|croissant|pretzel|bagel|hot dog|taco|burrito|sushi|dumpling|pie|tart|pudding|jelly|milkshake|smoothie|soda|cola|lemonade|birthday cake|wedding cake|cotton candy|candy floss|ice lolly|cone ice cream|sundae|brownie|cheesecake|doughnut|popsicle|taj mahal|india gate|gateway of india|red fort|qutub minar|charminar|lotus temple|golden temple|eiffel tower|statue of liberty|pyramid|great wall|leaning tower|big ben|colosseum|sydney opera house|stonehenge|burj khalifa|hospital|school|college|library|museum|zoo|park|temple|church|mosque|gurudwara|market|mall|cinema hall|theatre|stadium|airport|railway station|bus stop|petrol pump|police station|fire station|post office|bank|atm|hotel|restaurant|cafe|bakery|dhaba|tea stall|pharmacy|salon|gym|swimming pool|playground|factory|office|farm|village|city|bridge|tunnel|dam|lighthouse|tower|castle|palace|fort|hut|igloo|tent house|skyscraper|apartment|bungalow|cottage|windmill|water tower|doctor|nurse|teacher|student|police|soldier|pilot|driver|farmer|chef|cook|baker|tailor|barber|carpenter|plumber|electrician|painter|singer|dancer|actor|magician|clown|astronaut|scientist|engineer|lawyer|judge|postman|milkman|vegetable seller|fisherman|firefighter|lifeguard|photographer|cameraman|reporter|waiter|shopkeeper|watchman|cobbler|potter|blacksmith|goldsmith|priest|king|queen|prince|princess|pirate|ninja|cowboy|robot|alien|ghost|witch|wizard|fairy|angel|superhero|mummy|vampire|zombie|monster|giant|dwarf|elf|detective|spy|thief|referee|umpire|coach|captain|cricket|football match|hockey|badminton|tennis|table tennis|kabaddi|kho kho|chess|carrom|wrestling|boxing|karate|judo|swimming|diving|surfing|skiing|skating|cycling|running|marathon|high jump|long jump|javelin|discus|shot put|archery|shooting|weightlifting|gymnastics|yoga|golf|bowling|rugby|polo|horse riding|fishing|camping|hiking|rock climbing|parachute|paragliding|bungee jumping|sailing|rowing|kayaking|snorkeling|scuba diving|sitar|tabla|harmonium|veena|shehnai|dhol|mridangam|sarod|santoor|bansuri|saxophone|clarinet|cello|harp|accordion|xylophone|triangle instrument|cymbals|tambourine|maracas|banjo|ukulele|microphone|speaker|loudspeaker|gramophone|cassette|cd|headset|earphones|smartphone|tablet|smartwatch|printer|scanner|projector|router|pen drive|hard disk|memory card|joystick|video game|drone|robot arm|satellite|telescope|microscope|binoculars|magnifying glass|compass|thermometer|stethoscope|syringe|injection|bandage|first aid kit|wheelchair|crutches|stretcher|x ray|pill|capsule|medicine bottle|steering wheel|seat belt|traffic light|zebra crossing|speed breaker|signboard|road|highway|flyover|roundabout|parking|toll booth|petrol|tyre|puncture|horn|headlight|number plate|bullock cart|horse cart|cycle rickshaw|e rickshaw|metro train|local train|double decker bus|school bus|cable car|hot air balloon|glider|jet|fighter jet|parachute jump|yacht|canoe|raft|houseboat|ferry|cruise ship|cargo ship|oil tanker|anchor|sail|paddle|life jacket|ship wheel|crane|bulldozer|excavator|road roller|forklift|cement mixer|dumper|tow truck|garbage truck|police car|racing car|limousine|convertible|pickup truck|camper van|monster truck|go kart|snowmobile|segway|unicycle|tricycle|tandem bicycle|brushing teeth|taking a bath|sleeping|snoring|yawning|sneezing|coughing|crying|laughing|smiling|dancing|singing|jumping|climbing|crawling|walking|sitting|standing|reading|writing|drawing|painting|cooking|eating|drinking|washing clothes|ironing clothes|sweeping|mopping|gardening|watering plants|planting a tree|flying a kite|riding a bike|driving a car|playing guitar|taking a selfie|clicking photo|shopping|bargaining|waving|clapping|praying|meditating|stretching|push ups|sit ups|skipping|juggling|whistling|shouting|whispering|kissing|hugging|fighting|arguing|thinking|dreaming|fishing rod|blowing candles|cutting cake|opening gift|wrapping gift|haunted house|tree house|sand castle|snow globe|message in a bottle|treasure chest|treasure map|magic wand|magic carpet|crystal ball|genie lamp|flying saucer|space ship|time bomb|fire extinguisher|fire alarm|smoke detector|water slide|roller coaster|ferris wheel|merry go round|bumper cars|carousel|circus tent|ring master|tightrope|trapeze|spider web|bird nest|bee sting|mosquito net|fly swatter|mouse trap|cat food|dog house|dog bone|fish tank|bird cage|scarecrow|hay stack|water well|tube well|pump|windmill farm|greenhouse|vegetable garden|fruit basket|flower garden|lighthouse keeper|traffic police|school principal|bus conductor|ticket collector|security guard|delivery boy|courier|auto driver|cricket bat|cricket stumps|wicket|boundary|sixer|bowler|batsman|fielder|wicket keeper|helmet visor|pads|gloves|trophy cup|gold medal|podium|finish line|starting line|scoreboard|whistle blow|yellow card|red card|penalty|goal keeper|free kick|corner flag|sleeping bag|camp fire|torch light|compass needle|map reading|backpacker|mountain peak|waterfall|glacier|hot spring|canyon|valley|cliff|plateau|hill station|tea garden|coffee estate|paddy field|wheat field|sugarcane field|orchard|banyan tree|coconut tree|palm tree|pine tree|cactus|bamboo|bonsai|money plant|tulsi plant|mango tree|neem tree|christmas tree|maple leaf|oak tree|willow|mushroom cloud|solar panel|wind turbine|power plant|electric pole|transformer|street light|water pipe|manhole|sewage|dustbin truck|recycling bin|compost|diwali|holi|navratri|garba|dandiya|ganesh chaturthi|eid|christmas|new year|raksha bandhan|rakhi|makar sankranti|pongal festival|onam|durga puja|janmashtami|dahi handi|lohri|baisakhi|karwa chauth|bhai dooj|halloween|easter egg|thanksgiving|valentine|birthday party|wedding|mehendi|haldi|baraat|mandap|firecracker|sparkler|rocket cracker|flower pot cracker|lantern festival|akash kandil|toran|kalash|coconut offering|aarti|prasad|bindi|sindoor|mangalsutra|turmeric|henna|pen stand|ink pot|fountain pen|ball pen|marker|highlighter|sketch pen|water colour|canvas|easel|palette|clay|pottery wheel|sculpture|statue|painting frame|wall painting|graffiti|poster|banner|newspaper|magazine|comic book|story book|diary|register|file|folder|mobile charger|power bank|extension board|switch board|socket|fuse|battery cell|solar lamp|emergency light|fish market|vegetable market|flea market|toy shop|sweet shop|book shop|shoe shop|cloth shop|jewellery shop|medical shop|stationery shop|hardware shop|grocery shop|kirana store|supermarket|trolley|shopping cart|cash counter|bill|receipt|coin|money|piggy bank|credit card|cheque|dentist|eye test|blood test|heart beat|pulse|fever|headache|stomach ache|broken leg|plaster|band aid|cold and cough|vaccine|mask on face|hand wash|sanitizer|spaceman|moon landing|mars|jupiter|saturn|earth|planet|comet|meteor|asteroid|galaxy|milky way|constellation|shooting star|eclipse|crescent moon|full moon|half moon|space station|rocket launch|alien spaceship|clock tower|bell tower|pagoda|dome|minaret|arch|pillar|staircase spiral|escalator|elevator|lift|revolving door|sliding door|trap door|secret door|tyrannosaurus|triceratops|stegosaurus|brontosaurus|velociraptor|pterodactyl|mammoth|sabre tooth tiger|fossil|dinosaur egg|dinosaur bone|blue whale|killer whale|narwhal|hammerhead shark|manta ray|sea turtle|sea lion|sea urchin|sea anemone|coral reef|jellyfish sting|pearl|oyster pearl|shipwreck|deep sea diver|fishing boat|fishing net|kingfisher|woodpecker hole|bulbul|myna|cuckoo|hornbill|vulture nest|crane bird flying|heron|seagull|albatross|pelican beak|kiwi bird|dodo|phoenix|griffin|pegasus|centaur|mermaid tail|sea monster|yeti|bigfoot|werewolf|dracula|frankenstein|golden retriever|labrador|german shepherd|pug|dalmatian|poodle|bulldog|husky|chihuahua|street dog|persian cat|black cat|cat whiskers|kitten playing|puppy biting|ant colony|queen bee|worker ant|termite|locust|cicada|stick insect|praying mantis|glow worm|silk worm|cocoon|larva|spider eggs|pressure gauge|weighing scale|measuring cup|beaker|test tube|flask|bunsen burner|lab coat|goggles|petri dish|dna|atom|molecule|battery terminal|circuit|light bulb idea|solar cell|saw dust|toolbox|screwdriver|spanner|wrench|pliers|drill machine|chisel|file tool|sandpaper|paint roller|paint bucket|trowel|spade|shovel|pickaxe|rake|hoe|sickle|wheelbarrow|watering can|garden hose|sprinkler|lawn mower|hedge cutter|padlock|combination lock|safe locker|vault|cctv camera|burglar alarm|security gate|metal detector|id badge|fingerprint|face scan|vending machine|coffee machine|juice machine|ice cream cart|pani puri stall|popcorn machine|cotton candy machine|photo booth|coat stand|shoe rack|key holder|umbrella stand|mirror stand|ironing board|clothes line|clothes peg|laundry basket|tea cup set|dinner set|cutlery|bread toaster|sandwich maker|juicer|blender|food processor|induction stove|gas cylinder|gas stove|chimney hood|dish washer|water filter|reading lamp|night lamp|table lamp|chandelier|fairy lights|disco ball|neon sign|spotlight|stage curtain|red carpet|mosquito coil|mosquito bat|insect spray|rat poison|cockroach trap|silver screen|popcorn tub|movie ticket|3d glasses|film reel|clapperboard|directors chair|camera crew|accordion file|adhesive tape|air bag|air horn|air mattress|air pump|airship|alarm bell|alien ufo|ambulance siren|amusement park|anchor chain|ankle bracelet|antenna|anvil|aquarium|arcade game|armchair|armour|arrow sign|art gallery|assembly line|astronaut helmet|atlas|attendance register|baby bottle|baby cot|baby pram|baby walker|back scratcher|badminton net|baggage|baggage belt|bait|ballot box|bamboo basket|band aid strip|bandstand|bangle box|banner flag|bar code scanner|barbed wire|barber chair|bark of tree|barometer|baton|battering ram|battle axe|battleship|beach ball|beach umbrella|beach hut|beanbag|bear trap|bed sheet|bedside table|beehive box|beer mug|belt buckle|bib|bicycle helmet|bicycle lock|billboard|bird bath|bird feeder|birthday candle|blindfold|blood bank|blood drop|blow dryer|blue print|boarding pass|boat house|bobby pin|bonfire|bookmark|boom barrier|boomerang|bottle cap|bottle opener|bow and arrow|bow tie|bowling alley|boxing ring|bread basket|bread knife|brick wall|bride|bridegroom|briefcase|broken heart|broken glass|broken mirror|bubble gum|bucket and spade|buffet|bulletin board|bullock|bungee rope|bunk bed|buoy|bus ticket|butter knife|butterfly net|cabin|cactus pot|cage|calculator watch|camel ride|camera stand|candle stand|candy cane|cannon|cannonball|canoe paddle|cap gun|car wash|car seat|car jack|caravan|card board box|cargo plane|carnival|carrot nose|cash register|casket|cassette player|cat bed|catapult|cattle|cave man|cd player|ceiling|cell phone tower|cement bag|chain saw|chalk board duster|chandelier light|changing room|charcoal|chariot|check post|cheerleader|chef hat|chess knight|chess king|chess queen|chess pawn|chessboard clock|chest of drawers|chewing gum|chicken coop|chicken leg|chimney smoke|chocolate bar|chocolate fountain|church bell|cigar|cinema screen|circus clown|circus lion|city skyline|clap board|class room|claw|claw machine|cleaver|clipboard|cloakroom|clothes hanger|cloud nine|clown nose|coat of arms|coconut tree climber|coffee mug|coffee beans|coffin|coin purse|collar|comb and mirror|comet tail|computer mouse|conch shell|conductor|construction site|control room|cookie jar|cooking pot|coral island|corn cob|corn field|cotton|cotton ball|couch|cowbell|cow dung|cowboy hat|crab claw|cradle song|crane machine|crash helmet|crayon drawing|credit card machine|cricket pitch|crocodile tears|crossword|crow nest|crown jewel|cruise|crutch|cuckoo clock|cufflinks|cup board|cupid|curly hair|cushion|customs|cutting machine|dagger|dairy|dart board|dash board|deck chair|delivery van|dental chair|desert island|desk lamp|dew drop|diamond|diamond ring|dice game|dining table|dinner plate|dish antenna|diving board|dog leash|dog collar|dog bowl|dollhouse|dolphin show|door handle|door knob|doormat welcome|double bed|dove|drain pipe|drawbridge|dream catcher|dressing gown|drinking straw|drip|drive in|drum stick|dry fruits|duck pond|dumbbell rack|dumpster|dust pan|dust storm|ear muffs|ear ring|earth globe|easter bunny|egg shell|egg timer|egg yolk|electric fence|electric guitar|electric kettle|elephant trunk|elephant ride|embroidery|emergency exit|engine|envelope stamp|eraser crumbs|escape room|exhaust fan|eye drops|eye patch|eyebrow|eyelash|face paint|factory chimney|fairy tale|fairy wings|false teeth|family tree|fan regulator|farm house|fashion show|fax machine|feather duster|feeding bottle|fence gate|ferris wheel ride|fertilizer|field|file cabinet|film camera|finger print|fire place|fire wood|fire hydrant|fire escape|first prize|fish bone|fish bowl|fish hook|fist bump|fitness band|flag pole|flame|flash light|flat tyre|flip book|floor mat|flower bed|flower bouquet|flower vase|flute player|fly over|flying fish|flying squirrel|fog|fog light|foot ball ground|foot print in sand|footstool|forest fire|fork lift|fortune cookie|fossil fuel|four leaf clover|frame|freezer|french horn|fridge magnet|fried egg|frog jump|frost|fruit salad|frying pan|fuel tank|full stop|funnel|fur coat|gadget|gallery|game controller|garbage bag|garden bench|garden gnome|garland|gas mask|gas balloon|gear|gem stone|gift box|gift wrap|gingerbread man|glass jar|glass window|glider plane|glove puppet|glow worm cave|goal net|gold bar|gold coin|gold fish bowl|golf cart|golf club|gondola|gong|goose bumps|graduation cap|graduation day|grand piano|grapes bunch|grass cutter|grave|grave stone|green chilli|grocery bag|ground nut|guard dog|guest house|guitar string|gum boots|gun shot|gutter|hair cut|hair brush|hair pin|half moon cookie|hammer and nail|hand bag|hand cuffs|hand fan|hand print|hand pump|hand shake|hang glider|hanger|harbour|hard hat|hare|harmonica|hat stand|hatchback|hay bale|head band|head lamp|head phones|hearing aid|heart shape balloon|heat wave|hedge|helipad|hen house|high chair|hiking stick|hill top|hockey puck|hole|hole punch|home theatre|honey bee|honey pot|hoof|hook|horse shoe|hose pipe|hospital bed|hot chocolate|hot water bag|hour hand|house boat|hula dancer|hut in forest|ice berg|ice hockey|ice skates|ice cream truck|ice cream scoop|igloo house|incense stick|injection needle|ink blot|insect|island hut|ivory|jack in the box|jail|jam jar|javelin throw|jelly fish|jersey|jet ski|jewellery box|jigsaw piece|jockey|joker|juice box|jumping castle|jungle|jungle gym|junk food|kangaroo pouch|karaoke|kebab stick|kennel|kerosene lamp|ketchup|ketchup bottle|key board|key chain|key hole|kids park|king cobra|king size bed|kiosk|kitchen sink|kite string|kitten whiskers|knapsack|knee pad|knife and fork|knight|knot|lab|label|lace|ladder climb|lady bird|lake house|lamp post|land line phone|lap top bag|laser|laser beam|laundry|lava|lava lamp|lawn|leaf blower|leash|leather jacket|lemon squeezer|letter box|life boat|life buoy|light house|light saber|lightning bolt|lime stone|lip balm|lipstick mark|liquid|litter|living room|lizard tail|loaf|lock and key|locker|locomotive|log cabin|lollipop stick|loom|lotus pond|love birds|luggage|lunar rover|lung|mace|magic hat|magic trick|magnet fishing|mail box|make up kit|mall escalator|mango juice|manhole cover|marble|marching band|mark sheet|mask dance|mat|match stick|mattress|maze|meat|medal stand|megaphone|melting ice cream|merry go round horse|metro station|microwave oven|milk can|milk bottle|milk packet|mill|mine|mineral water|mini bus|mirror ball|missile|mixer|mobile cover|mobile tower|mole hill|money bag|money plant pot|monkey bars|monocle|monorail|moon cake|mop bucket|mosquito bite|motor boat|mountain bike|mouse hole|mouse pad|mouth organ|movie theatre|mud|mud house|mug of coffee|mummy tomb|muscle|mushroom house|music box|music note|musical instrument|mustard|nail art|nail file|name plate|nap|napkin ring|neck tie|necklace box|needle and thread|nest box|net practice|newspaper boy|night club|night sky|night watchman|noodle bowl|north pole|nose ring|note book|number lock|nurse cap|nut cracker|oar|oasis|obstacle race|ocean|office chair|oil can|oil lamp|old man|olive|onion rings|orange juice|orchestra|ostrich egg|oven glove|overbridge|owl eyes|ox cart|oxygen cylinder|oyster shell|pacifier|paddle boat|padlock key|page|pagoda temple|pail|paint can|pair of shoes|pajamas|palace gate|palm leaf|pan cake|panda bear|paper bag|paper chain|paper lantern|parade|parasol|park bench|parking meter|parrot cage|party popper|passport|pastry|patch|pathway|patio|pavement|paw print|pea pod|peacock feather|peanut butter|pearl necklace|pedal|pedestal fan|peep hole|pen knife|pencil shavings|pendulum|penguin family|pepper spray|perfume bottle|periscope|pet shop|petal fall|pharaoh|phone booth|photo album|piano keys|pick up|pickle jar|picnic|picnic basket|picture frame|pie chart|pier|piggy bank coins|pillar box|pillow cover|pilot cap|pin cushion|pine apple juice|ping pong|pipe|pirate ship|pirate flag|pistol|pit|pitcher|pizza cutter|pizza box|plane ticket|planet rings|plank|plant pot|plaster cast|plate rack|platform ticket|playing field|plough|plug point|plum cake|pocket|pocket watch|podium speech|pogo stick|poker cards|polar ice|pole vault|police badge|police siren|polka dots|pond frog|pony|pony tail|pool table|popcorn bucket|porch|port hole|post box|post card|potato chips|potted plant|pouch|powder puff|power line|prayer beads|present|printer paper|prison|prize|projector screen|propeller|pudding bowl|pulley|pump house|pumpkin carving|punching bag|puppet show|purse strings|push cart|pyramid of cups|quail|quarry|queen crown|question mark|queue|quill|quilt|quiver|race car|race track|racket|radar|radiator|raft ride|rag doll|rail fence|railway crossing|rain boots|rain cloud|rain forest|rake leaves|ram|ramp|ration card|rattle|razor blade|reading glasses|reception desk|record player|recycle sign|red light|referee whistle|refrigerator|reindeer sleigh|remote control car|rescue boat|rest house|rice bowl|rice field|ring box|ring road|river bank|road sign|road map|robot dog|rock band|rock garden|rocket ship|rocking chair|roller skates|rolling chair|roof top|room heater|rooster crow|rope bridge|rope ladder|rose bush|rose petals|rotten apple|round table|rowing boat|rubber duck|rubber stamp|rubbish|rucksack|rug|ruins|rule book|running shoes|runway|rust|sack bag|saddle|safari|safari jeep|safety helmet|safety net|sail boat|sailor|salad bowl|saliva|salt pan|sand clock|sand dune|sandpaper block|santa claus|santa cap|sash|satellite dish|sauce|sauce pan|sausage|saw mill|saxophone player|scaffolding|scale model|scar|scarecrow hat|school van|science lab|scooty|score card|scrap yard|screen|scroll|scuba tank|sea shell|sea shore|seat|second hand|secret agent|see saw ride|seed packet|selfie stick|sewing machine|shadow play|shaving cream|shaving kit|shed|sheep wool|shelf rack|shepherd|shield|shine|ship anchor|shoe box|shoe lace|shoe polish|shooting range|shop sign|shopping bag|shopping mall|shot gun|shoulder bag|shower cap|shrine|shutter|side table|sign board|signal light|silk|silver coin|singer mic|sink tap|siren|sitting room|skateboard ramp|skeleton key|sketch book|ski lift|skipping rope|skull|skull and bones|sky diving|sky lantern|sky scraper|sleeping beauty|sleeve|sleigh|sling bag|slingshot|slipper sock|slot machine|smoke|smoke signal|snack box|snake charmer|snake bite|snooker|snorkel mask|snow boots|snow plough|snow storm|soap bubble|soap dish|sofa bed|soft toy|soil|solar eclipse|soldier tank|sombrero|soup bowl|space rocket|space suit|spaghetti|spark|spark plug|speed boat|speedometer|spice box|spinning wheel|spiral|splash|sponge|spoon and lemon|spray bottle|spray paint|spring|sprout|spy glass|squeeze bottle|stable|stage|stained glass|stair case|stall|stamp pad|stapler pins|star fruit|starter pistol|statue pose|steam engine|steel plate|step ladder|stethoscope ears|stick figure|sticky note|stilts|stitch|stocking|stone wall|stool chair|stop sign|stop watch|storage box|store room|storm cloud|stove burner|straw hat|stream|street food|street lamp|stretch|string|stripes|stroller|stuffed toy|submarine periscope|subway|sugar cane|suit|suitcase|sun cream|sun dial|sun glasses case|sun hat|super market trolley|surf board|surgeon|sushi roll|swan boat|sweat|sweet box|swimming cap|swimming goggles|swing set|switch|sword|sword fight|syrup|table cloth|table fan|table tennis bat|tadpole pond|tail|talcum powder|tank|tanker|tape measure|tape recorder|tar road|target|tattoo|taxi meter|tea bag|tea kettle|tea leaves|tea pot|teachers desk|team|tear drop|teaspoon|teddy|telephone|telephone pole|television|temple bell|tennis court|tent pole|test paper|text book|thatched roof|thermal|thermos flask|thinking cap|thorn bush|thread reel|three wheeler|throne|thumb print|thunder|thunder storm|ticket counter|ticket window|tide|tiger stripes|tile|timber|time table|tin can|tin man|tip jar|tissue box|toad stool|toast rack|toffee|toilet paper|toll gate|tomato sauce|tomb|tool belt|tooth|tooth fairy|top hat|torch bearer|tortoise shell|totem pole|towel rack|tower clock|toy box|track suit|tractor trolley|traffic cone|trailer|train ticket|trampoline|trap|trash can|travel bag|tray table|treadmill|treasure|tree trunk|trekking|trench|tri colour|trolley bag|trophy shelf|tropical fish|truck driver|trumpet player|trunk box|tube light|tug boat|tulip garden|tunnel train|turban tying|turnstile|turtle shell|tusk|tutu|tv remote|twin tower|tyre swing|umbrella stand rain|umpire signal|underground|underwater|unicorn horn|uniform cap|upside down|vacuum flask|valley view|van driver|vanity bag|vase of flowers|vault door|vegetable cart|veil|vending kiosk|vent|vessel|video camera|video game console|village well|vine|violin bow|visiting card|volcano eruption|volley|voting machine|wading pool|wagon|waist belt|waiting room|walking stick|walkie talkie|wall hanging|wall paper|walnut shell|wand|war ship|ward|wash basin|washing line|wasp nest|watch tower|water balloon|water bottle cap|water cannon|water colour box|water drop|water fall|water lily|water melon slice|water park|water pistol|water skiing|water wheel|wax candle|weather vane|web cam|wedding card|wedding ring|weed|weighing machine|welcome mat|well bucket|wet floor sign|whale tail|wheat bag|wheel|wheel chair ramp|whisk broom|whistle blower|white board|wig|wild boar|wind chime|wind mill|window box|window seat|wine glass|wing|winner|winter cap|wire fence|wishbone|wishing well|witch hat|wolf pack|wood log|wooden spoon|wool ball|work bench|worm hole|wrapping paper|wreath|wrestler|wrist band|wrist watch|x ray machine|xylophone sticks|yacht club|yarn|yoga mat|yoga pose|yolk|zebra stripes|zip line|zipper bag|zoo keeper|charpai|matka|lota|thali|katori|chakla belan|sil batta|chulha|handi|mortar and pestle|hukka|paan|paan shop|kulhad chai|kettle tea stall|chai wala|dabbawala|doodhwala|raddiwala|kabadiwala|bhutta|roasted corn|ganna|coconut seller|mehndi cone|jhumka|payal|nath|maang tikka|kada|choodiyan|rakhi thread|janeu|tilak|mala|kumkum|agarbatti|dhoop|puja thali|ghanti|shankh|shivling|trishul|om symbol|swastik|kalash pot|toran door|rangoli colours|kite festival|manja|charkhi|patang|gilli danda|lattu|kanche|pithu|stapu|chain chain|langdi|carrom striker|ludo dice|tempo|matador|tanga|jugaad|overloaded truck|bullet bike|local train door|railway platform tea|toy train hills|bindi packet|kajal|surma|attar|itra|mehendi design|monsoon|umbrella in rain|paper boat in rain|rain puddle jump|flooded road|traffic police umbrella|cricket fan|face painting|flag waving|stadium lights|trophy lift|world cup|commentator|third umpire|run out|clean bowled|catch|lbw|hat trick|century|duck out|school assembly|morning prayer|national anthem|flag hoisting|republic day|independence day|parade march'.split('|'),hard:'gravity|electricity|time machine|black hole|solar system|photosynthesis|evolution|democracy|traffic jam|power cut|online class|selfie|social media|password|wifi|global warming|pollution|recycling|earthquake|tsunami|flood|drought|landslide|avalanche|hurricane|cyclone|wildfire|deforestation|climate change|greenhouse effect|ozone layer|acid rain|friendship|love|anger|fear|happiness|sadness|jealousy|surprise|boredom|confusion|excitement|nervous|lazy|proud|shy|brave|curious|lonely|hungry|thirsty|tired|sleepy|freedom|peace|war|justice|truth|lie|secret|dream|nightmare|memory|imagination|idea|wisdom|knowledge|luck|success|failure|victory|defeat|hope|faith|patience|courage|internet|email|website|video call|hashtag|emoji|meme|viral video|influencer|podcast|streaming|download|upload|cloud storage|virus|hacker|firewall|bluetooth|qr code|barcode|upi payment|online shopping|cashback|otp|captcha|app store|notification|battery low|no signal|airplane mode|screenshot|artificial intelligence|virtual reality|robotics|3d printing|electric car|self driving car|smart home|blockchain|cryptocurrency|monday morning|weekend|holiday|vacation|summer vacation|exam fever|result day|first day of school|homework|detention|school trip|annual day|sports day|parent teacher meeting|report card|gossip|rumour|traffic signal|road rage|overtime|deadline|meeting|presentation|promotion|salary|bonus|interview|resume|work from home|lunch break|coffee break|inflation|taxes|budget|election|voting|parliament|president|prime minister|constitution|newspaper headline|breaking news|echo|reflection|shadow puppet|rainbow colours|optical illusion|magnet attraction|static electricity|sound waves|friction|buoyancy|evaporation|condensation|water cycle|food chain|ecosystem|life cycle|metamorphosis|hibernation|migration|camouflage|pollination|germination|heartbreak|first love|blind date|love letter|proposal|honeymoon|divorce|family photo|joint family|generation gap|mother in law|best friend|sibling rivalry|deja vu|midlife crisis|peer pressure|stage fright|writers block|brain freeze|sugar rush|food coma|jet lag|hangover|insomnia|hide and seek|musical chairs|treasure hunt|tug of war|lemon and spoon race|sack race|three legged race|blind mans buff|dumb charades|antakshari|pillow fight|water balloon fight|snowball fight|bucket list|piggy back ride|photo bomb|house party|sleepover|road trip|midnight snack|late night study|raining cats and dogs|piece of cake|break the ice|cold feet|couch potato|bookworm|night owl|early bird|elephant in the room|butterflies in stomach|cat got your tongue|apple of my eye|once in a blue moon|hit the sack|spill the beans|let the cat out of the bag|head in the clouds|heart of gold|over the moon|under the weather|time flies|money talks|walls have ears|cry over spilled milk|bite the bullet|break a leg|kill two birds with one stone|the ball is in your court|a drop in the ocean|all ears|big fish|black sheep|blue blood|brain wave|can of worms|cash cow|dark horse|devils advocate|dog days|eagle eye|fish out of water|green thumb|hot potato|icing on the cake|last straw|lions share|lone wolf|monkey business|on cloud nine|red tape|sitting duck|small talk|snail mail|top dog|white lie|wild goose chase|zip your lips|hold your horses|burn the midnight oil|cost an arm and a leg|face the music|go the extra mile|hit the road|jump the gun|keep an eye on|let off steam|miss the boat|on thin ice|pull someones leg|rock the boat|see eye to eye|steal the show|throw in the towel|turn a blind eye|under one roof|up in the air|when pigs fly|time travel|parallel universe|teleportation|invisibility|mind reading|super strength|flying man|shape shifting|zombie apocalypse|alien invasion|robot uprising|end of the world|big bang|space race|moon walk|mars mission|lost in space|gravity free|zero gravity|stock market|share market|bull market|bear market|interest rate|loan|bankruptcy|profit|loss|investment|insurance|pension|savings|donation|charity|auction|lottery|jackpot|crowd funding|start up|unicorn company|entrepreneur|boss|employee|manager|team work|brainstorming|multitasking|procrastination|productivity|alarm snooze|monday blues|sunday funday|friday night|new year resolution|birthday surprise|surprise party|farewell party|welcome party|reunion|retirement|graduation|anniversary|baby shower|naming ceremony|house warming|engagement|vegetarian|vegan|diet|fasting|cheat day|junk food craving|food delivery|home cooked meal|street food tour|midnight hunger|breakfast in bed|reflection in water|shadow at noon|sunrise at beach|sunset at mountain|full moon night|stars in the sky|rain on window|fog on road|snow on mountain|eureka moment|lightbulb moment|aha moment|brain storm|writer|poet|poetry|novel|biography|autobiography|fiction|science fiction|fantasy|mystery|thriller|horror movie|comedy show|romantic movie|action movie|cartoon|animation|documentary|reality show|soap opera|game show|quiz show|talent show|award show|architecture|engineering|medicine|surgery|psychology|philosophy|history|geography|mathematics|algebra|geometry|fraction|percentage|multiplication|division|addition|subtraction|equation|graph|pie chart slice|bar graph|statistics|probability|infinity|pi|square root|grammar|vocabulary|dictionary|alphabet|punctuation|comma|exclamation mark|apostrophe|question tag|synonym|antonym|rhyme|north|south|east|west|latitude|longitude|equator|tropic|continent|ocean current|time zone|horizon|loyalty|honesty|kindness|respect|gratitude|forgiveness|revenge|betrayal|trust|ego|greed|pride|guilt|shame|regret|nostalgia|anxiety|stress|relief|calm|chaos|silence|noise|speed|slow motion|fast forward|rewind|pause|gentleman|lady|senior citizen|teenager|toddler|newborn|orphan|stranger|celebrity|fan club|autograph|paparazzi|bodyguard|bouncer|superstition|black cat crossing|broken mirror bad luck|lucky charm|horoscope|fortune teller|palm reading|tarot card|evil eye|lemon chilli|traffic police whistle|crowded train|rush hour|long queue|power outage|water shortage|load shedding|pot hole|speed camera|fine ticket|lost and found|missing person|camouflage soldier|secret mission|undercover agent|bank robbery|jail break|courtroom|court case|witness|evidence|crime scene|fingerprint powder|handcuffed thief|police chase|first aid|heart attack|operation theatre|blood donation|organ donation|check up|diagnosis|prescription|recovery|startup pitch|job interview|office party|team meeting|video conference|mute button|screen share|self defence|martial arts|sumo wrestling|tug of war rope|arm wrestling|thumb war|rock paper scissors|staring contest|treasure island|desert storm|jungle safari|arctic expedition|mountain climbing|space walk|deep sea|volcano lava|hide under bed|monster under bed|sleep walking|day dreaming|talking in sleep|fake smile|poker face|puppy eyes|crocodile smile|evil laugh|happy tears|goose pimples|back to school|happily ever after|once upon a time|the end|to be continued|game over|level up|high score|new record|mirror selfie|group photo|photo filter|live stream|unboxing|product review|cooking video|dance challenge|trending|going viral|robot watching tv|shark driving a car|owl playing drums|police drinking tea|cat playing guitar|kangaroo eating pizza|grandma with a laptop|owl doing yoga|elephant on a swing|owl playing football|duck climbing a tree|shark swimming|bear reading a book|cow sleeping in bed|bear doing yoga|pig on a skateboard|giraffe on a skateboard|bear flying a kite|alien holding balloons|snowman in a rocket|giraffe with an umbrella|panda riding an elephant|mouse dancing|monkey playing drums|shark playing guitar|tiger watching tv|kangaroo doing yoga|kangaroo skiing|snake cooking food|frog doing yoga|elephant skiing|pig swimming|turtle doing yoga|pig doing yoga|alien in the rain|fish in a boat|tiger taking a selfie|bear drinking tea|monkey juggling balls|parrot singing on stage|octopus playing cricket|turtle skiing|police wearing sunglasses|snake driving a car|parrot sleeping in bed|giraffe singing on stage|crocodile watching tv|donkey wearing sunglasses|penguin juggling balls|mouse drinking tea|horse skiing|police watching tv|duck watching tv|dog playing football|fish juggling balls|monkey eating ice cream|ghost swimming|robot playing football|shark cooking food|pirate in a boat|kangaroo dancing|bear skiing|rabbit cooking food|shark fishing|frog dancing|zebra with an umbrella|frog in a hot air balloon|mouse playing drums|monkey playing guitar|giraffe wearing a crown|donkey fishing|owl dancing|camel riding a bike|rabbit wearing a cape|mouse skiing|tiger fishing|giraffe skiing|donkey wearing a cape|crocodile with an umbrella|penguin riding a bike|shark lifting weights|ghost under a tree|robot on the moon|owl watching tv|giraffe riding an elephant|cat climbing a tree|horse with a laptop|king playing cricket|duck eating ice cream|rabbit eating pizza|robot eating pizza|ghost wearing sunglasses|pirate driving a car|ghost riding an elephant|donkey riding an elephant|robot in a hot air balloon|ghost doing yoga|zebra eating ice cream|snowman on a skateboard|octopus dancing|goat singing on stage|horse holding balloons|octopus eating ice cream|robot playing drums|giraffe on the moon|kangaroo climbing a tree|camel swimming|parrot skiing|octopus wearing a cape|alien in a rocket|teacher riding a bike|king holding balloons|lion riding a bike|rabbit eating ice cream|baby eating pizza|teacher driving a car|grandma on a swing|tiger riding a bike|frog under a tree|cat on the moon|teacher drinking tea|camel wearing a crown|grandma climbing a tree|octopus fishing|donkey wearing a crown|pirate flying a kite|mouse in a rocket|mouse playing guitar|donkey on a skateboard|goat with an umbrella|police under a tree|horse in the rain|monkey reading a book|cat riding an elephant|baby reading a book|fish wearing a crown|giraffe playing drums|panda with a laptop|owl fishing|robot taking a selfie|crocodile juggling balls|ghost fishing|ghost lifting weights|cow watching tv|octopus singing on stage|baby under a tree|pig brushing teeth|turtle reading a book|teacher riding an elephant|alien singing on stage|pig playing cricket|tiger wearing a cape|donkey skiing|duck on the moon|robot wearing a cape|turtle flying a kite|teacher brushing teeth|goat on a skateboard|shark on a swing|alien playing cricket|owl on a swing|goat flying a kite|turtle eating pizza|pig in a boat|police in a boat|parrot lifting weights|panda holding balloons|grandma on a skateboard|snowman in the rain|shark wearing a cape|dog under a tree|king juggling balls|alien riding an elephant|goat on the moon|cow riding an elephant|monkey dancing|turtle playing guitar|police riding an elephant|donkey in the rain|baby on the moon|donkey with a laptop|pig drinking tea|pig in the rain|grandma watching tv|donkey playing cricket|police eating pizza|bear taking a selfie|duck juggling balls|tiger cooking food|parrot eating ice cream|cat eating pizza|king in a hot air balloon|bear singing on stage|elephant juggling balls|giraffe flying a kite|monkey with an umbrella|robot riding a bike|lion holding balloons|duck playing football|cat brushing teeth|tiger holding balloons|tiger in the rain|snake fishing|elephant sleeping in bed|alien sleeping in bed|octopus watching tv|cat flying a kite|parrot in the rain|pig playing football|cat under a tree|giraffe brushing teeth|cow playing football|robot wearing sunglasses|dog taking a selfie|fish drinking tea|horse fishing|kangaroo playing cricket|owl skiing|robot eating ice cream|zebra wearing a cape|goat wearing sunglasses|camel in a boat|bear playing drums|goat playing guitar|snowman reading a book|fish singing on stage|lion in a rocket|pirate under a tree|mouse juggling balls|ghost eating pizza|dog dancing|shark watching tv|penguin playing cricket|crocodile cooking food|goat fishing|cow on a swing|cow climbing a tree|lion dancing|frog wearing a cape|snowman riding a bike|turtle swimming|zebra reading a book|octopus riding a bike|tiger driving a car|pig riding a bike|owl wearing sunglasses|parrot watching tv|frog fishing|horse drinking tea|snowman wearing sunglasses|alien in a hot air balloon|horse eating ice cream|owl wearing a crown|shark eating pizza|mouse playing cricket|giraffe watching tv|baby playing guitar|camel watching tv|zebra holding balloons|tiger playing football|goat sleeping in bed|giraffe eating pizza|monkey brushing teeth|lion wearing a cape|king brushing teeth|dog playing cricket|horse singing on stage|grandma playing drums|mouse in a boat|mouse wearing a cape|goat playing football|baby drinking tea|frog cooking food|snowman driving a car|kangaroo holding balloons|police climbing a tree|police playing football|teacher skiing|police eating ice cream|dog holding balloons|kangaroo on the moon|donkey eating pizza|baby on a skateboard|cow juggling balls|pirate eating pizza|pig juggling balls|donkey playing football|dog with a laptop|snake singing on stage|horse watching tv|bear on the moon|shark singing on stage|alien fishing|teacher sleeping in bed|ghost in a rocket|cat playing drums|zebra drinking tea|donkey brushing teeth|alien riding a bike|owl with an umbrella|camel wearing sunglasses|owl in a hot air balloon|octopus playing drums|camel on a skateboard|rabbit fishing|goat doing yoga|teacher wearing a crown|crocodile under a tree|mouse fishing|teacher doing yoga|mouse on the moon|penguin on the moon|elephant watching tv|frog playing guitar|crocodile eating ice cream|pirate watching tv|horse dancing|owl climbing a tree|donkey eating ice cream|pig with a laptop|camel with an umbrella|police riding a bike|mouse singing on stage|robot with an umbrella|turtle singing on stage|robot cooking food|teacher on a skateboard|lion sleeping in bed|panda flying a kite|donkey juggling balls|penguin swimming|king on the moon|pirate riding an elephant|goat watching tv|kangaroo playing guitar|giraffe climbing a tree|octopus lifting weights|turtle in a rocket|cat on a swing|lion climbing a tree|fish cooking food|snake flying a kite|teacher dancing|teacher on the moon|fish doing yoga|snowman cooking food|pirate playing football|duck cooking food|teacher in a hot air balloon|tiger eating pizza|grandma wearing a crown|grandma cooking food|kangaroo taking a selfie|tiger lifting weights|rabbit riding an elephant|bear lifting weights|octopus eating pizza|goat in a rocket|police playing cricket|grandma flying a kite|snake wearing a crown|giraffe in the rain|grandma in the rain|ghost climbing a tree|giraffe juggling balls|parrot dancing|king on a swing|alien on a skateboard|goat driving a car|penguin climbing a tree|tiger in a boat|elephant taking a selfie|zebra skiing|crocodile skiing|king watching tv|elephant wearing sunglasses|fish riding an elephant|giraffe taking a selfie|rabbit reading a book|fish flying a kite|bear juggling balls|teacher wearing a cape|snowman eating pizza|king riding an elephant|giraffe under a tree|camel drinking tea|zebra doing yoga|panda drinking tea|penguin playing guitar|owl on a skateboard|tiger drinking tea|mouse lifting weights|mouse doing yoga|cat sleeping in bed|turtle under a tree|owl riding an elephant|zebra playing drums|rabbit with an umbrella|teacher fishing|monkey wearing a cape|penguin cooking food|horse wearing a crown|monkey eating pizza|monkey drinking tea|frog lifting weights|pirate in the rain|donkey reading a book|dog wearing sunglasses|fish driving a car|cow in a hot air balloon|baby singing on stage|police dancing|penguin riding an elephant|shark doing yoga|duck dancing|robot swimming|tiger reading a book|king playing drums|bear riding a bike|turtle on a swing|ghost singing on stage|mouse watching tv|alien wearing a crown|giraffe dancing|giraffe eating ice cream|pig wearing sunglasses|cat driving a car|crocodile with a laptop|dog cooking food|police taking a selfie|monkey in a boat|lion doing yoga|giraffe playing cricket|king wearing a crown|rabbit in the rain|penguin flying a kite|horse in a boat|ghost driving a car|snake holding balloons|crocodile playing drums|grandma eating ice cream|zebra on a swing|zebra swimming|elephant climbing a tree|frog on the moon|octopus swimming|cat dancing|parrot swimming|turtle dancing|teacher reading a book|panda with an umbrella|baby wearing sunglasses|duck wearing a cape|donkey watching tv|goat holding balloons|grandma in a hot air balloon|duck on a skateboard|elephant flying a kite|alien doing yoga|tiger with a laptop|grandma lifting weights|octopus wearing a crown|goat in a hot air balloon|elephant lifting weights|cow on the moon|turtle in a hot air balloon|elephant doing yoga|ghost dancing|goat skiing|octopus on a skateboard|frog holding balloons|crocodile dancing|baby in a rocket|bear with an umbrella|horse lifting weights|king wearing sunglasses|police flying a kite|donkey doing yoga|elephant in a boat|monkey flying a kite|owl sleeping in bed|duck riding a bike|owl taking a selfie|goat reading a book|king in the rain|kangaroo wearing a cape|fish wearing a cape|pirate in a hot air balloon|donkey under a tree|duck driving a car|lion on a skateboard|camel in a rocket|goat eating pizza|dog wearing a cape|penguin reading a book|mouse on a skateboard|rabbit holding balloons|camel on a swing|zebra on the moon|robot in a rocket|rabbit dancing|ghost with an umbrella|kangaroo brushing teeth|octopus in the rain|bear on a swing|penguin on a skateboard|owl holding balloons|goat playing cricket|elephant holding balloons|ghost skiing|cow wearing sunglasses|alien wearing a cape|turtle riding an elephant|baby climbing a tree|turtle sleeping in bed|zebra in the rain|kangaroo watching tv|octopus skiing|mouse wearing a crown|duck in a boat|donkey holding balloons|zebra fishing|zebra in a rocket|king under a tree|tiger in a rocket|grandma riding a bike|parrot under a tree|bear fishing|grandma taking a selfie|turtle cooking food|zebra in a hot air balloon|duck skiing|robot flying a kite|police sleeping in bed|shark brushing teeth|donkey with an umbrella|kangaroo wearing sunglasses|lion skiing|tiger playing guitar|panda under a tree|giraffe lifting weights|parrot juggling balls|fish in the rain|lion driving a car|king eating pizza|duck riding an elephant|owl drinking tea|alien taking a selfie|frog brushing teeth|parrot taking a selfie|cat skiing|cat wearing a cape|tiger skiing|tiger dancing|pig on the moon|pirate juggling balls|donkey climbing a tree|horse wearing a cape|king climbing a tree|turtle playing cricket|baby playing cricket|baby in a hot air balloon|snake playing football|lion with a laptop|snowman wearing a cape|cow on a skateboard|shark taking a selfie|king sleeping in bed|pirate reading a book|police in a hot air balloon|teacher with an umbrella|parrot in a boat|goat riding an elephant|tiger flying a kite|giraffe riding a bike|grandma holding balloons|dog playing drums|mouse swimming|cow riding a bike|fish with a laptop|shark in a boat|pig skiing|pig fishing|panda reading a book|police brushing teeth|pig watching tv|baby skiing|owl driving a car|robot climbing a tree|alien driving a car|cow cooking food|elephant drinking tea|pig wearing a crown|king singing on stage|monkey taking a selfie|pig climbing a tree|frog riding a bike|cow taking a selfie|parrot eating pizza|elephant wearing a cape|cow under a tree|crocodile playing football|bear dancing|elephant swimming|rabbit driving a car|cat with a laptop|kangaroo lifting weights|robot drinking tea|dog watching tv|shark playing cricket|turtle riding a bike|crocodile in a boat|penguin fishing|pirate sleeping in bed|parrot with a laptop|frog eating pizza|crocodile eating pizza|octopus driving a car|rabbit singing on stage|mouse playing football|king with a laptop|parrot driving a car|alien flying a kite|horse climbing a tree|goat lifting weights|cow singing on stage|rabbit drinking tea|duck wearing sunglasses|cat wearing a crown|giraffe with a laptop|ghost on a swing|dog riding an elephant|baby taking a selfie|snowman under a tree|bear watching tv|fish eating pizza|kangaroo drinking tea|snowman playing cricket|tiger playing cricket|mouse climbing a tree|rabbit brushing teeth|horse on the moon|panda eating ice cream|horse doing yoga|teacher on a swing|baby brushing teeth|giraffe driving a car|monkey in a rocket|zebra dancing|grandma juggling balls|shark riding an elephant|camel wearing a cape|panda brushing teeth|cow skiing|pirate wearing sunglasses|pirate wearing a cape|fish playing cricket|frog climbing a tree|ghost playing drums|zebra juggling balls|baby watching tv|snake taking a selfie|snowman playing football|goat dancing|monkey in a hot air balloon|pirate playing guitar|alien under a tree|kangaroo reading a book|alien playing drums|teacher eating ice cream|fish dancing|shark juggling balls|grandma playing football|king dancing|duck under a tree|panda playing guitar|crocodile wearing sunglasses|octopus cooking food|cow playing cricket|panda eating pizza|panda dancing|octopus drinking tea|turtle playing drums|lion watching tv|turtle playing football|dog doing yoga|frog taking a selfie|baby playing football|lion cooking food|crocodile wearing a crown|lion fishing|monkey cooking food|shark dancing|elephant playing football|duck taking a selfie|elephant playing drums|alien on the moon|cow driving a car|giraffe reading a book|penguin singing on stage|duck lifting weights|kangaroo in a hot air balloon|donkey driving a car|panda on the moon|teacher in a boat|donkey sleeping in bed|cat on a skateboard|lion with an umbrella|shark on the moon|cat wearing sunglasses|giraffe cooking food|owl flying a kite|elephant with a laptop|monkey driving a car|teacher juggling balls|fish reading a book|snake wearing sunglasses|zebra wearing sunglasses|lion playing guitar|penguin eating ice cream|snowman eating ice cream|parrot wearing a cape|teacher lifting weights|mouse holding balloons|panda sleeping in bed|robot on a swing|octopus wearing sunglasses|horse driving a car|teacher eating pizza|frog juggling balls|zebra with a laptop|crocodile doing yoga|panda riding a bike|robot in a boat|crocodile riding a bike|grandma sleeping in bed|crocodile playing cricket|snake on the moon|dog eating pizza|donkey swimming|elephant playing guitar|frog drinking tea|cat in a rocket|camel flying a kite|giraffe drinking tea|turtle in the rain|lion playing football|dog in a hot air balloon|grandma playing cricket|camel playing cricket|goat swimming|lion juggling balls|shark wearing sunglasses|pig with an umbrella|baby flying a kite|bear cooking food|kangaroo on a skateboard|cow eating pizza|monkey lifting weights|rabbit on a skateboard|panda in the rain|lion swimming|shark with an umbrella|shark in the rain|duck playing drums|cat watching tv|pirate swimming|pirate eating ice cream|panda wearing a crown|zebra cooking food|crocodile in the rain|camel taking a selfie|grandma in a boat|robot reading a book|grandma with an umbrella|snake reading a book|bear playing guitar|dog eating ice cream|baby fishing|pirate lifting weights|king lifting weights|elephant with an umbrella|parrot fishing|owl playing cricket|goat drinking tea|shark in a rocket|robot sleeping in bed|baby riding a bike|duck playing cricket|crocodile on a swing|owl brushing teeth|snake eating pizza|monkey wearing sunglasses|panda wearing a cape|police lifting weights|turtle on the moon|elephant eating ice cream|donkey riding a bike|panda climbing a tree|snowman in a hot air balloon|alien climbing a tree|teacher flying a kite|camel dancing|donkey dancing|rabbit flying a kite|snake wearing a cape|elephant riding a bike|parrot playing cricket|snake riding an elephant|robot doing yoga|elephant in the rain|fish playing football|penguin under a tree|parrot with an umbrella|octopus flying a kite|cat cooking food|alien reading a book|panda in a boat|zebra on a skateboard|frog swimming|police with an umbrella|tiger eating ice cream|kangaroo cooking food|bear wearing a cape|parrot riding an elephant|ghost cooking food|grandma eating pizza|goat on a swing|camel in the rain|turtle driving a car|snowman playing guitar|owl eating pizza|king fishing|camel reading a book|rabbit climbing a tree|giraffe wearing sunglasses|mouse under a tree|cow in the rain|police swimming|shark skiing|monkey under a tree|fish playing drums|tiger on the moon|monkey doing yoga|mouse on a swing|fish swimming|dog juggling balls|alien lifting weights|frog driving a car|teacher swimming|rabbit wearing a crown|cow doing yoga|giraffe doing yoga|zebra lifting weights|mouse in the rain|tiger sleeping in bed|turtle drinking tea|snowman with a laptop|pirate on a swing|ghost flying a kite|kangaroo eating ice cream|dog lifting weights|octopus in a boat|robot skiing|cow playing drums|horse sleeping in bed|zebra driving a car|horse flying a kite|crocodile wearing a cape|frog on a swing|baby playing drums|frog in the rain|alien in a boat|octopus riding an elephant|giraffe playing football|goat with a laptop|panda fishing|robot holding balloons|king doing yoga|police skiing|robot driving a car|donkey on a swing|camel sleeping in bed|turtle climbing a tree|baby with an umbrella|cow dancing|octopus taking a selfie|pirate skiing|turtle wearing a cape|shark with a laptop|king skiing|dog in a rocket|tiger singing on stage|shark in a hot air balloon|baby with a laptop|police on the moon|monkey sleeping in bed|frog riding an elephant|fish under a tree|grandma riding an elephant|kangaroo with an umbrella|snake in a boat|rabbit sleeping in bed|king on a skateboard|robot wearing a crown|crocodile brushing teeth|crocodile swimming|monkey swimming|zebra riding a bike|police singing on stage|crocodile on a skateboard|frog eating ice cream|kangaroo wearing a crown|king eating ice cream|baby riding an elephant|snowman swimming|zebra wearing a crown|bear in a rocket|penguin skiing|teacher in the rain|rabbit playing football|king flying a kite|baby swimming|lion playing cricket|fish skiing|snake on a swing|panda on a swing|frog playing football|pirate playing drums|horse on a swing|ghost riding a bike|grandma dancing|alien on a swing|rabbit with a laptop|baby holding balloons|panda singing on stage|fish playing guitar|owl on the moon|duck reading a book|snake watching tv|duck fishing|pirate climbing a tree|penguin wearing a crown|panda in a hot air balloon|penguin drinking tea|bear eating ice cream|cow wearing a cape|police cooking food|horse swimming|horse playing cricket|shark eating ice cream|snowman watching tv|snowman fishing|goat brushing teeth|horse playing guitar|monkey holding balloons|alien juggling balls|lion singing on stage|lion wearing sunglasses|monkey on a swing|teacher wearing sunglasses|panda playing football|snake playing cricket|zebra under a tree|octopus juggling balls|camel playing drums|frog with an umbrella|pig in a rocket|rabbit wearing sunglasses|shark reading a book|zebra riding an elephant|tiger on a swing|ghost eating ice cream|turtle holding balloons|kangaroo in a rocket|penguin sleeping in bed|monkey fishing|baby doing yoga|pig dancing|grandma on the moon|panda wearing sunglasses|kangaroo playing football|dog flying a kite|camel under a tree|frog singing on stage|kangaroo on a swing|pirate holding balloons|king riding a bike|rabbit riding a bike|shark sleeping in bed|mouse reading a book|lion eating ice cream|kangaroo in the rain|mouse with an umbrella|pig singing on stage|tiger playing drums|king in a boat|monkey with a laptop|penguin wearing a cape|snake climbing a tree|snake riding a bike|police on a skateboard|cow with a laptop|grandma driving a car|tiger riding an elephant|police wearing a crown|turtle with a laptop|elephant dancing|baby cooking food|parrot holding balloons|tiger climbing a tree|camel riding an elephant|bear holding balloons|monkey climbing a tree|crocodile sleeping in bed|bear in a hot air balloon|alien drinking tea|king with an umbrella|snake on a skateboard|crocodile in a rocket|cow drinking tea|grandma under a tree|frog wearing a crown|rabbit watching tv|turtle brushing teeth|penguin with a laptop|king reading a book|horse eating pizza|alien cooking food|duck in a rocket|pirate cooking food|teacher playing guitar|goat wearing a cape|baby sleeping in bed|frog playing drums|grandma playing guitar|grandma wearing a cape|snake in the rain|ghost playing cricket|alien eating ice cream|mouse with a laptop|pig cooking food|donkey cooking food|duck on a swing|octopus reading a book|bear in a boat|goat cooking food|frog on a skateboard|snowman sleeping in bed|parrot climbing a tree|king playing guitar|zebra in a boat|bear under a tree|donkey in a rocket|mouse eating ice cream|ghost drinking tea|snake playing guitar|rabbit swimming|pig lifting weights|bear swimming|snake lifting weights|lion under a tree|dog driving a car|elephant driving a car|snake dancing|fish taking a selfie|fish climbing a tree|goat taking a selfie|parrot cooking food|lion flying a kite|tiger with an umbrella|mouse flying a kite|police playing guitar|robot with a laptop|frog reading a book|owl lifting weights|parrot on a skateboard|duck singing on stage|police fishing|penguin eating pizza|alien swimming|baby wearing a cape|frog watching tv|pig under a tree|teacher under a tree|ghost wearing a crown|duck doing yoga|panda skiing|teacher with a laptop|zebra climbing a tree|turtle on a skateboard|penguin in a boat|goat riding a bike|snake eating ice cream|elephant in a hot air balloon|turtle taking a selfie|bear playing football|ghost on a skateboard|pirate fishing|cow playing guitar|frog flying a kite|penguin doing yoga|bear eating pizza|teacher playing drums|ghost sleeping in bed|monkey on the moon|snake swimming|alien playing football|octopus in a rocket|tiger in a hot air balloon|ghost playing football|camel juggling balls|fish lifting weights|cat holding balloons|ghost in the rain|cat playing cricket|alien watching tv|ghost taking a selfie|tiger brushing teeth|monkey wearing a crown|snake juggling balls|bear wearing sunglasses|giraffe in a hot air balloon|cat playing football|grandma swimming|panda lifting weights|parrot on a swing|snowman juggling balls|dog reading a book|lion wearing a crown|ghost holding balloons|monkey skiing|crocodile reading a book|ghost wearing a cape|duck holding balloons|bear climbing a tree|ghost with a laptop|ghost reading a book|cat in a boat|cow in a rocket|fish sleeping in bed|cow swimming|camel holding balloons|parrot in a rocket|goat eating ice cream|parrot playing guitar|horse brushing teeth|king swimming|alien wearing sunglasses|snake with an umbrella|octopus playing guitar|pig on a swing|horse in a rocket|alien with an umbrella|pirate on the moon|cat singing on stage|snowman playing drums|kangaroo in a boat|elephant brushing teeth|monkey riding an elephant|horse juggling balls|lion taking a selfie|snowman on the moon|mouse eating pizza|snake brushing teeth|fish on the moon|donkey in a hot air balloon|panda cooking food|snowman flying a kite|zebra taking a selfie|fish holding balloons|owl cooking food|dog climbing a tree|ghost brushing teeth|dog in a boat|kangaroo swimming|dog wearing a crown|crocodile flying a kite|goat playing drums|snake playing drums|tiger under a tree|mouse cooking food|rabbit on a swing|zebra watching tv|grandma fishing|mouse sleeping in bed|snowman holding balloons|crocodile fishing|monkey on a skateboard|teacher holding balloons|octopus climbing a tree|elephant in a rocket|snowman in a boat|teacher singing on stage|parrot wearing a crown|teacher playing cricket|police juggling balls|robot lifting weights|penguin lifting weights|parrot drinking tea|police in the rain|police on a swing|robot on a skateboard|tiger swimming|parrot brushing teeth|grandma singing on stage|mouse taking a selfie|camel fishing|rabbit playing guitar|pig wearing a cape|octopus holding balloons|zebra singing on stage|cow brushing teeth|bear driving a car|giraffe fishing|duck swimming|turtle eating ice cream|bear wearing a crown|turtle watching tv|cow lifting weights|robot riding an elephant|pig playing drums|penguin holding balloons|snowman lifting weights|robot brushing teeth|zebra flying a kite|pig playing guitar|crocodile driving a car|owl in a rocket|dog fishing|donkey taking a selfie|dog riding a bike|snowman skiing|duck in the rain|mouse riding a bike|alien with a laptop|parrot flying a kite|parrot wearing sunglasses|dog sleeping in bed|penguin in a rocket|crocodile riding an elephant|panda taking a selfie|monkey riding a bike|parrot playing football|pirate with an umbrella|octopus playing football|kangaroo driving a car|tiger doing yoga|rabbit under a tree|snowman riding an elephant|penguin with an umbrella|ghost in a hot air balloon|grandma skiing|police driving a car|zebra playing cricket|panda swimming|goat climbing a tree|elephant wearing a crown|frog wearing sunglasses|shark drinking tea|elephant under a tree|duck with a laptop|robot in the rain|dog drinking tea|penguin dancing|cow flying a kite|alien skiing|baby dancing|crocodile singing on stage|pig eating ice cream|pig eating pizza|dog with an umbrella|tiger juggling balls|teacher watching tv|police reading a book|rabbit lifting weights|dog on a swing|turtle in a boat|police in a rocket|snake sleeping in bed|baby juggling balls|crocodile on the moon|donkey singing on stage|donkey drinking tea|robot playing cricket|teacher in a rocket|octopus under a tree|lion in the rain|cat lifting weights|horse cooking food|zebra playing guitar|duck drinking tea|owl playing guitar|elephant eating pizza|lion brushing teeth|crocodile drinking tea|cat in a hot air balloon|horse riding a bike|owl riding a bike|alien dancing|rabbit in a rocket|robot dancing|owl under a tree|elephant on a skateboard|horse in a hot air balloon|elephant cooking food|owl eating ice cream|shark holding balloons|snake doing yoga|fish in a hot air balloon|cat doing yoga|kangaroo singing on stage|horse wearing sunglasses|octopus brushing teeth|horse riding an elephant|rabbit doing yoga|duck wearing a crown|ghost in a boat|owl in a boat|giraffe in a rocket|baby lifting weights|baby on a swing|shark playing football|panda in a rocket|parrot reading a book|elephant fishing|fish riding a bike|snowman doing yoga|frog in a boat|duck with an umbrella|rabbit on the moon|shark playing drums|robot singing on stage|grandma wearing sunglasses|panda watching tv|penguin watching tv|penguin in the rain|fish on a skateboard|kangaroo flying a kite|donkey playing drums|kangaroo under a tree|parrot riding a bike|ghost juggling balls|cat riding a bike|shark climbing a tree|goat in a boat|shark wearing a crown|baby in the rain|penguin wearing sunglasses|dog on the moon|turtle fishing|penguin driving a car|elephant on the moon|baby eating ice cream|parrot playing drums|donkey flying a kite|owl reading a book|ghost playing guitar|horse playing football|snake under a tree|turtle with an umbrella|cat in the rain|grandma brushing teeth|owl wearing a cape|owl singing on stage|octopus with an umbrella|panda doing yoga|cow wearing a crown|crocodile holding balloons|owl juggling balls|kangaroo riding an elephant|police with a laptop|horse under a tree|frog with a laptop|snowman drinking tea|dog playing guitar|king in a rocket|rabbit playing drums|elephant reading a book|camel playing guitar|baby in a boat|rabbit playing cricket|kangaroo riding a bike|cow eating ice cream|penguin playing football|snowman with an umbrella|pirate drinking tea|alien brushing teeth|cow fishing|bear riding an elephant|police wearing a cape|tiger wearing sunglasses|cow reading a book|donkey in a boat|mouse riding an elephant|elephant singing on stage|camel lifting weights|duck sleeping in bed|camel eating ice cream|lion reading a book'.split('|')};
+const DW_WORDS={easy:'apple|banana|orange|mango|grapes|cherry|strawberry|watermelon|pineapple|lemon|coconut|pear|peach|plum|kiwi|papaya|guava|pomegranate|lychee|fig|dates|apricot|blueberry|raspberry|melon|jackfruit|chikoo|jamun|tamarind|avocado|lime|grapefruit|blackberry|cranberry|starfruit|mulberry|gooseberry|potato|tomato|onion|carrot|cabbage|cauliflower|brinjal|cucumber|pumpkin|peas|corn|chilli|garlic|ginger|beetroot|radish|spinach|lettuce|broccoli|capsicum|mushroom|okra|beans|turnip|celery|zucchini|leek|cat|dog|cow|buffalo|goat|sheep|horse|donkey|camel|elephant|lion|tiger|leopard|cheetah|bear|monkey|gorilla|giraffe|zebra|rhino|hippo|deer|rabbit|squirrel|mouse|rat|pig|fox|wolf|kangaroo|koala|panda|bat|hedgehog|owl|parrot|peacock|crow|sparrow|pigeon|eagle|duck|hen|rooster|chick|swan|penguin|flamingo|ostrich|ant|bee|butterfly|spider|snail|worm|frog|snake|lizard|crocodile|turtle|tortoise|fish|shark|whale|dolphin|octopus|crab|starfish|jellyfish|seahorse|lobster|prawn|mosquito|fly|ladybug|dragonfly|grasshopper|caterpillar|beetle|cockroach|scorpion|house|door|window|roof|wall|stairs|chair|table|bed|sofa|pillow|blanket|lamp|fan|clock|mirror|cupboard|shelf|carpet|curtain|bucket|mug|cup|plate|bowl|spoon|fork|knife|glass|bottle|jug|pot|pan|kettle|toaster|fridge|oven|stove|sink|tap|towel|soap|toothbrush|toothpaste|comb|brush|shampoo|bathtub|shower|toilet|dustbin|broom|mop|key|lock|bell|candle|basket|box|bag|umbrella|shirt|pant|shorts|skirt|dress|saree|kurta|jacket|coat|sweater|cap|hat|shoe|sandal|slipper|sock|glove|scarf|tie|belt|button|zip|watch|ring|necklace|earring|bangle|bracelet|crown|glasses|sunglasses|wallet|purse|backpack|pen|pencil|eraser|sharpener|ruler|scale|book|notebook|paper|scissors|glue|crayon|paint|paintbrush|chalk|blackboard|globe|map|calculator|stapler|clip|envelope|stamp|letter|ball|kite|doll|balloon|top|marbles|puzzle|dice|cards|whistle|drum|guitar|flute|piano|violin|trumpet|swing|slide|skateboard|bicycle|car|bus|truck|train|plane|boat|ship|bike|scooter|auto|taxi|van|jeep|tractor|helicopter|rocket|submarine|sun|moon|star|cloud|rain|rainbow|snow|snowman|tree|leaf|flower|rose|sunflower|lotus|grass|mountain|river|lake|sea|beach|island|volcano|desert|forest|cave|rock|stone|sand|wave|fire|water|ice|wind|lightning|eye|ear|nose|mouth|lips|teeth|tongue|hand|finger|thumb|leg|foot|toe|knee|head|hair|face|heart|brain|bone|skeleton|beard|moustache|cake|bread|egg|milk|cheese|butter|jam|honey|pizza|burger|sandwich|biscuit|cookie|chocolate|candy|lollipop|donut|popcorn|chips|noodles|pasta|rice|soup|salad|tea|coffee|juice|phone|computer|laptop|tv|remote|camera|radio|headphones|battery|bulb|plug|wire|charger|keyboard|circle|square|triangle|arrow|smile|cross|tick|zero|hammer|nail|screw|saw|axe|ladder|rope|chain|net|tent|flag|trophy|medal|gift|alligator|anteater|armadillo|badger|beaver|bison|boar|bull|bunny|calf|chameleon|chimpanzee|chipmunk|cobra|cub|dinosaur|dragon|eel|emu|falcon|ferret|firefly|gecko|goose|hamster|hawk|hornet|hummingbird|hyena|iguana|jaguar|kitten|lamb|llama|mole|moose|moth|mule|newt|otter|ox|panther|pelican|piglet|platypus|porcupine|puppy|python|raccoon|raven|reindeer|salmon|seal|skunk|sloth|slug|stork|tadpole|toad|toucan|turkey|unicorn|vulture|walrus|wasp|weasel|woodpecker|yak|goldfish|catfish|swordfish|stingray|clownfish|pufferfish|squid|oyster|clam|coral|mermaid|bench|cradle|stool|hammock|wardrobe|drawer|bookshelf|doormat|doorbell|letterbox|chimney|fireplace|staircase|balcony|garden|gate|fence|well|pond|fountain|garage|attic|basement|kitchen|bathroom|bedroom|hall|verandah|terrace|courtyard|iron|microwave|cooler|heater|geyser|inverter|tubelight|torch|lantern|matchbox|lighter|ashtray|vase|calendar|hourglass|sieve|grater|tawa|kadai|ladle|spatula|tongs|peeler|whisk|teapot|saucer|tray|thermos|lunchbox|apron|raincoat|gumboots|swimsuit|nightdress|pyjama|dupatta|turban|lungi|dhoti|sherwani|lehenga|salwar|blazer|hoodie|vest|uniform|mask|helmet|beanie|mittens|stockings|sneakers|boots|sticker|badge|keychain|magnet|pin|needle|thread|tape|ribbon|bow|football|basketball|volleyball|shuttlecock|baseball|frisbee|dumbbell|ludo|bubble|feather|shell|pebble|stick|log|branch|root|seed|nest|web|honeycomb|beehive|anthill|footprint|shadow|moonlight|sunrise|sunset|night|day|morning|raindrop|snowflake|icicle|puddle|storm|tornado|acorn|pinecone|daisy|tulip|lily|jasmine|marigold|hibiscus|orchid|dandelion|clover|ivy|fern|moss|reed|thorn|petal|bud|stem|trunk|bark|twig|peanut|almond|cashew|walnut|pistachio|raisin|chickpea|lentil|wheat|sugar|salt|pepper|oil|ghee|flour|dough|protractor|divider|platform|straw|napkin|tissue|toothpick|chopsticks|jar|lid|cork|can|tin|packet|carton|sack|crate|barrel|kaleidoscope|jigsaw|origami|pinwheel|lipstick|perfume|powder|razor|grandfather|grandmother|baby|boy|girl|man|woman|family|twins|father|mother|brother|sister|uncle|aunt|friend|neighbour|wink|fist|handshake|namaste|salute|arm|elbow|shoulder|neck|chin|cheek|forehead|eyebrows|wrist|ankle|heel|palm|back|belly|lungs|stomach|red|blue|green|yellow|black|white|pink|purple|brown|one|two|three|four|five|six|seven|eight|nine|ten|hundred|question|yes|no|hello|bye|stop|go|up|down|left|right|big|small|tall|short|fat|thin|hot|cold|wet|dry|fast|slow|happy|sad|drop|bath|floor|bird|pants|grape|pie'.split('|'),medium:'samosa|rangoli|diya|tiffin|chapati|biryani|jalebi|motorbike|ambulance|idli|dosa|dhokla|khakhra|thepla|poha|upma|paratha|khichdi|pulao|kebab|naan|roti|kulcha|papad|pickle|chutney|raita|lassi|buttermilk|rasgulla|ladoo|barfi|halwa|kheer|kulfi|falooda|modak|shrikhand|peda|chikki|golgappa|momos|manchurian|frankie|uttapam|appam|sambar|rasam|pongal|cornflakes|omelette|toast|cupcake|muffin|pancake|waffle|croissant|pretzel|bagel|taco|burrito|sushi|dumpling|pie|tart|pudding|jelly|milkshake|smoothie|soda|cola|lemonade|sundae|brownie|cheesecake|doughnut|popsicle|charminar|pyramid|colosseum|stonehenge|hospital|school|college|library|museum|zoo|park|temple|church|mosque|gurudwara|market|mall|theatre|stadium|airport|bank|atm|hotel|restaurant|cafe|bakery|dhaba|pharmacy|salon|gym|playground|factory|office|farm|village|city|bridge|tunnel|dam|lighthouse|tower|castle|palace|fort|hut|igloo|skyscraper|apartment|bungalow|cottage|windmill|doctor|nurse|teacher|student|police|soldier|pilot|driver|farmer|chef|cook|baker|tailor|barber|carpenter|plumber|electrician|painter|singer|dancer|actor|magician|clown|astronaut|scientist|engineer|lawyer|judge|postman|milkman|fisherman|firefighter|lifeguard|photographer|cameraman|reporter|waiter|shopkeeper|watchman|cobbler|potter|blacksmith|goldsmith|priest|king|queen|prince|princess|pirate|ninja|cowboy|robot|alien|ghost|witch|wizard|fairy|angel|superhero|mummy|vampire|zombie|monster|giant|dwarf|elf|detective|spy|thief|referee|umpire|coach|captain|cricket|hockey|badminton|tennis|kabaddi|chess|carrom|wrestling|boxing|karate|judo|swimming|diving|surfing|skiing|skating|cycling|running|marathon|javelin|discus|archery|shooting|weightlifting|gymnastics|yoga|golf|bowling|rugby|polo|fishing|camping|hiking|parachute|paragliding|sailing|rowing|kayaking|snorkeling|sitar|tabla|harmonium|veena|shehnai|dhol|mridangam|sarod|santoor|bansuri|saxophone|clarinet|cello|harp|accordion|xylophone|cymbals|tambourine|maracas|banjo|ukulele|microphone|speaker|loudspeaker|gramophone|cassette|cd|headset|earphones|smartphone|tablet|smartwatch|printer|scanner|projector|router|joystick|drone|satellite|telescope|microscope|binoculars|compass|thermometer|stethoscope|syringe|injection|bandage|wheelchair|crutches|stretcher|pill|capsule|signboard|road|highway|flyover|roundabout|parking|petrol|tyre|puncture|horn|headlight|glider|jet|yacht|canoe|raft|houseboat|ferry|anchor|sail|paddle|crane|bulldozer|excavator|forklift|dumper|limousine|convertible|snowmobile|segway|unicycle|tricycle|sleeping|snoring|yawning|sneezing|coughing|crying|laughing|smiling|dancing|singing|jumping|climbing|crawling|walking|sitting|standing|reading|writing|drawing|painting|cooking|eating|drinking|sweeping|mopping|gardening|shopping|bargaining|waving|clapping|praying|meditating|stretching|skipping|juggling|whistling|shouting|whispering|kissing|hugging|fighting|arguing|thinking|dreaming|carousel|tightrope|trapeze|scarecrow|pump|greenhouse|courier|wicket|boundary|sixer|bowler|batsman|fielder|pads|gloves|podium|scoreboard|penalty|backpacker|waterfall|glacier|canyon|valley|cliff|plateau|orchard|cactus|bamboo|bonsai|willow|transformer|manhole|sewage|compost|diwali|holi|navratri|garba|dandiya|eid|christmas|rakhi|onam|janmashtami|lohri|baisakhi|halloween|thanksgiving|valentine|wedding|mehendi|haldi|baraat|mandap|firecracker|sparkler|toran|kalash|aarti|prasad|bindi|sindoor|mangalsutra|turmeric|henna|marker|highlighter|canvas|easel|palette|clay|sculpture|statue|graffiti|poster|banner|newspaper|magazine|diary|register|file|folder|socket|fuse|supermarket|trolley|bill|receipt|coin|money|cheque|dentist|pulse|fever|headache|plaster|vaccine|sanitizer|spaceman|mars|jupiter|saturn|earth|planet|comet|meteor|asteroid|galaxy|constellation|eclipse|pagoda|dome|minaret|arch|pillar|escalator|elevator|lift|tyrannosaurus|triceratops|stegosaurus|brontosaurus|velociraptor|pterodactyl|mammoth|fossil|narwhal|pearl|shipwreck|kingfisher|bulbul|myna|cuckoo|hornbill|heron|seagull|albatross|dodo|phoenix|griffin|pegasus|centaur|yeti|bigfoot|werewolf|dracula|frankenstein|labrador|pug|dalmatian|poodle|bulldog|husky|chihuahua|termite|locust|cicada|cocoon|larva|beaker|flask|goggles|dna|atom|molecule|circuit|toolbox|screwdriver|spanner|wrench|pliers|chisel|sandpaper|trowel|spade|shovel|pickaxe|rake|hoe|sickle|wheelbarrow|sprinkler|padlock|vault|fingerprint|cutlery|juicer|blender|chandelier|spotlight|clapperboard|airship|antenna|anvil|aquarium|armchair|armour|atlas|baggage|bait|bandstand|barometer|baton|battleship|beanbag|bib|billboard|blindfold|bonfire|bookmark|boomerang|bride|bridegroom|briefcase|buffet|bullock|buoy|cabin|cage|cannon|cannonball|caravan|carnival|casket|catapult|cattle|ceiling|charcoal|chariot|cheerleader|cigar|claw|cleaver|clipboard|cloakroom|coffin|collar|conductor|cotton|couch|cowbell|crossword|cruise|crutch|cufflinks|cupid|cushion|customs|dagger|dairy|diamond|dollhouse|dove|drawbridge|drip|dumpster|embroidery|engine|eyebrow|eyelash|fertilizer|field|flame|fog|footstool|frame|freezer|frost|funnel|gadget|gallery|garland|gear|gondola|gong|grave|gutter|hanger|harbour|hare|harmonica|hatchback|hedge|helipad|hole|hoof|hook|insect|ivory|jail|jersey|jockey|joker|jungle|karaoke|kennel|ketchup|kiosk|knapsack|knight|knot|lab|label|lace|laser|laundry|lava|lawn|leash|liquid|litter|loaf|locker|locomotive|loom|luggage|lung|mace|marble|mat|mattress|maze|meat|megaphone|mill|mine|missile|mixer|monocle|monorail|mud|muscle|mustard|nap|oar|oasis|ocean|olive|orchestra|overbridge|pacifier|page|pail|pajamas|parade|parasol|passport|pastry|patch|pathway|patio|pavement|pedal|pendulum|periscope|pharaoh|picnic|pier|pipe|pistol|pit|pitcher|plank|plough|pocket|pony|porch|pouch|present|prison|prize|propeller|pulley|quail|quarry|queue|quill|quilt|quiver|racket|radar|radiator|ram|ramp|rattle|refrigerator|rubbish|rucksack|rug|ruins|runway|rust|saddle|safari|sailor|saliva|sash|sauce|sausage|scaffolding|scar|scooty|screen|scroll|seat|shed|shepherd|shield|shine|shrine|shutter|silk|siren|skull|sleeve|sleigh|slingshot|smoke|snooker|soil|sombrero|spaghetti|spark|speedometer|spiral|splash|sponge|spring|sprout|stable|stage|stall|stilts|stitch|stocking|stream|stretch|string|stripes|stroller|subway|suit|suitcase|surgeon|sweat|switch|sword|syrup|tail|tank|tanker|target|tattoo|team|teaspoon|teddy|telephone|television|thermal|throne|thunder|tide|tile|timber|toffee|tomb|tooth|trailer|trampoline|trap|treadmill|treasure|trekking|trench|turnstile|tusk|tutu|underground|underwater|veil|vent|vessel|vine|volley|wagon|wand|ward|weed|wheel|wig|wing|winner|wishbone|wreath|wrestler|yarn|yolk|charpai|matka|lota|thali|katori|chulha|handi|hukka|paan|dabbawala|doodhwala|raddiwala|kabadiwala|bhutta|ganna|jhumka|payal|nath|kada|choodiyan|janeu|tilak|mala|kumkum|agarbatti|dhoop|ghanti|shankh|shivling|trishul|swastik|manja|charkhi|patang|lattu|kanche|pithu|stapu|langdi|tempo|matador|tanga|jugaad|kajal|surma|attar|itra|monsoon|commentator|catch|lbw|century|guitar|piano|violin|trumpet|drum|flute|whistle|camera|laptop|phone|battery|magnet|rocket|ladder|tent|fountain|volcano|island|desert|forest|rainbow|lightning|tornado|dolphin|whale|octopus|penguin|kangaroo|giraffe|elephant|crocodile|chameleon|peacock|flamingo|lobster|butterfly|dragonfly|caterpillar|backpack|umbrella|sunglasses|necklace|bracelet|crown|helmet|trophy|medal|balloon|candle|campfire|fireplace|scissors|stapler|calculator|envelope|postcard'.split('|'),hard:'gravity|electricity|photosynthesis|evolution|democracy|selfie|password|wifi|pollution|recycling|earthquake|tsunami|flood|drought|landslide|avalanche|hurricane|cyclone|wildfire|deforestation|friendship|love|anger|fear|happiness|sadness|jealousy|surprise|boredom|confusion|excitement|nervous|lazy|proud|shy|brave|curious|lonely|hungry|thirsty|tired|sleepy|freedom|peace|war|justice|truth|lie|secret|dream|nightmare|memory|imagination|idea|wisdom|knowledge|luck|success|failure|victory|defeat|hope|faith|patience|courage|internet|email|website|hashtag|emoji|meme|influencer|podcast|streaming|download|upload|virus|hacker|firewall|bluetooth|barcode|cashback|otp|captcha|notification|screenshot|robotics|blockchain|cryptocurrency|weekend|holiday|vacation|homework|detention|gossip|rumour|overtime|deadline|meeting|presentation|promotion|salary|bonus|interview|resume|inflation|taxes|budget|election|voting|parliament|president|constitution|echo|reflection|friction|buoyancy|evaporation|condensation|ecosystem|metamorphosis|hibernation|migration|camouflage|pollination|germination|heartbreak|proposal|honeymoon|divorce|hangover|insomnia|antakshari|sleepover|bookworm|teleportation|invisibility|loan|bankruptcy|profit|loss|investment|insurance|pension|savings|donation|charity|auction|lottery|jackpot|entrepreneur|boss|employee|manager|brainstorming|multitasking|procrastination|productivity|reunion|retirement|graduation|anniversary|engagement|vegetarian|vegan|diet|fasting|writer|poet|poetry|novel|biography|autobiography|fiction|fantasy|mystery|thriller|cartoon|animation|documentary|architecture|engineering|medicine|surgery|psychology|philosophy|history|geography|mathematics|algebra|geometry|fraction|percentage|multiplication|division|addition|subtraction|equation|graph|statistics|probability|infinity|pi|grammar|vocabulary|dictionary|alphabet|punctuation|comma|apostrophe|synonym|antonym|rhyme|north|south|east|west|latitude|longitude|equator|tropic|continent|horizon|loyalty|honesty|kindness|respect|gratitude|forgiveness|revenge|betrayal|trust|ego|greed|pride|guilt|shame|regret|nostalgia|anxiety|stress|relief|calm|chaos|silence|noise|speed|rewind|pause|gentleman|lady|teenager|toddler|newborn|orphan|stranger|celebrity|autograph|paparazzi|bodyguard|bouncer|superstition|horoscope|courtroom|witness|evidence|diagnosis|prescription|recovery|unboxing|trending|constellation|labyrinth|kaleidoscope|submarine|parachute|silhouette|boomerang|origami|hieroglyph|drawbridge|windmill|catapult|crossbow|periscope|barometer|hourglass|pendulum|projector|radiator|dynamite|fireworks|hoverboard|trampoline|carnival|treasure|meteor|blackhole|vampire|werewolf|pharaoh|gladiator|astronaut|archaeologist|magician|detective|surgeon|blacksmith|alchemist|sculpture|orchestra|cathedral|sanctuary|illusion|monument|pyramid|sphinx|aquarium|observatory|planetarium|greenhouse|colosseum|amphitheater|chariot|sarcophagus|mummy|potion|cauldron|spellbook|crystal|amulet|talisman|scroll|quill|inkwell|parchment|spectacles|monocle|microchip|transistor|generator|turbine|propeller|gyroscope|seismograph|thermometer|speedometer|odometer|stethoscope|syringe|scalpel|bandage|crutches|wheelchair|stretcher|microscope|centrifuge|beaker|pipette|flask|bunsen|crucible|petridish'.split('|')};
 const DW_COLORS=['#1c1c1e','#ffffff','#8e8e93','#ff3b30','#ff9500','#ffcc00','#34c759','#00c7be','#0a84ff','#5856d6','#af52de','#ff2d55','#a2845e','#ffd1dc'];
 const DW_SIZES=[3,7,14,26];
 
@@ -3328,9 +3542,40 @@ function dwMark(w){w=dwNorm(w);if(!w)return;const u=dwUsed(),t=['easy','medium',
 function dwPick(t,avoid){const L=DW_WORDS[t],u=new Set(dwUsed()[t]||[]),ex=new Set([...(avoid||[]),...((DRAW.g&&DRAW.g.usedWords)||[])]);
   let pool=L.filter(w=>!u.has(w)&&!ex.has(w));if(!pool.length)pool=L.filter(w=>!ex.has(w));const w=pool[Math.floor(Math.random()*pool.length)];return w;}
 function dwStats(){const u=dwUsed();return ['easy','medium','hard'].reduce((s,k)=>s+(DW_WORDS[k].length-((u[k]||[]).length)),0);}
-function dwNorm(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();}
+function dwNorm(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'').trim();}
 function dwHash(gid,n,w){let h=2166136261;for(const c of gid+'|'+n+'|'+dwNorm(w)){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return (h>>>0).toString(36);}
 function dwMask(w){return w.replace(/[a-z0-9]/gi,'_');}
+function dwMatch(guess, target){
+  const g = dwNorm(guess), t = dwNorm(target);
+  if(!g || !t) return false;
+  if(g === t) return true;
+  if(g + 's' === t || g + 'es' === t || g === t + 's' || g === t + 'es') return true;
+  if(g.endsWith('ies') && g.slice(0,-3)+'y' === t) return true;
+  if(t.endsWith('ies') && t.slice(0,-3)+'y' === g) return true;
+  return false;
+}
+function dwLev(a,b){
+  const m=a.length, n=b.length;
+  if(Math.abs(m-n)>2) return 99;
+  const d=[];
+  for(let i=0;i<=m;i++){d[i]=[i];}
+  for(let j=0;j<=n;j++){d[0][j]=j;}
+  for(let i=1;i<=m;i++){
+    for(let j=1;j<=n;j++){
+      const cost = a[i-1]===b[j-1]?0:1;
+      d[i][j]=Math.min(d[i-1][j]+1, d[i][j-1]+1, d[i-1][j-1]+cost);
+    }
+  }
+  return d[m][n];
+}
+function dwIsClose(guess, target){
+  const g = dwNorm(guess), t = dwNorm(target);
+  if(!g || !t || g === t) return false;
+  if(dwMatch(guess, target)) return true;
+  if(t.length >= 4 && dwLev(g, t) <= 1) return true;
+  if(t.length >= 7 && dwLev(g, t) <= 2) return true;
+  return false;
+}
 
 const DRAW={
   g:null,T:null,iv:null,strokes:[],inkN:-1,tool:{c:0,w:1,erase:false},drawing:null,sendBuf:null,lastCanvasPub:0,myWord:null,choices:null,
@@ -3393,17 +3638,82 @@ const DRAW={
   },
   /* ----- guessing ----- */
   guess(txt){
-    const g=this.g;txt=String(txt||'').trim().slice(0,40);if(!txt||!g||g.phase!=='draw'||this.isDrawer()||g.guessed)return;
+    const g=this.g;txt=String(txt||'').trim().slice(0,40);
+    if(!txt||!g||g.phase!=='draw'||this.isDrawer()||g.guessed)return;
+
+    // Pass & Play / Local mode
+    if(MODE!=='online'){
+      const secret = this.wordForTurn();
+      if(secret && dwMatch(txt, secret)){
+        g.guessed=true;
+        const gin=$('dGuessIn');if(gin){gin.disabled=true;gin.placeholder='You got it! 🎉';}
+        this.feed({sys:1,t:`🎉 Correct! The word was ${secret.toUpperCase()}!`,c:'#34c759'});
+        sfx('win');buzz([25,50,30]);
+        const guesser=g.players.find((p,i)=>i!==g.drawer&&!g.solved.some(s=>s.id===p.id));
+        if(guesser) this.markGuessed(guesser.id);
+        return;
+      }
+      const close=secret?dwIsClose(txt,secret):false;
+      this.feed({id:'local',t:txt,close});sfx('tap');
+      return;
+    }
+
+    // Online mode
     const mi=this.me(),p=g.players[mi];if(!p)return;
-    if(dwHash(g.gid,g.n,txt)===g.hash){g.guessed=true;this.feed({sys:1,t:'🎉 You got it! Waiting for the others…',c:'#34c759'});sfx('win');buzz([15,40,15]);
-      Net.pub('guess',{id:CID,k:rid(6),n:g.n,ok:1,h:dwHash(g.gid,g.n,txt)});this.render();return;}
-    const close=this.isClose(txt);
-    Net.pub('guess',{id:CID,k:rid(6),n:g.n,t:txt});this.feed({id:CID,t:txt,close});sfx('tap');
+    const secret=this.wordForTurn();
+    const h=dwHash(g.gid,g.n,txt);
+    const matched=(h===g.hash)||(secret&&dwMatch(txt,secret));
+
+    if(matched){
+      g.guessed=true;
+      const gin=$('dGuessIn');if(gin){gin.disabled=true;gin.placeholder='You got it! 🎉';}
+      this.feed({sys:1,t:'🎉 You got it! Waiting for the others…',c:'#34c759'});
+      sfx('win');buzz([25,50,30]);
+      Net.pub('guess',{id:CID,k:rid(6),n:g.n,ok:1,h:g.hash,t:txt});
+      this.render();
+      return;
+    }
+
+    const close=secret?dwIsClose(txt,secret):this.isClose(txt);
+    Net.pub('guess',{id:CID,k:rid(6),n:g.n,t:txt});
+    this.feed({id:CID,t:txt,close});sfx('tap');
   },
-  isClose(t){const g=this.g;const n=dwNorm(t);if(!g.mask||n.length!==g.mask.length)return false;let diff=0;for(let i=0;i<n.length;i++){if(g.mask[i]!=='_'&&g.mask[i]!==n[i])return false;}return false;},
-  onGuess(d){const g=this.g;if(!g||!d||d.n!==g.n||g.phase!=='draw')return;
-    if(d.ok){if(this.isDrawer()&&d.h===g.hash&&!g.solved.find(s=>s.id===d.id))this.pushEv({e:'solve',n:g.n,id:d.id,ms:Date.now()-g.t0});return;}
-    if(d.id===CID)return;this.feed({id:d.id,t:String(d.t||'').slice(0,40)});},
+  isClose(t){
+    const secret=this.wordForTurn();
+    if(secret) return dwIsClose(t, secret);
+    const g=this.g, n=dwNorm(t);
+    if(!g||!g.mask||Math.abs(n.length-g.mask.length)>2) return false;
+    return false;
+  },
+  onGuess(d){
+    const g=this.g;if(!g||!d||d.n!==g.n||g.phase!=='draw')return;
+    const isMine=d.id===CID;
+    const secret=this.wordForTurn();
+    let isCorrect=(d.ok&&d.h===g.hash);
+    if(!isCorrect&&secret&&d.t&&dwMatch(d.t,secret)){
+      isCorrect=true;
+    }
+
+    if(isCorrect){
+      if(!g.solved.some(s=>s.id===d.id)){
+        if(this.isDrawer()||this.amAuthority()||(MODE==='online'&&Net.isHost())){
+          this.pushEv({e:'solve',n:g.n,id:d.id,ms:Date.now()-g.t0});
+        }
+      }
+      if(isMine&&!g.guessed){
+        g.guessed=true;
+        const gin=$('dGuessIn');if(gin){gin.disabled=true;gin.placeholder='You got it! 🎉';}
+        this.feed({sys:1,t:'🎉 You got it! Waiting for the others…',c:'#34c759'});
+        sfx('win');buzz([25,50,30]);
+        this.render();
+      }
+      return;
+    }
+
+    if(isMine) return;
+    const close=secret?dwIsClose(d.t,secret):false;
+    this.feed({id:d.id,t:String(d.t||'').slice(0,40),close});
+  },
   feed(m){const g=this.g;if(!g)return;g.feed.push(m);if(g.feed.length>40)g.feed.shift();this.renderFeed();},
   /* ----- local pass & play judging ----- */
   markGuessed(id){const g=this.g;if(g.phase!=='draw'||g.solved.find(s=>s.id===id))return;this.pushEv({e:'solve',n:g.n,id,ms:Date.now()-g.t0});},
@@ -4352,7 +4662,7 @@ const Social={
       if(p[2]==='in'&&p[3])this.onIn(p[3],d);else if(p[2]==='inv'&&p[3])this.onInv(p[3],d);else if(p[2]==='grp'&&p[3])this.onGrpAdd(p[3],d);return;}
     if(p[0]==='u'&&p[2]==='st'){if(!this.F[p[1]])return;(this.st[p[1]]=this.st[p[1]]||{})[l.bi]=d;this.soon();return;}
     if(p[0]==='u'&&p[2]==='profile'){if(!d||!d.name)return;const f=this.F[p[1]]||(this.PR[p[1]]=this.PR[p[1]]||{});
-      const nv={name:String(d.name).slice(0,14),tag:d.tag,av:String(d.av||'').slice(0,8),bio:String(d.bio||'').slice(0,60),nt:String(d.nt||'').slice(0,40),gk:String(d.gk||'').slice(0,64)};
+      const nv={name:String(d.name).slice(0,14),tag:d.tag,av:String(d.av||'').startsWith('data:image')?String(d.av).slice(0,40000):String(d.av||'').slice(0,16),bio:String(d.bio||'').slice(0,60),nt:String(d.nt||'').slice(0,40),gk:String(d.gk||'').slice(0,64)};
       if(Object.keys(nv).some(k=>f[k]!==nv[k])){Object.assign(f,nv);this.save();this.soon();}return;}
     if(p[0]==='dir'){if(this.search&&d&&d.id)this.search.add(d);return;}
     if(p[0]==='dm'&&p[2]&&d){const other=p[1].split('-').find(x=>x!==CID);if(!other||!this.F[other]||this.F[other].state!=='friend')return;this.onList('d:'+other,p[2],d);return;}
@@ -4433,6 +4743,52 @@ const Social={
       return `<div class="cell">${this.av(d.id,d.name,d.av)}<span class="grow"><b>${esc(d.name)}</b><small class="ssub">${esc(String(d.name).toUpperCase().replace(/\s+/g,''))}#${esc(d.tag||'')}</small></span>${f&&f.state==='friend'?'<span class="ssub">Friend ✓</span>':f&&f.state==='out'?'<span class="ssub">Requested</span>':`<button class="sbtn" data-add='${esc(JSON.stringify({id:d.id,name:d.name,tag:d.tag,av:d.av||'',nt:d.nt||''}))}'>Add</button>`}</div>`;}).join(''):'<div class="sempty"><div class="spinner" style="margin:0 auto 8px"></div>Searching…</div>';};
     show();this.subAll(mq=>mq.sub(topic));
     setTimeout(()=>{this.subAll(mq=>mq.unsub&&mq.unsub(topic));this.search=null;if(!res.size)box.innerHTML=`<div class="sempty">Nobody called “${esc(q)}” found.<br>Check the spelling, or ask your friend to open the app once — or share your link instead.</div>`;},3500);},
+    /* ---------- device profile sync & linking ---------- */
+  getSyncKey(){
+    const payload = {
+      c: CID,
+      t: this.tag,
+      n: this.name(),
+      a: SET.avatar || '',
+      b: SET.bio || '',
+      f: this.F || {},
+      g: this.G || {},
+      ts: Date.now()
+    };
+    return btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
+  },
+  applySyncKey(keyStr){
+    try {
+      const raw = decodeURIComponent(escape(atob(keyStr.trim())));
+      const data = JSON.parse(raw);
+      if(!data.c || !data.n){
+        toast('Invalid Profile Sync Key');
+        return false;
+      }
+      store.set('cid', data.c);
+      store.set('ftag', data.t);
+      SET.name = data.n;
+      if(data.a !== undefined) SET.avatar = data.a;
+      if(data.b !== undefined) SET.bio = data.b;
+      saveSet();
+      if(data.f && typeof data.f === 'object'){
+        store.set('friends', data.f);
+      }
+      if(data.g && typeof data.g === 'object'){
+        store.set('groups', data.g);
+      }
+      toast(`Logged in as ${data.n}! Syncing profile… 🎉`, 3000);
+      sfx('win');
+      buzz([30, 60, 30]);
+      setTimeout(() => {
+        location.href = location.pathname;
+      }, 700);
+      return true;
+    } catch(e) {
+      toast('Error reading Profile Sync Key. Please check the text.');
+      return false;
+    }
+  },
   shareLink(){return location.href.split('#')[0].split('?')[0]+'?add='+CID+'&n='+encodeURIComponent(this.name())+'&tg='+this.tag;},
   async shareMe(){const url=this.shareLink(),txt=`Add me as a friend on Games: ${this.myId()}`;
     try{if(navigator.share){await navigator.share({title:'Add me on Games',text:txt,url});return;}}catch(e){if(e&&e.name==='AbortError')return;}
@@ -4498,7 +4854,13 @@ const Social={
     const on=this.friends().filter(f=>!this.friendSt(f.id).off).length,sub=$('hubFriendsSub');
     if(sub)sub.textContent=!this.name()?'Your name, Friend ID & friends':Object.keys(this.F).length?`${on} friend${on===1?'':'s'} online${r?` · ${r} request${r>1?'s':''}`:''}`:'Your name, Friend ID & friends';
     const ms=$('hubMsgsSub');if(ms)ms.textContent=m?`${m} unread message${m>1?'s':''}`:'Personal & group chats';},
-  av(id,name,emo,extra='',cls=''){return `<div class="sav ${cls}" style="background:${avCol(id)}">${emo?`<span class="semo">${esc(emo)}</span>`:esc((String(name||'?')[0]||'?').toUpperCase())}${extra}</div>`;},
+  av(id,name,emo,extra='',cls=''){
+    const isImg = emo && (emo.startsWith('data:image') || emo.startsWith('http') || emo.startsWith('blob:'));
+    const content = isImg 
+      ? `<img src="${emo}" alt="avatar" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;">` 
+      : (emo ? `<span class="semo">${esc(emo)}</span>` : esc((String(name||'?')[0]||'?').toUpperCase()));
+    return `<div class="sav ${cls}" style="background:${avCol(id)}">${content}${extra}</div>`;
+  },
   fav(id){const f=this.F[id]||this.PR[id]||{};return f.av||'';},
   show(tab){if(tab)this.tab=tab;closeSheets();openSheet('socSheet');if(this.name()){this.start();this.wake();}this.render();
     if(!this.name())setTimeout(()=>$('socName')&&$('socName').focus(),300);},
@@ -4506,9 +4868,18 @@ const Social={
   renderMe(){const n=this.name(),st=this.myStatus();
     $('socMe').innerHTML=n?`<button class="savbtn" id="socAvBtn" aria-label="Change picture">${this.av(CID,n,SET.avatar,`<i class="sdot ${st}"></i>`,'big')}<span class="savedit">✎</span></button>
       <div class="grow"><b id="socNameShow">${esc(n)}</b> <button class="slink" id="socRename">Edit</button><div class="sid">Friend ID: <span>${esc(this.myId())}</span></div><div class="ssub" id="socConn"></div></div>
-      <button class="sbtn" id="socShare"><svg class="i sm"><use href="#i-share"/></svg>Share</button>`
+      <button class="sbtn" id="socShare"><svg class="i sm"><use href="#i-share"/></svg>Share</button><button class="sbtn tint" id="socSyncQuick"><svg class="i sm"><use href="#i-refresh"/></svg>Link PC/Phone</button>`
     :`<div class="grow"><b>Choose your name</b><div class="ssub">Friends find you by this name</div><input id="socName" maxlength="14" placeholder="Your name" autocomplete="off"></div><button class="sbtn tint" id="socNameGo">Save</button>`;
-    $('socAvPick').innerHTML=['', '😎','🤠','🥷','🦸','🧙','👑','🐯','🦁','🐼','🐸','🦊','🐶','🐱','🦄','🐲','👻','🤖','👽','⚡','🔥','🌟','🎮','⚽','🏏','🎸','🍕','🌸','💎'].map(e=>`<button data-av="${e}" class="${(SET.avatar||'')===e?'on':''}">${e||'Aa'}</button>`).join('');
+    const ALL_EMOS = [
+      '', '😎','🤠','🥷','🦸','🧙','👑','🤴','👸','🎭','🤖','👽','👾','👻','💀','🐱','🐶','🦊','🐻','🐼',
+      '🦁','🐯','🐵','🦄','🐲','🐙','🦖','🦈','🦅','🦉','🐺','🐬','🐳','🦋','🌸','🌺','🌻','🌲','🌙','⭐',
+      '🪐','🎮','🕹️','🎲','🎯','🎪','🏆','🥇','⚽','🏀','🏈','⚾','🎾','🏐','🎱','🎳','🥊','🥋','🛹','⚡',
+      '🔥','🌟','✨','💎','🍀','🔮','🚀','🛸','💣','⚔️','🛡️','🏹','🍕','🍔','🍦','🍩','🍿','☕','🎸','🎵'
+    ];
+    const avGrid = $('socEmojiGrid');
+    if(avGrid){
+      avGrid.innerHTML = ALL_EMOS.map(e=>`<button data-av="${e}" class="${(SET.avatar||'')===e?'on':''}">${e||'Aa'}</button>`).join('');
+    }
     $('socBio').value=SET.bio||'';$('socExtra').classList.toggle('hidden',!n);
     document.querySelectorAll('#socStatus button').forEach(b=>b.classList.toggle('on',b.dataset.ss===(SET.sstatus||'auto')));this.dot();},
   render(){if(!$('socSheet').classList.contains('open'))return;this.renderMe();if(!this.name()){$('socBody').innerHTML='';return;}
@@ -4527,6 +4898,65 @@ const Social={
             <button class="sicon" data-chat="${f.id}" aria-label="Message"><svg class="i"><use href="#i-chat"/></svg></button></div>`;}).join('')}</div>
             <div class="gf">Tap a name for more. <span class="sdot available inl"></span> available · <span class="sdot play inl"></span> in a game · <span class="sdot away inl"></span> away · <span class="sdot busy inl"></span> busy · <span class="sdot off inl"></span> offline</div>`
         :`<div class="sempty"><div style="font-size:46px">👋</div><b>No friends yet</b><br>Search for your friends by name, or share your Friend ID so they can add you.<br><br><button class="bigbtn" data-tabgo="req" style="margin:0 auto">Add Friends</button></div>`);}
+    else if(this.tab==='sync'){
+      const syncKey = this.getSyncKey();
+      const syncUrl = location.href.split('#')[0].split('?')[0] + '?sync=' + syncKey;
+      body.innerHTML = `
+        <div class="gh" style="padding-top:4px">Use Same Profile on PC & Phone</div>
+        <div class="group" style="padding:16px;margin-bottom:12px">
+          <div style="font-size:15px;line-height:1.45;margin-bottom:14px;color:var(--label)">
+            <b>Play on both your PC and Phone with the exact same profile!</b><br>
+            <span style="color:var(--label2)">Your name, avatar picture, Friend ID (<b style="color:var(--blue)">${esc(this.myId())}</b>), and friends list will sync across both devices.</span>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="bigbtn press" id="copySyncKeyBtn" style="flex:1;min-width:140px"><svg class="i sm"><use href="#i-copy"/></svg> Copy Sync Key</button>
+            <button class="bigbtn tint press" id="copySyncLinkBtn" style="flex:1;min-width:140px"><svg class="i sm"><use href="#i-share"/></svg> Copy Link</button>
+          </div>
+          <div class="gf" style="padding:12px 0 0;line-height:1.4">
+            💡 <b>How it works:</b> Tap <b>Copy Link</b> and send it to your PC (via WhatsApp, email, or message). Click the link on your PC to instantly log in! Or copy the Key below and paste it into Games on your PC.
+          </div>
+        </div>
+
+        <div class="gh">Log In With Profile Key on this Device</div>
+        <div class="group" style="padding:16px">
+          <div style="font-size:14px;color:var(--label2);margin-bottom:8px">Have a Sync Key from your other device? Paste it here:</div>
+          <textarea id="importSyncIn" rows="3" placeholder="Paste your Profile Sync Key here…" style="width:100%;border:1px solid var(--sep);border-radius:12px;padding:10px 12px;font-size:13px;background:var(--fill);color:var(--label);outline:none;resize:none;font-family:monospace"></textarea>
+          <div style="height:12px"></div>
+          <button class="bigbtn green press" id="applySyncBtn"><svg class="i sm"><use href="#i-arrowin"/></svg> Log In to This Profile</button>
+        </div>
+      `;
+      // Event listeners for Sync tab
+      const kBtn = $('copySyncKeyBtn'), lBtn = $('copySyncLinkBtn'), aBtn = $('applySyncBtn');
+      if(kBtn){
+        kBtn.onclick = async () => {
+          try {
+            await navigator.clipboard.writeText(syncKey);
+            toast('Sync Key copied! Paste it in Games on your PC.');
+            sfx('tap');buzz(15);
+          } catch(e) {
+            toast('Please copy key manually from the text box');
+          }
+        };
+      }
+      if(lBtn){
+        lBtn.onclick = async () => {
+          try {
+            await navigator.clipboard.writeText(syncUrl);
+            toast('Sync Link copied! Open it on your PC browser.');
+            sfx('tap');buzz(15);
+          } catch(e) {
+            toast('Please copy link manually');
+          }
+        };
+      }
+      if(aBtn){
+        aBtn.onclick = () => {
+          const val = ($('importSyncIn').value || '').trim();
+          if(!val){ toast('Please paste your Sync Key first'); return; }
+          this.applySyncKey(val);
+        };
+      }
+    }
     else if(this.tab==='req'){body.innerHTML=`<div class="gh" style="padding-top:4px">Add a Friend</div><form class="chatbar sfind" id="socFind" autocomplete="off"><input id="socQ" maxlength="24" placeholder="Name or Friend ID (AMIT#1234)" autocapitalize="off" enterkeyhint="search"><button type="submit" class="csend" aria-label="Search"><svg class="i"><use href="#i-arrowin"/></svg></button></form>
         <div class="group" id="socFound" style="margin-top:10px"></div>
         <div class="gf">Or send your link — friends who open it can add you in one tap. <a href="#" id="socShare2">Share my link</a></div>`+
@@ -4605,13 +5035,83 @@ MQ.prototype.unsub=function(t){const id=this.pid++&0xffff||1;return this.send(mp
     S.pickFriends('Invite Friends','Send Invites',ids=>{if(!ids.length)return false;ids.forEach(id=>S.invite(id));closeSheets();},false,(Net.meta&&Net.meta.players||[]).map(p=>p.id));};
   document.querySelectorAll('#socTabs button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.tab;S.render();buzz(6);});
   document.querySelectorAll('#socStatus button').forEach(b=>b.onclick=()=>{SET.sstatus=b.dataset.ss;saveSet();S.pubStatus(true);S.renderMe();buzz(6);});
-  $('socAvPick').onclick=e=>{const b=e.target.closest('[data-av]');if(!b)return;SET.avatar=b.dataset.av;saveSet();S.pubProfile();S.renderMe();$('socAvPick').classList.add('hidden');buzz(8);};
+  // Custom Emoji, Photo Upload and Emoji Grid Handlers
+  const avPickEl = $('socAvPick');
+  if(avPickEl){
+    avPickEl.onclick = e => {
+      const b = e.target.closest('[data-av]');
+      if(!b) return;
+      SET.avatar = b.dataset.av;
+      saveSet();S.pubProfile();S.renderMe();$('socAvPick').classList.add('hidden');
+      sfx('tap');buzz(10);
+    };
+  }
+  const customEmoBtn = $('socCustomEmoSet');
+  if(customEmoBtn){
+    customEmoBtn.onclick = () => {
+      const val = ($('socCustomEmo').value || '').trim();
+      if(!val){ toast('Please enter an emoji or symbol first'); return; }
+      SET.avatar = val;
+      saveSet();S.pubProfile();S.renderMe();$('socAvPick').classList.add('hidden');
+      toast('Profile avatar updated: ' + val);
+      sfx('tap');buzz(15);
+    };
+  }
+  const imgUp = $('socImgUpload');
+  if(imgUp){
+    imgUp.onchange = e => {
+      const file = e.target.files && e.target.files[0];
+      if(!file) return;
+      if(!file.type.startsWith('image/')){
+        toast('Please choose an image file');
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = ev => {
+        const img = new Image();
+        img.onload = () => {
+          const size = 120;
+          const cv = document.createElement('canvas');
+          cv.width = size; cv.height = size;
+          const ctx = cv.getContext('2d');
+          const minSide = Math.min(img.width, img.height);
+          const sx = (img.width - minSide) / 2;
+          const sy = (img.height - minSide) / 2;
+          ctx.drawImage(img, sx, sy, minSide, minSide, 0, 0, size, size);
+          const dataUrl = cv.toDataURL('image/jpeg', 0.82);
+          SET.avatar = dataUrl;
+          saveSet();S.pubProfile();S.renderMe();$('socAvPick').classList.add('hidden');
+          toast('Profile photo updated from gallery! 📷');
+          sfx('box');buzz([20, 40, 20]);
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    };
+  }
+  const remAv = $('socRemoveAv');
+  if(remAv){
+    remAv.onclick = () => {
+      SET.avatar = '';
+      saveSet();S.pubProfile();S.renderMe();$('socAvPick').classList.add('hidden');
+      toast('Profile avatar reset to initials');
+      buzz(10);
+    };
+  }
   $('socBio').onchange=()=>{SET.bio=$('socBio').value.replace(/\s+/g,' ').trim().slice(0,60);saveSet();S.pubProfile();toast('About saved');};
   const act=(t,e)=>{const g=s=>t.closest(s);let b;
     if(b=g('[data-chat]')){S.openConv('d:'+b.dataset.chat);return true;}if(b=g('[data-conv]')){S.openConv(b.dataset.conv);return true;}
     if(b=g('[data-invite]')){S.invite(b.dataset.invite);return true;}if(b=g('[data-askjoin]')){S.askJoin(b.dataset.askjoin);return true;}
     if(b=g('[data-play]')){S.playWith([b.dataset.play]);return true;}return false;};
   $('msgSheet').addEventListener('click',e=>{if(e.target.closest('#msgNewGroup')){S.newGroup();return;}act(e.target,e);});
+    const syncQuick = $('socSyncQuick');
+  if(syncQuick){
+    syncQuick.onclick = () => {
+      S.tab = 'sync';
+      S.render();
+      sfx('tap');buzz(10);
+    };
+  }
   $('socSheet').addEventListener('click',e=>{const t=e.target,g=s=>t.closest(s);let b;
     if(g('#socShare')||g('#socShare2')){e.preventDefault();S.shareMe();return;}
     if(g('#socAvBtn')){$('socAvPick').classList.toggle('hidden');return;}
@@ -4664,6 +5164,27 @@ MQ.prototype.unsub=function(t){const id=this.pid++&0xffff||1;return this.send(mp
 })();
 
 Social._n=SET.name;
+// Auto-detect ?sync=KEY in URL for instant one-click device linking
+(function checkUrlSync(){
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const syncParam = params.get('sync');
+    if(syncParam){
+      const raw = decodeURIComponent(escape(atob(syncParam.trim())));
+      const data = JSON.parse(raw);
+      if(data.c && data.n){
+        setTimeout(async () => {
+          if(await ask('Link Profile on this Device?', `Log in as ${data.n} (${(data.n).toUpperCase()}#${data.t}) on this device? Your avatar, name, and friends will be synced.`, 'Log In')){
+            S.applySyncKey(syncParam);
+          } else {
+            history.replaceState(null, '', location.pathname);
+          }
+        }, 600);
+      }
+    }
+  } catch(e){}
+})();
+
 PWR.init();applyTheme();refreshHome();installVis();vis();buildLevels();renderPlist();updateNav();
 (()=>{const r=new URLSearchParams(location.search).get('room');if(r){openSetup('online');$('joinCode').value=r.toUpperCase().slice(0,5);
   if((SET.name||'').trim())onMsg('Tap Join Room to enter room '+r.toUpperCase().slice(0,5)+'.');}})();
