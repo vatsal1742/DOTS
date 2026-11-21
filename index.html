@@ -67,10 +67,11 @@ svg.i.sm{width:16px;height:16px}
 .press{transition:transform .15s,opacity .15s}.press:active{transform:scale(.97);opacity:.85}
 
 /* nav */
-.nav{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
-  padding:env(safe-area-inset-top) 6px 0;min-height:calc(48px + env(safe-area-inset-top));background:var(--bar);
-  -webkit-backdrop-filter:saturate(180%) blur(22px);backdrop-filter:saturate(180%) blur(22px);border-bottom:.5px solid transparent;transition:border-color .2s}
-.nav.scrolled{border-bottom-color:var(--sep)}
+.nav{position:sticky;top:0;z-index:40;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  padding:env(safe-area-inset-top) 6px 0;min-height:calc(48px + env(safe-area-inset-top));background:var(--bg);
+  -webkit-backdrop-filter:saturate(180%) blur(28px);backdrop-filter:saturate(180%) blur(28px);border-bottom:1px solid transparent;transition:border-color .2s, background .2s, opacity .25s, filter .25s}
+.nav.scrolled{background:var(--card);border-bottom-color:var(--sep);box-shadow:0 4px 18px rgba(0,0,0,0.12)}
+body.sheet-open .nav{opacity:0.12;filter:blur(8px);pointer-events:none}
 .nav-title{font-weight:600;font-size:17px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transition:opacity .2s;max-width:56vw}
 .nav-title.show{opacity:1}
 .navbtn{border:none;background:none;color:var(--blue);font-size:17px;display:flex;align-items:center;gap:1px;padding:10px 8px;min-height:44px}
@@ -233,9 +234,9 @@ svg.i.sm{width:16px;height:16px}
 @keyframes floatUp{0%{opacity:0;transform:translate(-50%,10px) scale(.6)}12%{opacity:1;transform:translate(-50%,0) scale(1)}80%{opacity:1}100%{opacity:0;transform:translate(-50%,-60px)}}
 
 /* overlays */
-.back{position:fixed;inset:0;background:rgba(0,0,0,.42);z-index:50;opacity:0;transition:opacity .28s;pointer-events:none}
+.back{position:fixed;inset:0;background:rgba(0,0,0,.72);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);z-index:50;opacity:0;transition:opacity .28s cubic-bezier(.2,.8,.2,1);pointer-events:none}
 .back.open{opacity:1;pointer-events:auto}
-.sheet{position:fixed;left:0;right:0;bottom:0;z-index:51;max-width:560px;margin:0 auto;background:var(--bg);border-radius:16px 16px 0 0;
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:55;max-width:560px;margin:0 auto;background:var(--bg);border-radius:24px 24px 0 0;
   padding:8px 0 calc(18px + env(safe-area-inset-bottom));transform:translateY(105%);transition:transform .38s cubic-bezier(.2,.9,.25,1);max-height:90vh;max-height:90dvh;overflow-y:auto;box-shadow:var(--shadow2)}
 .sheet.open{transform:none}
 .grabber{width:36px;height:5px;border-radius:3px;background:var(--label3);margin:0 auto 4px}
@@ -783,9 +784,16 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
 
 /* ===== FRIENDS & CHATS ===== */
 .socsheet{height:88vh;height:88dvh;display:flex;flex-direction:column;overflow:hidden;padding-bottom:0}
-.socme{display:flex;align-items:center;gap:12px;margin:4px 16px 10px;padding:14px;border-radius:18px;background:var(--card);box-shadow:var(--shadow)}
-.socme b{font-size:18px}.socme input{margin-top:8px;width:100%;border:1px solid var(--sep);border-radius:12px;padding:10px 12px;font-size:16px;background:var(--bg);color:var(--label)}
-.sid{font-size:13px;color:var(--label2);margin-top:2px}.sid span{font-weight:800;color:var(--blue);letter-spacing:.3px}
+.socme{display:flex;flex-direction:column;gap:12px;margin:4px 16px 12px;padding:16px;border-radius:20px;background:var(--card);box-shadow:var(--shadow);border:1px solid var(--sep);box-sizing:border-box}
+.socme-top{display:flex;align-items:center;gap:14px;width:100%}
+.socme-meta{flex:1;min-width:0}
+.socme-name-line{display:flex;align-items:center;gap:8px}
+.socme-name-line b{font-size:19px;font-weight:700;letter-spacing:-.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sid{font-size:13px;color:var(--label2);margin-top:3px;display:flex;align-items:center;gap:6px;cursor:pointer;user-select:all}
+.sid span{font-weight:800;color:var(--blue);letter-spacing:.4px}
+.socme-actions{display:flex;gap:10px;width:100%}
+.socme-actions .socme-btn{flex:1;min-width:0;height:40px;font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:12px;padding:0 10px;white-space:nowrap}
+.socme input{margin-top:8px;width:100%;border:1px solid var(--sep);border-radius:12px;padding:10px 12px;font-size:16px;background:var(--bg);color:var(--label)}
 .sav{position:relative;width:42px;height:42px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:17px}
 .sav.big{width:54px;height:54px;font-size:22px}.sav.grp{font-size:20px}
 .sdot{position:absolute;right:-1px;bottom:-1px;width:13px;height:13px;border-radius:50%;border:2.5px solid var(--card);background:#8e8e93}
@@ -801,8 +809,13 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
 .sicon svg.i{width:20px;height:20px}.sicon .cbadge{top:-5px;right:-5px}
 .cbadge.inl{position:static;display:inline-flex;margin-left:6px;vertical-align:middle}
 .stime{font-size:12px;color:var(--label3);flex:none;text-align:right;white-space:nowrap}
-#socTabs,#socStatus{width:auto}#socTabs{margin:0 16px 8px}#socTabs em{font-style:normal;background:var(--red);color:#fff;border-radius:9px;font-size:11px;padding:0 6px;margin-left:4px}#socTabs em:empty{display:none}
-#socStatus{margin:0 16px 10px}#socStatus button{font-size:13px;padding:7px 4px}
+#socTabs,#socStatus{width:auto}
+#socTabs{margin:0 16px 12px;display:flex;gap:4px;padding:3px}
+#socTabs button{flex:1;min-width:0;padding:8px 4px;font-size:13px;font-weight:600;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#socTabs em{font-style:normal;background:var(--red);color:#fff;border-radius:9px;font-size:11px;padding:0 6px;margin-left:4px}
+#socTabs em:empty{display:none}
+#socStatus{margin:0 16px 10px;display:flex;gap:4px;padding:3px}
+#socStatus button{flex:1;font-size:13px;padding:8px 6px}
 .socbody{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:4px 0 calc(24px + env(safe-area-inset-bottom))}
 .socbody .group,.socbody .mode{margin-left:16px;margin-right:16px;width:auto}
 .sempty{text-align:center;color:var(--label2);padding:30px 24px;line-height:1.5}
@@ -1318,12 +1331,7 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
   <div class="hub-header">
     <div>
       <div class="large">Games</div>
-      <div class="sub">Play with friends — on one phone or online. iPhone + Android.</div>
-    </div>
-    <div class="seg mini hub-layout-toggle" id="hubLayoutToggle">
-      <button data-hl="carousel" class="on" title="3D Carousel">🎠 Carousel</button>
-      <button data-hl="bento" title="Bento Dashboard">🍱 Bento</button>
-      <button data-hl="grid" title="Grid">📱 Grid</button>
+      <div class="sub">Play with friends · on one phone or online</div>
     </div>
   </div>
 
@@ -1862,13 +1870,13 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
 <div class="sheet" id="menuSheet">
   <div class="grabber"></div>
   <div class="sheet-h"><b>Settings</b><button class="navbtn" data-close style="font-weight:600">Done</button></div>
-  <div class="gh" style="padding-top:12px">Hub Menu Style</div>
+  <div class="gh" style="padding-top:12px">Game Menu Layout</div>
   <div class="wrap16"><div class="seg big" id="menuLayoutSeg">
-    <button data-layout="carousel"><span>🎠</span> Carousel</button>
-    <button data-layout="bento"><span>🍱</span> Bento</button>
-    <button data-layout="grid"><span>📱</span> Grid</button>
+    <button data-layout="carousel"><span>🎠</span> 3D Carousel</button>
+    <button data-layout="bento"><span>🍱</span> Bento Grid</button>
+    <button data-layout="grid"><span>📱</span> App Grid</button>
   </div></div>
-  <div class="gf">Choose your favorite game menu design. You can also switch directly from the top-right toggle on the home screen.</div>
+  <div class="gf">Choose your favorite game menu layout. Switch anytime.</div>
 
   <div class="gh">Appearance</div>
   <div class="wrap16"><div class="seg big" id="themeSeg">
@@ -2011,7 +2019,7 @@ html.saver .hero,html.saver .gtile,html.saver .bigbtn{box-shadow:none!important}
   </div>
   <div id="socExtra"><input id="socBio" class="sbioin" maxlength="60" placeholder="✏️ About me… (e.g. Bingo champion 🏆)" autocomplete="off"></div>
   <div class="seg" id="socStatus"><button data-ss="auto">🟢 Available</button><button data-ss="busy">⛔ Busy</button><button data-ss="away">🌙 Away</button></div>
-  <div class="seg" id="socTabs"><button data-tab="friends">Friends<em></em></button><button data-tab="req">Requests<em></em></button><button data-tab="sync">🔗 Link PC/Phone<em></em></button><button data-tab="set">⚙️ Settings<em></em></button></div>
+  <div class="seg" id="socTabs"><button data-tab="friends">Friends<em></em></button><button data-tab="req">Requests<em></em></button><button data-tab="sync">Device Sync<em></em></button><button data-tab="set">Settings<em></em></button></div>
   <div class="socbody" id="socBody"></div>
 </div>
 <div class="sheet socsheet" id="msgSheet">
@@ -2283,8 +2291,8 @@ function closeAlert(id){$(id).classList.remove('open');if(!document.querySelecto
 function ask(title,text,yes='OK'){return new Promise(res=>{$('cfTitle').textContent=title;$('cfText').textContent=text;$('cfYes').textContent=yes;
   const d=v=>{closeAlert('confirmBox');res(v);};$('cfYes').onclick=()=>d(true);$('cfNo').onclick=()=>d(false);openAlert('confirmBox');});}
 function info(title,text){return new Promise(res=>{$('ifTitle').textContent=title;$('ifText').textContent=text;$('ifOk').onclick=()=>{closeAlert('infoBox');res();};openAlert('infoBox');});}
-function openSheet(id){$('sheetBack').classList.add('open');$(id).classList.add('open');}
-function closeSheets(){const chatWas=$('chatSheet').classList.contains('open');document.querySelectorAll('.sheet.open').forEach(s=>s.classList.remove('open'));$('sheetBack').classList.remove('open');if(chatWas&&typeof Chat!=='undefined')Chat.closed();}
+function openSheet(id){document.body.classList.add('sheet-open');$('sheetBack').classList.add('open');$(id).classList.add('open');}
+function closeSheets(){document.body.classList.remove('sheet-open');const chatWas=$('chatSheet').classList.contains('open');document.querySelectorAll('.sheet.open').forEach(s=>s.classList.remove('open'));$('sheetBack').classList.remove('open');if(chatWas&&typeof Chat!=='undefined')Chat.closed();}
 $('sheetBack').onclick=()=>{if(!$('resultSheet').classList.contains('open'))closeSheets();else closeSheets();};
 document.querySelectorAll('[data-close]').forEach(b=>b.onclick=closeSheets);
 
@@ -5570,9 +5578,19 @@ const Social={
     if(!this.name())setTimeout(()=>$('socName')&&$('socName').focus(),300);},
   showMsgs(){if(!this.name()){this.show();toast('Choose your name first');return;}this.start();this.wake();closeSheets();openSheet('msgSheet');this.renderMsgs();},
   renderMe(){const n=this.name(),st=this.myStatus();
-    $('socMe').innerHTML=n?`<button class="savbtn" id="socAvBtn" aria-label="Change picture">${this.av(CID,n,SET.avatar,`<i class="sdot ${st}"></i>`,'big')}<span class="savedit">✎</span></button>
-      <div class="grow"><b id="socNameShow">${esc(n)}</b> <button class="slink" id="socRename">Edit</button><div class="sid">Friend ID: <span>${esc(this.myId())}</span></div><div class="ssub" id="socConn"></div></div>
-      <button class="sbtn" id="socShare"><svg class="i sm"><use href="#i-share"/></svg>Share</button><button class="sbtn tint" id="socSyncQuick"><svg class="i sm"><use href="#i-refresh"/></svg>Link PC/Phone</button>`
+    $('socMe').innerHTML=n?`
+      <div class="socme-top">
+        <button class="savbtn" id="socAvBtn" aria-label="Change picture">${this.av(CID,n,SET.avatar,`<i class="sdot ${st}"></i>`,'big')}<span class="savedit">✎</span></button>
+        <div class="socme-meta">
+          <div class="socme-name-line"><b id="socNameShow">${esc(n)}</b> <button class="slink" id="socRename">Edit</button></div>
+          <div class="sid" id="socCopyIdQuick" title="Tap to copy Friend ID">Friend ID: <span>${esc(this.myId())}</span> <svg class="i sm inl" style="opacity:.6;width:14px;height:14px"><use href="#i-copy"/></svg></div>
+          <div class="ssub" id="socConn"></div>
+        </div>
+      </div>
+      <div class="socme-actions">
+        <button class="sbtn socme-btn" id="socShare"><svg class="i sm"><use href="#i-share"/></svg>Share Profile</button>
+        <button class="sbtn tint socme-btn" id="socSyncQuick"><svg class="i sm"><use href="#i-refresh"/></svg>Link PC / Phone</button>
+      </div>`
     :`<div class="grow"><b>Choose your name</b><div class="ssub">Friends find you by this name</div><input id="socName" maxlength="14" placeholder="Your name" autocomplete="off"></div><button class="sbtn tint" id="socNameGo">Save</button>`;
     const ALL_EMOS = [
       '', '😎','🤠','🥷','🦸','🧙','👑','🤴','👸','🎭','🤖','👽','👾','👻','💀','🐱','🐶','🦊','🐻','🐼',
@@ -5854,6 +5872,27 @@ MQ.prototype.unsub=function(t){const id=this.pid++&0xffff||1;return this.send(mp
     };
   }
   $('socSheet').addEventListener('click',e=>{const t=e.target,g=s=>t.closest(s);let b;
+    if(g('#socCopyIdQuick')){
+      e.preventDefault();
+      const myIdVal = S.myId();
+      (async()=>{
+        try {
+          await navigator.clipboard.writeText(myIdVal);
+          toast('Copied Friend ID: ' + myIdVal);
+          sfx('tap');buzz(15);
+        } catch(err){
+          prompt('Copy your Friend ID:', myIdVal);
+        }
+      })();
+      return;
+    }
+    if(g('#socSyncQuick')){
+      e.preventDefault();
+      S.tab = 'sync';
+      S.render();
+      sfx('tap');buzz(10);
+      return;
+    }
     if(g('#socShare')||g('#socShare2')){e.preventDefault();S.shareMe();return;}
     if(g('#socAvBtn')){$('socAvPick').classList.toggle('hidden');return;}
     if(g('#socRename')){const v=(prompt('Your name',S.name())||'').trim().slice(0,14);if(v&&v!==S.name()){SET.name=v;saveSet();['meName','onName'].forEach(id=>$(id).value=v);S.onName();S.render();}return;}
