@@ -2216,6 +2216,250 @@ html,body{background-image:none}
   #hub .modes .mode{min-height:64px}
 }
 
+
+/* ========================================================================
+   v16 ADAPTIVE UI — final layer (wins over all earlier layers)
+   Phone  < 700px : bottom tab bar, single column, sticky actions
+   Tablet 700–1099: tab bar, wider cards, dialogs instead of bottom sheets
+   PC    ≥ 1100px : left sidebar (collapses to icons while playing),
+                    multi-column pages, chats/profile slide in from the right
+   ======================================================================== */
+:root{--side-w:0px;--tab-h:64px;--r-card:20px;--gap:14px}
+html{-webkit-text-size-adjust:100%}
+body{overflow-x:hidden}
+
+/* ---------- typography & rhythm ---------- */
+.large{font-weight:800;letter-spacing:-.6px;line-height:1.12}
+.sub{color:var(--label2);font-size:15px}
+.gh{font-size:12.5px;text-transform:uppercase;color:var(--label2)}
+.gf{font-size:13.5px;line-height:1.45;color:var(--label2)}
+.sec-head h2{font-size:20px}
+.cell{min-height:52px}
+.group{border-radius:var(--r-card);overflow:hidden}
+.mode{border-radius:var(--r-card)}
+.mode b{font-size:16.5px}
+.mode span{font-size:13.5px;color:var(--label2)}
+.bigbtn{font-size:17px;font-weight:700;letter-spacing:.1px}
+button,.cell.tap,.mode,.gtile{-webkit-tap-highlight-color:transparent}
+@media (hover:hover){
+  .mode:hover,.gtile:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(16,20,36,.12)}
+  .cell.tap:hover{background:var(--fill)}
+}
+.mode,.gtile{transition:transform .18s ease,box-shadow .18s ease}
+
+/* ---------- top bar ---------- */
+.nav{background:var(--bar)!important;border-bottom:1px solid var(--sep)}
+.nav-title{font-weight:700}
+#navBack{color:var(--blue);font-weight:600}
+
+/* ---------- hub ---------- */
+#hub .hub-heading .large{font-size:30px}
+#hub .hub-heading .sub{margin-top:4px}
+#hub .featured{margin-top:18px}
+#hub .sec-head{margin-top:28px}
+#hub .gtile b{font-size:15.5px}
+#hub .gtile span.s{font-size:12.5px;color:var(--label2)}
+#hub > .gf{padding:18px 8px 0!important}
+
+/* ---------- game home (two columns on PC, see JS) ---------- */
+.home-col{min-width:0}
+.home-how{padding:16px 18px!important;font-size:14.5px;line-height:1.5}
+.home-how p{margin:0 0 9px}
+.home-how p:last-child{margin:0}
+.home-how-h{margin-top:28px!important}
+
+/* ---------- setup ---------- */
+.setup-screen .seg{border-radius:12px}
+.setup-screen .seg button{min-height:40px}
+.codein{font-size:28px!important;letter-spacing:12px!important;text-align:center;font-weight:800;
+  border:2px dashed var(--sep)!important;border-radius:14px!important;padding:12px!important;width:100%;
+  background:var(--fill)!important;color:var(--label)!important;text-transform:uppercase}
+.codein:focus{border-color:var(--blue)!important;border-style:solid!important;outline:none}
+
+/* ---------- lobby ---------- */
+.codecard{border-radius:24px!important}
+.codecard .tiles span,.codecard .tiles i{border-radius:14px}
+
+/* ---------- sheets (phone) ---------- */
+.sheet{border-radius:26px 26px 0 0}
+.sheet-h b{font-size:19px;font-weight:800}
+.sheet .grabber{width:40px;height:5px;border-radius:3px;background:var(--fill2);margin:8px auto 4px}
+
+/* ======================= PHONE + TABLET: tab bar ======================= */
+@media (max-width:1099px){
+  .dock-wrap{position:fixed!important;left:0!important;right:0!important;bottom:0!important;top:auto!important;
+    width:auto!important;padding:0!important;display:flex!important;justify-content:center;
+    background:var(--bar)!important;border-top:1px solid var(--sep);
+    -webkit-backdrop-filter:blur(22px) saturate(180%);backdrop-filter:blur(22px) saturate(180%);
+    z-index:50!important;pointer-events:auto!important;transition:transform .28s cubic-bezier(.2,.8,.2,1),opacity .2s}
+  .dock-bar{width:100%!important;max-width:620px!important;display:flex!important;flex-direction:row!important;
+    justify-content:space-around!important;gap:0!important;border-radius:0!important;border:0!important;
+    background:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+    padding:6px 6px calc(6px + env(safe-area-inset-bottom))!important}
+  .dock-btn{flex:1 1 0!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+    gap:3px!important;min-height:52px!important;padding:6px 0 4px!important;border-radius:14px!important;
+    background:transparent!important;border:0!important;box-shadow:none!important;color:var(--label2)!important;position:relative}
+  .dock-btn svg.i{width:24px!important;height:24px!important;transform:none!important}
+  .dock-btn .dock-txt{display:block!important;font-size:11px!important;font-weight:700!important;opacity:1!important;
+    max-width:none!important;margin:0!important;color:inherit!important}
+  #bottomDock .dock-btn.on{color:var(--blue)!important;background:transparent!important;border:0!important;box-shadow:none!important}
+  .dock-btn.on svg.i{filter:drop-shadow(0 4px 8px var(--blue-glow))}
+  .dock-btn.on::before{content:"";position:absolute;top:2px;width:44px;height:30px;border-radius:15px;background:var(--blue-glow);opacity:.45;z-index:-1}
+  .dock-badge{top:2px!important;right:calc(50% - 22px)!important}
+  .dock-brand,.dock-sec,.dock-extra{display:none!important}
+  /* while playing, the board gets the whole screen */
+  body.playing .dock-wrap,body.sheet-open .dock-wrap{transform:translateY(110%)!important;opacity:0;pointer-events:none!important}
+  /* the tab bar already has Messages / Profile / Settings */
+  body:not(.playing) .nav-actions{display:none!important}
+  .page{padding-bottom:calc(var(--tab-h) + 40px + env(safe-area-inset-bottom))!important}
+  body.playing .page{padding-bottom:calc(28px + env(safe-area-inset-bottom))!important}
+  .startbar{bottom:calc(var(--tab-h) + 6px + env(safe-area-inset-bottom))!important}
+  .chatfab{bottom:calc(var(--tab-h) + 18px + env(safe-area-inset-bottom))!important}
+  .chatpeek{bottom:calc(var(--tab-h) + 26px + env(safe-area-inset-bottom))!important}
+  body.playing .chatfab{bottom:calc(18px + env(safe-area-inset-bottom))!important}
+  body.playing .chatpeek{bottom:calc(26px + env(safe-area-inset-bottom))!important}
+  body.playing .game-screen .toolbar{bottom:calc(14px + env(safe-area-inset-bottom))!important}
+  body.fabtop .chatfab,body.tkmode .chatfab,body.ghmode .chatfab{bottom:auto!important}
+  /* on the hub the big greeting replaces the brand */
+  body.scr-hub .nav{border-bottom-color:transparent}
+}
+
+/* ============================ PHONE ============================ */
+@media (max-width:699px){
+  .page{padding-left:16px!important;padding-right:16px!important}
+  #hub .hub-heading .large{font-size:26px}
+  .hub-header{align-items:flex-start!important}
+  .hub-layout-toggle{margin-top:6px}
+  #hub .modes{grid-template-columns:1fr 1fr!important}
+  .game-home .modes{grid-template-columns:1fr!important}
+  .featured .f-art{font-size:44px}
+  .sheet{max-height:92vh;max-height:92dvh}
+  .home-how-h{display:none!important}
+  #homeHow{display:none}
+}
+
+/* ============================ TABLET + PC ============================ */
+@media (min-width:700px){
+  .page{padding-left:24px!important;padding-right:24px!important}
+  .page:not(.wide){max-width:960px!important}
+  #hub.page{max-width:1180px!important}
+  .hubgrid{grid-template-columns:repeat(auto-fill,minmax(190px,1fr))!important;gap:16px!important}
+  #hub .modes{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))!important;gap:12px!important}
+  #hub .modes .mode span{display:block!important}
+  #hub .hub-heading .large{font-size:34px}
+  /* chats & profile slide in from the right instead of covering the game */
+  #msgSheet,#convSheet,#chatSheet,#socSheet{top:0!important;bottom:0!important;left:auto!important;right:0!important;
+    width:min(440px,100vw)!important;max-width:440px!important;height:100vh!important;height:100dvh!important;
+    max-height:none!important;border-radius:26px 0 0 26px!important;transform:translateX(104%)!important;
+    padding:14px 0 calc(14px + env(safe-area-inset-bottom))!important;border:0!important;border-left:1px solid var(--sep)!important;
+    box-shadow:-24px 0 60px rgba(0,0,0,.22)!important}
+  #msgSheet.open,#convSheet.open,#chatSheet.open,#socSheet.open{transform:none!important}
+  #msgSheet .sheet-h,#convSheet .sheet-h,#chatSheet .sheet-h,#socSheet .sheet-h{margin:0!important;padding:8px 20px 10px!important;top:0!important}
+  /* setup: title + online block full width, options in two columns */
+  .setup-screen>#secCpu,.setup-screen>#secMulti{grid-column:2}
+  .setup-screen .startbar{grid-column:1/-1;position:sticky!important;bottom:calc(var(--tab-h) + 6px + env(safe-area-inset-bottom))!important;
+    background:linear-gradient(to top,var(--bg) 70%,transparent)!important;padding:16px 0 6px!important}
+  .setup-screen .startbar .bigbtn{max-width:420px!important;margin:0 auto!important;display:flex}
+  /* game home: hero + mode cards side by side */
+  .game-home:not(.hidden){display:grid!important;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:28px;align-items:start}
+  .game-home .modes{grid-template-columns:1fr!important}
+  .game-home .hero{min-height:220px}
+  .game-home .hero p{max-width:62%!important}
+  #homeR>.sec-head:first-child{margin-top:18px!important}
+  #homeL>.large{margin-bottom:2px}
+}
+
+/* ================================ PC ================================ */
+@media (min-width:1100px){
+  :root{--side-w:248px}
+  body.playing{--side-w:76px}
+  body.tkmode,body.ghmode{--side-w:0px}
+  body{padding-left:var(--side-w);transition:padding-left .25s ease}
+  .dock-wrap{position:fixed!important;top:0!important;bottom:0!important;left:0!important;right:auto!important;
+    width:var(--side-w)!important;padding:0!important;display:block!important;transform:none!important;opacity:1!important;
+    pointer-events:auto!important;z-index:45!important;background:var(--card)!important;border-right:1px solid var(--sep);
+    transition:width .25s ease}
+  body.tkmode .dock-wrap,body.ghmode .dock-wrap{display:none!important}
+  .dock-bar{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;
+    gap:4px!important;height:100%;width:100%!important;max-width:none!important;padding:16px 12px 16px!important;border-radius:0!important;
+    background:transparent!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;overflow-y:auto}
+  .dock-brand{display:flex;align-items:center;gap:10px;padding:6px 8px 18px;font-weight:800;font-size:20px;letter-spacing:-.3px;color:var(--label)}
+  .dock-brand .brand-mark{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;color:#fff;flex:none;
+    background:linear-gradient(135deg,#6366f1,#a855f7);box-shadow:0 4px 12px rgba(99,102,241,.35)}
+  .dock-brand .brand-mark svg.i{width:20px;height:20px}
+  .dock-sec{font-size:11.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--label3);padding:14px 12px 6px}
+  .dock-btn,.dock-x{flex:none!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;
+    gap:12px!important;min-height:46px!important;padding:10px 14px!important;border-radius:12px!important;border:0!important;
+    background:transparent!important;box-shadow:none!important;color:var(--label)!important;font:inherit;cursor:pointer;position:relative;width:100%;text-align:left}
+  .dock-btn svg.i,.dock-x svg.i{width:22px!important;height:22px!important;flex:none;transform:none!important;color:var(--label2)}
+  .dock-btn .dock-txt,.dock-x .dock-txt{display:block!important;font-size:15px!important;font-weight:600!important;opacity:1!important;
+    max-width:none!important;margin:0!important;color:inherit!important;white-space:nowrap}
+  .dock-btn:hover,.dock-x:hover{background:var(--fill)!important}
+  #bottomDock .dock-btn.on{background:var(--blue-glow)!important;color:var(--blue)!important;border:0!important;box-shadow:none!important}
+  .dock-btn.on svg.i{color:var(--blue)}
+  .dock-btn.on::before{display:none}
+  .dock-badge{position:absolute;top:50%!important;right:12px!important;left:auto!important;transform:translateY(-50%)}
+  .dock-x.hidden{display:none!important}
+  .dock-me{margin-top:auto;display:flex;align-items:center;gap:10px;padding:10px;border-radius:14px;background:var(--fill);cursor:pointer}
+  .dock-me:hover{background:var(--fill2)}
+  .dm-av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;flex:none;color:#fff;font-weight:800;font-size:18px;
+    background:linear-gradient(135deg,#f59e0b,#f43f5e)}
+  .dm-t{display:flex;flex-direction:column;min-width:0}
+  .dm-t b{font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dm-t small{font-size:12px;color:var(--label2)}
+  /* collapsed sidebar while playing: icons only */
+  body.playing .dock-brand .db-name,body.playing .dock-sec,body.playing .dock-txt,body.playing .dock-me .dm-t{display:none!important}
+  body.playing .dock-btn,body.playing .dock-x{justify-content:center!important;padding:10px 0!important}
+  body.playing .dock-brand{justify-content:center;padding:6px 0 18px}
+  body.playing .dock-me{justify-content:center;padding:8px 0;background:transparent}
+  body.playing .dock-badge{top:6px!important;right:8px!important;transform:none}
+  /* the sidebar has Messages / Profile / Settings, so the top bar doesn't need them */
+  .nav-actions{display:none!important}
+  body.playing .nav-actions{display:flex!important}
+  .brand{display:none!important}
+  body.scr-hub .nav{display:none}
+  .nav-title{opacity:1!important}
+  .page{padding-bottom:48px!important}
+  .startbar{bottom:16px!important}
+  .setup-screen .startbar{bottom:12px!important}
+  .chatfab{bottom:28px!important;right:28px!important}
+  .chatpeek{bottom:36px!important;right:96px!important}
+  /* comfortable desktop widths */
+  #hub.page{max-width:1240px!important;padding-top:28px}
+  .game-home.page,.setup-screen.page,.lobby-screen.page{max-width:1080px!important;padding-top:8px}
+  .page.wide{max-width:1240px!important}
+  #hub .hub-heading .large{font-size:38px}
+  .hubgrid{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))!important;gap:18px!important}
+  .featured{min-height:150px}
+  .game-home .hero{min-height:260px}
+  .home-how{font-size:15px}
+  /* game screens: board centred in the space that is left */
+  #rps.game-screen,#ttt.game-screen{margin-left:auto;margin-right:auto}
+  .toast,.hud{left:calc(50% + var(--side-w) / 2)!important}
+  .yturn{left:calc(50% + var(--side-w) / 2)!important}
+  /* dialogs centre on the content area, not the whole window */
+  .sheet:not(#msgSheet):not(#convSheet):not(#chatSheet):not(#socSheet){left:calc(50% + var(--side-w) / 2)!important}
+}
+
+/* scrollbar polish on PC */
+@media (hover:hover) and (pointer:fine){
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:var(--fill2);border-radius:10px;border:2px solid transparent;background-clip:padding-box}
+  ::-webkit-scrollbar-track{background:transparent}
+}
+
+/* toasts: bottom centre, clear of the tab bar / toolbar, never over titles */
+.hud{top:auto!important;bottom:calc(var(--tab-h) + 22px + env(safe-area-inset-bottom))!important;
+  max-width:min(92vw,460px);text-align:center;border-radius:16px!important;font-size:14.5px!important}
+body.playing .hud{bottom:calc(96px + env(safe-area-inset-bottom))!important}
+body.tkmode .hud,body.ghmode .hud{bottom:auto!important;top:calc(64px + env(safe-area-inset-top))!important}
+@media (min-width:1100px){.hud{bottom:28px!important}}
+#bottomDock .dock-btn{color:var(--label2)!important}
+#bottomDock .dock-btn svg.i{color:inherit!important}
+.curtain{z-index:85!important}
+.hud{width:max-content!important;min-width:200px}
+/* Messages & Profile live in the tab bar / sidebar now — keep quick actions short */
+#hub #hubFriends,#hub #hubMsgs{display:none!important}
 </style>
 </head>
 <body>
@@ -2889,7 +3133,7 @@ html,body{background-image:none}
     <div class="cell tap hidden" id="mInstall"><div class="ico" style="background:var(--green)"><svg class="i"><use href="#i-download"/></svg></div><span class="grow">Install as App</span><svg class="i sm chev"><use href="#i-chev"/></svg></div>
     <div class="cell tap" id="mHow"><div class="ico" style="background:var(--gray)"><svg class="i"><use href="#i-info"/></svg></div><span class="grow">How to Play</span><svg class="i sm chev"><use href="#i-chev"/></svg></div>
   </div>
-  <div class="gf" style="text-align:center">Games · v15 · Arcade UI</div>
+  <div class="gf" style="text-align:center">Games · v16 · Adaptive UI</div>
 </div>
 
 <div class="sheet" id="howSheet">
@@ -7441,6 +7685,102 @@ try{
     if(el) mo.observe(el, { attributes:true, attributeFilter:['class'] });
   });
 }catch(e){}
+})();
+</script>
+
+<script>
+/* ========================================================================
+   v16 ADAPTIVE SHELL — one layout system for phone, tablet and PC
+   · Phone/tablet: bottom tab bar (hidden while you play, so the board gets
+     the whole screen); top bar shows Back + title only.
+   · PC (≥1100px wide): the tab bar becomes a left sidebar with labels,
+     extra shortcuts, and collapses to icons while a game is running.
+   It never changes game logic — it only wraps show()/openSheet()/
+   closeSheets() to keep the shell (active tab, body classes) in sync.
+   ======================================================================== */
+(function(){
+'use strict';
+var PLAY=['game','bingo','arrange','ttt','rps','tanks','draw','ghost'];
+function $(id){return document.getElementById(id);}
+function scr(){try{return SCREEN;}catch(e){return 'hub';}}
+function nm(){try{return (SET.name||'').trim();}catch(e){return '';}}
+
+/* ---------- sidebar extras (only visible on PC) ---------- */
+try{
+  var bar=document.querySelector('#bottomDock .dock-bar');
+  if(bar&&!$('dockBrand')){
+    bar.insertAdjacentHTML('afterbegin','<div class="dock-brand" id="dockBrand"><span class="brand-mark"><svg class="i"><use href="#i-dice"/></svg></span><span class="db-name">Games</span></div><div class="dock-sec">Menu</div>');
+    bar.insertAdjacentHTML('beforeend',
+      '<div class="dock-sec dock-extra">Quick</div>'+
+      '<button class="dock-x dock-extra" id="dockJoin"><svg class="i"><use href="#i-arrowin"/></svg><span class="dock-txt">Join a room</span></button>'+
+      '<button class="dock-x dock-extra" id="dockHow"><svg class="i"><use href="#i-info"/></svg><span class="dock-txt">How to play</span></button>'+
+      '<button class="dock-x dock-extra hidden" id="dockInstall"><svg class="i"><use href="#i-download"/></svg><span class="dock-txt">Install app</span></button>'+
+      '<div class="dock-me dock-extra" id="dockMe"></div>');
+    $('dockJoin').onclick=function(){var j=$('hubJoin');if(j)j.click();};
+    $('dockHow').onclick=function(){var h=$('mHow');if(h)h.click();else{try{openSheet('howSheet');}catch(e){}}};
+    $('dockInstall').onclick=function(){var c=$('installCard');if(c)c.click();};
+    $('dockMe').onclick=function(){try{Social.show();}catch(e){}};
+  }
+}catch(e){}
+
+try{var dc=document.querySelector('#dockChat .dock-txt');if(dc)dc.textContent='Messages';var dcb=$('dockChat');if(dcb)dcb.setAttribute('aria-label','Messages');}catch(e){}
+/* ---------- game home: two columns on PC, with the rules inline ---------- */
+try{
+  var home=$('home');
+  if(home&&!$('homeL')){
+    var L=document.createElement('div');L.id='homeL';L.className='home-col';
+    var R=document.createElement('div');R.id='homeR';R.className='home-col';
+    var kids=Array.prototype.slice.call(home.children),toR=false;
+    kids.forEach(function(k){if(k.classList.contains('sec-head'))toR=true;(toR?R:L).appendChild(k);});
+    R.insertAdjacentHTML('beforeend','<div class="sec-head home-how-h"><h2>How to play</h2><span>Quick rules</span></div><div class="group howto home-how" id="homeHow"></div>');
+    home.appendChild(L);home.appendChild(R);
+  }
+}catch(e){}
+
+/* ---------- hub greeting ---------- */
+function greet(){
+  try{
+    var h=document.querySelector('#hub .hub-heading');if(!h)return;
+    var t=h.querySelector('.large'),s=h.querySelector('.sub'),n=nm();
+    var hr=new Date().getHours(),part=hr<12?'Good morning':hr<17?'Good afternoon':'Good evening';
+    if(t)t.textContent=n?part+', '+n+' 👋':'Let’s play 🎮';
+    if(s)s.textContent='Pick a game · play on one phone or online with friends';
+  }catch(e){}
+  try{var g=document.querySelector('#hub > .gf');if(g&&/⋯/.test(g.textContent))g.textContent='Settings, dark mode and sound are in the ⚙️ Settings tab.';}catch(e){}
+}
+
+/* ---------- keep everything in sync ---------- */
+var lastHow='';
+function sync(){
+  var s=scr(),b=document.body;
+  b.classList.toggle('playing',PLAY.indexOf(s)>=0);
+  b.className=b.className.replace(/\bscr-[a-z]+\b/g,'').trim();b.classList.add('scr-'+s);
+  var open=document.querySelector('.sheet.open'),tab='game';
+  if(open){var id=open.id;if(id==='msgSheet'||id==='convSheet')tab='chat';else if(id==='socSheet')tab='profile';else if(id==='menuSheet')tab='settings';}
+  document.querySelectorAll('.dock-btn').forEach(function(x){x.classList.toggle('on',x.dataset.dock===tab);});
+  var dg=$('dockGame');if(dg){var t=dg.querySelector('.dock-txt');if(t)t.textContent=PLAY.indexOf(s)>=0?'Quit':'Games';}
+  if(s==='hub')greet();
+  if(s==='home'){try{var g=GAME;if(g!==lastHow){lastHow=g;var src=document.querySelector('#howSheet .howto[data-g~="'+g+'"]');$('homeHow').innerHTML=src?src.innerHTML:'';}}catch(e){}}
+  try{var ic=$('installCard'),di=$('dockInstall');if(ic&&di)di.classList.toggle('hidden',ic.classList.contains('hidden'));}catch(e){}
+  try{var me=$('dockMe');if(me){var n=nm();me.innerHTML=n?'<span class="dm-av">'+((SET.avatar||'')||n[0].toUpperCase())+'</span><span class="dm-t"><b>'+n.replace(/[<>&]/g,'')+'</b><small>View profile</small></span>':'<span class="dm-av">?</span><span class="dm-t"><b>Set your name</b><small>Profile</small></span>';}}catch(e){}
+}
+function after(fn){return function(){var r=fn.apply(this,arguments);try{sync();}catch(e){}return r;};}
+try{show=after(show);}catch(e){}
+try{openSheet=after(openSheet);}catch(e){}
+try{closeSheets=after(closeSheets);}catch(e){}
+try{document.querySelectorAll('[data-close]').forEach(function(x){x.onclick=function(){closeSheets();};});var sb=$('sheetBack');if(sb)sb.onclick=function(){closeSheets();};}catch(e){}
+
+/* The Games tab must never throw away a running game without asking. */
+try{
+  var sd=switchDock;
+  switchDock=function(tab){
+    if(tab==='game'&&PLAY.indexOf(scr())>=0){try{closeSheets();}catch(e){}try{quitGame();}catch(e){}return;}
+    return sd(tab);
+  };
+}catch(e){}
+
+window.addEventListener('resize',function(){try{sync();}catch(e){}},{passive:true});
+setTimeout(sync,0);setTimeout(sync,800);
 })();
 </script>
 
