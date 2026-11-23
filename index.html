@@ -2562,6 +2562,134 @@ body.tkmode .hud,body.ghmode .hud{bottom:auto!important;top:calc(64px + env(safe
   #bottomDock.dock-wrap{background:var(--bg)!important;background:color-mix(in srgb,var(--bg) 94%,transparent)!important}
   html.saver #bottomDock.dock-wrap{background:var(--bg)!important}
 }
+
+/* ========================================================================
+   v18 — premium poster grid · clear Settings · clear Profile · Messages
+   ======================================================================== */
+/* ---------- premium game poster grid ---------- */
+#hubViewGrid .hubgrid{gap:14px!important}
+.gtile.poster{position:relative!important;display:flex!important;flex-direction:column;justify-content:flex-end;
+  aspect-ratio:3/4;padding:14px!important;border-radius:24px!important;overflow:hidden;border:0!important;text-align:left;color:#fff!important;
+  background:#111!important;box-shadow:0 10px 26px rgba(15,18,40,.18),inset 0 0 0 1px rgba(255,255,255,.08)!important;isolation:isolate;
+  content-visibility:visible!important}
+.gtile.poster::after{display:none!important}
+.gtile.poster .gart{position:absolute!important;inset:0!important;aspect-ratio:auto!important;border-radius:0!important;margin:0!important;
+  box-shadow:none!important;z-index:-2;display:flex;align-items:center;justify-content:center;padding-bottom:34%;transition:transform .35s cubic-bezier(.2,.8,.2,1)!important}
+.gtile.poster .gart>*{max-width:72%;max-height:52%}
+.gtile.poster .gart .minib{width:62%!important;max-width:62%}
+.gtile.poster .gart .emojiart{font-size:clamp(28px,8vw,44px)}
+.gtile.poster::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to top,rgba(5,6,14,.92) 0%,rgba(5,6,14,.55) 34%,rgba(5,6,14,0) 62%)}
+.gtile.poster b{color:#fff!important;font-size:17px!important;font-weight:800;letter-spacing:-.3px;margin:0 44px 2px 0!important;line-height:1.15;
+  text-shadow:0 2px 8px rgba(0,0,0,.4)}
+.gtile.poster .gdesc{color:rgba(255,255,255,.78)!important;font-size:12px!important;margin:0 44px 0 0!important;line-height:1.3;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.gtile.poster .gdesc::after{content:none!important}
+.gtag{position:absolute;top:12px;left:12px;font-size:10.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;
+  padding:4px 9px;border-radius:999px;background:rgba(0,0,0,.35);color:#fff;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.gppl{position:absolute;top:12px;right:12px;font-size:11px;font-weight:700;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.2);color:#fff}
+.gplay{position:absolute;right:12px;bottom:14px;width:38px;height:38px;border-radius:50%;background:#fff;color:#111;
+  display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,0,0,.35);transition:transform .2s}
+.gplay svg.i{width:16px;height:16px;margin-left:2px}
+.gtile.poster:active{transform:scale(.97)}
+@media (hover:hover){
+  .gtile.poster:hover{transform:translateY(-4px)!important;box-shadow:0 18px 40px rgba(15,18,40,.28),inset 0 0 0 1px rgba(255,255,255,.14)!important}
+  .gtile.poster:hover .gart{transform:scale(1.07)}
+  .gtile.poster:hover .gplay{transform:scale(1.12)}
+}
+.gtile.soon{aspect-ratio:3/4;border-radius:24px!important;display:flex!important;flex-direction:column;align-items:center;justify-content:center;
+  border:2px dashed var(--sep)!important;background:transparent!important;box-shadow:none!important;gap:6px}
+.gtile.soon .gart{aspect-ratio:auto!important;width:56px;height:56px;border-radius:16px!important;outline:0!important}
+.gtile.soon b{font-size:15px;margin:4px 0 0!important}
+@media (min-width:700px){#hubViewGrid .hubgrid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))!important;gap:18px!important}}
+@media (min-width:1400px){#hubViewGrid .hubgrid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))!important}}
+/* featured banner a touch more premium */
+#hub .featured{min-height:140px;border-radius:26px!important;box-shadow:0 18px 40px rgba(244,63,94,.28)!important}
+
+/* ---------- Settings ---------- */
+#setxRoot{padding:6px 16px 8px}
+.setx{margin-top:22px}
+.setx-h{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--label2);padding:0 6px 8px}
+.setx-ic{font-size:16px}
+.setx-d{font-size:13px;color:var(--label2);padding:0 6px 8px}
+.setx-card{background:var(--card);border:1px solid var(--sep);border-radius:20px;overflow:hidden}
+.setx-card>.cell,.setx-card>.setx-row{border-bottom:1px solid var(--sep);margin:0!important;border-radius:0!important}
+.setx-card>*:last-child{border-bottom:0}
+.setx-card .cell{background:transparent!important;padding-left:14px;padding-right:14px}
+.setx-card .cell .grow{display:flex;flex-direction:column}
+.setx-sub{font-size:12.5px;color:var(--label2);font-weight:400}
+.setx-row{padding:14px}
+.setx-row.col{display:flex;flex-direction:column;gap:10px}
+.setx-l{display:flex;flex-direction:column;gap:2px}
+.setx-l b{font-size:16px;font-weight:600}
+.setx-l small{font-size:12.5px;color:var(--label2)}
+.setx-row .seg{margin:0!important;width:100%}
+.setx-row .seg button{min-height:40px;font-size:14px;gap:6px;display:flex;align-items:center;justify-content:center;flex-direction:row!important}
+.setx-row .seg button svg.i{width:17px;height:17px}
+.setx-row .seg button span{font-size:16px!important}
+.setx-note{padding:0!important;font-size:12.5px!important}
+#setxRoot #menuGame,#setxRoot #menuNet{margin-top:22px}
+#setxRoot #menuGame .gh,#setxRoot #menuNet .gh{padding:0 6px 8px!important}
+#setxRoot #menuGame .group,#setxRoot #menuNet .group{margin:0!important;border-radius:20px}
+.setx-me{width:100%;display:flex;align-items:center;gap:14px;padding:14px;border-radius:22px;border:1px solid var(--sep);
+  background:var(--card);color:var(--label);text-align:left;margin-top:8px;cursor:pointer}
+.setx-me:active{scale:.98}
+.setx-av{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:26px;flex:none;overflow:hidden}
+.setx-av img{width:100%;height:100%;object-fit:cover}
+.setx-mt{display:flex;flex-direction:column;min-width:0;flex:1}
+.setx-mt b{font-size:19px;font-weight:800}
+.setx-mt small{font-size:13px;color:var(--label2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.setx-ver{text-align:center;font-size:12px;color:var(--label3);padding:22px 0 8px}
+
+/* ---------- Profile ---------- */
+.prof-lbl{font-size:13px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--label2);padding:18px 22px 8px}
+#socSheet .socme{flex-direction:column!important;align-items:stretch!important;gap:14px!important;padding:18px!important;margin:12px 16px 0!important;border-radius:24px!important}
+#socSheet .socme-top{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+#socSheet .socme-top .sav.big{width:92px!important;height:92px!important;font-size:38px!important}
+#socSheet .socme-top .sav.big .semo{font-size:46px!important}
+#socSheet .socme-meta{display:flex;flex-direction:column;align-items:center;gap:4px}
+#socSheet .socme-name-line b{font-size:24px;font-weight:800}
+#socSheet .sid{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--fill);cursor:pointer;font-size:13px}
+#socSheet .hud-rank-bar{order:2;display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+#socSheet .hud-rank-bar span{font-family:inherit!important;font-size:12px!important;padding:6px 12px!important;border-radius:999px!important}
+#socSheet .socme-top{order:1}
+#socSheet .socme-actions{order:3;display:grid!important;grid-template-columns:1fr 1fr;gap:10px}
+#socSheet .socme-actions .sbtn{justify-content:center;min-height:42px;border-radius:14px!important;width:100%}
+#socSheet .sbioin{width:calc(100% - 32px)!important;margin:0 16px!important;border:1px solid var(--sep)!important;min-height:48px}
+#socSheet #socStatus{margin:0 16px!important;width:auto!important}
+#socSheet #socStatus button{min-height:40px;font-size:13.5px}
+#socSheet .prof-tabs{margin:0 16px 12px!important;width:auto!important;background:var(--fill)!important;border-radius:14px!important;padding:3px!important}
+#socSheet .prof-tabs button{min-height:38px;font-size:13.5px!important;font-weight:700}
+#socSheet .savpick{margin:12px 16px 0!important}
+/* make the whole profile one scrolling page on phones */
+@media (max-width:1099px){
+  #socSheet.tabsheet{overflow-y:auto!important;display:block!important;-webkit-overflow-scrolling:touch}
+  #socSheet.tabsheet .socbody{overflow:visible!important;flex:none!important}
+}
+@media (min-width:700px){#socSheet{overflow-y:auto!important}#socSheet .socbody{overflow:visible!important;flex:none!important}}
+
+/* ---------- Messages ---------- */
+.msg-start{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px 16px 4px}
+.msg-new{display:flex;align-items:center;gap:10px;padding:14px;border-radius:20px;border:1px solid var(--sep);background:var(--card);
+  color:var(--label);text-align:left;cursor:pointer;box-shadow:0 1px 3px rgba(16,20,36,.05)}
+.msg-new:active{scale:.97}
+.msg-new b{display:block;font-size:15.5px;font-weight:700}
+.msg-new small{display:block;font-size:12px;color:var(--label2)}
+.mn-ic{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;font-size:20px;flex:none;
+  background:linear-gradient(135deg,#3b82f6,#6366f1)}
+.mn-ic.grp{background:linear-gradient(135deg,#22c55e,#06b6d4)}
+.msg-sec{font-size:13px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--label2);padding:18px 22px 4px}
+.msg-stories{margin:0!important;padding:8px 16px 4px!important}
+.msg-list{margin:6px 16px 0!important;border-radius:20px}
+.msg-row{min-height:68px}
+.msg-row.unread b{font-weight:800}
+.msg-row.unread .ssub{color:var(--label);font-weight:600}
+.msg-empty{padding:26px 24px!important}
+@media (min-width:1100px){#sheetBack{left:var(--side-w)!important}}
+#bottomDock .dock-badge{position:absolute;min-width:18px!important;height:18px!important;border-radius:9px!important;font-size:11px!important;font-weight:800!important;
+  color:#fff!important;background:var(--red)!important;display:grid!important;place-items:center;padding:0 5px!important;line-height:1!important;border:2px solid var(--bg);box-sizing:content-box}
+#bottomDock .dock-badge.hidden{display:none!important}
+@media (max-width:1099px){#bottomDock .dock-badge{top:1px!important;right:calc(50% - 26px)!important}}
 </style>
 </head>
 <body>
@@ -3235,7 +3363,7 @@ body.tkmode .hud,body.ghmode .hud{bottom:auto!important;top:calc(64px + env(safe
     <div class="cell tap hidden" id="mInstall"><div class="ico" style="background:var(--green)"><svg class="i"><use href="#i-download"/></svg></div><span class="grow">Install as App</span><svg class="i sm chev"><use href="#i-chev"/></svg></div>
     <div class="cell tap" id="mHow"><div class="ico" style="background:var(--gray)"><svg class="i"><use href="#i-info"/></svg></div><span class="grow">How to Play</span><svg class="i sm chev"><use href="#i-chev"/></svg></div>
   </div>
-  <div class="gf" style="text-align:center">Games · v17 · Mobile Tabs</div>
+  <div class="gf" style="text-align:center">Games · v18</div>
 </div>
 
 <div class="sheet" id="howSheet">
@@ -7992,6 +8120,126 @@ document.addEventListener('click',function(e){var b=e.target.closest&&e.target.c
   var id=b.dataset.st;try{if(id==='add')Social.show('req');else Social.openConv('d:'+id);}catch(x){}});
 try{var ob=Social.badges.bind(Social);Social.badges=function(){var r=ob.apply(this,arguments);renderStories();return r;};}catch(e){}
 renderStories();setInterval(function(){if(document.visibilityState!=='hidden')renderStories();},15000);
+})();
+</script>
+<script>
+/* ========================================================================
+   v18 — clearer Messages, Profile & Settings + one premium game grid
+   ======================================================================== */
+(function(){
+'use strict';
+function $(id){return document.getElementById(id);}
+function E(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+
+/* ---------- 1. Game menu: one premium poster grid ---------- */
+try{
+  try{switchHubLayout('grid',true);}catch(e){}
+  SET.hubLayout='grid';try{store.set('hublayout','grid');}catch(e){}
+  ['hubViewCarousel','hubViewBento'].forEach(function(id){var v=$(id);if(v)v.remove();});
+  var tg=$('hubLayoutToggle');if(tg)tg.remove();
+  var META={dots:['Strategy','2–4'],bingo:['Party','2–10'],ttt:['Classic','2'],rps:['Quick fire','2–6'],tanks:['Action','2–4'],draw:['Party','2–10'],ghost:['Horror · Co-op','1–4']};
+  document.querySelectorAll('#hubViewGrid .gtile').forEach(function(t){
+    var g=t.dataset.game;t.classList.add('poster');
+    if(g&&META[g]&&!t.querySelector('.gtag')){
+      t.insertAdjacentHTML('afterbegin','<span class="gtag">'+META[g][0]+'</span><span class="gppl">👥 '+META[g][1]+'</span>');
+      t.insertAdjacentHTML('beforeend','<span class="gplay"><svg class="i"><use href="#i-play"/></svg></span>');
+      var s=t.querySelector('span.s');if(s)s.classList.add('gdesc');}
+  });
+  var sh=document.querySelector('#hub .sec-head');if(sh){var h2=sh.querySelector('h2');if(h2)h2.textContent='All games';var sp=sh.querySelector('span');if(sp)sp.textContent='Tap a game to play';}
+}catch(e){}
+/* the Settings "menu layout" chooser is gone — there is one layout now */
+try{var ml=$('menuLayoutSeg');if(ml){var w=ml.closest('.wrap16'),p=w.previousElementSibling,n=w.nextElementSibling;
+  if(p&&p.classList.contains('gh'))p.remove();if(n&&n.classList.contains('gf'))n.remove();w.remove();}}catch(e){}
+
+/* ---------- 2. Settings: clear sections ---------- */
+function cellOf(id){var el=$(id);return el?el.closest('.cell'):null;}
+function card(title,icon,desc){var d=document.createElement('section');d.className='setx';
+  d.innerHTML='<div class="setx-h"><span class="setx-ic">'+icon+'</span><span>'+title+'</span></div>'+(desc?'<div class="setx-d">'+desc+'</div>':'')+'<div class="setx-card"></div>';return d;}
+function segRow(label,sub,segId){var seg=$(segId);if(!seg)return null;var r=document.createElement('div');r.className='setx-row col';
+  r.innerHTML='<div class="setx-l"><b>'+label+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</div>';seg.classList.remove('big');r.appendChild(seg);return r;}
+try{
+  var M=$('menuSheet');
+  if(M&&!$('setxRoot')){
+    var root=document.createElement('div');root.id='setxRoot';
+    // profile shortcut (like the account row at the top of phone settings)
+    var me=document.createElement('button');me.className='setx-me';me.id='setxMe';root.appendChild(me);
+    var game=$('menuGame');if(game)root.appendChild(game);
+    var a=card('Appearance','🎨');var ac=a.querySelector('.setx-card');
+    var r1=segRow('Theme','Auto follows your phone','themeSeg');if(r1)ac.appendChild(r1);
+    var r2=segRow('Style','Glass adds see-through blur','styleSeg');if(r2)ac.appendChild(r2);root.appendChild(a);
+    var s=card('Sound & feel','🔊');var sc=s.querySelector('.setx-card');
+    ['soundSw','hapticSw'].forEach(function(id){var c=cellOf(id);if(c)sc.appendChild(c);});root.appendChild(s);
+    var nt=card('Notifications','🔔');nt.querySelector('.setx-card').innerHTML='<div class="cell tap" id="setxNotif"><div class="ico" style="background:var(--red)">🔔</div><span class="grow">Notifications &amp; alerts<small class="setx-sub">Messages, invites, your turn · GIF search</small></span><svg class="i sm chev"><use href="#i-chev"/></svg></div>';root.appendChild(nt);
+    var pf=card('Battery & performance','⚡');var pc=pf.querySelector('.setx-card');
+    var r3=segRow('Battery saver','','saverSeg');if(r3){var note=$('saverNote');if(note){note.classList.add('setx-note');r3.appendChild(note);}pc.appendChild(r3);}
+    var sm=cellOf('smoothSw');if(sm)pc.appendChild(sm);root.appendChild(pf);
+    var gp=card('Gameplay','🎮');var cf=cellOf('confirmSw');if(cf)gp.querySelector('.setx-card').appendChild(cf);root.appendChild(gp);
+    var net=$('menuNet');if(net)root.appendChild(net);
+    var hp=card('Help','💡');var hc=hp.querySelector('.setx-card');
+    ['mHow','mTest','mInstall'].forEach(function(id){var c=$(id);if(c)hc.appendChild(c);});root.appendChild(hp);
+    // remove what is now empty / duplicated by the tab bar
+    var keepVer=null;Array.prototype.slice.call(M.children).forEach(function(k){
+      if(k.classList.contains('grabber')||k.classList.contains('sheet-h')||k===root)return;
+      if(k.classList.contains('gf')&&/v\d+/.test(k.textContent)){keepVer=k;return;}
+      k.remove();});
+    M.appendChild(root);if(keepVer){keepVer.className='setx-ver';M.appendChild(keepVer);}
+    $('setxNotif').onclick=function(){try{Social.show('set');}catch(e){}};
+    me.onclick=function(){try{Social.show('friends');}catch(e){}};
+  }
+}catch(e){console.error(e);}
+function renderSetMe(){var me=$('setxMe');if(!me)return;try{
+  var n=(SET.name||'').trim(),av=SET.avatar||'';
+  var pic=(av&&/^(data:image|http|blob:)/.test(av))?'<img src="'+E(av)+'" alt="">':E(av||(n?n[0].toUpperCase():'?'));
+  me.innerHTML='<span class="setx-av" style="background:'+(typeof avCol==='function'?avCol(CID):'#6366f1')+'">'+pic+'</span><span class="setx-mt"><b>'+(n?E(n):'Set your name')+'</b><small>'+(n?'Friend ID '+E(Social.myId())+' · profile & friends':'Tap to create your profile')+'</small></span><svg class="i sm chev"><use href="#i-chev"/></svg>';}catch(e){}}
+
+/* ---------- 3. Profile: one scrolling page with clear labels ---------- */
+try{
+  var SS=$('socSheet');
+  if(SS&&!SS.querySelector('.prof-lbl')){
+    var lb=function(t,el){if(!el)return;var d=document.createElement('div');d.className='prof-lbl';d.textContent=t;el.parentNode.insertBefore(d,el);};
+    lb('About me',$('socExtra'));lb('My status',$('socStatus'));lb('Friends & devices',$('socTabs'));
+    var tb=$('socTabs');if(tb){tb.classList.add('prof-tabs');
+      tb.querySelectorAll('button').forEach(function(b){var t=b.dataset.tab,em=b.querySelector('em');
+        var L={friends:'Friends',req:'Add & requests',sync:'Link devices',set:'Alerts'}[t];if(L){b.textContent=L;if(em)b.appendChild(em);}});}
+    var stt=$('socStatus');if(stt)stt.querySelectorAll('button').forEach(function(b){var L={auto:'🟢 Available',busy:'⛔ Busy',away:'🌙 Away'}[b.dataset.ss];if(L)b.textContent=L;});
+  }
+}catch(e){}
+
+/* ---------- 4. Messages: Start new chat → friends → conversations ---------- */
+try{
+  var S=Social;
+  S.renderMsgs=function(){
+    if(!$('msgSheet').classList.contains('open'))return;
+    var cs=this.convs(),box=$('msgBody'),fr=this.friends(),self=this;
+    var h='<div class="msg-start"><button class="msg-new" id="msgNewChat"><span class="mn-ic">✏️</span><span><b>New chat</b><small>Message a friend</small></span></button>'+
+          '<button class="msg-new" id="msgNewGroup2"><span class="mn-ic grp">👥</span><span><b>New group</b><small>Chat with many</small></span></button></div>';
+    h+='<div class="msg-sec">Friends</div><div class="storyrow msg-stories">';
+    h+='<button class="story add" data-st="add"><span class="ring"><span class="sav">+</span></span><small>Add</small></button>';
+    h+=fr.map(function(f){var st=self.stText(f.id),c=st.c||'off',av=f.av||'';
+      var pic=(av&&/^(data:image|http|blob:)/.test(av))?'<img src="'+E(av)+'" alt="" style="width:100%;height:100%;border-radius:50%;object-fit:cover">':E(av||((f.name||'?')[0]||'?').toUpperCase());
+      return '<button class="story" data-st="'+f.id+'"><span class="ring r-'+c+'"><span class="sav" style="background:'+avCol(f.id)+'">'+pic+'</span></span><small>'+E(f.name)+'</small></button>';}).join('');
+    h+='</div>';
+    h+='<div class="msg-sec">Messages'+(cs.length?'':'')+'</div>';
+    if(cs.length){h+='<div class="group msg-list">'+cs.map(function(c){var l=c.last,s=c.group?null:self.stText(c.id);
+        var prev=l?((l.id===CID?'You: ':c.group?l.n+': ':'')+(typeof richMsg==='function'?richMsg(l.t).prev:l.t)):'No messages yet';
+        return '<div class="cell tap srow msg-row'+(c.un?' unread':'')+'" data-conv="'+c.conv+'">'+(c.group?self.av(c.id,'','👥','','grp'):self.av(c.id,c.name,self.fav(c.id),'<i class="sdot '+s.c+'"></i>'))+
+          '<span class="grow"><b>'+E(c.name)+'</b><small class="ssub">'+E(prev)+'</small></span><span class="stime">'+(l?E(ago(l.ts)):'')+(c.un?'<span class="cbadge inl">'+c.un+'</span>':'')+'</span></div>';}).join('')+'</div>';}
+    else h+='<div class="sempty msg-empty"><div style="font-size:42px">💬</div><b>No messages yet</b><br>'+(fr.length?'Tap <b>New chat</b> or a friend above to say hi.':'Add friends first — tap <b>+ Add</b> above.')+'</div>';
+    box.innerHTML=h;
+    $('msgNewGroup2').onclick=function(){S.newGroup();};
+    $('msgNewChat').onclick=function(){if(!fr.length){S.show('req');return;}
+      S.pickFriends('New chat','Start chat',function(ids){if(!ids.length)return false;if(ids.length===1){S.openConv('d:'+ids[0]);return;}
+        toast('Pick one friend — or use New group for several');return false;});};
+  };
+}catch(e){}
+
+/* keep the new pieces fresh */
+try{var o2=openSheet;openSheet=function(id){var r=o2.apply(this,arguments);if(id==='menuSheet'){renderSetMe();try{var inGame=PLAY_SCREENS.includes(SCREEN),online=MODE==='online'&&Net.want,host=Net.isHost();
+      $('menuGame').classList.toggle('hidden',!(inGame||SCREEN==='lobby'));$('mRestart').classList.toggle('hidden',!inGame||(online&&!host));
+      $('mRestartTxt').textContent=online?'Rematch (new game)':'Restart Game';$('mLobby').classList.toggle('hidden',!(online&&host&&inGame));
+      $('mHomeTxt').textContent=online?(host?'Close Room':'Leave Room'):'Quit to Home';$('menuNet').classList.toggle('hidden',!online);
+      $('soundSw').checked=SET.sound;$('hapticSw').checked=SET.haptic;$('confirmSw').checked=!!SET.confirm;}catch(e){}}return r;};}catch(e){}
+renderSetMe();
 })();
 </script>
 
