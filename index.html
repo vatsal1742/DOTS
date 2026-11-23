@@ -2460,6 +2460,108 @@ body.tkmode .hud,body.ghmode .hud{bottom:auto!important;top:calc(64px + env(safe
 .hud{width:max-content!important;min-width:200px}
 /* Messages & Profile live in the tab bar / sidebar now — keep quick actions short */
 #hub #hubFriends,#hub #hubMsgs{display:none!important}
+
+/* ========================================================================
+   v17 MOBILE TABS — full-screen tab pages (Instagram / YouTube style)
+   ======================================================================== */
+@keyframes tabInR{from{opacity:0;translate:36px 0}to{opacity:1;translate:0 0}}
+@keyframes tabInL{from{opacity:0;translate:-36px 0}to{opacity:1;translate:0 0}}
+.tab-in-r{animation:tabInR .26s cubic-bezier(.2,.8,.2,1) both!important}
+.tab-in-l{animation:tabInL .26s cubic-bezier(.2,.8,.2,1) both!important}
+@keyframes tabPop{0%{scale:1}40%{scale:.82}100%{scale:1}}
+.tabact{display:none}
+
+@media (max-width:1099px){
+  /* --- tab pages: fill the screen above the tab bar --- */
+  .sheet.tabsheet{position:fixed!important;left:0!important;right:0!important;top:0!important;
+    bottom:calc(var(--tab-h) + env(safe-area-inset-bottom))!important;width:auto!important;max-width:none!important;
+    height:auto!important;max-height:none!important;margin:0!important;border-radius:0!important;border:0!important;
+    box-shadow:none!important;background:var(--bg)!important;transform:none!important;
+    padding:0 0 28px!important;z-index:47!important;transition:none!important;
+    opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+  .sheet.tabsheet.open{opacity:1!important;visibility:visible!important;pointer-events:auto!important}
+  #menuSheet.tabsheet{display:block!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+  #msgSheet.tabsheet,#socSheet.tabsheet{display:flex!important;flex-direction:column!important;overflow:hidden!important}
+  #msgSheet.tabsheet .socbody,#socSheet.tabsheet .socbody{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:24px}
+  .sheet.tabsheet .grabber,.sheet.tabsheet .sheet-h [data-close]{display:none!important}
+  /* big app-style page title with actions on the right */
+  .sheet.tabsheet .sheet-h{position:sticky!important;top:0!important;z-index:5;display:flex!important;align-items:center;gap:8px;
+    margin:0!important;padding:calc(12px + env(safe-area-inset-top)) 18px 10px!important;
+    background:var(--bar)!important;-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);
+    border-bottom:1px solid var(--sep)!important;flex:none}
+  .sheet.tabsheet .sheet-h b{font-size:28px!important;font-weight:800!important;letter-spacing:-.6px;flex:1}
+  .sheet.tabsheet .tabact{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:0;
+    background:var(--fill);color:var(--label);flex:none}
+  .sheet.tabsheet .tabact svg.i{width:20px;height:20px}
+  .sheet.tabsheet .tabact:active{background:var(--fill2);scale:.92}
+  #menuSheet.tabsheet>.gh:first-of-type{padding-top:18px!important}
+  /* keep the tab bar visible on tab pages; no dimmed backdrop */
+  body.tabpage-open .dock-wrap{transform:none!important;opacity:1!important;pointer-events:auto!important}
+  body.tabpage-open #sheetBack,body.convpage-open #sheetBack{display:none!important}
+  body.tabpage-open .chatfab,body.convpage-open .chatfab,body.tabpage-open .chatpeek{display:none!important}
+  body.tabpage-open .nav{opacity:1!important;filter:none!important}
+
+  /* --- chat conversation: full-screen page pushed on top (like DMs) --- */
+  #convSheet.pushpage{position:fixed!important;inset:0!important;width:auto!important;max-width:none!important;height:auto!important;
+    max-height:none!important;margin:0!important;border-radius:0!important;border:0!important;box-shadow:none!important;
+    transform:none!important;z-index:52!important;transition:none!important;background:var(--bg)!important;
+    padding:0 0 calc(10px + env(safe-area-inset-bottom))!important;display:flex!important;flex-direction:column!important;
+    opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+  #convSheet.pushpage.open{opacity:1!important;visibility:visible!important;pointer-events:auto!important}
+  #convSheet.pushpage .grabber,#convSheet.pushpage [data-close]{display:none!important}
+  #convSheet.pushpage .convhead{padding:calc(8px + env(safe-area-inset-top)) 10px 10px!important;background:var(--bar);
+    -webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);position:sticky;top:0;z-index:3}
+  #convSheet.pushpage .chatlist{flex:1}
+
+  /* --- tab bar: cleaner, app-like --- */
+  .dock-bar{padding-top:4px!important}
+  .dock-btn{min-height:54px!important}
+  .dock-btn .dock-txt{font-size:10.5px!important;letter-spacing:.1px}
+  .dock-btn svg.i{width:25px!important;height:25px!important;stroke-width:2}
+  #bottomDock .dock-btn.on svg.i{animation:tabPop .28s ease;stroke-width:2.4}
+  .dock-btn.on::before{top:4px!important;width:52px!important;height:30px!important;border-radius:16px!important;opacity:.35!important}
+
+  /* --- hub: modern feed look --- */
+  #hub .hub-header{padding-top:2px}
+  #hub .hub-heading .large{font-size:27px!important}
+  #hub .hub-heading .sub{font-size:14px}
+  #hub .featured{border-radius:22px;margin-top:14px}
+  #hub .sec-head{margin-top:22px}
+  #hub .hubgrid{gap:12px!important}
+  #hub .gtile{border-radius:20px!important;padding:10px!important}
+  #hub .gtile .gart{border-radius:15px}
+  #hub .gtile b{font-size:15px;margin-top:8px}
+  .game-home .hero{border-radius:24px}
+  .game-home .mode,.setup-screen .group,.lobby-screen .group{border-radius:18px}
+}
+
+/* --- friends "stories" row on the hub (all screen sizes) --- */
+.storyrow{display:flex;gap:14px;overflow-x:auto;padding:14px 2px 4px;margin:0 -16px;padding-left:16px;padding-right:16px;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+.storyrow::-webkit-scrollbar{display:none}
+.story{flex:none;width:68px;border:0;background:none;padding:0;display:flex;flex-direction:column;align-items:center;gap:5px;
+  color:var(--label);position:relative;scroll-snap-align:start;cursor:pointer}
+.story small{font-size:11.5px;font-weight:600;max-width:68px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.story .ring{width:64px;height:64px;border-radius:50%;padding:3px;display:grid;place-items:center;position:relative;
+  background:var(--fill2)}
+.story .ring .sav{width:56px!important;height:56px!important;border-radius:50%;display:grid;place-items:center;color:#fff;
+  font-weight:800;font-size:22px;border:3px solid var(--bg);background:linear-gradient(135deg,#94a3b8,#64748b)}
+.story .r-available{background:linear-gradient(135deg,#22c55e,#10b981)}
+.story .r-play{background:conic-gradient(from 0deg,#3b82f6,#a855f7,#ec4899,#f59e0b,#3b82f6)}
+.story .r-away{background:linear-gradient(135deg,#f59e0b,#fb923c)}
+.story .r-busy{background:linear-gradient(135deg,#ef4444,#f43f5e)}
+.story.add .ring{background:transparent}
+.story.add .sav{background:linear-gradient(135deg,#f59e0b,#f43f5e)!important}
+.story .plus{position:absolute;right:0;bottom:2px;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;
+  font-style:normal;font-weight:800;font-size:16px;line-height:19px;text-align:center;border:2.5px solid var(--bg)}
+.story em{position:absolute;top:-2px;right:0;font-style:normal;font-size:15px}
+.story:active .ring{scale:.94}
+.story-hint{align-self:center;font-size:13px;color:var(--label2);max-width:220px;line-height:1.4}
+@media (min-width:1100px){.storyrow{margin:0;padding-left:2px;padding-right:2px}}
+@media (max-width:1099px){
+  #bottomDock.dock-wrap{background:var(--bg)!important;background:color-mix(in srgb,var(--bg) 94%,transparent)!important}
+  html.saver #bottomDock.dock-wrap{background:var(--bg)!important}
+}
 </style>
 </head>
 <body>
@@ -3133,7 +3235,7 @@ body.tkmode .hud,body.ghmode .hud{bottom:auto!important;top:calc(64px + env(safe
     <div class="cell tap hidden" id="mInstall"><div class="ico" style="background:var(--green)"><svg class="i"><use href="#i-download"/></svg></div><span class="grow">Install as App</span><svg class="i sm chev"><use href="#i-chev"/></svg></div>
     <div class="cell tap" id="mHow"><div class="ico" style="background:var(--gray)"><svg class="i"><use href="#i-info"/></svg></div><span class="grow">How to Play</span><svg class="i sm chev"><use href="#i-chev"/></svg></div>
   </div>
-  <div class="gf" style="text-align:center">Games · v16 · Adaptive UI</div>
+  <div class="gf" style="text-align:center">Games · v17 · Mobile Tabs</div>
 </div>
 
 <div class="sheet" id="howSheet">
@@ -7781,6 +7883,115 @@ try{
 
 window.addEventListener('resize',function(){try{sync();}catch(e){}},{passive:true});
 setTimeout(sync,0);setTimeout(sync,800);
+})();
+</script>
+<script>
+/* ========================================================================
+   v17 MOBILE TABS — Instagram / YouTube style bottom navigation
+   On phones & tablets, Messages, Profile and Settings are real full-screen
+   tab pages (not pop-up sheets): the tab bar stays put, pages switch
+   instantly with a small slide in the direction you moved, each tab keeps
+   its scroll position, and the phone's Back button returns to Games.
+   Opening a chat pushes a full-screen conversation on top (like DMs).
+   ======================================================================== */
+(function(){
+'use strict';
+function $(id){return document.getElementById(id);}
+var ORDER={game:0,chat:1,profile:2,settings:3};
+var TABSHEET={msgSheet:'chat',socSheet:'profile',menuSheet:'settings'};
+var PLAY=['game','bingo','arrange','ttt','rps','tanks','draw','ghost'];
+var mq=window.matchMedia?matchMedia('(max-width:1099px)'):{matches:true};
+function tabmode(){return !!mq.matches;}
+function playing(){try{return PLAY.indexOf(SCREEN)>=0;}catch(e){return false;}}
+function applyMode(){document.body.classList.toggle('tabmode',tabmode());}
+try{mq.addEventListener?mq.addEventListener('change',applyMode):mq.addListener(applyMode);}catch(e){}
+applyMode();
+
+var cur='game',ignorePop=0;
+function anim(el,cls){if(!el)return;el.classList.remove('tab-in-l','tab-in-r');void el.offsetWidth;el.classList.add(cls);}
+function visiblePage(){return document.querySelector('main.page:not(.hidden)');}
+function pushH(){try{if(!history.state||!history.state.gtab)history.pushState({gtab:1},'');}catch(e){}}
+
+/* ---------- open: decide tab page / pushed chat / normal sheet ---------- */
+var oOpen=openSheet;
+openSheet=function(id){
+  var el=$(id),t=TABSHEET[id],tab=tabmode()&&!playing();
+  if(el){el.classList.toggle('tabsheet',!!(t&&tab));el.classList.toggle('pushpage',id==='convSheet'&&tabmode());}
+  var r=oOpen.apply(this,arguments),b=document.body;
+  if((t&&tab)||(id==='convSheet'&&tabmode())){var sb=$('sheetBack');if(sb)sb.classList.remove('open');}
+  b.classList.toggle('tabpage-open',!!(t&&tab));
+  b.classList.toggle('convpage-open',id==='convSheet'&&tabmode());
+  if(t&&tab){if(t!==cur)anim(el,ORDER[t]>ORDER[cur]?'tab-in-r':'tab-in-l');cur=t;pushH();}
+  else if(id==='convSheet'&&tabmode()){anim(el,'tab-in-r');pushH();}
+  return r;
+};
+/* ---------- close ---------- */
+var oClose=closeSheets;
+closeSheets=function(){
+  var r=oClose.apply(this,arguments),b=document.body;
+  b.classList.remove('tabpage-open','convpage-open');
+  setTimeout(function(){
+    if(document.querySelector('.sheet.open.tabsheet,.sheet.open.pushpage'))return;
+    if(!document.querySelector('.sheet.open'))cur='game';
+    try{if(history.state&&history.state.gtab&&!document.querySelector('.sheet.open')){ignorePop++;history.back();}}catch(e){}
+  },60);
+  return r;
+};
+/* ---------- tab bar: Games tab slides the game page back in ---------- */
+try{
+  var sd=switchDock;
+  switchDock=function(tab){
+    if(tab==='game'&&tabmode()&&!playing()&&cur!=='game'){
+      closeSheets();cur='game';
+      try{if(SCREEN!=='hub'&&!document.querySelector('.sheet.open')){}}catch(e){}
+      anim(visiblePage(),'tab-in-l');try{sfx('tap');buzz(10);}catch(e){}return;}
+    if(tab==='game'&&tabmode()&&!playing()&&cur==='game'){ // tapping the active tab again = scroll to top / go to hub
+      var p=visiblePage();if(window.scrollY>10){window.scrollTo({top:0,behavior:'smooth'});return;}
+      if(p&&p.id!=='hub'){try{goHub();}catch(e){}anim(visiblePage(),'tab-in-l');}return;}
+    if(ORDER[tab]&&cur===tab&&tabmode()){ // re-tap active tab: scroll its page to top
+      var s=document.querySelector('.sheet.open.tabsheet');var sc=s&&(s.querySelector('.socbody')||s);if(sc)sc.scrollTo({top:0,behavior:'smooth'});return;}
+    return sd(tab);
+  };
+}catch(e){}
+/* ---------- phone Back button ---------- */
+window.addEventListener('popstate',function(){
+  if(ignorePop>0){ignorePop--;return;}
+  var conv=document.querySelector('#convSheet.open');
+  if(conv&&tabmode()){try{Social.closeConv();Social.showMsgs();}catch(e){closeSheets();}return;}
+  if(document.querySelector('.sheet.open')){closeSheets();anim(visiblePage(),'tab-in-l');}
+});
+/* ---------- header actions on tab pages ---------- */
+try{
+  var mh=document.querySelector('#msgSheet .sheet-h');
+  if(mh&&!$('tabNewGroup'))mh.insertAdjacentHTML('beforeend','<button class="tabact" id="tabNewGroup" aria-label="New group chat"><svg class="i"><use href="#i-plus"/></svg></button>');
+  $('tabNewGroup').onclick=function(){try{Social.newGroup();}catch(e){}};
+  var sh=document.querySelector('#socSheet .sheet-h');
+  if(sh&&!$('tabShareMe'))sh.insertAdjacentHTML('beforeend','<button class="tabact" id="tabShareMe" aria-label="Share my Friend ID"><svg class="i"><use href="#i-share"/></svg></button>');
+  $('tabShareMe').onclick=function(){try{Social.shareMe();}catch(e){}};
+}catch(e){}
+
+/* ---------- hub: friends "stories" row ---------- */
+try{
+  var hh=document.querySelector('#hub .hub-header');
+  if(hh&&!$('storyRow'))hh.insertAdjacentHTML('afterend','<div class="storyrow" id="storyRow" aria-label="Friends"></div>');
+}catch(e){}
+function esc2(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function renderStories(){
+  var row=$('storyRow');if(!row)return;
+  try{
+    var S=Social,fr=S.friends?S.friends():[];
+    var me=(SET.name||'').trim();
+    var html='<button class="story add" data-st="add"><span class="ring"><span class="sav">'+(me?esc2((SET.avatar||'')||me[0].toUpperCase()):'+')+'</span><i class="plus">+</i></span><small>Add friends</small></button>';
+    html+=fr.slice(0,30).map(function(f){var st=S.stText(f.id),c=st.c||'off';
+      return '<button class="story" data-st="'+f.id+'"><span class="ring r-'+c+'"><span class="sav" style="background:'+(typeof avCol==='function'?avCol(f.id):'#888')+'">'+esc2(f.av||((f.name||'?')[0]||'?').toUpperCase())+'</span></span><small>'+esc2(f.name)+'</small>'+(st.room&&!st.off?'<em>🎮</em>':'')+'</button>';}).join('');
+    if(!fr.length)html+='<div class="story-hint">Add friends to see who’s online and jump into games together.</div>';
+    if(row._h!==html){row._h=html;row.innerHTML=html;}
+  }catch(e){row.innerHTML='';}
+}
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.story');if(!b)return;
+  var id=b.dataset.st;try{if(id==='add')Social.show('req');else Social.openConv('d:'+id);}catch(x){}});
+try{var ob=Social.badges.bind(Social);Social.badges=function(){var r=ob.apply(this,arguments);renderStories();return r;};}catch(e){}
+renderStories();setInterval(function(){if(document.visibilityState!=='hidden')renderStories();},15000);
 })();
 </script>
 
