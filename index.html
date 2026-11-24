@@ -3099,6 +3099,44 @@ html.calm .bigbtn::after{display:none}
 #uno.shake{animation:ushake .45s ease}
 @keyframes ushake{20%{transform:translate(-6px,3px)}40%{transform:translate(6px,-4px)}60%{transform:translate(-4px,2px)}80%{transform:translate(3px,-2px)}}
 html.calm .ufx-layer{display:none}
+
+/* ===== v23: secret settings ===== */
+.sx-back{position:fixed;inset:0;z-index:120;background:rgba(4,5,14,.72);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);display:grid;place-items:center;padding:16px}
+.sx-back.hidden{display:none}
+.sx-card{background:linear-gradient(160deg,#1b1f3b,#0d1024);color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:26px;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(124,58,237,.25),0 0 50px rgba(124,58,237,.25);width:min(420px,100%);padding:20px;animation:sxIn .3s cubic-bezier(.2,1.3,.4,1)}
+@keyframes sxIn{from{transform:scale(.85);opacity:0}}
+.sx-pin{width:min(320px,100%);display:flex;flex-direction:column;align-items:center;gap:10px}
+.sx-lock{font-size:40px}.sx-pin>b{font-size:19px}
+.sx-dots{display:flex;gap:14px;margin:6px 0 8px}.sx-dots i{width:15px;height:15px;border-radius:50%;border:2px solid rgba(255,255,255,.6)}.sx-dots i.on{background:#a78bfa;border-color:#a78bfa;box-shadow:0 0 12px #a78bfa}
+.sx-dots.bad{animation:sxShake .4s}.sx-dots.bad i{border-color:#ff4d5e;background:#ff4d5e}
+@keyframes sxShake{25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+.sx-pad{display:grid;grid-template-columns:repeat(3,72px);gap:12px}
+.sx-pad button{height:64px;border-radius:50%;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);color:#fff;font-size:24px;font-weight:700}
+.sx-pad button:active{background:rgba(167,139,250,.4);transform:scale(.94)}
+.sx-main{max-height:90vh;overflow-y:auto}
+.sx-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}.sx-head span{font-size:26px}.sx-head b{flex:1;font-size:20px;background:linear-gradient(90deg,#c4b5fd,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sx-close{width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.1);color:#fff;font-size:16px}
+.sx-sec{margin-top:14px;padding:14px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+.sx-sec>b{font-size:16px}.sx-sec small,.sx-row small{display:block;font-size:12.5px;opacity:.7;margin-top:2px}
+.sx-row{display:flex;align-items:center;gap:12px}.sx-row>div:first-child{flex:1}
+.sx-yn{display:flex;background:rgba(255,255,255,.1);border-radius:12px;padding:3px}
+.sx-yn button{border:0;background:none;color:#fff;font-weight:800;padding:8px 14px;border-radius:9px;opacity:.6}
+.sx-yn button.on{background:linear-gradient(135deg,#7c3aed,#db2777);opacity:1;box-shadow:0 4px 12px rgba(124,58,237,.5)}
+.sx-hand,.sx-pick{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.sx-hand .ucard,.sx-pick .ucard{--cw:42px;cursor:pointer;transition:transform .15s}
+.sx-hand .ucard.sel{transform:translateY(-8px);box-shadow:0 0 0 2px #fff,0 0 0 5px #a78bfa,0 0 18px #a78bfa}
+.sx-pick .ucard.na{opacity:.25;filter:grayscale(1);cursor:not-allowed}
+.sx-pick .ucard:not(.na):active,.sx-hand .ucard:active{transform:scale(.92)}
+.sx-lbl{margin-top:12px;font-size:13px;font-weight:700;opacity:.85}
+.sx-lc{display:flex;flex-direction:column;gap:6px}.sx-lc small{opacity:.7}
+.sx-lc form{display:flex;gap:8px;margin-top:8px}.sx-lc input{flex:1;min-width:0;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;padding:11px;font-size:16px}
+.sx-lc form button,.sx-close2{border:0;border-radius:12px;background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;font-weight:800;padding:0 16px}
+.sx-close2{background:rgba(255,255,255,.1);padding:10px;margin-top:4px}
+/* opponents' cards face-up */
+.uop-peek{position:absolute;top:100%;left:50%;transform:translateX(-50%);display:flex;margin-top:2px;padding:3px 4px;border-radius:8px;background:rgba(0,0,0,.45);z-index:4;max-width:44vw;overflow:hidden}
+.uop-peek .ucard{--cw:25px;margin-left:-8px;box-shadow:0 0 0 1px #fff}
+.uop-peek .ucard:first-child{margin-left:0}
+.uop-peek .ucard .uc-tl,.uop-peek .ucard .uc-br{display:none}
 </style>
 </head>
 <body>
@@ -3833,7 +3871,7 @@ html.calm .ufx-layer{display:none}
     <div class="cell tap hidden" id="mInstall"><div class="ico" style="background:var(--green)"><svg class="i"><use href="#i-download"/></svg></div><span class="grow">Install as App</span><svg class="i sm chev"><use href="#i-chev"/></svg></div>
     <div class="cell tap" id="mHow"><div class="ico" style="background:var(--gray)"><svg class="i"><use href="#i-info"/></svg></div><span class="grow">How to Play</span><svg class="i sm chev"><use href="#i-chev"/></svg></div>
   </div>
-  <div class="gf" style="text-align:center">Games · v22</div>
+  <div class="gf" style="text-align:center">Games · v23</div>
 </div>
 
 <div class="sheet" id="howSheet">
@@ -7038,11 +7076,14 @@ const UNO={
   drawN(p,k){for(let i=0;i<k;i++)this.drawOne(p);},
   canCall(p){const g=this.g;return p===g.cur&&!g.over&&g.hands[p].length===2&&!g.called[p]&&this.playable(p).length>0;},
   legal(e){const g=this.g;if(!g||g.over||!e)return false;const p=g.cur;
+    if(e.t==='x')return Number.isInteger(e.p)&&g.hands[e.p]&&g.hands[e.p].includes(e.i)&&g.draw.includes(e.j);
     if(e.t==='u')return this.canCall(p);
     if(e.t==='d')return g.drawn<0;if(e.t==='s')return g.drawn>=0;
     if(e.t==='p'){if(!g.hands[p].includes(e.i)||!this.canPlay(e.i))return false;if(g.drawn>=0&&e.i!==g.drawn)return false;
       if(g.cards[e.i].c==='w'&&!UNO_COLS.includes(e.k))return false;return true;}return false;},
-  apply(e){const g=this.g,p=g.cur;g.h.push(e);g.flash=null;
+  apply(e){const g=this.g,p=g.cur;
+    if(e.t==='x'){g.h.push(e);const hd=g.hands[e.p],a=hd.indexOf(e.i),b=g.draw.indexOf(e.j);hd[a]=e.j;g.draw[b]=e.i;if(g.drawn===e.i)g.drawn=-1;return;}
+    g.h.push(e);g.flash=null;
     if(e.t==='u'){g.called[p]=true;g.flash={t:'call',p};g.last={p,t:'u'};return;}
     if(e.t==='d'&&g.pend>0){const n=g.pend;this.drawN(p,n);g.pend=0;g.last={p,t:'d',n,hit:{p,n}};g.flash={t:'take',p,n};
       if(g.pendWin>=0){g.over=true;g.win=g.pendWin;g.pendWin=-1;return;}g.cur=this.nextOf(p);return;}
@@ -7235,7 +7276,7 @@ $('uuno').onclick=()=>{const g=UNO.g;if(!g||!UNO.isMine()||!UNO.canCall(g.cur))r
 $('ureveal').onclick=()=>{UNO.reveal=true;UNO.lastHuman=UNO.g?UNO.g.cur:null;UNO.render();UNO.dealAnim();sfx('tap');};
 $('uQuit').onclick=()=>{sfx('tap');quitGame();};
 $('uMenu').onclick=()=>{$('menuBtn').click();};
-$('uChat').onclick=()=>{if(MODE==='online'&&typeof Chat!=='undefined')Chat.show();else toast('Chat works in online rooms');};
+$('uChat').onclick=()=>{if(MODE==='online'&&typeof Chat!=='undefined')Chat.show();else if(window.SECRET)SECRET.localChat();else toast('Chat works in online rooms');};
 $('ucolor').addEventListener('click',e=>{const b=e.target.closest('[data-uc]');const el=$('ucolor');
   if(!b){if(e.target===el||e.target.closest('.ucol-x')){el.classList.add('hidden');UNO.pickFor=null;}return;}
   el.classList.add('hidden');const id=UNO.pickFor;UNO.pickFor=null;if(id==null||!UNO.isMine())return;UNO.doMove({t:'p',i:id,k:b.dataset.uc},true);});
@@ -9245,6 +9286,64 @@ function play(){var g=UNO.g;if(!g||!g.last||document.visibilityState==='hidden')
 try{var of=UNO.showFlash.bind(UNO);UNO.showFlash=function(){var g=this.g;var big=g&&g.last&&g.last.t==='p'&&g.last.c!=null?g.cards[g.last.c].v:'';
   // the picture animations replace the plain big-text effect for action cards; the caption still shows
   of();try{if(['S','R','W','W4','D2'].indexOf(big)>=0){var fx=$('ufx');var b=fx.querySelector('b');if(b)b.style.visibility='hidden';setTimeout(function(){if(b)b.style.visibility='';},1500);}play();}catch(e){}};}catch(e){}
+})();
+</script>
+
+<div class="sx-back hidden" id="sxPinBox"><div class="sx-card sx-pin">
+  <div class="sx-lock">🔒</div><b>Enter PIN</b><div class="sx-dots" id="sxDots"><i></i><i></i><i></i><i></i></div>
+  <div class="sx-pad" id="sxPad"><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>6</button><button>7</button><button>8</button><button>9</button><button data-k="x">✕</button><button>0</button><button data-k="del">⌫</button></div></div></div>
+<div class="sx-back hidden" id="sxPanel"><div class="sx-card sx-main">
+  <div class="sx-head"><span>🕶️</span><b>Secret Settings</b><button class="sx-close" id="sxClose">✕</button></div>
+  <div class="sx-sec"><div class="sx-row"><div><b>Show all players' cards</b><small>See every opponent's hand face-up (only on this phone)</small></div>
+    <div class="sx-yn" id="sxPeek"><button data-v="1">Yes</button><button data-v="0">No</button></div></div></div>
+  <div class="sx-sec"><b>Change my cards</b><small id="sxHint">1. Tap a card in your hand · 2. Tap the card you want instead</small>
+    <div class="sx-hand" id="sxHand"></div><div class="sx-lbl" id="sxLbl"></div><div class="sx-pick" id="sxPick"></div></div>
+</div></div>
+<div class="sx-back hidden" id="sxChat"><div class="sx-card sx-lc"><b>💬 Game chat</b><small>Offline game — messages stay on this phone</small>
+  <form id="sxChatForm" autocomplete="off"><input id="sxChatIn" maxlength="60" placeholder="Type a message…" enterkeyhint="send"><button>Send</button></form><button class="sx-close2" id="sxChatX">Close</button></div></div>
+<script>
+/* v23 — secret settings (type PIN in any chat) */
+(function(){
+function $(id){return document.getElementById(id);}
+var PIN='1742',entry='';
+var S=window.SECRET={peek:false,sel:null,
+  open(){entry='';dots();$('sxPinBox').classList.remove('hidden');},
+  localChat(){$('sxChat').classList.remove('hidden');setTimeout(function(){$('sxChatIn').focus();},100);},
+  panel(){$('sxPinBox').classList.add('hidden');$('sxPanel').classList.remove('hidden');S.sel=null;S.draw();},
+  draw(){document.querySelectorAll('#sxPeek button').forEach(function(b){b.classList.toggle('on',(b.dataset.v==='1')===S.peek);});
+    var g=UNO.g,me=g?UNO.viewer():-1;
+    if(!g||g.over||me<0||(typeof SCREEN!=='undefined'&&SCREEN!=='uno')){$('sxHand').innerHTML='';$('sxPick').innerHTML='';$('sxLbl').textContent='';$('sxHint').textContent='Start a Color Clash game to change your cards.';return;}
+    $('sxHint').textContent='1. Tap a card in your hand · 2. Tap the card you want instead';
+    $('sxHand').innerHTML=g.hands[me].map(function(id){return unoCardHTML(g.cards[id],id===S.sel?'sel':'','data-h="'+id+'"');}).join('');
+    if(S.sel==null){$('sxLbl').textContent='';$('sxPick').innerHTML='';return;}
+    $('sxLbl').textContent='Replace it with:';
+    var types=[];['r','y','g','b'].forEach(function(c){['0','1','2','3','4','5','6','7','8','9','S','R','D2'].forEach(function(v){types.push([c,v]);});});types.push(['w','W'],['w','W4']);
+    $('sxPick').innerHTML=types.map(function(t){var id=g.draw.find(function(x){var cd=g.cards[x];return cd.c===t[0]&&cd.v===t[1];});
+      var sample=g.cards.find(function(cd){return cd.c===t[0]&&cd.v===t[1];});return unoCardHTML(sample,id==null?'na':'',id==null?'':'data-j="'+id+'"');}).join('');},
+  swap(i,j){var g=UNO.g,me=UNO.viewer(),e={t:'x',p:me,i:i,j:j};if(!UNO.legal(e)){toast('That card is not available');return;}
+    UNO.apply(e);UNO.render();if(MODE==='online')Net.pushState();UNO.schedule();S.sel=null;S.draw();buzz(10);toast('Card changed 🤫');}
+};
+function dots(bad){var d=$('sxDots');d.classList.toggle('bad',!!bad);d.querySelectorAll('i').forEach(function(x,k){x.classList.toggle('on',k<entry.length);});}
+$('sxPad').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var k=b.dataset.k;
+  if(k==='x'){$('sxPinBox').classList.add('hidden');return;}if(k==='del'){entry=entry.slice(0,-1);dots();return;}
+  if(entry.length>=4)return;entry+=b.textContent;dots();buzz(5);
+  if(entry.length===4){if(entry===PIN)setTimeout(S.panel,150);else{dots(true);buzz([40,40,40]);setTimeout(function(){entry='';dots();},600);}}});
+$('sxClose').onclick=function(){$('sxPanel').classList.add('hidden');};
+$('sxPanel').addEventListener('click',function(e){if(e.target===$('sxPanel'))$('sxPanel').classList.add('hidden');});
+$('sxPeek').onclick=function(e){var b=e.target.closest('button');if(!b)return;S.peek=b.dataset.v==='1';S.draw();try{UNO.render();}catch(x){}buzz(8);};
+$('sxHand').onclick=function(e){var c=e.target.closest('[data-h]');if(!c)return;S.sel=+c.dataset.h;S.draw();};
+$('sxPick').onclick=function(e){var c=e.target.closest('[data-j]');if(!c||S.sel==null)return;S.swap(S.sel,+c.dataset.j);};
+$('sxChatX').onclick=function(){$('sxChat').classList.add('hidden');};
+$('sxChatForm').onsubmit=function(e){e.preventDefault();var v=$('sxChatIn').value.trim();$('sxChatIn').value='';$('sxChat').classList.add('hidden');
+  if(v.toUpperCase()==='PIN'){S.open();return;}if(v)toast('Chat works in online rooms');};
+/* "PIN" typed in any chat is swallowed (never sent) and opens the PIN pad */
+function isPin(t){return String(t||'').trim().toUpperCase()==='PIN';}
+try{var cs=Chat.send.bind(Chat);Chat.send=function(t){if(isPin(t)){try{closeSheets();}catch(e){}S.open();return;}return cs(t);};}catch(e){}
+try{var ss=Social.sendMsg.bind(Social);Social.sendMsg=function(c,t){if(isPin(t)){try{closeSheets();}catch(e){}S.open();return;}return ss(c,t);};}catch(e){}
+/* show every opponent's cards face-up */
+try{var rr=UNO.render.bind(UNO);UNO.render=function(a){var r=rr(a);try{if(S.peek&&this.g){var g=this.g;
+  document.querySelectorAll('#uopps .uop').forEach(function(el){var p=+el.dataset.pi,hd=g.hands[p];if(!hd)return;var s=document.createElement('div');s.className='uop-peek';
+    s.innerHTML=hd.map(function(id){return unoCardHTML(g.cards[id],'');}).join('');el.appendChild(s);});}}catch(e){}return r;};}catch(e){}
 })();
 </script>
 </body>
